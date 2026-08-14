@@ -1,0 +1,31 @@
+# Data & Archives
+data/
+*.zip
+train.csv
+test.csv
+sample_submission.csv
+trackman_history.csv
+*.parquet
+*.feather
+
+# Models & Checkpoints
+models/
+*.pkl
+*.joblib
+*.model
+*.onnx
+*.pt
+*.pth
+
+# Python & Jupyter cache
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+.pytest_cache/
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
