@@ -1,0 +1,27 @@
+{
+  "method": "expanding_mean_prediction_bias_shift",
+  "definition": "각 검증 시즌에는 그보다 앞선 검증 시즌들의 평균 예측 편향만 사용한다.",
+  "folds": [
+    {
+      "validation_season": 2023,
+      "source_seasons": [2022],
+      "shift": -0.002350839062844723,
+      "raw_brier": 0.2527783958371098,
+      "calibrated_brier": 0.2526878192400075,
+      "improved": true
+    },
+    {
+      "validation_season": 2024,
+      "source_seasons": [2022, 2023],
+      "shift": -0.011395498281243616,
+      "raw_brier": 0.24796753369981747,
+      "calibrated_brier": 0.24790149980046094,
+      "raw_brier_skill_score": 736.3258820926699,
+      "calibrated_brier_skill_score": 762.7598566080418,
+      "improved": true
+    }
+  ],
+  "final_shift": -0.010462037831246366,
+  "final_shift_source_seasons": [2022, 2023, 2024],
+  "uses_test_distribution": false
+}

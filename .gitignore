@@ -1,0 +1,9 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Competition data and generated submission artifacts
+data/
+submission_허원준/output*/
+submission_허원준/.cache/
