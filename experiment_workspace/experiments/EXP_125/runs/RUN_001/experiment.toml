@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_125"
+title = "Full ExtraTrees decay 0.85 confirmation"
+hypothesis = "The strong 100-tree ExtraTrees decay=0.85 gain will persist at the full 300-tree capacity used by the winning ensemble."
+change_scope = "model"
+study_config = "experiments/EXP_125/study.toml"
+based_on = "EXP_124"
+reference_variant = "decay_085"
+ablation_summary = "Fix main78 features and full ExtraTrees leaf20/300-tree parameters; compare uniform season weights against decay=0.85 only."
+tags = ["compliance", "row-independent", "extratrees", "season-drift", "confirmation"]
+created_at_utc = "2026-08-18T13:17:21.320864+00:00"

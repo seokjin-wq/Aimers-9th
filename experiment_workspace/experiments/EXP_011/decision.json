@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_011",
+  "decision": "keep_control",
+  "selected_variant": "uniform_control",
+  "reason": "모든 최근성 decay가 균등 가중치보다 악화되어 2019~2023 동일 가중치를 유지",
+  "based_on": "EXP_009",
+  "reference_variant": "count_control",
+  "ablation_summary": "main55+count와 CatBoost 구조를 고정하고 시즌이 한 해 과거로 갈 때의 sample weight decay만 1.0, 0.85, 0.70, 0.50, 0.25로 변경",
+  "selected_result": {
+    "variant": "uniform_control",
+    "change": "control: 모든 2019~2023 행 weight 1.0",
+    "feature_set": "main55_plus_count",
+    "feature_count": 60,
+    "model": "catboost_native_300",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2479681399,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 736.0832056721,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "uniform_control",
+    "change": "control: 모든 2019~2023 행 weight 1.0",
+    "feature_set": "main55_plus_count",
+    "feature_count": 60,
+    "model": "catboost_native_300",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2479681399,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 736.0832056721,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-17T16:15:54.621196+00:00",
+  "based_on_run_id": "RUN_001"
+}

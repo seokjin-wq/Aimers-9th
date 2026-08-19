@@ -1,0 +1,247 @@
+{
+  "based_on": "EXP_011",
+  "reference_variant": "uniform_control",
+  "ablation_summary": "main55+count, depth6, 300 trees를 고정하고 l2, random_strength, rsm, subsample, border_count를 각각 단일축으로 변경",
+  "control": "default_control",
+  "variants": [
+    {
+      "name": "default_control",
+      "declared_change": "control: 기본 규제",
+      "is_control": true,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "l2_10",
+      "declared_change": "l2_leaf_reg 3→10",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "catboost_native_l2_10"
+        },
+        {
+          "field": "model.params.l2_leaf_reg",
+          "control": 3.0,
+          "variant": 10.0
+        }
+      ]
+    },
+    {
+      "name": "l2_30",
+      "declared_change": "l2_leaf_reg 3→30",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "catboost_native_l2_30"
+        },
+        {
+          "field": "model.params.l2_leaf_reg",
+          "control": 3.0,
+          "variant": 30.0
+        }
+      ]
+    },
+    {
+      "name": "random_strength_0",
+      "declared_change": "random_strength 기본 1→0",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "catboost_native_random0"
+        },
+        {
+          "field": "model.params.random_strength",
+          "control": null,
+          "variant": 0.0
+        }
+      ]
+    },
+    {
+      "name": "random_strength_3",
+      "declared_change": "random_strength 기본 1→3",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "catboost_native_random3"
+        },
+        {
+          "field": "model.params.random_strength",
+          "control": null,
+          "variant": 3.0
+        }
+      ]
+    },
+    {
+      "name": "rsm_06",
+      "declared_change": "tree별 feature 비율 rsm 0.6",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "catboost_native_rsm06"
+        },
+        {
+          "field": "model.params.rsm",
+          "control": null,
+          "variant": 0.6
+        }
+      ]
+    },
+    {
+      "name": "rsm_08",
+      "declared_change": "tree별 feature 비율 rsm 0.8",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "catboost_native_rsm08"
+        },
+        {
+          "field": "model.params.rsm",
+          "control": null,
+          "variant": 0.8
+        }
+      ]
+    },
+    {
+      "name": "subsample_05",
+      "declared_change": "row subsample 0.7→0.5",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "catboost_native_sub05"
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.7,
+          "variant": 0.5
+        }
+      ]
+    },
+    {
+      "name": "subsample_09",
+      "declared_change": "row subsample 0.7→0.9",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "catboost_native_sub09"
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.7,
+          "variant": 0.9
+        }
+      ]
+    },
+    {
+      "name": "border_count_64",
+      "declared_change": "numeric border_count를 64로 제한",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "catboost_native_border64"
+        },
+        {
+          "field": "model.params.border_count",
+          "control": null,
+          "variant": 64
+        }
+      ]
+    }
+  ]
+}

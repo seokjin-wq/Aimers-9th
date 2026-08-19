@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_007"
+title = "부스팅 모델군 비교"
+hypothesis = "LightGBM 또는 XGBoost가 현재 CatBoost보다 2024 Brier를 크게 개선한다"
+change_scope = "model"
+study_config = "experiments/EXP_007/study.toml"
+based_on = "EXP_006"
+reference_variant = "d6_i300_control"
+ablation_summary = "main55를 고정하고 CatBoost, LightGBM, XGBoost 모델군과 대표 복잡도만 비교"
+tags = ["model-family", "boosting"]
+created_at_utc = "2026-08-17T15:54:25.567929+00:00"

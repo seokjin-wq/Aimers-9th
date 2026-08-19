@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_108",
+  "decision": "keep_control",
+  "selected_variant": "main72_control",
+  "reason": "All six individually restored raw columns worsened 2024 holdout Brier; retain main72 control and do not combine negative candidates.",
+  "based_on": "EXP_095",
+  "reference_variant": "all_three",
+  "ablation_summary": "Keep latest CPU CatBoost and all main72 custom features fixed; restore exactly one excluded official raw column at a time.",
+  "selected_result": {
+    "variant": "main72_control",
+    "change": "control: current main72 exclusion list",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475118666,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 918.7335789118,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "main72_control",
+    "change": "control: current main72 exclusion list",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475118666,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 918.7335789118,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T10:36:47.178817+00:00",
+  "based_on_run_id": "RUN_001"
+}

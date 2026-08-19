@@ -1,0 +1,31 @@
+[study]
+id = "128_count_trend_strength_refinement"
+description = "Count trend strength refinement"
+hypothesis = "The EXP_127 count-relative trend gain has a local optimum near full strength; testing 0.75, 1.25, and 1.50 will improve or confirm strength 1.00."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "strength_100_control"
+
+[[variants]]
+name = "strength_100_control"
+model = "triple_count_trend_s100"
+features = "main78_history_reliability"
+change = "control: EXP_127 adopted trend strength 1.00"
+
+[[variants]]
+name = "strength_075"
+model = "triple_count_trend_s075"
+features = "main78_history_reliability"
+change = "change only trend strength from 1.00 to 0.75"
+
+[[variants]]
+name = "strength_125"
+model = "triple_count_trend_s125"
+features = "main78_history_reliability"
+change = "change only trend strength from 1.00 to 1.25"
+
+[[variants]]
+name = "strength_150"
+model = "triple_count_trend_s150"
+features = "main78_history_reliability"
+change = "change only trend strength from 1.00 to 1.50"

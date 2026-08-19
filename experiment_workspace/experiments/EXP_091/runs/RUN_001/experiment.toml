@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_091"
+title = "Promote late-inning history interactions"
+hypothesis = "The EXP_090 late-inning pitcher-history gain survives CPU/GPU/ExtraTrees ensembling and improves the current compliant best component set."
+change_scope = "features"
+study_config = "experiments/EXP_091/study.toml"
+based_on = "EXP_090"
+reference_variant = "late_pitcher_history"
+ablation_summary = "Fix the EXP_087 triple model and compare only the original same-hand features against the EXP_090 late-history feature addition."
+tags = ["compliance", "row-independent", "promotion", "ensemble"]
+created_at_utc = "2026-08-18T07:06:35.647360+00:00"

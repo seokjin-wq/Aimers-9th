@@ -1,0 +1,115 @@
+{
+  "based_on": "EXP_044",
+  "reference_variant": "main77_control",
+  "ablation_summary": "CPU main77을 고정하고 투수 success EWMA 0.05·0.10, 타자 success EWMA 0.10·0.20, 투수 reverse EWMA 0.05·0.10만 개별·조합 추가",
+  "control": "main77_control",
+  "variants": [
+    {
+      "name": "main77_control",
+      "declared_change": "control: 고정 rolling",
+      "is_control": true,
+      "feature_count": 77,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pitcher_success05",
+      "declared_change": "투수 success EWMA 0.05 추가",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_success_ewm05"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "batter_success20",
+      "declared_change": "타자 success EWMA 0.20 추가",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "batter_success_ewm20"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pitcher_reverse05",
+      "declared_change": "투수 reverse EWMA 0.05 추가",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_reverse_ewm05"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "best_three",
+      "declared_change": "상관 최상 EWMA 세 개 추가",
+      "is_control": false,
+      "feature_count": 80,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_success_ewm05",
+        "batter_success_ewm20",
+        "pitcher_reverse_ewm05"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "all_six",
+      "declared_change": "EWMA 여섯 개 모두 추가",
+      "is_control": false,
+      "feature_count": 83,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_success_ewm05",
+        "pitcher_success_ewm10",
+        "batter_success_ewm10",
+        "batter_success_ewm20",
+        "pitcher_reverse_ewm05",
+        "pitcher_reverse_ewm10"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "experiment_id": "EXP_089",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T06:54:22.582478+00:00",
+  "completed_at_utc": "2026-08-18T06:59:17.660090+00:00",
+  "config_hash": "a03bd5c4b34f",
+  "based_on": "EXP_087",
+  "reference_variant": "same_hand_pitchmix_triple",
+  "ablation_summary": "Fix EXP_084 CPU base; add safe numeric season pitch index, coarse phase, or both. Training starts come from official train; validation start comes from the last official reference row; TEST suffix is used row-locally.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/089_safe_season_progress/20260818T065422590470Z_a03bd5c4b34f",
+  "control": "same_hand_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "same_hand_control",
+  "best_mean_brier": 0.2475118666382257,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "same_hand_control",
+      "change": "control: EXP_084 CPU same-hand pitchmix",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475118666,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 918.7335789118,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "phase_numeric",
+      "change": "12,500행 단위 시즌 phase를 numeric으로 추가",
+      "feature_set": "main73_same_pitchmix_progress_phase",
+      "feature_count": 73,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475463155,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 904.9433865654,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 3.44489e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "phase_categorical",
+      "change": "동일 시즌 phase를 categorical로 추가",
+      "feature_set": "main73_same_pitchmix_progress_phase_cat",
+      "feature_count": 73,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2476085493,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 880.0306334921,
+      "changed_fields_vs_control": "['features.categorical', 'features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 9.66826e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "progress_index",
+      "change": "현재 행의 안전한 시즌 내 투구 index 추가",
+      "feature_set": "main73_same_pitchmix_progress_index",
+      "feature_count": 73,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2476310919,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 871.006600089,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 0.0001192253,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "index_plus_phase",
+      "change": "안전한 numeric index와 categorical phase 동시 추가",
+      "feature_set": "main74_same_pitchmix_progress_both",
+      "feature_count": 74,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2476432177,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 866.1525348424,
+      "changed_fields_vs_control": "['features.categorical', 'features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 0.0001313511,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "efd587d8a0d8b3b132c861cd2e8a0e2b6aa7b757284709f98f3fca8fc3f6a0ad",
+  "git_commit": "e15b25d042b9f09ba59ebb12ade8b67aa15e9976",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 294.8871912956238
+}

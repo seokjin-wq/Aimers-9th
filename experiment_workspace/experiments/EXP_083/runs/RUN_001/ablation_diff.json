@@ -1,0 +1,152 @@
+{
+  "based_on": "EXP_080",
+  "reference_variant": "count_hands_promoted",
+  "ablation_summary": "Fix the EXP_080 count+hands CPU base; add only row-local weighted recent success, middle, quality, or horizon-spread features.",
+  "control": "count_hands_control",
+  "variants": [
+    {
+      "name": "count_hands_control",
+      "declared_change": "control: EXP_080 CPU count+hands base",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "recent_success_blend",
+      "declared_change": "0.2×직전1 + 0.5×직전3 + 0.3×직전5 경기 성공률 추가",
+      "is_control": false,
+      "feature_count": 70,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "recent_success_blend_135"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "recent_middle_blend",
+      "declared_change": "동일 가중치의 최근 가운데공 비율 추가",
+      "is_control": false,
+      "feature_count": 70,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "recent_middle_blend_135"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "recent_both_blends",
+      "declared_change": "최근 성공률·가운데공 가중 요약 동시 추가",
+      "is_control": false,
+      "feature_count": 71,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "recent_success_blend_135",
+        "recent_middle_blend_135"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "recent_quality",
+      "declared_change": "최근 성공률 요약에서 가운데공 요약을 뺀 quality 추가",
+      "is_control": false,
+      "feature_count": 70,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "recent_quality_blend_135"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "recent_spans",
+      "declared_change": "직전1-직전5 성공률·가운데공 절대차 추가",
+      "is_control": false,
+      "feature_count": 71,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "recent_success_span_15",
+        "recent_middle_span_15"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "recent_all",
+      "declared_change": "다섯 최근 폼 요약을 모두 추가",
+      "is_control": false,
+      "feature_count": 74,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "recent_success_blend_135",
+        "recent_middle_blend_135",
+        "recent_quality_blend_135",
+        "recent_success_span_15",
+        "recent_middle_span_15"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

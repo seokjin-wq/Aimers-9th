@@ -1,0 +1,132 @@
+{
+  "experiment_id": "EXP_103",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T09:23:29.197250+00:00",
+  "completed_at_utc": "2026-08-18T09:35:24.438169+00:00",
+  "config_hash": "73180399c64f",
+  "based_on": "EXP_102",
+  "reference_variant": "w50_35_15",
+  "ablation_summary": "Keep features, component models, CPU50/GPU35/Extra15 weights, CatBoost shift -0.0095, count groups, and shrinkage 500 fixed; vary only residual_scale from 0.5 to 2.0.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/103_count_residual_scale/20260818T092329206678Z_73180399c64f",
+  "control": "residual_scale_1_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "residual_scale_1_control",
+  "best_mean_brier": 0.2474632890071994,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "residual_scale_1_control",
+      "change": "control: EXP_102 residual scale 1.0",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "triple_group_count_k500_shift_m0095_w50_35_15",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.247463289,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 938.1796493859,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "residual_scale_0p75",
+      "change": "multiply train-only count residual offsets by 0.75",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "triple_group_count_k500_shift_m0095_w50_35_15_r0p75",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474635049,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 938.0932253541,
+      "changed_fields_vs_control": "['model.name', 'model.residual_scale']",
+      "delta_brier_vs_control": 2.159e-07,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "residual_scale_1p25",
+      "change": "multiply train-only count residual offsets by 1.25",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "triple_group_count_k500_shift_m0095_w50_35_15_r1p25",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474641138,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 937.8494739229,
+      "changed_fields_vs_control": "['model.name', 'model.residual_scale']",
+      "delta_brier_vs_control": 8.248e-07,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "residual_scale_0p5",
+      "change": "multiply train-only count residual offsets by 0.5",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "triple_group_count_k500_shift_m0095_w50_35_15_r0p5",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474647615,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 937.5902018275,
+      "changed_fields_vs_control": "['model.name', 'model.residual_scale']",
+      "delta_brier_vs_control": 1.4725e-06,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "residual_scale_1p5",
+      "change": "multiply train-only count residual offsets by 1.5",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "triple_group_count_k500_shift_m0095_w50_35_15_r1p5",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474659793,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 937.1026989651,
+      "changed_fields_vs_control": "['model.name', 'model.residual_scale']",
+      "delta_brier_vs_control": 2.6903e-06,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "residual_scale_2p0",
+      "change": "multiply train-only count residual offsets by 2.0",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "triple_group_count_k500_shift_m0095_w50_35_15_r2",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474728324,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 934.3593505652,
+      "changed_fields_vs_control": "['model.name', 'model.residual_scale']",
+      "delta_brier_vs_control": 9.5434e-06,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "1c2ff713a85d2ae70d5b44d69aacaeb67e5e26318b861f4d27d2f1307972f352",
+  "git_commit": "242eac6ed7fb843aa0b7cd385e5a69541e3473fa",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 715.0414867401123
+}

@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_130",
+  "decision": "adopt",
+  "selected_variant": "ols_slope",
+  "reason": "Equal-season OLS matched the prior train/validation diagnostic and slightly improved same-run Brier by 5.03e-8; endpoint extrapolation worsened. Adopt OLS, while noting the estimator gain is negligible versus the material EXP_127 trend gain.",
+  "based_on": "EXP_129",
+  "reference_variant": "shrinkage_0",
+  "ablation_summary": "Fix EXP_129 shrinkage 0, trend strength 1.0, features, models, weights, and calibration; vary only count trend estimator among WLS, OLS, and first-to-last endpoint slope.",
+  "selected_result": {
+    "variant": "ols_slope",
+    "change": "change only trend estimator from count-weighted WLS to equal-season OLS",
+    "feature_set": "main78_history_reliability",
+    "feature_count": 78,
+    "model": "triple_count_trend_ols",
+    "model_family": "cat_cpu_gpu_extra_blend",
+    "fold_count": 1,
+    "mean_brier": 0.2474451493,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 945.4411373303,
+    "changed_fields_vs_control": "['model.name', 'model.trend_method']",
+    "delta_brier_vs_control": -5.03e-08,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "wls_control",
+    "change": "control: EXP_129 count-weighted linear slope",
+    "feature_set": "main78_history_reliability",
+    "feature_count": 78,
+    "model": "triple_count_trend_k0",
+    "model_family": "cat_cpu_gpu_extra_blend",
+    "fold_count": 1,
+    "mean_brier": 0.2474451996,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 945.4210090991,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T14:47:44.158894+00:00",
+  "based_on_run_id": "RUN_001"
+}

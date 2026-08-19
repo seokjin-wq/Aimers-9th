@@ -1,0 +1,61 @@
+[study]
+id = "022_catboost_structure"
+description = "CatBoost 부스팅 구조와 bootstrap"
+hypothesis = "현재 symmetric tree와 기본 bootstrap보다 다른 샘플링 또는 tree grow 정책이 일반화 Brier를 개선한다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "default_control"
+
+[[variants]]
+name = "default_control"
+model = "catboost_native_scale106_shift_m008"
+features = "main60_cat_batter_team"
+change = "control: 기본 bootstrap, SymmetricTree"
+
+[[variants]]
+name = "bernoulli"
+model = "catboost_top_bernoulli"
+features = "main60_cat_batter_team"
+change = "Bernoulli bootstrap"
+
+[[variants]]
+name = "bayesian"
+model = "catboost_top_bayesian"
+features = "main60_cat_batter_team"
+change = "Bayesian bootstrap"
+
+[[variants]]
+name = "no_bootstrap"
+model = "catboost_top_no_bootstrap"
+features = "main60_cat_batter_team"
+change = "bootstrap 없음"
+
+[[variants]]
+name = "ordered_boosting"
+model = "catboost_top_ordered"
+features = "main60_cat_batter_team"
+change = "Ordered boosting"
+
+[[variants]]
+name = "depthwise"
+model = "catboost_top_depthwise"
+features = "main60_cat_batter_team"
+change = "Depthwise grow policy"
+
+[[variants]]
+name = "lossguide"
+model = "catboost_top_lossguide"
+features = "main60_cat_batter_team"
+change = "Lossguide grow policy"
+
+[[variants]]
+name = "leaf_estimation_1"
+model = "catboost_top_leaf1"
+features = "main60_cat_batter_team"
+change = "leaf estimation 1회"
+
+[[variants]]
+name = "leaf_estimation_20"
+model = "catboost_top_leaf20"
+features = "main60_cat_batter_team"
+change = "leaf estimation 20회"

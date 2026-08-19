@@ -1,0 +1,502 @@
+{
+  "study": {
+    "id": "007_boosting_family",
+    "description": "부스팅 모델군 비교",
+    "hypothesis": "LightGBM 또는 XGBoost가 현재 CatBoost보다 2024 Brier를 크게 개선한다",
+    "protocol": "holdout_2024",
+    "change_scope": [
+      "model"
+    ],
+    "control": "catboost_control"
+  },
+  "protocol": {
+    "name": "holdout_2024",
+    "description": "2019~2023 전체로 학습하고 2024를 고정 primary holdout으로 검증",
+    "train_start_season": 2019,
+    "validation_seasons": [
+      2024
+    ],
+    "split_rule": "before_validation_season",
+    "primary_metric": "brier",
+    "secondary_metrics": [
+      "brier_skill_score",
+      "roc_auc"
+    ],
+    "target_column": "control_success",
+    "id_column": "row_id",
+    "season_column": "season",
+    "store_predictions": true,
+    "calibration": "none",
+    "seed": 42
+  },
+  "variants": [
+    {
+      "name": "catboost_control",
+      "change": "control: native CatBoost depth6 300 trees",
+      "model": {
+        "name": "catboost_native_300",
+        "family": "catboost",
+        "native_categorical": true,
+        "params": {
+          "iterations": 300,
+          "depth": 6,
+          "learning_rate": 0.05,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main55",
+        "description": "선택 제공 41개와 행 단위 파생 14개",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state"
+        ],
+        "expected_count": 55
+      },
+      "changed_fields_vs_control": []
+    },
+    {
+      "name": "lightgbm_l31",
+      "change": "LightGBM 31 leaves",
+      "model": {
+        "name": "lightgbm_l31",
+        "family": "lightgbm",
+        "params": {
+          "n_estimators": 500,
+          "learning_rate": 0.03,
+          "num_leaves": 31,
+          "max_depth": -1,
+          "min_child_samples": 200,
+          "subsample": 0.8,
+          "colsample_bytree": 0.8,
+          "reg_lambda": 3.0,
+          "random_state": 42,
+          "n_jobs": 8,
+          "verbosity": -1
+        }
+      },
+      "features": {
+        "name": "main55",
+        "description": "선택 제공 41개와 행 단위 파생 14개",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state"
+        ],
+        "expected_count": 55
+      },
+      "changed_fields_vs_control": [
+        "model.family",
+        "model.name",
+        "model.native_categorical",
+        "model.params.allow_writing_files",
+        "model.params.colsample_bytree",
+        "model.params.depth",
+        "model.params.eval_metric",
+        "model.params.iterations",
+        "model.params.l2_leaf_reg",
+        "model.params.learning_rate",
+        "model.params.loss_function",
+        "model.params.max_depth",
+        "model.params.min_child_samples",
+        "model.params.n_estimators",
+        "model.params.n_jobs",
+        "model.params.num_leaves",
+        "model.params.random_seed",
+        "model.params.random_state",
+        "model.params.reg_lambda",
+        "model.params.subsample",
+        "model.params.task_type",
+        "model.params.thread_count",
+        "model.params.verbose",
+        "model.params.verbosity"
+      ]
+    },
+    {
+      "name": "lightgbm_l63",
+      "change": "LightGBM 63 leaves",
+      "model": {
+        "name": "lightgbm_l63",
+        "family": "lightgbm",
+        "params": {
+          "n_estimators": 500,
+          "learning_rate": 0.03,
+          "num_leaves": 63,
+          "max_depth": -1,
+          "min_child_samples": 200,
+          "subsample": 0.8,
+          "colsample_bytree": 0.8,
+          "reg_lambda": 3.0,
+          "random_state": 42,
+          "n_jobs": 8,
+          "verbosity": -1
+        }
+      },
+      "features": {
+        "name": "main55",
+        "description": "선택 제공 41개와 행 단위 파생 14개",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state"
+        ],
+        "expected_count": 55
+      },
+      "changed_fields_vs_control": [
+        "model.family",
+        "model.name",
+        "model.native_categorical",
+        "model.params.allow_writing_files",
+        "model.params.colsample_bytree",
+        "model.params.depth",
+        "model.params.eval_metric",
+        "model.params.iterations",
+        "model.params.l2_leaf_reg",
+        "model.params.learning_rate",
+        "model.params.loss_function",
+        "model.params.max_depth",
+        "model.params.min_child_samples",
+        "model.params.n_estimators",
+        "model.params.n_jobs",
+        "model.params.num_leaves",
+        "model.params.random_seed",
+        "model.params.random_state",
+        "model.params.reg_lambda",
+        "model.params.subsample",
+        "model.params.task_type",
+        "model.params.thread_count",
+        "model.params.verbose",
+        "model.params.verbosity"
+      ]
+    },
+    {
+      "name": "lightgbm_l127",
+      "change": "LightGBM 127 leaves",
+      "model": {
+        "name": "lightgbm_l127",
+        "family": "lightgbm",
+        "params": {
+          "n_estimators": 500,
+          "learning_rate": 0.03,
+          "num_leaves": 127,
+          "max_depth": -1,
+          "min_child_samples": 200,
+          "subsample": 0.8,
+          "colsample_bytree": 0.8,
+          "reg_lambda": 3.0,
+          "random_state": 42,
+          "n_jobs": 8,
+          "verbosity": -1
+        }
+      },
+      "features": {
+        "name": "main55",
+        "description": "선택 제공 41개와 행 단위 파생 14개",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state"
+        ],
+        "expected_count": 55
+      },
+      "changed_fields_vs_control": [
+        "model.family",
+        "model.name",
+        "model.native_categorical",
+        "model.params.allow_writing_files",
+        "model.params.colsample_bytree",
+        "model.params.depth",
+        "model.params.eval_metric",
+        "model.params.iterations",
+        "model.params.l2_leaf_reg",
+        "model.params.learning_rate",
+        "model.params.loss_function",
+        "model.params.max_depth",
+        "model.params.min_child_samples",
+        "model.params.n_estimators",
+        "model.params.n_jobs",
+        "model.params.num_leaves",
+        "model.params.random_seed",
+        "model.params.random_state",
+        "model.params.reg_lambda",
+        "model.params.subsample",
+        "model.params.task_type",
+        "model.params.thread_count",
+        "model.params.verbose",
+        "model.params.verbosity"
+      ]
+    },
+    {
+      "name": "xgboost_d4",
+      "change": "XGBoost depth4",
+      "model": {
+        "name": "xgboost_d4",
+        "family": "xgboost",
+        "params": {
+          "n_estimators": 600,
+          "learning_rate": 0.03,
+          "max_depth": 4,
+          "min_child_weight": 50.0,
+          "subsample": 0.8,
+          "colsample_bytree": 0.8,
+          "reg_lambda": 3.0,
+          "random_state": 42,
+          "n_jobs": 8,
+          "tree_method": "hist",
+          "eval_metric": "logloss"
+        }
+      },
+      "features": {
+        "name": "main55",
+        "description": "선택 제공 41개와 행 단위 파생 14개",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state"
+        ],
+        "expected_count": 55
+      },
+      "changed_fields_vs_control": [
+        "model.family",
+        "model.name",
+        "model.native_categorical",
+        "model.params.allow_writing_files",
+        "model.params.colsample_bytree",
+        "model.params.depth",
+        "model.params.eval_metric",
+        "model.params.iterations",
+        "model.params.l2_leaf_reg",
+        "model.params.learning_rate",
+        "model.params.loss_function",
+        "model.params.max_depth",
+        "model.params.min_child_weight",
+        "model.params.n_estimators",
+        "model.params.n_jobs",
+        "model.params.random_seed",
+        "model.params.random_state",
+        "model.params.reg_lambda",
+        "model.params.subsample",
+        "model.params.task_type",
+        "model.params.thread_count",
+        "model.params.tree_method",
+        "model.params.verbose"
+      ]
+    },
+    {
+      "name": "xgboost_d6",
+      "change": "XGBoost depth6",
+      "model": {
+        "name": "xgboost_d6",
+        "family": "xgboost",
+        "params": {
+          "n_estimators": 600,
+          "learning_rate": 0.03,
+          "max_depth": 6,
+          "min_child_weight": 50.0,
+          "subsample": 0.8,
+          "colsample_bytree": 0.8,
+          "reg_lambda": 3.0,
+          "random_state": 42,
+          "n_jobs": 8,
+          "tree_method": "hist",
+          "eval_metric": "logloss"
+        }
+      },
+      "features": {
+        "name": "main55",
+        "description": "선택 제공 41개와 행 단위 파생 14개",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state"
+        ],
+        "expected_count": 55
+      },
+      "changed_fields_vs_control": [
+        "model.family",
+        "model.name",
+        "model.native_categorical",
+        "model.params.allow_writing_files",
+        "model.params.colsample_bytree",
+        "model.params.depth",
+        "model.params.eval_metric",
+        "model.params.iterations",
+        "model.params.l2_leaf_reg",
+        "model.params.learning_rate",
+        "model.params.loss_function",
+        "model.params.max_depth",
+        "model.params.min_child_weight",
+        "model.params.n_estimators",
+        "model.params.n_jobs",
+        "model.params.random_seed",
+        "model.params.random_state",
+        "model.params.reg_lambda",
+        "model.params.subsample",
+        "model.params.task_type",
+        "model.params.thread_count",
+        "model.params.tree_method",
+        "model.params.verbose"
+      ]
+    }
+  ],
+  "config_hash": "c3d0b2afa616"
+}

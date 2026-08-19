@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_003",
+  "decision": "adopt",
+  "selected_variant": "add_custom14",
+  "reason": "custom14 추가가 selected41 대비 2024 홀드아웃 Brier를 0.000113609 개선해 채택",
+  "based_on": "EXP_002",
+  "reference_variant": "selected41_control",
+  "ablation_summary": "EXP_002의 main55를 선택 제공 41개와 custom14로 분해해 custom14의 순수 추가 효과를 검증",
+  "selected_result": {
+    "variant": "add_custom14",
+    "change": "행 단위 파생 피처 14개 추가",
+    "feature_set": "main55",
+    "feature_count": 55,
+    "model": "catboost_default",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2480234544,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 713.9403046936,
+    "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+    "delta_brier_vs_control": -0.0001136094,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "selected41_control",
+    "change": "control: 선택 제공 피처 41개",
+    "feature_set": "selected41",
+    "feature_count": 41,
+    "model": "catboost_default",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2481370638,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 668.4614165641,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-17T15:11:53.756554+00:00",
+  "based_on_run_id": "RUN_001"
+}

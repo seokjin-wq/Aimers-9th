@@ -1,0 +1,117 @@
+{
+  "experiment_id": "EXP_065",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T03:28:11.983450+00:00",
+  "completed_at_utc": "2026-08-18T03:32:32.282616+00:00",
+  "config_hash": "d7d0c3b8e547",
+  "based_on": "EXP_064",
+  "reference_variant": "main69_control",
+  "ablation_summary": "EXP_064와 동일한 네 상황 효과를 leave-one-row-out 대신 leave-one-season-out으로 재계산",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/065_context_season_oof/20260818T032811988849Z_d7d0c3b8e547",
+  "control": "main69_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": null
+  },
+  "best_variant": "main69_control",
+  "best_mean_brier": 0.2475377207264107,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "main69_control",
+      "change": "control: 합법 main69",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475377207,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 908.3839506927,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "count_out_base_season_oof",
+      "change": "season-OOF 볼카운트×아웃×주자 효과",
+      "feature_set": "main70_count_out_base_effect",
+      "feature_count": 70,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475523304,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 902.5355489322,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 1.46097e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "count_hands_season_oof",
+      "change": "season-OOF 볼카운트×손 조합 효과",
+      "feature_set": "main70_count_hands_effect",
+      "feature_count": 70,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475535919,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 902.0305677024,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 1.58712e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "game_pressure_season_oof",
+      "change": "season-OOF 경기·압박 효과",
+      "feature_set": "main71_game_pressure_effects",
+      "feature_count": 71,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2476868746,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 848.6762805989,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 0.0001491539,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "all_context_season_oof",
+      "change": "season-OOF 네 상황 효과 전체",
+      "feature_set": "main73_all_context_effects",
+      "feature_count": 73,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2477572201,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 820.5163609914,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 0.0002194993,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "dd4d092a29c6973c74a0b4d88d8878d99d34c3eac3f1d104be7e4c080214fa64",
+  "git_commit": "7bde464991a4052a625a1c8c1d2e222d4b3c6542",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 260.11215472221375
+}

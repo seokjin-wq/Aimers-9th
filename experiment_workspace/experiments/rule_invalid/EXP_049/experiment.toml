@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_049"
+title = "CPU 전역 rolling 상단 탐색"
+hypothesis = "window200이 경계 최선이므로 175~400 범위에 더 나은 경기·당일 환경 창이 있다"
+change_scope = "features"
+study_config = "experiments/EXP_049/study.toml"
+based_on = "EXP_048"
+reference_variant = "global200"
+ablation_summary = "CPU main80과 전역 단일 rolling을 고정하고 window 175·200·225·250·300·400만 변경"
+tags = ["cpu", "global-window", "upper-search"]
+created_at_utc = "2026-08-17T20:04:30.982495+00:00"

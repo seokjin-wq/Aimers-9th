@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_111",
+  "decision": "adopt",
+  "selected_variant": "triple_cpu_sub08",
+  "reason": "Replacing only CPU subsample 0.7 with 0.8 improved same-run corrected triple Brier by 4.024e-06 and set a new compliant best BSS 940.025.",
+  "based_on": "EXP_101",
+  "reference_variant": "catshift_m0095",
+  "ablation_summary": "Keep main72 features, GPU CatBoost, ExtraTrees, 45/40/15 weights, count residual correction k=500, scales, and shifts fixed; change only CPU CatBoost subsample from 0.7 to 0.8.",
+  "selected_result": {
+    "variant": "triple_cpu_sub08",
+    "change": "CPU CatBoost subsample 0.7 -> 0.8 only",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "triple_group_count_k500_catshift_m0095_cpu_sub08",
+    "model_family": "cat_cpu_gpu_extra_blend",
+    "fold_count": 1,
+    "mean_brier": 0.2474586792,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 940.0250056598,
+    "changed_fields_vs_control": "['model.cpu_params.subsample', 'model.name']",
+    "delta_brier_vs_control": -4.0236e-06,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "triple_sub07_control",
+    "change": "control: EXP_101 corrected triple with CPU subsample=0.7",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "triple_group_count_k500_catshift_m0095",
+    "model_family": "cat_cpu_gpu_extra_blend",
+    "fold_count": 1,
+    "mean_brier": 0.2474627028,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 938.414301745,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T11:15:27.544542+00:00",
+  "based_on_run_id": "RUN_001"
+}

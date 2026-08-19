@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_006"
+title = "CatBoost 깊이와 반복 수 탐색"
+hypothesis = "현재 300-tree depth6 모델은 과소학습 상태이며 더 많은 tree 또는 다른 depth가 2024 Brier를 개선한다"
+change_scope = "model"
+study_config = "experiments/EXP_006/study.toml"
+based_on = "EXP_004"
+reference_variant = "native_basic"
+ablation_summary = "main55와 native 기본 3개 범주를 고정하고 CatBoost depth와 iterations 조합만 변경"
+tags = ["hyperparameter", "capacity"]
+created_at_utc = "2026-08-17T15:44:09.772360+00:00"

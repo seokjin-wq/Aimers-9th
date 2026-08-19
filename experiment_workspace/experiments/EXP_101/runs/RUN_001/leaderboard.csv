@@ -1,0 +1,4 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+catshift_m008_control,control: EXP_094 count-k500 triple with CatBoost shift -0.008,main72_cat_count_hands_same_pitchmix,72,triple_group_count_k500,cat_cpu_gpu_extra_blend,1,0.2474738011028776,0.0,933.971561237712,[],0.0,0/1
+catshift_m0095,lower CatBoost component shift to -0.0095,main72_cat_count_hands_same_pitchmix,72,triple_group_count_k500_catshift_m0095,cat_cpu_gpu_extra_blend,1,0.2474738011028776,0.0,933.971561237712,"['model.cat_shift', 'model.name']",0.0,0/1
+catshift_m010,lower CatBoost component shift to -0.010,main72_cat_count_hands_same_pitchmix,72,triple_group_count_k500_catshift_m010,cat_cpu_gpu_extra_blend,1,0.2474738011028776,0.0,933.971561237712,"['model.cat_shift', 'model.name']",0.0,0/1

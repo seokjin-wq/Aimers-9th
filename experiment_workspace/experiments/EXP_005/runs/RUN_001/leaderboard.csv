@@ -1,0 +1,5 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+basic3_control,control: 문자열 3개만 native categorical,main55,55,catboost_native_300,catboost,1,0.2480092675427688,0.0,719.6194426463354,[],0.0,0/1
+add_players_teams_hands,선수·팀 ID와 손 유형을 범주로 추가,main55_cat_players_teams,55,catboost_native_300,catboost,1,0.248211411222616,0.0,638.6994767864418,"['features.categorical', 'features.description', 'features.name']",0.0002021436798472,0/1
+add_player_ids,pitcher_id와 batter_id를 범주로 추가,main55_cat_players,55,catboost_native_300,catboost,1,0.2483978051898763,0.0,564.0842650786682,"['features.categorical', 'features.description', 'features.name']",0.0003885376471075,0/1
+all_discrete,달력·카운트·주자 등 소수준 이산값도 범주로 추가,main55_cat_discrete,55,catboost_native_300,catboost,1,0.2506035189326768,0.0,0.0,"['features.categorical', 'features.description', 'features.name']",0.002594251389908,0/1

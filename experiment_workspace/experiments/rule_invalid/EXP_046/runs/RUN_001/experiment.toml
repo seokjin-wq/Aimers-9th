@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_046"
+title = "순차 피처 이종 부스팅 재검증"
+hypothesis = "순차 피처가 추가된 main80에서는 LightGBM·HistGB·선형 모델의 오차가 CatBoost를 보완할 수 있다"
+change_scope = "model"
+study_config = "experiments/EXP_046/study.toml"
+based_on = "EXP_045"
+reference_variant = "best_three"
+ablation_summary = "main80을 고정하고 CPU CatBoost 대비 LightGBM leaves31·63·127, HistGB leaves31·63, Logistic C0.01만 변경"
+tags = ["diverse-models", "sequential", "blend"]
+created_at_utc = "2026-08-17T19:47:26.499981+00:00"

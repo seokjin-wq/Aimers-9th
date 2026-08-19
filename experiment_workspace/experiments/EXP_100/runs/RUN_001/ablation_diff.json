@@ -1,0 +1,142 @@
+{
+  "based_on": "EXP_099",
+  "reference_variant": "decay085_control",
+  "ablation_summary": "Keep model training fixed at depth8/300 and decay0.85; vary only post-prediction scale around 1.06 or shift around -0.008, one coordinate at a time.",
+  "control": "scale106_shift008_control",
+  "variants": [
+    {
+      "name": "scale106_shift008_control",
+      "declared_change": "control: current scale 1.06, shift -0.008",
+      "is_control": true,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "scale104_shift008",
+      "declared_change": "scale 1.04, shift fixed -0.008",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "catboost_d8_decay085_scale104_shift008"
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": 1.04
+        }
+      ]
+    },
+    {
+      "name": "scale108_shift008",
+      "declared_change": "scale 1.08, shift fixed -0.008",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "catboost_d8_decay085_scale108_shift008"
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": 1.08
+        }
+      ]
+    },
+    {
+      "name": "scale106_shift006",
+      "declared_change": "scale fixed 1.06, shift -0.006",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "catboost_d8_decay085_scale106_shift006"
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": -0.006
+        }
+      ]
+    },
+    {
+      "name": "scale106_shift010",
+      "declared_change": "scale fixed 1.06, shift -0.010",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "catboost_d8_decay085_scale106_shift010"
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": -0.01
+        }
+      ]
+    }
+  ]
+}

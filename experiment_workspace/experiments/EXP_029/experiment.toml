@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_029"
+title = "EDA 양의 피처 조합"
+hypothesis = "단독 개선된 scoring×LI, reverse shrinkage, log LI, batter missing 일부 조합이 상호 보완적으로 추가 개선한다"
+change_scope = "features"
+study_config = "experiments/EXP_029/study.toml"
+based_on = "EXP_028"
+reference_variant = "add_scoring_position_x_li"
+ablation_summary = "GPU 모델과 main60을 고정하고 단독 양의 피처 4개의 2-way 및 전체 조합만 비교"
+tags = ["feature-combination", "eda", "gpu"]
+created_at_utc = "2026-08-17T18:01:18.120890+00:00"

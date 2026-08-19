@@ -1,0 +1,117 @@
+{
+  "experiment_id": "EXP_061",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T03:01:59.569326+00:00",
+  "completed_at_utc": "2026-08-18T03:06:16.124778+00:00",
+  "config_hash": "be483c1e3065",
+  "based_on": "EXP_060",
+  "reference_variant": "decay085",
+  "ablation_summary": "main69 k20 공통 기준 대비 ball k500, strike k200, batter-middle k200을 개별 및 동시 교체",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/061_metric_specific_shrinkage/20260818T030159574418Z_be483c1e3065",
+  "control": "common_k20",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": null
+  },
+  "best_variant": "common_k20",
+  "best_mean_brier": 0.2475377207264107,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "common_k20",
+      "change": "control: 모든 현재 시즌 비율 k20",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475377207,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 908.3839506927,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "metric_specific_all",
+      "change": "ball500·strike200·batter-middle200을 동시에 적용",
+      "feature_set": "main69_tuned_metric_shrinkage",
+      "feature_count": 69,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475534836,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 902.0739305959,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.name']",
+      "delta_brier_vs_control": 1.57629e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "ball_k500",
+      "change": "투수 ball만 k20에서 k500으로 변경",
+      "feature_set": "main69_tuned_ball",
+      "feature_count": 69,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475565424,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 900.8494746575,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.name']",
+      "delta_brier_vs_control": 1.88216e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "batter_middle_k200",
+      "change": "타자 middle만 k20에서 k200으로 변경",
+      "feature_set": "main69_tuned_batter_middle",
+      "feature_count": 69,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475676505,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 896.4028001875,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.name']",
+      "delta_brier_vs_control": 2.99297e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "strike_k200",
+      "change": "투수 strike만 k20에서 k200으로 변경",
+      "feature_set": "main69_tuned_strike",
+      "feature_count": 69,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475731258,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 894.2109689553,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.name']",
+      "delta_brier_vs_control": 3.54051e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "bcce793a7c962979b957b308c89380e7a06ffd241ff1ab49a4035e1ec46eae3b",
+  "git_commit": "7bde464991a4052a625a1c8c1d2e222d4b3c6542",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 256.36823987960815
+}

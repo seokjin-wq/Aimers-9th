@@ -1,0 +1,99 @@
+{
+  "based_on": "EXP_007",
+  "reference_variant": "catboost_control",
+  "ablation_summary": "native CatBoost를 고정하고 EDA 제안 피처를 결측, 스무딩, 경기 맥락, 카운트 묶음별로 각각 추가",
+  "control": "main55_control",
+  "variants": [
+    {
+      "name": "main55_control",
+      "declared_change": "control: main55",
+      "is_control": true,
+      "feature_count": 55,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_missing_flags",
+      "declared_change": "최근·누적 이력 결측 플래그 3개 추가",
+      "is_control": false,
+      "feature_count": 58,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [
+        "recent_history_missing",
+        "pitcher_history_missing",
+        "batter_history_missing"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_smoothing",
+      "declared_change": "누적 성공·reverse 스무딩과 log 표본 수 5개 추가",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [
+        "pitcher_success_rate_shrunk",
+        "pitcher_reverse_rate_shrunk",
+        "success_minus_reverse",
+        "log1p_pitcher_n",
+        "log1p_batter_n"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_context",
+      "declared_change": "투수팀 기대승률·log LI·득점권 상호작용 4개 추가",
+      "is_control": false,
+      "feature_count": 59,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [
+        "pitcher_team_win_expectancy",
+        "log1p_li",
+        "scoring_position",
+        "scoring_position_x_li"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_count_state",
+      "declared_change": "카운트·아웃 상태 파생 5개 추가",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [
+        "count_state",
+        "is_full_count",
+        "has_two_strikes",
+        "has_three_balls",
+        "has_two_outs"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

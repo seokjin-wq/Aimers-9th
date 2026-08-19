@@ -1,0 +1,132 @@
+{
+  "experiment_id": "EXP_037",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T18:38:05.067365+00:00",
+  "completed_at_utc": "2026-08-17T18:40:41.031341+00:00",
+  "config_hash": "a0401826110b",
+  "based_on": "EXP_036",
+  "reference_variant": "reverse_short",
+  "ablation_summary": "main77 reverse-short와 GPU CatBoost를 고정하고 투수 middle, 투수 ball, 타자 middle의 직전·3·5·10 창만 개별·조합 추가",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/037_middle_ball_sequence/20260817T183805072174Z_a0401826110b",
+  "control": "main77_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "batter_middle",
+  "best_mean_brier": 0.2469277855337399,
+  "best_delta_brier_vs_control": -9.258989911054004e-06,
+  "leaderboard": [
+    {
+      "variant": "batter_middle",
+      "change": "타자 middle 단기 창 추가",
+      "feature_set": "main81_add_batter_middle_short",
+      "feature_count": 81,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2469277855,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1152.5465928537,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -9.259e-06,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "main77_control",
+      "change": "control: success+reverse 최고 조합",
+      "feature_set": "main77_add_pitcher_reverse_short",
+      "feature_count": 77,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2469370445,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1148.8401344175,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "all_state",
+      "change": "투수 middle·ball 및 타자 middle 단기 창 모두 추가",
+      "feature_set": "main89_add_all_state_short",
+      "feature_count": 89,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2469383065,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1148.3349690542,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 1.2619e-06,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "pitcher_ball",
+      "change": "투수 ball 단기 창 추가",
+      "feature_set": "main81_add_pitcher_ball_short",
+      "feature_count": 81,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2469600908,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1139.614495483,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 2.30463e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "pitcher_middle",
+      "change": "투수 middle 단기 창 추가",
+      "feature_set": "main81_add_pitcher_middle_short",
+      "feature_count": 81,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.246961791,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1138.9338811259,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 2.47465e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "pitcher_middle_ball",
+      "change": "투수 middle·ball 단기 창 추가",
+      "feature_set": "main85_add_pitcher_middle_ball_short",
+      "feature_count": 85,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2469620854,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1138.8160267059,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 2.50409e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "c0770447f08806027965082cefdbfda18ffadd5bf15f8edb6315026f6535eaf9",
+  "git_commit": "644a786b0a1c3638dccb6a9a611378f816ac506b",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 155.77837586402893
+}

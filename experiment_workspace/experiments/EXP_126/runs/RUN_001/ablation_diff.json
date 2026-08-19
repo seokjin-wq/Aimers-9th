@@ -1,0 +1,113 @@
+{
+  "based_on": "EXP_117",
+  "reference_variant": "weights_50_35_15",
+  "ablation_summary": "Fix main78 features, all component models, shifts, and count correction; blend manual 50/35/15 weights toward 2023 OOT simplex-optimal weights by 25%, 50%, or 100%.",
+  "control": "manual_weights_control",
+  "variants": [
+    {
+      "name": "manual_weights_control",
+      "declared_change": "control: fixed manual CPU/GPU/Extra weights 50/35/15",
+      "is_control": true,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "oot_weight_strength_025",
+      "declared_change": "move 25% from manual weights toward 2023 OOT simplex optimum",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.learned_weight_strength",
+          "control": null,
+          "variant": 0.25
+        },
+        {
+          "field": "model.name",
+          "control": "triple_count_m0095_sub08_w50_35_15",
+          "variant": "triple_oot_weights_s025"
+        }
+      ]
+    },
+    {
+      "name": "oot_weight_strength_050",
+      "declared_change": "move 50% from manual weights toward 2023 OOT simplex optimum",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.learned_weight_strength",
+          "control": null,
+          "variant": 0.5
+        },
+        {
+          "field": "model.name",
+          "control": "triple_count_m0095_sub08_w50_35_15",
+          "variant": "triple_oot_weights_s050"
+        }
+      ]
+    },
+    {
+      "name": "oot_weight_strength_100",
+      "declared_change": "use 2023 OOT simplex-optimal weights directly",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.learned_weight_strength",
+          "control": null,
+          "variant": 1.0
+        },
+        {
+          "field": "model.name",
+          "control": "triple_count_m0095_sub08_w50_35_15",
+          "variant": "triple_oot_weights_s100"
+        }
+      ]
+    }
+  ]
+}

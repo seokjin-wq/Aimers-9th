@@ -1,0 +1,37 @@
+[study]
+id = "021_season_row_position"
+description = "시즌 내 투구 순번 피처"
+hypothesis = "월보다 세밀한 시즌 진행 위치가 시즌 중 제구율 변화를 포착해 Brier를 개선한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main60_control"
+
+[[variants]]
+name = "main60_control"
+model = "catboost_native_scale106_shift_m008"
+features = "main60_cat_batter_team"
+change = "control: 현재 최고 main60"
+
+[[variants]]
+name = "pitch_index"
+model = "catboost_native_scale106_shift_m008"
+features = "main61_batter_team_pitch_index"
+change = "시즌 내 투구 순번 추가"
+
+[[variants]]
+name = "progress_proxy"
+model = "catboost_native_scale106_shift_m008"
+features = "main61_batter_team_progress"
+change = "시즌 진행도 proxy 추가"
+
+[[variants]]
+name = "phase_numeric"
+model = "catboost_native_scale106_shift_m008"
+features = "main61_batter_team_phase"
+change = "시즌 20단계 구간을 numeric 추가"
+
+[[variants]]
+name = "phase_categorical"
+model = "catboost_native_scale106_shift_m008"
+features = "main61_batter_team_phase_cat"
+change = "시즌 20단계 구간을 categorical 추가"

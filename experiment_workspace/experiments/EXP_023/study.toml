@@ -1,0 +1,55 @@
+[study]
+id = "023_diverse_model_families"
+description = "선형·히스토그램·랜덤트리 후보"
+hypothesis = "확률 이력의 매끄러운 선형 효과 또는 다른 tree 구조가 CatBoost와 다른 오차를 만들어 독립 성능이나 앙상블을 개선한다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "catboost_control"
+
+[[variants]]
+name = "catboost_control"
+model = "catboost_native_scale106_shift_m008"
+features = "main60_cat_batter_team"
+change = "control: 현재 최고 CatBoost"
+
+[[variants]]
+name = "logistic_c001"
+model = "logistic_c001"
+features = "main60_cat_batter_team"
+change = "one-hot logistic C=0.01"
+
+[[variants]]
+name = "logistic_c01"
+model = "logistic_c01"
+features = "main60_cat_batter_team"
+change = "one-hot logistic C=0.1"
+
+[[variants]]
+name = "logistic_c1"
+model = "logistic_c1"
+features = "main60_cat_batter_team"
+change = "one-hot logistic C=1.0"
+
+[[variants]]
+name = "histgb_leaf31"
+model = "histgb_leaf31"
+features = "main60_cat_batter_team"
+change = "HistGradientBoosting 31 leaves"
+
+[[variants]]
+name = "histgb_leaf63"
+model = "histgb_leaf63"
+features = "main60_cat_batter_team"
+change = "HistGradientBoosting 63 leaves"
+
+[[variants]]
+name = "extratrees_leaf20"
+model = "extratrees_leaf20"
+features = "main60_cat_batter_team"
+change = "ExtraTrees min leaf 20"
+
+[[variants]]
+name = "extratrees_leaf100"
+model = "extratrees_leaf100"
+features = "main60_cat_batter_team"
+change = "ExtraTrees min leaf 100"

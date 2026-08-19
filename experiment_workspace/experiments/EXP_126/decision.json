@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_126",
+  "decision": "keep_control",
+  "selected_variant": "manual_weights_control",
+  "reason": "2023 OOT simplex optimum was GPU-only (0/1/0), but every move toward it worsened 2024 Brier monotonically; retain manual 50/35/15 and reject this temporally unstable weighting axis.",
+  "based_on": "EXP_117",
+  "reference_variant": "weights_50_35_15",
+  "ablation_summary": "Fix main78 features, all component models, shifts, and count correction; blend manual 50/35/15 weights toward 2023 OOT simplex-optimal weights by 25%, 50%, or 100%.",
+  "selected_result": {
+    "variant": "manual_weights_control",
+    "change": "control: fixed manual CPU/GPU/Extra weights 50/35/15",
+    "feature_set": "main78_history_reliability",
+    "feature_count": 78,
+    "model": "triple_count_m0095_sub08_w50_35_15",
+    "model_family": "cat_cpu_gpu_extra_blend",
+    "fold_count": 1,
+    "mean_brier": 0.2474515836,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 942.8654277736,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "manual_weights_control",
+    "change": "control: fixed manual CPU/GPU/Extra weights 50/35/15",
+    "feature_set": "main78_history_reliability",
+    "feature_count": 78,
+    "model": "triple_count_m0095_sub08_w50_35_15",
+    "model_family": "cat_cpu_gpu_extra_blend",
+    "fold_count": 1,
+    "mean_brier": 0.2474515836,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 942.8654277736,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T13:46:10.677169+00:00",
+  "based_on_run_id": "RUN_001"
+}

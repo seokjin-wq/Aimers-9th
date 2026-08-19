@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T08:22:56.861201+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "e5f01222e20a",
+  "based_on": "EXP_095",
+  "reference_variant": "all_three",
+  "ablation_summary": "Keep main72 features, season decay 0.85, probability scale/shift, sampling, and seed fixed; compare depth/iteration/learning-rate schedules from depth 5 through 8."
+}

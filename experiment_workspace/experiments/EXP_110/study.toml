@@ -1,0 +1,31 @@
+[study]
+id = "110_latest_catboost_subsample"
+description = "Latest CatBoost subsample refinement"
+hypothesis = "The local optimum lies near subsample 0.8 and a narrow sweep can improve on EXP_109 without changing features or validation protocol."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "subsample_08_control"
+
+[[variants]]
+name = "subsample_08_control"
+model = "catboost_d8_decay085_sub08"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: EXP_109 winner subsample=0.80"
+
+[[variants]]
+name = "subsample_075"
+model = "catboost_d8_decay085_sub075"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "subsample 0.80 -> 0.75 only"
+
+[[variants]]
+name = "subsample_085"
+model = "catboost_d8_decay085_sub085"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "subsample 0.80 -> 0.85 only"
+
+[[variants]]
+name = "subsample_09"
+model = "catboost_d8_decay085_sub09"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "subsample 0.80 -> 0.90 only"

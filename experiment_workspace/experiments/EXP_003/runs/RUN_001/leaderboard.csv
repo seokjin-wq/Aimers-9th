@@ -1,0 +1,3 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+add_custom14,행 단위 파생 피처 14개 추가,main55,55,catboost_default,catboost,1,0.2480234544227547,0.0,713.9403046936388,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",-0.0001136094127595,1/1
+selected41_control,control: 선택 제공 피처 41개,selected41,41,catboost_default,catboost,1,0.2481370638355143,0.0,668.4614165640812,[],0.0,0/1

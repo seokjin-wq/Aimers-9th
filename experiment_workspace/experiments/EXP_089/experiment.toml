@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_089"
+title = "Official-reference season progress from current row ID"
+hypothesis = "Within-season target drift remains after month; a progress index derived from the current row ID and official-training boundary only captures finer timing without reading any other evaluation row."
+change_scope = "features"
+study_config = "experiments/EXP_089/study.toml"
+based_on = "EXP_087"
+reference_variant = "same_hand_pitchmix_triple"
+ablation_summary = "Fix EXP_084 CPU base; add safe numeric season pitch index, coarse phase, or both. Training starts come from official train; validation start comes from the last official reference row; TEST suffix is used row-locally."
+tags = ["compliance", "row-independent", "time", "progress", "row-id"]
+created_at_utc = "2026-08-18T06:52:26.001303+00:00"

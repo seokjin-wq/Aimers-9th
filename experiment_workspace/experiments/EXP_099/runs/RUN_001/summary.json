@@ -1,0 +1,117 @@
+{
+  "experiment_id": "EXP_099",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T08:30:12.342188+00:00",
+  "completed_at_utc": "2026-08-18T08:34:54.163880+00:00",
+  "config_hash": "a63da8bfc5aa",
+  "based_on": "EXP_098",
+  "reference_variant": "depth8_300_control",
+  "ablation_summary": "Keep latest features and all CatBoost parameters fixed; compare season-decay values 0.80, 0.825, 0.85, 0.875, and 0.90.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/099_latest_season_decay/20260818T083012351130Z_a63da8bfc5aa",
+  "control": "decay085_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "decay085_control",
+  "best_mean_brier": 0.2475118666382257,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "decay085_control",
+      "change": "control: current season decay 0.85",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475118666,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 918.7335789118,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "decay0875",
+      "change": "season decay 0.875",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay0875",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475291931,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 911.7976482701,
+      "changed_fields_vs_control": "['model.name', 'model.season_decay']",
+      "delta_brier_vs_control": 1.73264e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "decay0825",
+      "change": "season decay 0.825",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay0825",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475347861,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 909.5587278526,
+      "changed_fields_vs_control": "['model.name', 'model.season_decay']",
+      "delta_brier_vs_control": 2.29194e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "decay090",
+      "change": "season decay 0.90",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay090",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475361437,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 909.0152578569,
+      "changed_fields_vs_control": "['model.name', 'model.season_decay']",
+      "delta_brier_vs_control": 2.4277e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "decay080",
+      "change": "season decay 0.80",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay080",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475446322,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 905.617206679,
+      "changed_fields_vs_control": "['model.name', 'model.season_decay']",
+      "delta_brier_vs_control": 3.27656e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "4ab39c2777ef06e4eb4dc1d7e189ee73ee10228063de9195b57584550cc27ded",
+  "git_commit": "c344bb549c1d42f2d893bc877697c4c4869052be",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 281.6292259693146
+}

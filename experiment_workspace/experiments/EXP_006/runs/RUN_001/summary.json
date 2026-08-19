@@ -1,0 +1,147 @@
+{
+  "experiment_id": "EXP_006",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T15:44:32.278480+00:00",
+  "completed_at_utc": "2026-08-17T15:53:09.591146+00:00",
+  "config_hash": "f25afffb7b77",
+  "based_on": "EXP_004",
+  "reference_variant": "native_basic",
+  "ablation_summary": "main55와 native 기본 3개 범주를 고정하고 CatBoost depth와 iterations 조합만 변경",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/006_catboost_capacity/20260817T154432280023Z_f25afffb7b77",
+  "control": "d6_i300_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "d6_i300_control",
+  "best_mean_brier": 0.2480092675427688,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "d6_i300_control",
+      "change": "control: depth6, 300 trees",
+      "feature_set": "main55",
+      "feature_count": 55,
+      "model": "catboost_native_300",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2480092675,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 719.6194426463,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "d5_i600",
+      "change": "depth5, 600 trees",
+      "feature_set": "main55",
+      "feature_count": 55,
+      "model": "catboost_d5_i600",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2480594574,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 699.527986388,
+      "changed_fields_vs_control": "['model.name', 'model.params.depth', 'model.params.iterations']",
+      "delta_brier_vs_control": 5.01898e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "d6_i600",
+      "change": "depth6, 600 trees",
+      "feature_set": "main55",
+      "feature_count": 55,
+      "model": "catboost_d6_i600",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2480808922,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 690.9474281964,
+      "changed_fields_vs_control": "['model.name', 'model.params.iterations']",
+      "delta_brier_vs_control": 7.16247e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "d7_i1000_lr03",
+      "change": "depth7, 1000 trees, learning_rate 0.03",
+      "feature_set": "main55",
+      "feature_count": 55,
+      "model": "catboost_d7_i1000_lr03",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2481159299,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 676.9215145165,
+      "changed_fields_vs_control": "['model.name', 'model.params.depth', 'model.params.iterations', 'model.params.learning_rate']",
+      "delta_brier_vs_control": 0.0001066624,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "d6_i1000",
+      "change": "depth6, 1000 trees",
+      "feature_set": "main55",
+      "feature_count": 55,
+      "model": "catboost_d6_i1000",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2481984761,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 643.8775134098,
+      "changed_fields_vs_control": "['model.name', 'model.params.iterations']",
+      "delta_brier_vs_control": 0.0001892086,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "d7_i600",
+      "change": "depth7, 600 trees",
+      "feature_set": "main55",
+      "feature_count": 55,
+      "model": "catboost_d7_i600",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2482237023,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 633.7792590054,
+      "changed_fields_vs_control": "['model.name', 'model.params.depth', 'model.params.iterations']",
+      "delta_brier_vs_control": 0.0002144347,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "d8_i600",
+      "change": "depth8, 600 trees",
+      "feature_set": "main55",
+      "feature_count": 55,
+      "model": "catboost_d8_i600",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2482512965,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 622.7330497749,
+      "changed_fields_vs_control": "['model.name', 'model.params.depth', 'model.params.iterations']",
+      "delta_brier_vs_control": 0.0002420289,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "62d2c711e20df60223615f889fd5419768f1a6a0b7ad8c238949f26cdee4a81d",
+  "git_commit": "80f20ba91e666fa40b7cbdb1647ff163e037bc50",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 517.1326375007629
+}

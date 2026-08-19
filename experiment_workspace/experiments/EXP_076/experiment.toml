@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_076"
+title = "Current-season event count representation"
+hypothesis = "Explicit log counts of current-season successes, failures, reverse, middle, ball, and strike events expose confidence and volume interactions that trees cannot efficiently reconstruct from rate plus total count."
+change_scope = "features"
+study_config = "experiments/EXP_076/study.toml"
+based_on = "EXP_072"
+reference_variant = "main69_control"
+ablation_summary = "Fix main69 and CPU d8 decay0.85; add pitcher success/failure counts, pitcher event counts, batter event counts, or all counts."
+tags = ["compliance,row-independent,season-state,event-counts"]
+created_at_utc = "2026-08-18T04:54:32.510559+00:00"

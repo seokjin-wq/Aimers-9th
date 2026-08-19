@@ -1,0 +1,25 @@
+[study]
+id = "031_gpu_seed_ensemble"
+description = "GPU CatBoost seed 앙상블"
+hypothesis = "GPU 학습 변동을 여러 seed 평균으로 줄이면 단일 GPU 모델보다 Brier가 개선된다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "single_seed_control"
+
+[[variants]]
+name = "single_seed_control"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main60_cat_batter_team"
+change = "control: GPU seed42 단일"
+
+[[variants]]
+name = "ensemble_3seed"
+model = "catboost_gpu_ensemble3"
+features = "main60_cat_batter_team"
+change = "GPU 3 seed 평균"
+
+[[variants]]
+name = "ensemble_5seed"
+model = "catboost_gpu_ensemble5"
+features = "main60_cat_batter_team"
+change = "GPU 5 seed 평균"

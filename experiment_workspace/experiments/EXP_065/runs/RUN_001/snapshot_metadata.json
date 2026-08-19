@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T03:28:11.983308+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "d7d0c3b8e547",
+  "based_on": "EXP_064",
+  "reference_variant": "main69_control",
+  "ablation_summary": "EXP_064와 동일한 네 상황 효과를 leave-one-row-out 대신 leave-one-season-out으로 재계산"
+}

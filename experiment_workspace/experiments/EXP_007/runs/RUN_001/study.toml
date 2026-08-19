@@ -1,0 +1,43 @@
+[study]
+id = "007_boosting_family"
+description = "부스팅 모델군 비교"
+hypothesis = "LightGBM 또는 XGBoost가 현재 CatBoost보다 2024 Brier를 크게 개선한다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "catboost_control"
+
+[[variants]]
+name = "catboost_control"
+model = "catboost_native_300"
+features = "main55"
+change = "control: native CatBoost depth6 300 trees"
+
+[[variants]]
+name = "lightgbm_l31"
+model = "lightgbm_l31"
+features = "main55"
+change = "LightGBM 31 leaves"
+
+[[variants]]
+name = "lightgbm_l63"
+model = "lightgbm_l63"
+features = "main55"
+change = "LightGBM 63 leaves"
+
+[[variants]]
+name = "lightgbm_l127"
+model = "lightgbm_l127"
+features = "main55"
+change = "LightGBM 127 leaves"
+
+[[variants]]
+name = "xgboost_d4"
+model = "xgboost_d4"
+features = "main55"
+change = "XGBoost depth4"
+
+[[variants]]
+name = "xgboost_d6"
+model = "xgboost_d6"
+features = "main55"
+change = "XGBoost depth6"

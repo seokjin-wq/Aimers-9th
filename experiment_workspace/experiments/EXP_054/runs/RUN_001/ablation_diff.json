@@ -1,0 +1,132 @@
+{
+  "based_on": "EXP_024",
+  "reference_variant": "extra_w24",
+  "ablation_summary": "EXP_024 extra_w24를 규칙 준수 엔진에서 재실행하고 CatBoost 단독과 설정 차이를 보존",
+  "control": "extra_w24_safe",
+  "variants": [
+    {
+      "name": "extra_w24_safe",
+      "declared_change": "control: EXP_024 extra_w24를 규칙 준수 row-local 엔진에서 재현",
+      "is_control": true,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "catboost_only",
+      "declared_change": "ExtraTrees 혼합만 제거한 CatBoost 단독 비교",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_params",
+          "control": {
+            "iterations": 300,
+            "depth": 6,
+            "learning_rate": 0.05,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.cat_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.cat_shift",
+          "control": -0.008,
+          "variant": null
+        },
+        {
+          "field": "model.extra_params",
+          "control": {
+            "n_estimators": 300,
+            "min_samples_leaf": 20,
+            "max_features": 0.7,
+            "n_jobs": 8,
+            "random_state": 42,
+            "verbose": 0
+          },
+          "variant": null
+        },
+        {
+          "field": "model.extra_shift",
+          "control": -0.01,
+          "variant": null
+        },
+        {
+          "field": "model.extra_weight",
+          "control": 0.24,
+          "variant": null
+        },
+        {
+          "field": "model.family",
+          "control": "cat_extra_blend",
+          "variant": "catboost"
+        },
+        {
+          "field": "model.name",
+          "control": "cat_extra_blend_w24",
+          "variant": "catboost_native_scale106_shift_m008"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": null,
+          "variant": true
+        },
+        {
+          "field": "model.params",
+          "control": null,
+          "variant": {
+            "iterations": 300,
+            "depth": 6,
+            "learning_rate": 0.05,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": null,
+          "variant": -0.008
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_040",
+  "decision": "keep_control",
+  "selected_variant": "cat_single_control",
+  "reason": "3-seed와 ExtraTrees 단독이 모두 악화했고 저장 예측의 최적 혼합 상한도 BSS 약 1168로 목표에 부족해 단일 CatBoost 유지",
+  "based_on": "EXP_039",
+  "reference_variant": "d6_i900",
+  "ablation_summary": "main85를 고정하고 CatBoost 3-seed 평균과 ExtraTrees min_samples_leaf 5·10·20·50만 비교",
+  "selected_result": {
+    "variant": "cat_single_control",
+    "change": "control: CatBoost depth6 900",
+    "feature_set": "main85_add_plate_context",
+    "feature_count": 85,
+    "model": "catboost_gpu_d6_i900_lr020_b128",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2468992433,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 1163.9722907547,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "cat_single_control",
+    "change": "control: CatBoost depth6 900",
+    "feature_set": "main85_add_plate_context",
+    "feature_count": 85,
+    "model": "catboost_gpu_d6_i900_lr020_b128",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2468992433,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 1163.9722907547,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-17T19:11:03.196790+00:00",
+  "based_on_run_id": "RUN_002"
+}

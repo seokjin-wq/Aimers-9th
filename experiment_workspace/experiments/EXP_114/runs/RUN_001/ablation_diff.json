@@ -1,0 +1,90 @@
+{
+  "based_on": "EXP_113",
+  "reference_variant": "all_six_control",
+  "ablation_summary": "Fix all main72 features and CPU subsample=0.8; change only the denominator k used in the same six reliability features across 50, 100, and 200.",
+  "control": "reliability_k100_control",
+  "variants": [
+    {
+      "name": "reliability_k100_control",
+      "declared_change": "control: EXP_112/113 winner reliability k=100",
+      "is_control": true,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "reliability_k50",
+      "declared_change": "change all six reliability denominators k=100 -> 50 only",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "pitcher_history_reliability_k50",
+        "batter_history_reliability_k50",
+        "pitcher_success_x_reliability_k50",
+        "batter_success_x_reliability_k50",
+        "pitcher_reverse_x_reliability_k50",
+        "pitcher_middle_x_reliability_k50"
+      ],
+      "removed_features_vs_control": [
+        "pitcher_history_reliability_k100",
+        "batter_history_reliability_k100",
+        "pitcher_success_x_reliability",
+        "batter_success_x_reliability",
+        "pitcher_reverse_x_reliability",
+        "pitcher_middle_x_reliability"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "reliability_k200",
+      "declared_change": "change all six reliability denominators k=100 -> 200 only",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "pitcher_history_reliability_k200",
+        "batter_history_reliability_k200",
+        "pitcher_success_x_reliability_k200",
+        "batter_success_x_reliability_k200",
+        "pitcher_reverse_x_reliability_k200",
+        "pitcher_middle_x_reliability_k200"
+      ],
+      "removed_features_vs_control": [
+        "pitcher_history_reliability_k100",
+        "batter_history_reliability_k100",
+        "pitcher_success_x_reliability",
+        "batter_success_x_reliability",
+        "pitcher_reverse_x_reliability",
+        "pitcher_middle_x_reliability"
+      ],
+      "model_changes_vs_control": []
+    }
+  ]
+}

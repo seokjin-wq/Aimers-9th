@@ -1,0 +1,75 @@
+{
+  "based_on": "EXP_086",
+  "reference_variant": "batter_exact",
+  "ablation_summary": "Fix EXP_080 triple model; compare original count+hands, same-hand pitchmix, and same-hand pitchmix plus exact batter snapshot feature sets.",
+  "control": "original_triple",
+  "variants": [
+    {
+      "name": "original_triple",
+      "declared_change": "control: EXP_080 count+hands triple",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "same_hand_pitchmix_triple",
+      "declared_change": "EXP_084 동일손×과거 구종군 피처 3개 승격",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "same_hand_x_fastball",
+        "same_hand_x_breaking",
+        "same_hand_x_offspeed"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "batter_exact_triple",
+      "declared_change": "동일손×구종군과 EXP_086 정확 타자 시즌 상태 동시 승격",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "batter_season_n_exact",
+        "batter_season_success_rate_exact_k20",
+        "same_hand_x_fastball",
+        "same_hand_x_breaking",
+        "same_hand_x_offspeed"
+      ],
+      "removed_features_vs_control": [
+        "batter_season_n",
+        "batter_season_success_rate_k20"
+      ],
+      "model_changes_vs_control": []
+    }
+  ]
+}

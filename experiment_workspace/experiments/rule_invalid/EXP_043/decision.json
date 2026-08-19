@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_043",
+  "decision": "adopt",
+  "selected_variant": "main77_reverse",
+  "reason": "CPU 결정론 검증에서 success rolling과 reverse short의 큰 개선이 재현됐고 main85·main87 추가는 악화되어 main77 확정",
+  "based_on": "EXP_042",
+  "reference_variant": "batter_lags",
+  "ablation_summary": "CPU depth6 400 lr0.04를 고정하고 main60→main73→main77→main85→main87 핵심 누적 피처 단계만 비교",
+  "selected_result": {
+    "variant": "main77_reverse",
+    "change": "success rolling + reverse short",
+    "feature_set": "main77_add_pitcher_reverse_short",
+    "feature_count": 77,
+    "model": "catboost_top_d6_i400_lr040",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2469381307,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 1148.405347731,
+    "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+    "delta_brier_vs_control": -0.0008808973,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "main60_control",
+    "change": "control: 순차 피처 없음",
+    "feature_set": "main60_cat_batter_team",
+    "feature_count": 60,
+    "model": "catboost_top_d6_i400_lr040",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.247819028,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 795.7740748752,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-17T19:28:41.212668+00:00",
+  "based_on_run_id": "RUN_001"
+}

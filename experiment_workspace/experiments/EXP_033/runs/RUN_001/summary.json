@@ -1,0 +1,132 @@
+{
+  "experiment_id": "EXP_033",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T18:20:43.103450+00:00",
+  "completed_at_utc": "2026-08-17T18:21:52.573663+00:00",
+  "config_hash": "b2c89b5ce24e",
+  "based_on": "EXP_032",
+  "reference_variant": "global_control",
+  "ablation_summary": "CatBoost와 main60을 고정하고 2019~2022→2023 예측에서 학습한 mean-shift, affine, Platt, beta, isotonic 보정만 변경",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/033_probability_calibration/20260817T182043107786Z_b2c89b5ce24e",
+  "control": "global_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "global_control",
+  "best_mean_brier": 0.2478144435529149,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "global_control",
+      "change": "control: 직접 고른 affine 보정 GPU CatBoost",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2478144436,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 797.6092695832,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "mean_shift",
+      "change": "2023 평균 예측 오차만 보정",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "catcal_mean_shift",
+      "model_family": "catboost_probability_calibrated",
+      "fold_count": 1,
+      "mean_brier": 0.2479706651,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 735.0723426665,
+      "changed_fields_vs_control": "['model.calibration_method', 'model.cat_params.allow_writing_files', 'model.cat_params.bagging_temperature', 'model.cat_params.bootstrap_type', 'model.cat_params.border_count', 'model.cat_params.depth', 'model.cat_params.devices', 'model.cat_params.eval_metric', 'model.cat_params.iterations', 'model.cat_params.l2_leaf_reg', 'model.cat_params.learning_rate', 'model.cat_params.loss_function', 'model.cat_params.random_seed', 'model.cat_params.task_type', 'model.cat_params.verbose', 'model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.bagging_temperature', 'model.params.bootstrap_type', 'model.params.border_count', 'model.params.depth', 'model.params.devices', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.random_seed', 'model.params.task_type', 'model.params.verbose', 'model.prediction_scale', 'model.prediction_shift']",
+      "delta_brier_vs_control": 0.0001562216,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "beta",
+      "change": "2023 beta calibration",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "catcal_beta",
+      "model_family": "catboost_probability_calibrated",
+      "fold_count": 1,
+      "mean_brier": 0.2481523828,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 662.3290764848,
+      "changed_fields_vs_control": "['model.calibration_c', 'model.calibration_method', 'model.cat_params.allow_writing_files', 'model.cat_params.bagging_temperature', 'model.cat_params.bootstrap_type', 'model.cat_params.border_count', 'model.cat_params.depth', 'model.cat_params.devices', 'model.cat_params.eval_metric', 'model.cat_params.iterations', 'model.cat_params.l2_leaf_reg', 'model.cat_params.learning_rate', 'model.cat_params.loss_function', 'model.cat_params.random_seed', 'model.cat_params.task_type', 'model.cat_params.verbose', 'model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.bagging_temperature', 'model.params.bootstrap_type', 'model.params.border_count', 'model.params.depth', 'model.params.devices', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.random_seed', 'model.params.task_type', 'model.params.verbose', 'model.prediction_scale', 'model.prediction_shift']",
+      "delta_brier_vs_control": 0.0003379393,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "isotonic",
+      "change": "2023 isotonic 비모수 보정",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "catcal_isotonic",
+      "model_family": "catboost_probability_calibrated",
+      "fold_count": 1,
+      "mean_brier": 0.2482536118,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 621.8062002959,
+      "changed_fields_vs_control": "['model.calibration_method', 'model.cat_params.allow_writing_files', 'model.cat_params.bagging_temperature', 'model.cat_params.bootstrap_type', 'model.cat_params.border_count', 'model.cat_params.depth', 'model.cat_params.devices', 'model.cat_params.eval_metric', 'model.cat_params.iterations', 'model.cat_params.l2_leaf_reg', 'model.cat_params.learning_rate', 'model.cat_params.loss_function', 'model.cat_params.random_seed', 'model.cat_params.task_type', 'model.cat_params.verbose', 'model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.bagging_temperature', 'model.params.bootstrap_type', 'model.params.border_count', 'model.params.depth', 'model.params.devices', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.random_seed', 'model.params.task_type', 'model.params.verbose', 'model.prediction_scale', 'model.prediction_shift']",
+      "delta_brier_vs_control": 0.0004391682,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "affine",
+      "change": "2023 선형 최소제곱 보정",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "catcal_affine",
+      "model_family": "catboost_probability_calibrated",
+      "fold_count": 1,
+      "mean_brier": 0.2491673195,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 256.0406436577,
+      "changed_fields_vs_control": "['model.calibration_method', 'model.cat_params.allow_writing_files', 'model.cat_params.bagging_temperature', 'model.cat_params.bootstrap_type', 'model.cat_params.border_count', 'model.cat_params.depth', 'model.cat_params.devices', 'model.cat_params.eval_metric', 'model.cat_params.iterations', 'model.cat_params.l2_leaf_reg', 'model.cat_params.learning_rate', 'model.cat_params.loss_function', 'model.cat_params.random_seed', 'model.cat_params.task_type', 'model.cat_params.verbose', 'model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.bagging_temperature', 'model.params.bootstrap_type', 'model.params.border_count', 'model.params.depth', 'model.params.devices', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.random_seed', 'model.params.task_type', 'model.params.verbose', 'model.prediction_scale', 'model.prediction_shift']",
+      "delta_brier_vs_control": 0.0013528759,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "platt",
+      "change": "2023 logit Platt 보정",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "catcal_platt",
+      "model_family": "catboost_probability_calibrated",
+      "fold_count": 1,
+      "mean_brier": 0.249219082,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 235.3196477085,
+      "changed_fields_vs_control": "['model.calibration_c', 'model.calibration_method', 'model.cat_params.allow_writing_files', 'model.cat_params.bagging_temperature', 'model.cat_params.bootstrap_type', 'model.cat_params.border_count', 'model.cat_params.depth', 'model.cat_params.devices', 'model.cat_params.eval_metric', 'model.cat_params.iterations', 'model.cat_params.l2_leaf_reg', 'model.cat_params.learning_rate', 'model.cat_params.loss_function', 'model.cat_params.random_seed', 'model.cat_params.task_type', 'model.cat_params.verbose', 'model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.bagging_temperature', 'model.params.bootstrap_type', 'model.params.border_count', 'model.params.depth', 'model.params.devices', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.random_seed', 'model.params.task_type', 'model.params.verbose', 'model.prediction_scale', 'model.prediction_shift']",
+      "delta_brier_vs_control": 0.0014046384,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "8687edba4217af885ffb9a1003c5064cab7ffe9066bce353a897294e5e3791ac",
+  "git_commit": "644a786b0a1c3638dccb6a9a611378f816ac506b",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 69.28326988220215
+}

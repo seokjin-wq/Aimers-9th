@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_053"
+title = "context grouped rolling signals"
+hypothesis = "경기·공격팀별 최근 success/middle 비율이 global200이 놓친 환경 편향을 보완한다"
+change_scope = "features"
+study_config = "experiments/EXP_053/study.toml"
+based_on = "EXP_050"
+reference_variant = "d6_i600"
+ablation_summary = "EXP050 최고 설정을 고정하고 game·pitcher_team·batter_team 기준 recent200 success 또는 middle 한 개만 추가"
+tags = ["sequential", "context", "team", "game"]
+created_at_utc = "2026-08-17T20:36:21.856405+00:00"

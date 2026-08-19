@@ -1,0 +1,25 @@
+[features]
+name = "main55_plus_count_state"
+description = "main55 + count_state 단일 피처"
+include_all_raw = true
+exclude = ["run_total_before", "score_diff_home", "asof_pitcher_pitchmix_n", "asof_pitcher_strike_rate", "asof_pitcher_fastball_rate", "asof_pitcher_prev5_game_success_rate"]
+custom = [
+  "pitcher_gap_prev1_career",
+  "pitcher_gap_prev3_career",
+  "pitcher_gap_prev5_career",
+  "win_expectancy_dist50",
+  "count_diff",
+  "count_total",
+  "same_hand_matchup",
+  "pressure_x_recent_form",
+  "runners_x_li",
+  "batter_success_rate_shrunk",
+  "reverse_rate_x_li",
+  "middle_rate_x_count_diff",
+  "late_inning_x_recent_form",
+  "offspeed_x_li",
+  "count_state",
+]
+categorical = ["top_bottom", "game_type", "base_state"]
+expected_count = 56
+

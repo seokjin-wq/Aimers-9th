@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_037"
+title = "middle·ball 최근 투구 복원"
+hypothesis = "누적 middle·ball 비율 차분으로 복원한 최근 투구 상태가 success·reverse rolling에 남은 단기 제구 신호를 보완한다"
+change_scope = "features"
+study_config = "experiments/EXP_037/study.toml"
+based_on = "EXP_036"
+reference_variant = "reverse_short"
+ablation_summary = "main77 reverse-short와 GPU CatBoost를 고정하고 투수 middle, 투수 ball, 타자 middle의 직전·3·5·10 창만 개별·조합 추가"
+tags = ["asof", "middle", "ball", "rolling"]
+created_at_utc = "2026-08-17T18:36:47.284154+00:00"

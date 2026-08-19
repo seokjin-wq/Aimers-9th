@@ -1,0 +1,37 @@
+[study]
+id = "077_direct_brier_revisit"
+description = "강화 피처에서 CatBoost RMSE 직접 최적화 재검증"
+hypothesis = "당해 시즌 상태와 최근성 가중치가 추가된 환경에서는 제곱오차를 직접 학습하는 회귀 CatBoost가 Logloss보다 Brier를 낮추거나 앙상블 다양성을 제공한다."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "logloss_d8_control"
+
+[[variants]]
+name = "logloss_d8_control"
+model = "catboost_d8_decay085"
+features = "main69_pitcher_batter_season_all"
+change = "control: Logloss depth8 300"
+
+[[variants]]
+name = "rmse_d7_i500"
+model = "catreg_d7_i500_decay85"
+features = "main69_pitcher_batter_season_all"
+change = "RMSE 회귀 depth7 500"
+
+[[variants]]
+name = "rmse_d8_i300"
+model = "catreg_d8_i300_decay85"
+features = "main69_pitcher_batter_season_all"
+change = "RMSE 회귀 depth8 300"
+
+[[variants]]
+name = "rmse_d8_scaled"
+model = "catreg_d8_i300_decay85_scaled"
+features = "main69_pitcher_batter_season_all"
+change = "RMSE depth8에 classifier와 동일한 scale1.06 shift-0.008"
+
+[[variants]]
+name = "rmse_d9_i200"
+model = "catreg_d9_i200_decay85"
+features = "main69_pitcher_batter_season_all"
+change = "RMSE 회귀 depth9 200"

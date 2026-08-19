@@ -1,0 +1,37 @@
+[study]
+id = "036_reverse_sequence"
+description = "투수 reverse 최근 투구 복원"
+hypothesis = "최근 reverse 상태가 성공 rolling과 독립적인 단기 위험 신호를 제공한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main73_control"
+
+[[variants]]
+name = "main73_control"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main73_add_rolling_extensions"
+change = "control: 성공 rolling 최고 조합"
+
+[[variants]]
+name = "reverse_previous"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main74_add_pitcher_reverse_previous"
+change = "투수 직전 reverse만 추가"
+
+[[variants]]
+name = "reverse_short"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main77_add_pitcher_reverse_short"
+change = "투수 reverse 직전·3·5·10 추가"
+
+[[variants]]
+name = "reverse_long"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main77_add_pitcher_reverse_long"
+change = "투수 reverse 직전·10·20·50 추가"
+
+[[variants]]
+name = "reverse_all"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main79_add_pitcher_reverse_all"
+change = "투수 reverse 직전·3·5·10·20·50 모두 추가"

@@ -1,0 +1,188 @@
+{
+  "based_on": "EXP_057",
+  "reference_variant": "extra_w24",
+  "ablation_summary": "main69 고정 후 depth5~8, 300~600 trees의 기존 결정론적 CPU 후보만 재비교",
+  "control": "d6_i300_control",
+  "variants": [
+    {
+      "name": "d6_i300_control",
+      "declared_change": "control: depth6 300 lr0.05",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "d6_i400",
+      "declared_change": "depth6 400 lr0.04",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_scale106_shift_m008",
+          "variant": "catboost_top_d6_i400_lr040"
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 400
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.05,
+          "variant": 0.04
+        }
+      ]
+    },
+    {
+      "name": "d6_i600",
+      "declared_change": "depth6 600 lr0.025",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_scale106_shift_m008",
+          "variant": "catboost_top_d6_i600_lr025"
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 600
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.05,
+          "variant": 0.025
+        }
+      ]
+    },
+    {
+      "name": "d5_i600",
+      "declared_change": "depth5 600 lr0.035",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_scale106_shift_m008",
+          "variant": "catboost_cpu_d5_i600_lr035"
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": 5
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 600
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.05,
+          "variant": 0.035
+        }
+      ]
+    },
+    {
+      "name": "d7_i400",
+      "declared_change": "depth7 400 lr0.035",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_scale106_shift_m008",
+          "variant": "catboost_cpu_d7_i400_lr035"
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": 7
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 400
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.05,
+          "variant": 0.035
+        }
+      ]
+    },
+    {
+      "name": "d8_i300",
+      "declared_change": "depth8 300 lr0.035",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_scale106_shift_m008",
+          "variant": "catboost_cpu_d8_i300_lr035"
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": 8
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.05,
+          "variant": 0.035
+        }
+      ]
+    }
+  ]
+}

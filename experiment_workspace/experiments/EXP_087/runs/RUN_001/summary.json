@@ -1,0 +1,87 @@
+{
+  "experiment_id": "EXP_087",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T06:16:15.532931+00:00",
+  "completed_at_utc": "2026-08-18T06:36:09.259592+00:00",
+  "config_hash": "906581d7b164",
+  "based_on": "EXP_086",
+  "reference_variant": "batter_exact",
+  "ablation_summary": "Fix EXP_080 triple model; compare original count+hands, same-hand pitchmix, and same-hand pitchmix plus exact batter snapshot feature sets.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/087_promote_safe_feature_gains/20260818T061615540516Z_906581d7b164",
+  "control": "original_triple",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": null
+  },
+  "best_variant": "same_hand_pitchmix_triple",
+  "best_mean_brier": 0.2474714314352181,
+  "best_delta_brier_vs_control": -2.2294199898048594e-05,
+  "leaderboard": [
+    {
+      "variant": "same_hand_pitchmix_triple",
+      "change": "EXP_084 동일손×과거 구종군 피처 3개 승격",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "triple_cpu45_gpu40_extra15",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474714314,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 934.9201608984,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -2.22942e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "batter_exact_triple",
+      "change": "동일손×구종군과 EXP_086 정확 타자 시즌 상태 동시 승격",
+      "feature_set": "main72_same_pitchmix_batter_exact",
+      "feature_count": 72,
+      "model": "triple_cpu45_gpu40_extra15",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.247483625,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 930.0389676987,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -1.01006e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "original_triple",
+      "change": "control: EXP_080 count+hands triple",
+      "feature_set": "main69_cat_count_hands",
+      "feature_count": 69,
+      "model": "triple_cpu45_gpu40_extra15",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474937256,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 925.9955885547,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "fc7e39bd1cf3d4f1446b5626372bc3eba9afe5426b97adaa72d75fc6d1a44339",
+  "git_commit": "e15b25d042b9f09ba59ebb12ade8b67aa15e9976",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 1193.5312206745148
+}

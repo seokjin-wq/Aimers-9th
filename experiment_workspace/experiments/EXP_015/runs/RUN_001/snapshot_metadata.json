@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T16:31:16.469786+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "3f45b96c6df1",
+  "based_on": "EXP_014",
+  "reference_variant": "main60_control",
+  "ablation_summary": "main55+count CatBoost를 고정하고 prediction shift만 0, -0.005, -0.010, 과거-fold -0.0113955, -0.015로 변경"
+}

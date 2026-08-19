@@ -1,0 +1,138 @@
+{
+  "based_on": "EXP_117",
+  "reference_variant": "weights_50_35_15",
+  "ablation_summary": "Use main78 reliability features and CPU screening with season decay, subsample, affine postprocess, seed, and all other parameters fixed; compare depth8/300 to depth7/450, depth8/450 low-lr, and depth9/220.",
+  "control": "d8_i300_control",
+  "variants": [
+    {
+      "name": "d8_i300_control",
+      "declared_change": "control: reliability CPU depth8, 300 trees, lr0.035",
+      "is_control": true,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "d7_i450_lr03",
+      "declared_change": "depth8/300/lr.035 -> depth7/450/lr.03 schedule",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085_sub08",
+          "variant": "catboost_d7_i450_lr03_decay085_sub08"
+        },
+        {
+          "field": "model.params.depth",
+          "control": 8,
+          "variant": 7
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 450
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.035,
+          "variant": 0.03
+        }
+      ]
+    },
+    {
+      "name": "d8_i450_lr025",
+      "declared_change": "depth8/300/lr.035 -> depth8/450/lr.025 schedule",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085_sub08",
+          "variant": "catboost_d8_i450_lr025_decay085_sub08"
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 450
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.035,
+          "variant": 0.025
+        }
+      ]
+    },
+    {
+      "name": "d9_i220_lr03",
+      "declared_change": "depth8/300/lr.035 -> depth9/220/lr.03 schedule",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085_sub08",
+          "variant": "catboost_d9_i220_lr03_decay085_sub08"
+        },
+        {
+          "field": "model.params.depth",
+          "control": 8,
+          "variant": 9
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 220
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.035,
+          "variant": 0.03
+        }
+      ]
+    }
+  ]
+}

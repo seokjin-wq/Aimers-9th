@@ -1,0 +1,91 @@
+{
+  "based_on": "EXP_057",
+  "reference_variant": "extra_w24",
+  "ablation_summary": "main69 CatBoost 대비 시즌-커리어 delta 7개, 최근폼 delta 3개, 전체 10개를 비교",
+  "control": "main69_control",
+  "variants": [
+    {
+      "name": "main69_control",
+      "declared_change": "control: EXP_056 최고 CatBoost 피처",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "season_career_deltas",
+      "declared_change": "투수 5종·타자 2종 현재 시즌 minus 커리어 delta 추가",
+      "is_control": false,
+      "feature_count": 76,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_season_success_delta_career",
+        "pitcher_season_reverse_delta_career",
+        "pitcher_season_middle_delta_career",
+        "pitcher_season_ball_delta_career",
+        "pitcher_season_strike_delta_career",
+        "batter_season_success_delta_career",
+        "batter_season_middle_delta_career"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "recent_form_deltas",
+      "declared_change": "직전1-3, 직전3-5, 직전3-현재시즌 성공률 delta 추가",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_prev1_minus_prev3",
+        "pitcher_prev3_minus_prev5",
+        "pitcher_prev3_minus_season_success"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "all_deltas",
+      "declared_change": "시즌-커리어 7개와 최근폼 3개 delta를 모두 추가",
+      "is_control": false,
+      "feature_count": 79,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_season_success_delta_career",
+        "pitcher_season_reverse_delta_career",
+        "pitcher_season_middle_delta_career",
+        "pitcher_season_ball_delta_career",
+        "pitcher_season_strike_delta_career",
+        "batter_season_success_delta_career",
+        "batter_season_middle_delta_career",
+        "pitcher_prev1_minus_prev3",
+        "pitcher_prev3_minus_prev5",
+        "pitcher_prev3_minus_season_success"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

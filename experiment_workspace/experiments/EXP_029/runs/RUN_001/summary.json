@@ -1,0 +1,147 @@
+{
+  "experiment_id": "EXP_029",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T18:01:49.669398+00:00",
+  "completed_at_utc": "2026-08-17T18:04:37.657218+00:00",
+  "config_hash": "232e880d7a66",
+  "based_on": "EXP_028",
+  "reference_variant": "add_scoring_position_x_li",
+  "ablation_summary": "GPU 모델과 main60을 고정하고 단독 양의 피처 4개의 2-way 및 전체 조합만 비교",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/029_positive_feature_combinations/20260817T180149673252Z_232e880d7a66",
+  "control": "scoring_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "all_four",
+  "best_mean_brier": 0.2478171344337707,
+  "best_delta_brier_vs_control": -2.1667512971612624e-06,
+  "leaderboard": [
+    {
+      "variant": "all_four",
+      "change": "상위 4개 전체 조합",
+      "feature_set": "main64_all_positive_individual",
+      "feature_count": 64,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2478171344,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 796.5320853391,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -2.1668e-06,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "scoring_control",
+      "change": "control: scoring_position_x_li 단독",
+      "feature_set": "main61_add_scoring_position_x_li",
+      "feature_count": 61,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2478193012,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 795.6647149561,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "scoring_reverse",
+      "change": "scoring×LI + reverse shrinkage",
+      "feature_set": "main62_scoring_reverse",
+      "feature_count": 62,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2478247034,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 793.50215835,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 5.4022e-06,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "scoring_bmissing",
+      "change": "scoring×LI + batter missing",
+      "feature_set": "main62_scoring_bmissing",
+      "feature_count": 62,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2478265917,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 792.7462470438,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 7.2905e-06,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "scoring_logli",
+      "change": "scoring×LI + log LI",
+      "feature_set": "main62_scoring_logli",
+      "feature_count": 62,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2478334455,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 790.0026112139,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 1.41443e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "scoring_reverse_logli",
+      "change": "상위 3개 조합",
+      "feature_set": "main63_scoring_reverse_logli",
+      "feature_count": 63,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2478341097,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 789.7367252511,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 1.48085e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "reverse_logli",
+      "change": "reverse shrinkage + log LI",
+      "feature_set": "main62_reverse_logli",
+      "feature_count": 62,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2478432071,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 786.0949690317,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 2.39059e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "6638ff176791092444ed722616cee0f72e2c48d411cff22120be14c61a892b0d",
+  "git_commit": "bae0199b08d07b8c3586fe26fe2195ad0a1c0c0e",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 167.80174160003662
+}

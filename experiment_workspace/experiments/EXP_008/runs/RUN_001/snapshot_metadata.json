@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T15:58:08.472572+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "3139b29cd826",
+  "based_on": "EXP_007",
+  "reference_variant": "catboost_control",
+  "ablation_summary": "native CatBoost를 고정하고 EDA 제안 피처를 결측, 스무딩, 경기 맥락, 카운트 묶음별로 각각 추가"
+}

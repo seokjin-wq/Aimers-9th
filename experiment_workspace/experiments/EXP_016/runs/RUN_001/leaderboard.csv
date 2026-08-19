@@ -1,0 +1,4 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+single_seed_control,control: seed42 단일 모델 + shift,main55_plus_count,60,catboost_native_shift_m010,catboost,1,0.2478754922836092,0.0,773.1709037272716,[],0.0,0/1
+ensemble_3seed,seed 17·42·73 확률 평균 + shift,main55_plus_count,60,catboost_ensemble3_shift,catboost_ensemble,1,0.2479017126749224,0.0,762.6746410120621,"['model.family', 'model.name', 'model.params.random_seed', 'model.seeds']",2.6220391313197533e-05,0/1
+ensemble_5seed,seed 7·17·42·73·101 확률 평균 + shift,main55_plus_count,60,catboost_ensemble5_shift,catboost_ensemble,1,0.247906397022364,0.0,760.7994538415097,"['model.family', 'model.name', 'model.params.random_seed', 'model.seeds']",3.090473875488886e-05,0/1

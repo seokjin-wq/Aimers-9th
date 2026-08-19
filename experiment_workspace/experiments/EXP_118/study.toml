@@ -1,0 +1,31 @@
+[study]
+id = "118_reliability_capacity_refresh"
+description = "Reliability-feature CatBoost capacity refresh"
+hypothesis = "Adding six reliability features changes model complexity needs; a deeper or longer schedule may capture the new interactions better than the old depth8/300 setting."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "d8_i300_control"
+
+[[variants]]
+name = "d8_i300_control"
+model = "catboost_d8_decay085_sub08"
+features = "main78_history_reliability"
+change = "control: reliability CPU depth8, 300 trees, lr0.035"
+
+[[variants]]
+name = "d7_i450_lr03"
+model = "catboost_d7_i450_lr03_decay085_sub08"
+features = "main78_history_reliability"
+change = "depth8/300/lr.035 -> depth7/450/lr.03 schedule"
+
+[[variants]]
+name = "d8_i450_lr025"
+model = "catboost_d8_i450_lr025_decay085_sub08"
+features = "main78_history_reliability"
+change = "depth8/300/lr.035 -> depth8/450/lr.025 schedule"
+
+[[variants]]
+name = "d9_i220_lr03"
+model = "catboost_d9_i220_lr03_decay085_sub08"
+features = "main78_history_reliability"
+change = "depth8/300/lr.035 -> depth9/220/lr.03 schedule"

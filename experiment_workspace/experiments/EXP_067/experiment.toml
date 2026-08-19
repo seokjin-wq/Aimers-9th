@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_067"
+title = "2023 잔차 CatBoost 보정"
+hypothesis = "2019~2022 모델의 2023 OOT 잔차에서 반복되는 비선형 패턴을 학습하면 2024 예측의 남은 편향을 줄일 수 있다"
+change_scope = "model"
+study_config = "experiments/EXP_067/study.toml"
+based_on = "EXP_062"
+reference_variant = "extra_w18"
+ablation_summary = "main69 depth8 decay85 base 고정, 2023 잔차모델 보정 가중치 0.25,0.5,0.75,1.0 비교"
+tags = ["rule_compliant", "official_train_only", "residual_correction"]
+created_at_utc = "2026-08-18T03:37:25.614302+00:00"

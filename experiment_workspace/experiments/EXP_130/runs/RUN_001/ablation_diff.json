@@ -1,0 +1,84 @@
+{
+  "based_on": "EXP_129",
+  "reference_variant": "shrinkage_0",
+  "ablation_summary": "Fix EXP_129 shrinkage 0, trend strength 1.0, features, models, weights, and calibration; vary only count trend estimator among WLS, OLS, and first-to-last endpoint slope.",
+  "control": "wls_control",
+  "variants": [
+    {
+      "name": "wls_control",
+      "declared_change": "control: EXP_129 count-weighted linear slope",
+      "is_control": true,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "ols_slope",
+      "declared_change": "change only trend estimator from count-weighted WLS to equal-season OLS",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "triple_count_trend_k0",
+          "variant": "triple_count_trend_ols"
+        },
+        {
+          "field": "model.trend_method",
+          "control": null,
+          "variant": "ols"
+        }
+      ]
+    },
+    {
+      "name": "endpoint_slope",
+      "declared_change": "change only trend estimator to 2019-to-2023 endpoint slope",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "triple_count_trend_k0",
+          "variant": "triple_count_trend_endpoint"
+        },
+        {
+          "field": "model.trend_method",
+          "control": null,
+          "variant": "endpoint"
+        }
+      ]
+    }
+  ]
+}

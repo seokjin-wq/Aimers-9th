@@ -1,0 +1,118 @@
+{
+  "based_on": "EXP_048",
+  "reference_variant": "global200",
+  "ablation_summary": "CPU main80과 전역 단일 rolling을 고정하고 window 175·200·225·250·300·400만 변경",
+  "control": "global200_control",
+  "variants": [
+    {
+      "name": "global200_control",
+      "declared_change": "control: window200",
+      "is_control": true,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "global175",
+      "declared_change": "window175",
+      "is_control": false,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "global_recent175_success"
+      ],
+      "removed_features_vs_control": [
+        "global_recent200_success"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "global225",
+      "declared_change": "window225",
+      "is_control": false,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "global_recent225_success"
+      ],
+      "removed_features_vs_control": [
+        "global_recent200_success"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "global250",
+      "declared_change": "window250",
+      "is_control": false,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "global_recent250_success"
+      ],
+      "removed_features_vs_control": [
+        "global_recent200_success"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "global300",
+      "declared_change": "window300",
+      "is_control": false,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "global_recent300_success"
+      ],
+      "removed_features_vs_control": [
+        "global_recent200_success"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "global400",
+      "declared_change": "window400",
+      "is_control": false,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "global_recent400_success"
+      ],
+      "removed_features_vs_control": [
+        "global_recent200_success"
+      ],
+      "model_changes_vs_control": []
+    }
+  ]
+}

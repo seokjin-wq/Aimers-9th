@@ -1,0 +1,102 @@
+{
+  "experiment_id": "EXP_074",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T04:45:54.094647+00:00",
+  "completed_at_utc": "2026-08-18T04:49:21.399188+00:00",
+  "config_hash": "3b393d02fb7c",
+  "based_on": "EXP_073",
+  "reference_variant": "success_k50",
+  "ablation_summary": "Diagnose reference-only entity linkage, then compare main69 against linked historical Trackman pitcher aggregates without using any validation-row aggregate.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/074_safe_trackman_context/20260818T044554101007Z_3b393d02fb7c",
+  "control": "success_k50_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "success_k50_control",
+  "best_mean_brier": 0.2475295876440522,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "success_k50_control",
+      "change": "control: EXP_073의 k=50 당해 시즌 성공률",
+      "feature_set": "main69_season_success_k50",
+      "feature_count": 69,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475295876,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 911.6396980268,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "track_all",
+      "change": "control 대비 과거 Trackman 물리 6개와 구종군 비율 3개 모두 추가",
+      "feature_set": "main78_success_k50_track_all",
+      "feature_count": 78,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475528714,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 902.3190018868,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 2.32837e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "track_pitchmix",
+      "change": "control 대비 과거 Trackman 손×카운트 구종군 비율 3개 추가",
+      "feature_set": "main72_success_k50_track_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475603711,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 899.316781109,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 3.07835e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "track_physics",
+      "change": "control 대비 과거 Trackman 손×카운트 물리 평균 6개 추가",
+      "feature_set": "main75_success_k50_track_physics",
+      "feature_count": 75,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.247577442,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 892.4831504371,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 4.78544e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "4ddef5054cf689296cb26cfc5ea5f5c846b22772d77c13ebc5ec138fbf22caae",
+  "git_commit": "7bde464991a4052a625a1c8c1d2e222d4b3c6542",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 207.1177053451538
+}

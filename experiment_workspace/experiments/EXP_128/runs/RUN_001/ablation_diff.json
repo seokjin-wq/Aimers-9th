@@ -1,0 +1,113 @@
+{
+  "based_on": "EXP_127",
+  "reference_variant": "count_trend_strength_100",
+  "ablation_summary": "Fix EXP_127 model, features, count trend groups, trend shrinkage, and all calibration; vary only trend_strength around 1.00 using 0.75, 1.00, 1.25, and 1.50.",
+  "control": "strength_100_control",
+  "variants": [
+    {
+      "name": "strength_100_control",
+      "declared_change": "control: EXP_127 adopted trend strength 1.00",
+      "is_control": true,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "strength_075",
+      "declared_change": "change only trend strength from 1.00 to 0.75",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "triple_count_trend_s100",
+          "variant": "triple_count_trend_s075"
+        },
+        {
+          "field": "model.trend_strength",
+          "control": 1.0,
+          "variant": 0.75
+        }
+      ]
+    },
+    {
+      "name": "strength_125",
+      "declared_change": "change only trend strength from 1.00 to 1.25",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "triple_count_trend_s100",
+          "variant": "triple_count_trend_s125"
+        },
+        {
+          "field": "model.trend_strength",
+          "control": 1.0,
+          "variant": 1.25
+        }
+      ]
+    },
+    {
+      "name": "strength_150",
+      "declared_change": "change only trend strength from 1.00 to 1.50",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "triple_count_trend_s100",
+          "variant": "triple_count_trend_s150"
+        },
+        {
+          "field": "model.trend_strength",
+          "control": 1.0,
+          "variant": 1.5
+        }
+      ]
+    }
+  ]
+}

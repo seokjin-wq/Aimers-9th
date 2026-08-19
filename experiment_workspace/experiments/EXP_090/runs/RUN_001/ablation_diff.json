@@ -1,0 +1,120 @@
+{
+  "based_on": "EXP_087",
+  "reference_variant": "same_hand_pitchmix_triple",
+  "ablation_summary": "Fix EXP_084 CPU features; add inning phase category, phase×LI slopes, late-inning×pitcher history slopes, or all blocks.",
+  "control": "same_hand_control",
+  "variants": [
+    {
+      "name": "same_hand_control",
+      "declared_change": "control: EXP_084 CPU same-hand pitchmix",
+      "is_control": true,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "inning_phase_cat",
+      "declared_change": "1-3·4-6·7-9·연장 inning phase categorical 추가",
+      "is_control": false,
+      "feature_count": 73,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand",
+        "inning_phase_state"
+      ],
+      "added_features_vs_control": [
+        "inning_phase_state"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "phase_li_slopes",
+      "declared_change": "네 이닝 구간별 LI 상호작용 추가",
+      "is_control": false,
+      "feature_count": 76,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "early_inning_x_li",
+        "middle_inning_x_li",
+        "late_inning_x_li",
+        "extra_inning_x_li"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "late_pitcher_history",
+      "declared_change": "후반 이닝×투수 성공·반대·가운데 이력 추가",
+      "is_control": false,
+      "feature_count": 75,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "late_inning_x_pitcher_success",
+        "late_inning_x_pitcher_reverse",
+        "late_inning_x_pitcher_middle"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "inning_all",
+      "declared_change": "이닝 phase·LI·투수이력 블록 동시 추가",
+      "is_control": false,
+      "feature_count": 80,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand",
+        "inning_phase_state"
+      ],
+      "added_features_vs_control": [
+        "inning_phase_state",
+        "early_inning_x_li",
+        "middle_inning_x_li",
+        "late_inning_x_li",
+        "extra_inning_x_li",
+        "late_inning_x_pitcher_success",
+        "late_inning_x_pitcher_reverse",
+        "late_inning_x_pitcher_middle"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

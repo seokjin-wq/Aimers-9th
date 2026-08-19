@@ -1,0 +1,6 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+main77_control,control: 투수 20·30·50 + 타자 2·8 포함,main77_add_pitcher_reverse_short,77,catboost_top_d6_i400_lr040,catboost,1,0.2469381306509107,0.0,1148.405347730952,[],0.0,0/1
+pitcher20_50,타자 2·8 및 투수 30 제거,main74_pitcher20_50_reverse,74,catboost_top_d6_i400_lr040,catboost,1,0.2469479819129829,0.0,1144.461797325802,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",9.851262072202438e-06,0/1
+pitcher50,투수 50만 유지,main73_pitcher50_reverse,73,catboost_top_d6_i400_lr040,catboost,1,0.2469675981875902,0.0,1136.6092229948888,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",2.9467536679539386e-05,0/1
+pitcher20_30_50,타자 2·8 제거,main75_pitcher_long_reverse,75,catboost_top_d6_i400_lr040,catboost,1,0.2469794608088,0.0,1131.860507111071,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",4.133015788931882e-05,0/1
+pitcher20,투수 20만 유지,main73_pitcher20_reverse,73,catboost_top_d6_i400_lr040,catboost,1,0.2469946793186131,0.0,1125.7683982929811,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",5.654866770246625e-05,0/1

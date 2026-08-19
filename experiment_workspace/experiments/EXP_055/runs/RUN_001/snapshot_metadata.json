@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T02:28:51.319398+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "04f9e23432c8",
+  "based_on": "EXP_054",
+  "reference_variant": "extra_w24_safe",
+  "ablation_summary": "main60 CatBoost를 고정하고 official-train-only 투수 TE, 투수+타자 TE, 투수+타자+팀 TE만 단계적으로 추가"
+}

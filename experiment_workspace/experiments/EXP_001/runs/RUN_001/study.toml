@@ -1,0 +1,19 @@
+[study]
+id = "001_model_family"
+description = "동일한 제공 47개 피처에서 모델군만 비교"
+hypothesis = "CatBoost가 RandomForest보다 2024 고정 홀드아웃 Brier를 개선한다."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "random_forest_raw47"
+
+[[variants]]
+name = "random_forest_raw47"
+model = "random_forest_default"
+features = "raw47"
+change = "control: 제공 RandomForest 계열 기준"
+
+[[variants]]
+name = "catboost_raw47"
+model = "catboost_default"
+features = "raw47"
+change = "모델군만 RandomForest에서 CatBoost로 변경"

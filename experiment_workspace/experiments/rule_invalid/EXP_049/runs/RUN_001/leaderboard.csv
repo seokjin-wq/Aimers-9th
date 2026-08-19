@@ -1,0 +1,7 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+global200_control,control: window200,main81_add_global200,81,catboost_top_d6_i400_lr040,catboost,1,0.2466972461084666,0.0,1244.8336355976862,[],0.0,0/1
+global175,window175,main81_add_global175,81,catboost_top_d6_i400_lr040,catboost,1,0.2467021523744916,0.0,1242.8696123863435,"['features.custom', 'features.description', 'features.name']",4.9062660250343004e-06,0/1
+global225,window225,main81_add_global225,81,catboost_top_d6_i400_lr040,catboost,1,0.2467064589039459,0.0,1241.1456692154488,"['features.custom', 'features.description', 'features.name']",9.212795479301985e-06,0/1
+global250,window250,main81_add_global250,81,catboost_top_d6_i400_lr040,catboost,1,0.2467086356465117,0.0,1240.274299236199,"['features.custom', 'features.description', 'features.name']",1.138953804513676e-05,0/1
+global300,window300,main81_add_global300,81,catboost_top_d6_i400_lr040,catboost,1,0.2467361988903284,0.0,1229.240480368743,"['features.custom', 'features.description', 'features.name']",3.895278186183404e-05,0/1
+global400,window400,main81_add_global400,81,catboost_top_d6_i400_lr040,catboost,1,0.2468068034930048,0.0,1200.9768114653152,"['features.custom', 'features.description', 'features.name']",0.0001095573845382,0/1

@@ -1,0 +1,37 @@
+[study]
+id = "067_2023_residual_catboost"
+description = "2023 잔차 CatBoost 보정"
+hypothesis = "2019~2022 모델의 2023 OOT 잔차에서 반복되는 비선형 패턴을 학습하면 2024 예측의 남은 편향을 줄일 수 있다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "base_control"
+
+[[variants]]
+name = "base_control"
+model = "catboost_d8_decay085"
+features = "main69_pitcher_batter_season_all"
+change = "control: EXP_060 depth8 decay85"
+
+[[variants]]
+name = "residual_w025"
+model = "cat_residual_w025"
+features = "main69_pitcher_batter_season_all"
+change = "2023 OOT 잔차 예측의 25% 적용"
+
+[[variants]]
+name = "residual_w050"
+model = "cat_residual_w050"
+features = "main69_pitcher_batter_season_all"
+change = "2023 OOT 잔차 예측의 50% 적용"
+
+[[variants]]
+name = "residual_w075"
+model = "cat_residual_w075"
+features = "main69_pitcher_batter_season_all"
+change = "2023 OOT 잔차 예측의 75% 적용"
+
+[[variants]]
+name = "residual_w100"
+model = "cat_residual_w100"
+features = "main69_pitcher_batter_season_all"
+change = "2023 OOT 잔차 예측을 전부 적용"

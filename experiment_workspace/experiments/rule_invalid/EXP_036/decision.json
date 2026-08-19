@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_036",
+  "decision": "adopt",
+  "selected_variant": "reverse_short",
+  "reason": "투수 reverse 직전·3·5·10 창이 Brier 0.2469380, BSS 1148.46으로 장기·전체 reverse 조합보다 우수",
+  "based_on": "EXP_035",
+  "reference_variant": "add_all_extensions",
+  "ablation_summary": "main73과 GPU CatBoost를 고정하고 투수 reverse 직전·3·5·10·20·50투구 창의 포함 조합만 변경",
+  "selected_result": {
+    "variant": "reverse_short",
+    "change": "투수 reverse 직전·3·5·10 추가",
+    "feature_set": "main77_add_pitcher_reverse_short",
+    "feature_count": 77,
+    "model": "catboost_gpu_d6_i600_lr025_b128",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2469380019,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 1148.4568692102,
+    "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+    "delta_brier_vs_control": -0.0002318994,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "main73_control",
+    "change": "control: 성공 rolling 최고 조합",
+    "feature_set": "main73_add_rolling_extensions",
+    "feature_count": 73,
+    "model": "catboost_gpu_d6_i600_lr025_b128",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2471699014,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 1055.6254020861,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-17T18:36:46.566121+00:00",
+  "based_on_run_id": "RUN_001"
+}

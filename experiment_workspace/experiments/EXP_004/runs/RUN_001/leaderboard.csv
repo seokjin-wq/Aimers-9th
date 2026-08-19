@@ -1,0 +1,3 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+native_basic,동일 3개 범주를 CatBoost native categorical로 처리,main55,55,catboost_native_300,catboost,1,0.2480092675427688,0.0,719.6194426463354,"['model.name', 'model.native_categorical']",-1.4186879985916834e-05,1/1
+ordinal_control,"control: top_bottom, game_type, base_state를 ordinal 숫자로 변환",main55,55,catboost_default,catboost,1,0.2480234544227547,0.0,713.9403046936388,[],0.0,0/1

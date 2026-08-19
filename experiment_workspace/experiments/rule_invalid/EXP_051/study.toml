@@ -1,0 +1,43 @@
+[study]
+id = "exp_051"
+description = "global reverse rolling windows"
+hypothesis = "전역 최근 역방향 비율이 직전 경기 환경과 scorer 경향을 보완해 Brier를 낮춘다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "control"
+
+[[variants]]
+name = "control"
+model = "catboost_cpu_d6_i600_lr030"
+features = "main81_add_global200"
+change = "control: EXP050 d6 i600 + global200 success"
+
+[[variants]]
+name = "reverse50"
+model = "catboost_cpu_d6_i600_lr030"
+features = "main82_add_global50_reverse"
+change = "global recent50 reverse 추가"
+
+[[variants]]
+name = "reverse100"
+model = "catboost_cpu_d6_i600_lr030"
+features = "main82_add_global100_reverse"
+change = "global recent100 reverse 추가"
+
+[[variants]]
+name = "reverse150"
+model = "catboost_cpu_d6_i600_lr030"
+features = "main82_add_global150_reverse"
+change = "global recent150 reverse 추가"
+
+[[variants]]
+name = "reverse200"
+model = "catboost_cpu_d6_i600_lr030"
+features = "main82_add_global200_reverse"
+change = "global recent200 reverse 추가"
+
+[[variants]]
+name = "reverse300"
+model = "catboost_cpu_d6_i600_lr030"
+features = "main82_add_global300_reverse"
+change = "global recent300 reverse 추가"

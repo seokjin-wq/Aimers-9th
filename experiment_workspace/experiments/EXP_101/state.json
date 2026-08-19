@@ -1,0 +1,10 @@
+{
+  "id": "EXP_101",
+  "status": "decided",
+  "created_at_utc": "2026-08-18T08:41:53.363192+00:00",
+  "updated_at_utc": "2026-08-18T09:08:49.019619+00:00",
+  "run_count": 2,
+  "latest_run_id": "RUN_002",
+  "decision": "adopt",
+  "selected_variant": "catshift_m0095"
+}

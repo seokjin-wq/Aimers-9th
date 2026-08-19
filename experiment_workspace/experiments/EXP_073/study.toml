@@ -1,0 +1,37 @@
+[study]
+id = "073_season_success_shrinkage"
+description = "당해 시즌 투수·타자 성공률 스무딩 강도 탐색"
+hypothesis = "현재 k=20이 당해 시즌 성공률을 과도하거나 부족하게 스무딩할 수 있으므로, 성공률 피처의 k만 조정하면 행 독립성을 유지하면서 보정력이 개선된다."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "success_k20_control"
+
+[[variants]]
+name = "success_k20_control"
+model = "catboost_d8_decay085"
+features = "main69_pitcher_batter_season_all"
+change = "control: 투수·타자 당해 시즌 성공률 k=20"
+
+[[variants]]
+name = "success_k5"
+model = "catboost_d8_decay085"
+features = "main69_season_success_k5"
+change = "control 대비 투수·타자 당해 시즌 성공률 k=5"
+
+[[variants]]
+name = "success_k10"
+model = "catboost_d8_decay085"
+features = "main69_season_success_k10"
+change = "control 대비 투수·타자 당해 시즌 성공률 k=10"
+
+[[variants]]
+name = "success_k50"
+model = "catboost_d8_decay085"
+features = "main69_season_success_k50"
+change = "control 대비 투수·타자 당해 시즌 성공률 k=50"
+
+[[variants]]
+name = "success_k100"
+model = "catboost_d8_decay085"
+features = "main69_season_success_k100"
+change = "control 대비 투수·타자 당해 시즌 성공률 k=100"

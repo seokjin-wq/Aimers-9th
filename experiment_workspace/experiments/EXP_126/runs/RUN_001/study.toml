@@ -1,0 +1,31 @@
+[study]
+id = "126_oot_simplex_blend_weights"
+description = "OOT-learned simplex blend weights"
+hypothesis = "Nonnegative ensemble weights learned only from 2019-2022 to 2023 OOT predictions will better combine CPU/GPU/Extra errors for 2024 than fixed manual weights."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "manual_weights_control"
+
+[[variants]]
+name = "manual_weights_control"
+model = "triple_count_m0095_sub08_w50_35_15"
+features = "main78_history_reliability"
+change = "control: fixed manual CPU/GPU/Extra weights 50/35/15"
+
+[[variants]]
+name = "oot_weight_strength_025"
+model = "triple_oot_weights_s025"
+features = "main78_history_reliability"
+change = "move 25% from manual weights toward 2023 OOT simplex optimum"
+
+[[variants]]
+name = "oot_weight_strength_050"
+model = "triple_oot_weights_s050"
+features = "main78_history_reliability"
+change = "move 50% from manual weights toward 2023 OOT simplex optimum"
+
+[[variants]]
+name = "oot_weight_strength_100"
+model = "triple_oot_weights_s100"
+features = "main78_history_reliability"
+change = "use 2023 OOT simplex-optimal weights directly"

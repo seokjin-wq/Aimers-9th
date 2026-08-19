@@ -1,0 +1,51 @@
+{
+  "based_on": "EXP_002",
+  "reference_variant": "selected41_control",
+  "ablation_summary": "EXP_002의 main55를 선택 제공 41개와 custom14로 분해해 custom14의 순수 추가 효과를 검증",
+  "control": "selected41_control",
+  "variants": [
+    {
+      "name": "selected41_control",
+      "declared_change": "control: 선택 제공 피처 41개",
+      "is_control": true,
+      "feature_count": 41,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_custom14",
+      "declared_change": "행 단위 파생 피처 14개 추가",
+      "is_control": false,
+      "feature_count": 55,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [
+        "pitcher_gap_prev1_career",
+        "pitcher_gap_prev3_career",
+        "pitcher_gap_prev5_career",
+        "win_expectancy_dist50",
+        "count_diff",
+        "count_total",
+        "same_hand_matchup",
+        "pressure_x_recent_form",
+        "runners_x_li",
+        "batter_success_rate_shrunk",
+        "reverse_rate_x_li",
+        "middle_rate_x_count_diff",
+        "late_inning_x_recent_form",
+        "offspeed_x_li"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_102"
+title = "Count-calibrated triple weight refinement"
+hypothesis = "On the latest features and corrected cache, a nearby CPU/GPU/ExtraTrees mixture improves the count-calibrated ensemble beyond 45/40/15."
+change_scope = "model"
+study_config = "experiments/EXP_102/study.toml"
+based_on = "EXP_101"
+reference_variant = "catshift_m0095"
+ablation_summary = "Keep all component models, features, CatBoost shift -0.0095, and train-only count-k500 calibration fixed; vary only CPU/GPU/ExtraTrees weights around 45/40/15."
+tags = ["compliance", "row-independent", "ensemble", "weights", "calibration"]
+created_at_utc = "2026-08-18T09:09:55.276459+00:00"

@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_041",
+  "decision": "adopt",
+  "selected_variant": "bag0",
+  "reason": "bagging_temperature 0만 Brier를 0.2468663, BSS 1177.18로 개선했고 has_time과 random_strength 변경은 모두 악화",
+  "based_on": "EXP_040",
+  "reference_variant": "cat_single_control",
+  "ablation_summary": "main85와 depth6 900 lr0.020을 고정하고 has_time, random_strength 0·0.2·2, bagging_temperature 0만 개별 변경",
+  "selected_result": {
+    "variant": "bag0",
+    "change": "bagging_temperature 0",
+    "feature_set": "main85_add_plate_context",
+    "feature_count": 85,
+    "model": "catboost_gpu_d6_i900_bag0",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2468662526,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 1177.1787912617,
+    "changed_fields_vs_control": "['model.name', 'model.params.bagging_temperature']",
+    "delta_brier_vs_control": -3.4514e-05,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "default_control",
+    "change": "control: 기본 랜덤성",
+    "feature_set": "main85_add_plate_context",
+    "feature_count": 85,
+    "model": "catboost_gpu_d6_i900_lr020_b128",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2469007666,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 1163.3625291386,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-17T19:16:39.345318+00:00",
+  "based_on_run_id": "RUN_001"
+}

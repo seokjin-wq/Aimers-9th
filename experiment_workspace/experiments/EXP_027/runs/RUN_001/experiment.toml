@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_027"
+title = "CatBoost GPU 학습 후보"
+hypothesis = "GPU CatBoost의 다른 histogram과 categorical 계산이 CPU 모델보다 낮은 Brier 또는 유용한 앙상블 다양성을 만든다"
+change_scope = "model"
+study_config = "experiments/EXP_027/study.toml"
+based_on = "EXP_026"
+reference_variant = "count_k500"
+ablation_summary = "main60과 affine을 고정하고 GPU depth 6~8, iterations 300~600, learning rate 0.025~0.05를 비교"
+tags = ["catboost", "gpu", "diversity"]
+created_at_utc = "2026-08-17T17:51:32.126801+00:00"

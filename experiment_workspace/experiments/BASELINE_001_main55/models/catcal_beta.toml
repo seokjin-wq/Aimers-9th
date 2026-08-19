@@ -1,0 +1,21 @@
+[model]
+name = "catcal_beta"
+family = "catboost_probability_calibrated"
+calibration_method = "beta"
+calibration_c = 1000.0
+
+[model.cat_params]
+iterations = 600
+depth = 6
+learning_rate = 0.025
+l2_leaf_reg = 3.0
+bootstrap_type = "Bayesian"
+bagging_temperature = 1.0
+border_count = 128
+random_seed = 42
+task_type = "GPU"
+devices = "0"
+loss_function = "Logloss"
+eval_metric = "BrierScore"
+allow_writing_files = false
+verbose = false

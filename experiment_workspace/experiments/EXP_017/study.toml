@@ -1,0 +1,55 @@
+[study]
+id = "017_count_feature_contribution"
+description = "카운트 피처 개별 기여"
+hypothesis = "카운트 파생 5개 중 일부가 개선 대부분을 만들며 count_state 범주화가 추가 개선한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main55_control"
+
+[[variants]]
+name = "main55_control"
+model = "catboost_native_shift_m010"
+features = "main55"
+change = "control: main55 + shift"
+
+[[variants]]
+name = "add_count_state"
+model = "catboost_native_shift_m010"
+features = "main55_plus_count_state"
+change = "count_state 단독 추가"
+
+[[variants]]
+name = "add_full_count"
+model = "catboost_native_shift_m010"
+features = "main55_plus_is_full_count"
+change = "is_full_count 단독 추가"
+
+[[variants]]
+name = "add_two_strikes"
+model = "catboost_native_shift_m010"
+features = "main55_plus_has_two_strikes"
+change = "has_two_strikes 단독 추가"
+
+[[variants]]
+name = "add_three_balls"
+model = "catboost_native_shift_m010"
+features = "main55_plus_has_three_balls"
+change = "has_three_balls 단독 추가"
+
+[[variants]]
+name = "add_two_outs"
+model = "catboost_native_shift_m010"
+features = "main55_plus_has_two_outs"
+change = "has_two_outs 단독 추가"
+
+[[variants]]
+name = "all_count_numeric"
+model = "catboost_native_shift_m010"
+features = "main55_plus_count"
+change = "count 5개 전체 numeric"
+
+[[variants]]
+name = "count_state_categorical"
+model = "catboost_native_shift_m010"
+features = "main55_plus_count_categorical"
+change = "count 5개 전체에서 count_state만 native categorical"

@@ -1,0 +1,37 @@
+[study]
+id = "100_latest_affine_refinement"
+description = "Latest-feature affine probability refinement"
+hypothesis = "The latest 72-feature CatBoost has a different optimal probability spread and mean than the earlier main60 model, so small scale or shift changes can reduce Brier."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "scale106_shift008_control"
+
+[[variants]]
+name = "scale106_shift008_control"
+model = "catboost_d8_decay085"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: current scale 1.06, shift -0.008"
+
+[[variants]]
+name = "scale104_shift008"
+model = "catboost_d8_decay085_scale104_shift008"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "scale 1.04, shift fixed -0.008"
+
+[[variants]]
+name = "scale108_shift008"
+model = "catboost_d8_decay085_scale108_shift008"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "scale 1.08, shift fixed -0.008"
+
+[[variants]]
+name = "scale106_shift006"
+model = "catboost_d8_decay085_scale106_shift006"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "scale fixed 1.06, shift -0.006"
+
+[[variants]]
+name = "scale106_shift010"
+model = "catboost_d8_decay085_scale106_shift010"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "scale fixed 1.06, shift -0.010"

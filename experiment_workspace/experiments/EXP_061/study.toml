@@ -1,0 +1,37 @@
+[study]
+id = "061_metric_specific_shrinkage"
+description = "시즌 지표별 스무딩 강도"
+hypothesis = "현재 시즌 ball·strike·타자 middle은 성공률보다 저표본 변동이 커 더 강한 shrinkage가 일반화를 개선한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "common_k20"
+
+[[variants]]
+name = "common_k20"
+model = "catboost_d8_decay085"
+features = "main69_pitcher_batter_season_all"
+change = "control: 모든 현재 시즌 비율 k20"
+
+[[variants]]
+name = "ball_k500"
+model = "catboost_d8_decay085"
+features = "main69_tuned_ball"
+change = "투수 ball만 k20에서 k500으로 변경"
+
+[[variants]]
+name = "strike_k200"
+model = "catboost_d8_decay085"
+features = "main69_tuned_strike"
+change = "투수 strike만 k20에서 k200으로 변경"
+
+[[variants]]
+name = "batter_middle_k200"
+model = "catboost_d8_decay085"
+features = "main69_tuned_batter_middle"
+change = "타자 middle만 k20에서 k200으로 변경"
+
+[[variants]]
+name = "metric_specific_all"
+model = "catboost_d8_decay085"
+features = "main69_tuned_metric_shrinkage"
+change = "ball500·strike200·batter-middle200을 동시에 적용"

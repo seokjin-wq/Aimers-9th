@@ -1,0 +1,4 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+catshift_m0095_control,control: EXP_117 winner cat_shift=-0.0095,main78_history_reliability,78,triple_count_m0095_sub08_w50_35_15,cat_cpu_gpu_extra_blend,1,0.2474516578553739,0.0,942.835705955869,[],0.0,0/1
+catshift_m010,cat_shift -0.0095 -> -0.0100 only,main78_history_reliability,78,triple_count_sub08_w50_35_15_shift_m010,cat_cpu_gpu_extra_blend,1,0.2474517351465482,0.0,942.8047655911432,"['model.cat_shift', 'model.name']",7.729117423860289e-08,0/1
+catshift_m009,cat_shift -0.0095 -> -0.0090 only,main78_history_reliability,78,triple_count_sub08_w50_35_15_shift_m009,cat_cpu_gpu_extra_blend,1,0.2474519418141997,0.0,942.7220346380104,"['model.cat_shift', 'model.name']",2.839588257308457e-07,0/1

@@ -1,0 +1,252 @@
+{
+  "based_on": "EXP_017",
+  "reference_variant": "all_count_numeric",
+  "ablation_summary": "main55+count와 -0.010 shift를 고정하고 depth 4~6, iterations 100~400만 변경",
+  "control": "d6_i300_control",
+  "variants": [
+    {
+      "name": "d6_i300_control",
+      "declared_change": "control: depth6, 300 trees",
+      "is_control": true,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "d4_i150",
+      "declared_change": "depth4, 150 trees",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_shift_m010",
+          "variant": "catboost_native_d4_i150_shift"
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": 4
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 150
+        }
+      ]
+    },
+    {
+      "name": "d4_i250",
+      "declared_change": "depth4, 250 trees",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_shift_m010",
+          "variant": "catboost_native_d4_i250_shift"
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": 4
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 250
+        }
+      ]
+    },
+    {
+      "name": "d4_i400",
+      "declared_change": "depth4, 400 trees",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_shift_m010",
+          "variant": "catboost_native_d4_i400_shift"
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": 4
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 400
+        }
+      ]
+    },
+    {
+      "name": "d5_i150",
+      "declared_change": "depth5, 150 trees",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_shift_m010",
+          "variant": "catboost_native_d5_i150_shift"
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": 5
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 150
+        }
+      ]
+    },
+    {
+      "name": "d5_i250",
+      "declared_change": "depth5, 250 trees",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_shift_m010",
+          "variant": "catboost_native_d5_i250_shift"
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": 5
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 250
+        }
+      ]
+    },
+    {
+      "name": "d5_i400",
+      "declared_change": "depth5, 400 trees",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_shift_m010",
+          "variant": "catboost_native_d5_i400_shift"
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": 5
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 400
+        }
+      ]
+    },
+    {
+      "name": "d6_i150",
+      "declared_change": "depth6, 150 trees",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_shift_m010",
+          "variant": "catboost_native_d6_i150_shift"
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 150
+        }
+      ]
+    },
+    {
+      "name": "d6_i225",
+      "declared_change": "depth6, 225 trees",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_shift_m010",
+          "variant": "catboost_native_d6_i225_shift"
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 225
+        }
+      ]
+    }
+  ]
+}

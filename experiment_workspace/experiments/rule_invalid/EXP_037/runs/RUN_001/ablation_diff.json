@@ -1,0 +1,135 @@
+{
+  "based_on": "EXP_036",
+  "reference_variant": "reverse_short",
+  "ablation_summary": "main77 reverse-short와 GPU CatBoost를 고정하고 투수 middle, 투수 ball, 타자 middle의 직전·3·5·10 창만 개별·조합 추가",
+  "control": "main77_control",
+  "variants": [
+    {
+      "name": "main77_control",
+      "declared_change": "control: success+reverse 최고 조합",
+      "is_control": true,
+      "feature_count": 77,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pitcher_middle",
+      "declared_change": "투수 middle 단기 창 추가",
+      "is_control": false,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_previous_pitch_middle",
+        "pitcher_recent3_pitch_middle",
+        "pitcher_recent5_pitch_middle",
+        "pitcher_recent10_pitch_middle"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pitcher_ball",
+      "declared_change": "투수 ball 단기 창 추가",
+      "is_control": false,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_previous_pitch_ball",
+        "pitcher_recent3_pitch_ball",
+        "pitcher_recent5_pitch_ball",
+        "pitcher_recent10_pitch_ball"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "batter_middle",
+      "declared_change": "타자 middle 단기 창 추가",
+      "is_control": false,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "batter_previous_pitch_middle",
+        "batter_recent3_pitch_middle",
+        "batter_recent5_pitch_middle",
+        "batter_recent10_pitch_middle"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pitcher_middle_ball",
+      "declared_change": "투수 middle·ball 단기 창 추가",
+      "is_control": false,
+      "feature_count": 85,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_previous_pitch_middle",
+        "pitcher_recent3_pitch_middle",
+        "pitcher_recent5_pitch_middle",
+        "pitcher_recent10_pitch_middle",
+        "pitcher_previous_pitch_ball",
+        "pitcher_recent3_pitch_ball",
+        "pitcher_recent5_pitch_ball",
+        "pitcher_recent10_pitch_ball"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "all_state",
+      "declared_change": "투수 middle·ball 및 타자 middle 단기 창 모두 추가",
+      "is_control": false,
+      "feature_count": 89,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_previous_pitch_middle",
+        "pitcher_recent3_pitch_middle",
+        "pitcher_recent5_pitch_middle",
+        "pitcher_recent10_pitch_middle",
+        "pitcher_previous_pitch_ball",
+        "pitcher_recent3_pitch_ball",
+        "pitcher_recent5_pitch_ball",
+        "pitcher_recent10_pitch_ball",
+        "batter_previous_pitch_middle",
+        "batter_recent3_pitch_middle",
+        "batter_recent5_pitch_middle",
+        "batter_recent10_pitch_middle"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

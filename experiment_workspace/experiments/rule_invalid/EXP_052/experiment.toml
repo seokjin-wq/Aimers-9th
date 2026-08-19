@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_052"
+title = "best prediction calibration probe"
+hypothesis = "EXP050 최고 모델 예측의 잔여 평균·분산 편향을 보정하면 Brier를 추가로 낮출 수 있다"
+change_scope = "model"
+study_config = "experiments/EXP_052/study.toml"
+based_on = "EXP_050"
+reference_variant = "d6_i600"
+ablation_summary = "EXP050 최고 설정을 그대로 1회 재현하고 2024 row별 예측을 저장하여 affine 보정 가능 범위를 진단"
+tags = ["calibration", "diagnostics"]
+created_at_utc = "2026-08-17T20:31:08.416838+00:00"

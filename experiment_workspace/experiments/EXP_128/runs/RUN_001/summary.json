@@ -1,0 +1,102 @@
+{
+  "experiment_id": "EXP_128",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T14:05:05.577158+00:00",
+  "completed_at_utc": "2026-08-18T14:17:47.498493+00:00",
+  "config_hash": "d4ccedc513a4",
+  "based_on": "EXP_127",
+  "reference_variant": "count_trend_strength_100",
+  "ablation_summary": "Fix EXP_127 model, features, count trend groups, trend shrinkage, and all calibration; vary only trend_strength around 1.00 using 0.75, 1.00, 1.25, and 1.50.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/128_count_trend_strength_refinement/20260818T140505588953Z_d4ccedc513a4",
+  "control": "strength_100_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "strength_100_control",
+  "best_mean_brier": 0.2474502158484668,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "strength_100_control",
+      "change": "control: EXP_127 adopted trend strength 1.00",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_count_trend_s100",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474502158,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 943.4129545237,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "strength_125",
+      "change": "change only trend strength from 1.00 to 1.25",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_count_trend_s125",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474505784,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 943.2678385769,
+      "changed_fields_vs_control": "['model.name', 'model.trend_strength']",
+      "delta_brier_vs_control": 3.625e-07,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "strength_075",
+      "change": "change only trend strength from 1.00 to 0.75",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_count_trend_s075",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474506152,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 943.2530981806,
+      "changed_fields_vs_control": "['model.name', 'model.trend_strength']",
+      "delta_brier_vs_control": 3.993e-07,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "strength_150",
+      "change": "change only trend strength from 1.00 to 1.50",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_count_trend_s150",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474517027,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 942.8177503401,
+      "changed_fields_vs_control": "['model.name', 'model.trend_strength']",
+      "delta_brier_vs_control": 1.4869e-06,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "357eeb4dffde0211bda4790578f0be5fd5d86f131967f5131a39324be3e8332c",
+  "git_commit": "6d209d0caeceb5b7d9ca86543cfad3f10b1af6ae",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 761.7188324928284
+}

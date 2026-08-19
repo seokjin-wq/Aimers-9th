@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_034"
+title = "누적 asof 직전 투구 복원"
+hypothesis = "누적 표본수와 성공률의 행간 차이로 복원한 직전 및 최근 투구 결과가 단일 행 누적률에 없는 단기 제구 흐름을 제공한다"
+change_scope = "features"
+study_config = "experiments/EXP_034/study.toml"
+based_on = "EXP_033"
+reference_variant = "global_control"
+ablation_summary = "GPU CatBoost와 main60을 고정하고 pitcher/batter의 직전 및 최근 3·5·10투구 성공률 파생만 개별·조합 추가"
+tags = ["asof", "sequential", "recent-form"]
+created_at_utc = "2026-08-17T18:24:10.214716+00:00"

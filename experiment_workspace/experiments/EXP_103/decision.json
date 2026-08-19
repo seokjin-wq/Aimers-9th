@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_103",
+  "decision": "keep_control",
+  "selected_variant": "residual_scale_1_control",
+  "reason": "Residual scale 1.0 remained best at BSS 938.180. Both attenuation (0.5, 0.75) and amplification (1.25, 1.5, 2.0) worsened Brier, so retain the original OOT count-offset amplitude.",
+  "based_on": "EXP_102",
+  "reference_variant": "w50_35_15",
+  "ablation_summary": "Keep features, component models, CPU50/GPU35/Extra15 weights, CatBoost shift -0.0095, count groups, and shrinkage 500 fixed; vary only residual_scale from 0.5 to 2.0.",
+  "selected_result": {
+    "variant": "residual_scale_1_control",
+    "change": "control: EXP_102 residual scale 1.0",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "triple_group_count_k500_shift_m0095_w50_35_15",
+    "model_family": "cat_cpu_gpu_extra_blend",
+    "fold_count": 1,
+    "mean_brier": 0.247463289,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 938.1796493859,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "residual_scale_1_control",
+    "change": "control: EXP_102 residual scale 1.0",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "triple_group_count_k500_shift_m0095_w50_35_15",
+    "model_family": "cat_cpu_gpu_extra_blend",
+    "fold_count": 1,
+    "mean_brier": 0.247463289,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 938.1796493859,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T09:35:44.778171+00:00",
+  "based_on_run_id": "RUN_001"
+}

@@ -1,0 +1,171 @@
+{
+  "based_on": "EXP_102",
+  "reference_variant": "w50_35_15",
+  "ablation_summary": "Keep features, component models, CPU50/GPU35/Extra15 weights, CatBoost shift -0.0095, count groups, and shrinkage 500 fixed; vary only residual_scale from 0.5 to 2.0.",
+  "control": "residual_scale_1_control",
+  "variants": [
+    {
+      "name": "residual_scale_1_control",
+      "declared_change": "control: EXP_102 residual scale 1.0",
+      "is_control": true,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "residual_scale_0p5",
+      "declared_change": "multiply train-only count residual offsets by 0.5",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "triple_group_count_k500_shift_m0095_w50_35_15",
+          "variant": "triple_group_count_k500_shift_m0095_w50_35_15_r0p5"
+        },
+        {
+          "field": "model.residual_scale",
+          "control": 1.0,
+          "variant": 0.5
+        }
+      ]
+    },
+    {
+      "name": "residual_scale_0p75",
+      "declared_change": "multiply train-only count residual offsets by 0.75",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "triple_group_count_k500_shift_m0095_w50_35_15",
+          "variant": "triple_group_count_k500_shift_m0095_w50_35_15_r0p75"
+        },
+        {
+          "field": "model.residual_scale",
+          "control": 1.0,
+          "variant": 0.75
+        }
+      ]
+    },
+    {
+      "name": "residual_scale_1p25",
+      "declared_change": "multiply train-only count residual offsets by 1.25",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "triple_group_count_k500_shift_m0095_w50_35_15",
+          "variant": "triple_group_count_k500_shift_m0095_w50_35_15_r1p25"
+        },
+        {
+          "field": "model.residual_scale",
+          "control": 1.0,
+          "variant": 1.25
+        }
+      ]
+    },
+    {
+      "name": "residual_scale_1p5",
+      "declared_change": "multiply train-only count residual offsets by 1.5",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "triple_group_count_k500_shift_m0095_w50_35_15",
+          "variant": "triple_group_count_k500_shift_m0095_w50_35_15_r1p5"
+        },
+        {
+          "field": "model.residual_scale",
+          "control": 1.0,
+          "variant": 1.5
+        }
+      ]
+    },
+    {
+      "name": "residual_scale_2p0",
+      "declared_change": "multiply train-only count residual offsets by 2.0",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "triple_group_count_k500_shift_m0095_w50_35_15",
+          "variant": "triple_group_count_k500_shift_m0095_w50_35_15_r2"
+        },
+        {
+          "field": "model.residual_scale",
+          "control": 1.0,
+          "variant": 2.0
+        }
+      ]
+    }
+  ]
+}

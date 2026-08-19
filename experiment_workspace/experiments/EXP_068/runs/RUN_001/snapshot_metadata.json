@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T03:42:16.711015+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "23e151c38b60",
+  "based_on": "EXP_062",
+  "reference_variant": "extra_w18",
+  "ablation_summary": "main69 decay85 대비 Trackman 물리 6개, 구종비율 3개, 전체 9개를 season-OOF 방식으로 추가"
+}

@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T09:23:29.197123+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "73180399c64f",
+  "based_on": "EXP_102",
+  "reference_variant": "w50_35_15",
+  "ablation_summary": "Keep features, component models, CPU50/GPU35/Extra15 weights, CatBoost shift -0.0095, count groups, and shrinkage 500 fixed; vary only residual_scale from 0.5 to 2.0."
+}

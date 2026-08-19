@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_082"
+title = "Context categories on count-hands base"
+hypothesis = "Once count and both hands are categorical, adding one adjacent discrete context such as outs, inning, pitcher team, month, raw count components, or runner count may expose a useful higher-order interaction."
+change_scope = "features"
+study_config = "experiments/EXP_082/study.toml"
+based_on = "EXP_080"
+reference_variant = "count_hands_promoted"
+ablation_summary = "Fix EXP_078 count+hands categories; add exactly one adjacent low-cardinality categorical block at a time."
+tags = ["compliance,row-independent,categorical,context-interaction"]
+created_at_utc = "2026-08-18T05:38:56.463728+00:00"

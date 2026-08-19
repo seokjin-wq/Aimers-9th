@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_101",
+  "decision": "adopt",
+  "selected_variant": "catshift_m0095",
+  "reason": "RUN_001 exposed a blend-cache defect and is retained only as an audit artifact. After fixing raw-probability caching, RUN_002 correctly separated variants: CatBoost shift -0.0095 reduced Brier by 0.000002135 versus the fresh control and reached BSS 938.298, so adopt it as the new compliant best candidate.",
+  "based_on": "EXP_094",
+  "reference_variant": "count_k500_repro",
+  "ablation_summary": "Keep features, triple weights, component training, and train-only count calibration fixed; compare CatBoost component shifts -0.008, -0.0095, and -0.010.",
+  "selected_result": {
+    "variant": "catshift_m0095",
+    "change": "lower CatBoost component shift to -0.0095",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "triple_group_count_k500_catshift_m0095",
+    "model_family": "cat_cpu_gpu_extra_blend",
+    "fold_count": 1,
+    "mean_brier": 0.2474629933,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 938.2980431539,
+    "changed_fields_vs_control": "['model.cat_shift', 'model.name']",
+    "delta_brier_vs_control": -2.1352e-06,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "catshift_m008_control",
+    "change": "control: EXP_094 count-k500 triple with CatBoost shift -0.008",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "triple_group_count_k500",
+    "model_family": "cat_cpu_gpu_extra_blend",
+    "fold_count": 1,
+    "mean_brier": 0.2474651285,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 937.443303242,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T09:08:49.019507+00:00",
+  "based_on_run_id": "RUN_002"
+}

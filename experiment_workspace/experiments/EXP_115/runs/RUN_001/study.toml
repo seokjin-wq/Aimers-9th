@@ -1,0 +1,31 @@
+[study]
+id = "115_reliability_situation_factorial"
+description = "Reliability with situational history interactions"
+hypothesis = "The new reliability representation may stabilize previously useful late-inning and full-count pitcher-history interactions, allowing a complementary gain."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "reliability_control"
+
+[[variants]]
+name = "reliability_control"
+model = "catboost_d8_decay085_sub08"
+features = "main78_history_reliability"
+change = "control: EXP_112-114 six-feature reliability winner"
+
+[[variants]]
+name = "add_late_history"
+model = "catboost_d8_decay085_sub08"
+features = "main81_reliability_late_history"
+change = "add late-inning x pitcher success/reverse/middle only"
+
+[[variants]]
+name = "add_full_count_history"
+model = "catboost_d8_decay085_sub08"
+features = "main81_reliability_full_count"
+change = "add full-count x pitcher success/reverse/middle only"
+
+[[variants]]
+name = "add_both_blocks"
+model = "catboost_d8_decay085_sub08"
+features = "main84_reliability_late_full"
+change = "add both late-inning and full-count history blocks"

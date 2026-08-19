@@ -1,0 +1,49 @@
+[study]
+id = "006_catboost_capacity"
+description = "CatBoost 깊이와 반복 수 탐색"
+hypothesis = "현재 300-tree depth6 모델은 과소학습 상태이며 더 많은 tree 또는 다른 depth가 2024 Brier를 개선한다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "d6_i300_control"
+
+[[variants]]
+name = "d6_i300_control"
+model = "catboost_native_300"
+features = "main55"
+change = "control: depth6, 300 trees"
+
+[[variants]]
+name = "d5_i600"
+model = "catboost_d5_i600"
+features = "main55"
+change = "depth5, 600 trees"
+
+[[variants]]
+name = "d6_i600"
+model = "catboost_d6_i600"
+features = "main55"
+change = "depth6, 600 trees"
+
+[[variants]]
+name = "d6_i1000"
+model = "catboost_d6_i1000"
+features = "main55"
+change = "depth6, 1000 trees"
+
+[[variants]]
+name = "d7_i600"
+model = "catboost_d7_i600"
+features = "main55"
+change = "depth7, 600 trees"
+
+[[variants]]
+name = "d8_i600"
+model = "catboost_d8_i600"
+features = "main55"
+change = "depth8, 600 trees"
+
+[[variants]]
+name = "d7_i1000_lr03"
+model = "catboost_d7_i1000_lr03"
+features = "main55"
+change = "depth7, 1000 trees, learning_rate 0.03"

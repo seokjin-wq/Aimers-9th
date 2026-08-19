@@ -1,0 +1,6 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+main69_control,control: EXP_060 최고 CatBoost,main69_pitcher_batter_season_all,69,catboost_d8_decay085,catboost,1,0.2475377207264107,0.0,908.3839506926596,[],0.0,0/1
+count_out_base,볼카운트×아웃×주자상태 학습 효과 추가,main70_count_out_base_effect,70,catboost_d8_decay085,catboost,1,0.370355394869704,0.0,0.0,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",0.1228176741432932,0/1
+count_hands,볼카운트×투수손×타자손 학습 효과 추가,main70_count_hands_effect,70,catboost_d8_decay085,catboost,1,0.4911257123006279,0.0,0.0,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",0.2435879915742171,0/1
+all_context,네 가지 시즌 중심화 상황 교차 효과를 모두 추가,main73_all_context_effects,73,catboost_d8_decay085,catboost,1,0.4992988276808865,0.0,0.0,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",0.2517611069544758,0/1
+game_pressure,이닝×공수×경기유형과 압박상태 효과 추가,main71_game_pressure_effects,71,catboost_d8_decay085,catboost,1,0.5079691873343104,0.0,0.0,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",0.2604314666078996,0/1

@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T19:23:24.673295+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "be78ac5a51b9",
+  "based_on": "EXP_042",
+  "reference_variant": "batter_lags",
+  "ablation_summary": "CPU depth6 400 lr0.04를 고정하고 main60→main73→main77→main85→main87 핵심 누적 피처 단계만 비교"
+}

@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_097",
+  "decision": "keep_control",
+  "selected_variant": "current_triple",
+  "reason": "Fresh triple rerun reversed the small EXP_091 gain: late-history features worsened Brier by 0.000006598 and BSS 934.716 to 932.074. Keep the current same-hand triple and do not spend another experiment combining late history with calibration.",
+  "based_on": "EXP_096",
+  "reference_variant": "late_all_three",
+  "ablation_summary": "Rerun the fixed triple ensemble with current versus complete late-history features only; defer count calibration to a separate experiment.",
+  "selected_result": {
+    "variant": "current_triple",
+    "change": "control: current same-hand pitch-mix triple without count calibration",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "triple_cpu45_gpu40_extra15",
+    "model_family": "cat_cpu_gpu_extra_blend",
+    "fold_count": 1,
+    "mean_brier": 0.2474719423,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 934.715664474,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "current_triple",
+    "change": "control: current same-hand pitch-mix triple without count calibration",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "triple_cpu45_gpu40_extra15",
+    "model_family": "cat_cpu_gpu_extra_blend",
+    "fold_count": 1,
+    "mean_brier": 0.2474719423,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 934.715664474,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T08:20:35.281494+00:00",
+  "based_on_run_id": "RUN_001"
+}

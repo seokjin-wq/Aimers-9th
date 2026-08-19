@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="720" viewBox="0 0 1080 720">
+<rect width="1080" height="720" fill="#fff"/>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;fill:#263238}.t{font-size:25px;font-weight:700}.s{font-size:14px;fill:#607d8b}.h{font-size:15px;font-weight:700}.v{font-size:15px;font-weight:700}.n{font-size:11px;fill:#455a64}.note{font-size:13px;fill:#546e7a}</style>
+<text x="65" y="40" class="t">Control success: exact inning × common LI quintile</text>
+<text x="65" y="65" class="s">Each column uses the same absolute LI range across innings · Cell: success rate / rows</text><text x="230" y="98" text-anchor="middle" class="h">LI Q1</text><text x="390" y="98" text-anchor="middle" class="h">LI Q2</text><text x="550" y="98" text-anchor="middle" class="h">LI Q3</text><text x="710" y="98" text-anchor="middle" class="h">LI Q4</text><text x="870" y="98" text-anchor="middle" class="h">LI Q5</text><text x="130" y="150" text-anchor="end" class="h">1</text><rect x="150" y="120" width="156" height="44" rx="5" fill="rgb(223,97,90)"/>
+  <text x="228" y="139" text-anchor="middle" class="v" fill="#fff">53.3%</text>
+  <text x="228" y="156" text-anchor="middle" class="n" fill="#fff">n=1,928</text><rect x="310" y="120" width="156" height="44" rx="5" fill="rgb(223,98,91)"/>
+  <text x="388" y="139" text-anchor="middle" class="v" fill="#fff">53.3%</text>
+  <text x="388" y="156" text-anchor="middle" class="n" fill="#fff">n=47,247</text><rect x="470" y="120" width="156" height="44" rx="5" fill="rgb(230,142,137)"/>
+  <text x="548" y="139" text-anchor="middle" class="v" fill="#263238">52.6%</text>
+  <text x="548" y="156" text-anchor="middle" class="n" fill="#455a64">n=56,976</text><rect x="630" y="120" width="156" height="44" rx="5" fill="rgb(216,53,44)"/>
+  <text x="708" y="139" text-anchor="middle" class="v" fill="#fff">53.9%</text>
+  <text x="708" y="156" text-anchor="middle" class="n" fill="#fff">n=41,852</text><rect x="790" y="120" width="156" height="44" rx="5" fill="rgb(222,92,85)"/>
+  <text x="868" y="139" text-anchor="middle" class="v" fill="#fff">53.3%</text>
+  <text x="868" y="156" text-anchor="middle" class="n" fill="#fff">n=24,009</text><text x="130" y="198" text-anchor="end" class="h">2</text><rect x="150" y="168" width="156" height="44" rx="5" fill="rgb(241,208,206)"/>
+  <text x="228" y="187" text-anchor="middle" class="v" fill="#263238">51.6%</text>
+  <text x="228" y="204" text-anchor="middle" class="n" fill="#455a64">n=5,296</text><rect x="310" y="168" width="156" height="44" rx="5" fill="rgb(229,133,128)"/>
+  <text x="388" y="187" text-anchor="middle" class="v" fill="#263238">52.7%</text>
+  <text x="388" y="204" text-anchor="middle" class="n" fill="#455a64">n=35,277</text><rect x="470" y="168" width="156" height="44" rx="5" fill="rgb(222,90,83)"/>
+  <text x="548" y="187" text-anchor="middle" class="v" fill="#fff">53.4%</text>
+  <text x="548" y="204" text-anchor="middle" class="n" fill="#fff">n=60,542</text><rect x="630" y="168" width="156" height="44" rx="5" fill="rgb(217,61,52)"/>
+  <text x="708" y="187" text-anchor="middle" class="v" fill="#fff">53.8%</text>
+  <text x="708" y="204" text-anchor="middle" class="n" fill="#fff">n=35,372</text><rect x="790" y="168" width="156" height="44" rx="5" fill="rgb(231,147,142)"/>
+  <text x="868" y="187" text-anchor="middle" class="v" fill="#263238">52.5%</text>
+  <text x="868" y="204" text-anchor="middle" class="n" fill="#455a64">n=26,374</text><text x="130" y="246" text-anchor="end" class="h">3</text><rect x="150" y="216" width="156" height="44" rx="5" fill="rgb(232,156,152)"/>
+  <text x="228" y="235" text-anchor="middle" class="v" fill="#263238">52.4%</text>
+  <text x="228" y="252" text-anchor="middle" class="n" fill="#455a64">n=11,860</text><rect x="310" y="216" width="156" height="44" rx="5" fill="rgb(228,132,126)"/>
+  <text x="388" y="235" text-anchor="middle" class="v" fill="#263238">52.7%</text>
+  <text x="388" y="252" text-anchor="middle" class="n" fill="#455a64">n=39,314</text><rect x="470" y="216" width="156" height="44" rx="5" fill="rgb(228,129,123)"/>
+  <text x="548" y="235" text-anchor="middle" class="v" fill="#263238">52.8%</text>
+  <text x="548" y="252" text-anchor="middle" class="n" fill="#455a64">n=39,792</text><rect x="630" y="216" width="156" height="44" rx="5" fill="rgb(219,73,65)"/>
+  <text x="708" y="235" text-anchor="middle" class="v" fill="#fff">53.6%</text>
+  <text x="708" y="252" text-anchor="middle" class="n" fill="#fff">n=47,823</text><rect x="790" y="216" width="156" height="44" rx="5" fill="rgb(231,146,142)"/>
+  <text x="868" y="235" text-anchor="middle" class="v" fill="#263238">52.5%</text>
+  <text x="868" y="252" text-anchor="middle" class="n" fill="#455a64">n=25,104</text><text x="130" y="294" text-anchor="end" class="h">4</text><rect x="150" y="264" width="156" height="44" rx="5" fill="rgb(243,224,223)"/>
+  <text x="228" y="283" text-anchor="middle" class="v" fill="#263238">51.4%</text>
+  <text x="228" y="300" text-anchor="middle" class="n" fill="#455a64">n=18,814</text><rect x="310" y="264" width="156" height="44" rx="5" fill="rgb(226,114,108)"/>
+  <text x="388" y="283" text-anchor="middle" class="v" fill="#fff">53.0%</text>
+  <text x="388" y="300" text-anchor="middle" class="n" fill="#fff">n=39,466</text><rect x="470" y="264" width="156" height="44" rx="5" fill="rgb(234,166,163)"/>
+  <text x="548" y="283" text-anchor="middle" class="v" fill="#263238">52.2%</text>
+  <text x="548" y="300" text-anchor="middle" class="n" fill="#455a64">n=36,018</text><rect x="630" y="264" width="156" height="44" rx="5" fill="rgb(221,84,77)"/>
+  <text x="708" y="283" text-anchor="middle" class="v" fill="#fff">53.5%</text>
+  <text x="708" y="300" text-anchor="middle" class="n" fill="#fff">n=42,337</text><rect x="790" y="264" width="156" height="44" rx="5" fill="rgb(232,154,150)"/>
+  <text x="868" y="283" text-anchor="middle" class="v" fill="#263238">52.4%</text>
+  <text x="868" y="300" text-anchor="middle" class="n" fill="#455a64">n=27,174</text><text x="130" y="342" text-anchor="end" class="h">5</text><rect x="150" y="312" width="156" height="44" rx="5" fill="rgb(237,182,179)"/>
+  <text x="228" y="331" text-anchor="middle" class="v" fill="#263238">52.0%</text>
+  <text x="228" y="348" text-anchor="middle" class="n" fill="#455a64">n=29,773</text><rect x="310" y="312" width="156" height="44" rx="5" fill="rgb(237,187,184)"/>
+  <text x="388" y="331" text-anchor="middle" class="v" fill="#263238">51.9%</text>
+  <text x="388" y="348" text-anchor="middle" class="n" fill="#455a64">n=36,917</text><rect x="470" y="312" width="156" height="44" rx="5" fill="rgb(230,140,135)"/>
+  <text x="548" y="331" text-anchor="middle" class="v" fill="#263238">52.6%</text>
+  <text x="548" y="348" text-anchor="middle" class="n" fill="#455a64">n=31,967</text><rect x="630" y="312" width="156" height="44" rx="5" fill="rgb(229,137,133)"/>
+  <text x="708" y="331" text-anchor="middle" class="v" fill="#263238">52.7%</text>
+  <text x="708" y="348" text-anchor="middle" class="n" fill="#455a64">n=35,253</text><rect x="790" y="312" width="156" height="44" rx="5" fill="rgb(227,125,120)"/>
+  <text x="868" y="331" text-anchor="middle" class="v" fill="#263238">52.8%</text>
+  <text x="868" y="348" text-anchor="middle" class="n" fill="#455a64">n=30,529</text><text x="130" y="390" text-anchor="end" class="h">6</text><rect x="150" y="360" width="156" height="44" rx="5" fill="rgb(244,228,227)"/>
+  <text x="228" y="379" text-anchor="middle" class="v" fill="#263238">51.3%</text>
+  <text x="228" y="396" text-anchor="middle" class="n" fill="#455a64">n=41,290</text><rect x="310" y="360" width="156" height="44" rx="5" fill="rgb(230,144,139)"/>
+  <text x="388" y="379" text-anchor="middle" class="v" fill="#263238">52.6%</text>
+  <text x="388" y="396" text-anchor="middle" class="n" fill="#455a64">n=30,685</text><rect x="470" y="360" width="156" height="44" rx="5" fill="rgb(228,128,123)"/>
+  <text x="548" y="379" text-anchor="middle" class="v" fill="#263238">52.8%</text>
+  <text x="548" y="396" text-anchor="middle" class="n" fill="#455a64">n=25,982</text><rect x="630" y="360" width="156" height="44" rx="5" fill="rgb(227,121,115)"/>
+  <text x="708" y="379" text-anchor="middle" class="v" fill="#263238">52.9%</text>
+  <text x="708" y="396" text-anchor="middle" class="n" fill="#455a64">n=36,925</text><rect x="790" y="360" width="156" height="44" rx="5" fill="rgb(227,124,119)"/>
+  <text x="868" y="379" text-anchor="middle" class="v" fill="#263238">52.8%</text>
+  <text x="868" y="396" text-anchor="middle" class="n" fill="#455a64">n=31,804</text><text x="130" y="438" text-anchor="end" class="h">7</text><rect x="150" y="408" width="156" height="44" rx="5" fill="rgb(243,221,220)"/>
+  <text x="228" y="427" text-anchor="middle" class="v" fill="#263238">51.4%</text>
+  <text x="228" y="444" text-anchor="middle" class="n" fill="#455a64">n=54,419</text><rect x="310" y="408" width="156" height="44" rx="5" fill="rgb(242,215,214)"/>
+  <text x="388" y="427" text-anchor="middle" class="v" fill="#263238">51.5%</text>
+  <text x="388" y="444" text-anchor="middle" class="n" fill="#455a64">n=30,451</text><rect x="470" y="408" width="156" height="44" rx="5" fill="rgb(238,192,189)"/>
+  <text x="548" y="427" text-anchor="middle" class="v" fill="#263238">51.8%</text>
+  <text x="548" y="444" text-anchor="middle" class="n" fill="#455a64">n=20,858</text><rect x="630" y="408" width="156" height="44" rx="5" fill="rgb(236,177,174)"/>
+  <text x="708" y="427" text-anchor="middle" class="v" fill="#263238">52.1%</text>
+  <text x="708" y="444" text-anchor="middle" class="n" fill="#455a64">n=23,968</text><rect x="790" y="408" width="156" height="44" rx="5" fill="rgb(235,175,171)"/>
+  <text x="868" y="427" text-anchor="middle" class="v" fill="#263238">52.1%</text>
+  <text x="868" y="444" text-anchor="middle" class="n" fill="#455a64">n=39,006</text><text x="130" y="486" text-anchor="end" class="h">8</text><rect x="150" y="456" width="156" height="44" rx="5" fill="rgb(247,247,247)"/>
+  <text x="228" y="475" text-anchor="middle" class="v" fill="#263238">51.0%</text>
+  <text x="228" y="492" text-anchor="middle" class="n" fill="#455a64">n=74,692</text><rect x="310" y="456" width="156" height="44" rx="5" fill="rgb(238,188,186)"/>
+  <text x="388" y="475" text-anchor="middle" class="v" fill="#263238">51.9%</text>
+  <text x="388" y="492" text-anchor="middle" class="n" fill="#455a64">n=23,175</text><rect x="470" y="456" width="156" height="44" rx="5" fill="rgb(237,186,184)"/>
+  <text x="548" y="475" text-anchor="middle" class="v" fill="#263238">51.9%</text>
+  <text x="548" y="492" text-anchor="middle" class="n" fill="#455a64">n=12,779</text><rect x="630" y="456" width="156" height="44" rx="5" fill="rgb(242,244,246)"/>
+  <text x="708" y="475" text-anchor="middle" class="v" fill="#263238">50.9%</text>
+  <text x="708" y="492" text-anchor="middle" class="n" fill="#455a64">n=18,582</text><rect x="790" y="456" width="156" height="44" rx="5" fill="rgb(235,169,166)"/>
+  <text x="868" y="475" text-anchor="middle" class="v" fill="#263238">52.2%</text>
+  <text x="868" y="492" text-anchor="middle" class="n" fill="#455a64">n=38,793</text><text x="130" y="534" text-anchor="end" class="h">9</text><rect x="150" y="504" width="156" height="44" rx="5" fill="rgb(222,232,240)"/>
+  <text x="228" y="523" text-anchor="middle" class="v" fill="#263238">50.6%</text>
+  <text x="228" y="540" text-anchor="middle" class="n" fill="#455a64">n=57,958</text><rect x="310" y="504" width="156" height="44" rx="5" fill="rgb(241,208,207)"/>
+  <text x="388" y="523" text-anchor="middle" class="v" fill="#263238">51.6%</text>
+  <text x="388" y="540" text-anchor="middle" class="n" fill="#455a64">n=14,216</text><rect x="470" y="504" width="156" height="44" rx="5" fill="rgb(232,151,147)"/>
+  <text x="548" y="523" text-anchor="middle" class="v" fill="#263238">52.4%</text>
+  <text x="548" y="540" text-anchor="middle" class="n" fill="#455a64">n=8,230</text><rect x="630" y="504" width="156" height="44" rx="5" fill="rgb(228,127,122)"/>
+  <text x="708" y="523" text-anchor="middle" class="v" fill="#263238">52.8%</text>
+  <text x="708" y="540" text-anchor="middle" class="n" fill="#455a64">n=7,789</text><rect x="790" y="504" width="156" height="44" rx="5" fill="rgb(232,156,152)"/>
+  <text x="868" y="523" text-anchor="middle" class="v" fill="#263238">52.4%</text>
+  <text x="868" y="540" text-anchor="middle" class="n" fill="#455a64">n=36,524</text><text x="130" y="582" text-anchor="end" class="h">10+</text><rect x="150" y="552" width="156" height="44" rx="5" fill="rgb(159,195,221)"/>
+  <text x="228" y="571" text-anchor="middle" class="v" fill="#fff">49.7%</text>
+  <text x="228" y="588" text-anchor="middle" class="n" fill="#fff">n=900</text><rect x="310" y="552" width="156" height="44" rx="5" fill="rgb(238,192,190)"/>
+  <text x="388" y="571" text-anchor="middle" class="v" fill="#263238">51.8%</text>
+  <text x="388" y="588" text-anchor="middle" class="n" fill="#455a64">n=741</text><rect x="470" y="552" width="156" height="44" rx="5" fill="#7f0000"/>
+  <text x="548" y="571" text-anchor="middle" class="v" fill="#fff">43.7%</text>
+  <text x="548" y="588" text-anchor="middle" class="n" fill="#fff">n=444</text><rect x="630" y="552" width="156" height="44" rx="5" fill="rgb(194,216,231)"/>
+  <text x="708" y="571" text-anchor="middle" class="v" fill="#263238">50.2%</text>
+  <text x="708" y="588" text-anchor="middle" class="n" fill="#455a64">n=2,546</text><rect x="790" y="552" width="156" height="44" rx="5" fill="rgb(228,236,241)"/>
+  <text x="868" y="571" text-anchor="middle" class="v" fill="#263238">50.7%</text>
+  <text x="868" y="588" text-anchor="middle" class="n" fill="#455a64">n=15,321</text><text x="65" y="635" class="note">LI Q1: 0.00–0.29 · Q2: 0.30–0.63 · Q3: 0.64–0.95 · Q4: 0.96–1.49 · Q5: 1.50–10.83</text>
+<text x="65" y="663" class="note">10+ / LI Q3 is based on only 444 rows; the 43.7% cell should not be over-interpreted.</text>
+<text x="65" y="691" class="note">The common bins enable absolute LI comparison; within-inning quantile bands answer a different, relative-pressure question.</text></svg>

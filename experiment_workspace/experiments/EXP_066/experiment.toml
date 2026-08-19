@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_066"
+title = "시즌 상태 대체 부스팅 모델"
+hypothesis = "현재 시즌 상태 피처는 CatBoost 외 히스토그램·LightGBM·XGBoost에서 다른 오차 구조를 만들어 앙상블 후보가 될 수 있다"
+change_scope = "model"
+study_config = "experiments/EXP_066/study.toml"
+based_on = "EXP_062"
+reference_variant = "extra_w18"
+ablation_summary = "main69 고정 후 CatBoost, HistGradientBoosting, LightGBM, XGBoost 대표 설정 비교"
+tags = ["rule_compliant", "model_family", "diversity"]
+created_at_utc = "2026-08-18T03:32:54.515075+00:00"

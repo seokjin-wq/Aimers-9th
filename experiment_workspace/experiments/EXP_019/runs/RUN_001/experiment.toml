@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_019"
+title = "식별자 범주형 개별 기여"
+hypothesis = "팀 또는 선수 ID를 한꺼번에 범주화한 이전 실험의 악화는 일부 ID 때문이며, 개별 범주화는 잔차 편향을 줄인다"
+change_scope = "features"
+study_config = "experiments/EXP_019/study.toml"
+based_on = "EXP_018"
+reference_variant = "d6_i300_control"
+ablation_summary = "main55+count와 CatBoost 설정을 고정하고 pitcher/batter/team/hand ID를 한 종류씩만 native categorical로 추가"
+tags = ["categorical", "identifiers", "residual"]
+created_at_utc = "2026-08-17T16:53:03.453394+00:00"

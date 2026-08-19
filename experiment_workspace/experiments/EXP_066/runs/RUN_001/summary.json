@@ -1,0 +1,132 @@
+{
+  "experiment_id": "EXP_066",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T03:33:16.595882+00:00",
+  "completed_at_utc": "2026-08-18T03:35:26.959764+00:00",
+  "config_hash": "aaf747e71b25",
+  "based_on": "EXP_062",
+  "reference_variant": "extra_w18",
+  "ablation_summary": "main69 고정 후 CatBoost, HistGradientBoosting, LightGBM, XGBoost 대표 설정 비교",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/066_season_state_model_families/20260818T033316601249Z_aaf747e71b25",
+  "control": "catboost_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": null
+  },
+  "best_variant": "catboost_control",
+  "best_mean_brier": 0.2475377207264107,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "catboost_control",
+      "change": "control: EXP_060 CatBoost",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475377207,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 908.3839506927,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "hist31",
+      "change": "HistGradientBoosting leaf31",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "histgb_leaf31",
+      "model_family": "hist_gradient_boosting",
+      "fold_count": 1,
+      "mean_brier": 0.2478379451,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 788.2013932924,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.l2_regularization', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.max_iter', 'model.params.max_leaf_nodes', 'model.params.min_samples_leaf', 'model.params.random_seed', 'model.params.random_state', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.prediction_scale', 'model.prediction_shift', 'model.season_decay']",
+      "delta_brier_vs_control": 0.0003002244,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "lightgbm31",
+      "change": "LightGBM leaves31",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "lightgbm_l31",
+      "model_family": "lightgbm",
+      "fold_count": 1,
+      "mean_brier": 0.2478966891,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 764.685638797,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.colsample_bytree', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.max_depth', 'model.params.min_child_samples', 'model.params.n_estimators', 'model.params.n_jobs', 'model.params.num_leaves', 'model.params.random_seed', 'model.params.random_state', 'model.params.reg_lambda', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.verbose', 'model.params.verbosity', 'model.prediction_scale', 'model.prediction_shift', 'model.season_decay']",
+      "delta_brier_vs_control": 0.0003589683,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "hist63",
+      "change": "HistGradientBoosting leaf63",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "histgb_leaf63",
+      "model_family": "hist_gradient_boosting",
+      "fold_count": 1,
+      "mean_brier": 0.2479038595,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 761.8152356212,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.l2_regularization', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.max_iter', 'model.params.max_leaf_nodes', 'model.params.min_samples_leaf', 'model.params.random_seed', 'model.params.random_state', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.prediction_scale', 'model.prediction_shift', 'model.season_decay']",
+      "delta_brier_vs_control": 0.0003661388,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "xgboost_d4",
+      "change": "XGBoost depth4",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "xgboost_d4",
+      "model_family": "xgboost",
+      "fold_count": 1,
+      "mean_brier": 0.2479743364,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 733.6027037403,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.colsample_bytree', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.max_depth', 'model.params.min_child_weight', 'model.params.n_estimators', 'model.params.n_jobs', 'model.params.random_seed', 'model.params.random_state', 'model.params.reg_lambda', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.tree_method', 'model.params.verbose', 'model.prediction_scale', 'model.prediction_shift', 'model.season_decay']",
+      "delta_brier_vs_control": 0.0004366157,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "lightgbm63",
+      "change": "LightGBM leaves63",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "lightgbm_l63",
+      "model_family": "lightgbm",
+      "fold_count": 1,
+      "mean_brier": 0.2480379798,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 708.1256609693,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.colsample_bytree', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.max_depth', 'model.params.min_child_samples', 'model.params.n_estimators', 'model.params.n_jobs', 'model.params.num_leaves', 'model.params.random_seed', 'model.params.random_state', 'model.params.reg_lambda', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.verbose', 'model.params.verbosity', 'model.prediction_scale', 'model.prediction_shift', 'model.season_decay']",
+      "delta_brier_vs_control": 0.0005002591,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "dd4d092a29c6973c74a0b4d88d8878d99d34c3eac3f1d104be7e4c080214fa64",
+  "git_commit": "7bde464991a4052a625a1c8c1d2e222d4b3c6542",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 130.1755301952362
+}

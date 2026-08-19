@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_106",
+  "decision": "adopt",
+  "selected_variant": "track_velocity",
+  "reason": "Official Trackman relative-speed and zone-speed context reduced CPU Brier by 0.000003168 and raised BSS 918.734 to 920.002. Movement, extension, and all-physics blocks worsened, so promote only the two velocity features.",
+  "based_on": "EXP_068",
+  "reference_variant": "track_physics",
+  "ablation_summary": "Keep latest CPU main72 fixed; compare official pre-validation Trackman velocity pair, movement triple, extension alone, and all six physics context aggregates.",
+  "selected_result": {
+    "variant": "track_velocity",
+    "change": "add official Trackman relative-speed and zone-speed context",
+    "feature_set": "main74_same_pitchmix_track_velocity",
+    "feature_count": 74,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475086986,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 920.0017699469,
+    "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+    "delta_brier_vs_control": -3.168e-06,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "same_pitchmix_control",
+    "change": "control: latest CPU main72 without Trackman context",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475118666,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 918.7335789118,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T10:02:36.792416+00:00",
+  "based_on_run_id": "RUN_001"
+}

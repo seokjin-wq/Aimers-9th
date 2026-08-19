@@ -1,0 +1,55 @@
+[study]
+id = "095_same_hand_pitchmix_decomposition"
+description = "Same-hand pitch-mix contribution decomposition"
+hypothesis = "The three same-hand pitch-mix interactions contain unequal signal, so a smaller subset can improve Brier score by removing noisy interactions."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "count_hands_base"
+
+[[variants]]
+name = "count_hands_base"
+model = "catboost_d8_decay085"
+features = "main69_cat_count_hands"
+change = "control: EXP_084 count+hands base without same-hand pitch-mix interactions"
+
+[[variants]]
+name = "fastball_only"
+model = "catboost_d8_decay085"
+features = "main70_cat_count_hands_same_fastball"
+change = "add same_hand_x_fastball only"
+
+[[variants]]
+name = "breaking_only"
+model = "catboost_d8_decay085"
+features = "main70_cat_count_hands_same_breaking"
+change = "add same_hand_x_breaking only"
+
+[[variants]]
+name = "offspeed_only"
+model = "catboost_d8_decay085"
+features = "main70_cat_count_hands_same_offspeed"
+change = "add same_hand_x_offspeed only"
+
+[[variants]]
+name = "fastball_breaking"
+model = "catboost_d8_decay085"
+features = "main71_cat_count_hands_same_fast_break"
+change = "add same_hand_x_fastball and same_hand_x_breaking"
+
+[[variants]]
+name = "fastball_offspeed"
+model = "catboost_d8_decay085"
+features = "main71_cat_count_hands_same_fast_off"
+change = "add same_hand_x_fastball and same_hand_x_offspeed"
+
+[[variants]]
+name = "breaking_offspeed"
+model = "catboost_d8_decay085"
+features = "main71_cat_count_hands_same_break_off"
+change = "add same_hand_x_breaking and same_hand_x_offspeed"
+
+[[variants]]
+name = "all_three"
+model = "catboost_d8_decay085"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "EXP_084 reference: add all three same-hand pitch-mix interactions"

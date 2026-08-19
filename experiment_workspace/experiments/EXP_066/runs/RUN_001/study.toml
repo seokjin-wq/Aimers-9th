@@ -1,0 +1,43 @@
+[study]
+id = "066_season_state_model_families"
+description = "시즌 상태 대체 부스팅 모델"
+hypothesis = "현재 시즌 상태 피처는 CatBoost 외 히스토그램·LightGBM·XGBoost에서 다른 오차 구조를 만들어 앙상블 후보가 될 수 있다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "catboost_control"
+
+[[variants]]
+name = "catboost_control"
+model = "catboost_d8_decay085"
+features = "main69_pitcher_batter_season_all"
+change = "control: EXP_060 CatBoost"
+
+[[variants]]
+name = "hist31"
+model = "histgb_leaf31"
+features = "main69_pitcher_batter_season_all"
+change = "HistGradientBoosting leaf31"
+
+[[variants]]
+name = "hist63"
+model = "histgb_leaf63"
+features = "main69_pitcher_batter_season_all"
+change = "HistGradientBoosting leaf63"
+
+[[variants]]
+name = "lightgbm31"
+model = "lightgbm_l31"
+features = "main69_pitcher_batter_season_all"
+change = "LightGBM leaves31"
+
+[[variants]]
+name = "lightgbm63"
+model = "lightgbm_l63"
+features = "main69_pitcher_batter_season_all"
+change = "LightGBM leaves63"
+
+[[variants]]
+name = "xgboost_d4"
+model = "xgboost_d4"
+features = "main69_pitcher_batter_season_all"
+change = "XGBoost depth4"

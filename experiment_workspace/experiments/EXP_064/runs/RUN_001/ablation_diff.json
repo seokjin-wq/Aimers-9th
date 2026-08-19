@@ -1,0 +1,95 @@
+{
+  "based_on": "EXP_062",
+  "reference_variant": "extra_w18",
+  "ablation_summary": "main69 decay85 대비 count×hands, count×out×base, inning/game+pressure, 전체 네 효과를 비교",
+  "control": "main69_control",
+  "variants": [
+    {
+      "name": "main69_control",
+      "declared_change": "control: EXP_060 최고 CatBoost",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "count_hands",
+      "declared_change": "볼카운트×투수손×타자손 학습 효과 추가",
+      "is_control": false,
+      "feature_count": 70,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "count_hands_target_effect"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "count_out_base",
+      "declared_change": "볼카운트×아웃×주자상태 학습 효과 추가",
+      "is_control": false,
+      "feature_count": 70,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "count_out_base_target_effect"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "game_pressure",
+      "declared_change": "이닝×공수×경기유형과 압박상태 효과 추가",
+      "is_control": false,
+      "feature_count": 71,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "inning_game_target_effect",
+        "pressure_state_target_effect"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "all_context",
+      "declared_change": "네 가지 시즌 중심화 상황 교차 효과를 모두 추가",
+      "is_control": false,
+      "feature_count": 73,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "count_hands_target_effect",
+        "count_out_base_target_effect",
+        "inning_game_target_effect",
+        "pressure_state_target_effect"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

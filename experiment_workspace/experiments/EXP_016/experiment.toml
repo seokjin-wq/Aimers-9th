@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_016"
+title = "CatBoost seed 확률 앙상블"
+hypothesis = "서로 다른 seed CatBoost의 확률 평균이 단일 모델 분산을 줄여 2024 Brier를 개선한다"
+change_scope = "model"
+study_config = "experiments/EXP_016/study.toml"
+based_on = "EXP_015"
+reference_variant = "shift_m010"
+ablation_summary = "main55+count와 -0.010 shift를 고정하고 단일 seed 대비 3-seed, 5-seed 확률 평균만 비교"
+tags = ["ensemble", "seed", "variance"]
+created_at_utc = "2026-08-17T16:34:37.632395+00:00"

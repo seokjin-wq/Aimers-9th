@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_055"
+title = "공식 학습 타깃 효과 피처"
+hypothesis = "공식 학습 행에서만 계산한 leave-one-out 투수·타자·팀 효과가 숫자 ID를 직접 쓰는 CatBoost보다 2024 일반화를 개선한다"
+change_scope = "features"
+study_config = "experiments/EXP_055/study.toml"
+based_on = "EXP_054"
+reference_variant = "extra_w24_safe"
+ablation_summary = "main60 CatBoost를 고정하고 official-train-only 투수 TE, 투수+타자 TE, 투수+타자+팀 TE만 단계적으로 추가"
+tags = ["rule_compliant", "official_train_only", "target_encoding"]
+created_at_utc = "2026-08-18T02:28:26.206130+00:00"

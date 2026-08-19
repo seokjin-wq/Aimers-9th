@@ -1,0 +1,6 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+batter_exact,타자 시즌 n·success만 공식 마지막 타깃으로 정확히 닫음,main72_same_pitchmix_batter_exact,72,catboost_d8_decay085,catboost,1,0.2475094620043134,0.0,919.6961758835888,"['features.custom', 'features.description', 'features.name']",-2.4046339122674176e-06,1/1
+approximate_control,control: EXP_084 approximate season snapshot,main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay085,catboost,1,0.2475118666382257,0.0,918.7335789118011,[],0.0,0/1
+pitcher_exact,투수 시즌 n·success만 공식 마지막 타깃으로 정확히 닫음,main72_same_pitchmix_pitcher_exact,72,catboost_d8_decay085,catboost,1,0.247518530339458,0.0,916.0660382960152,"['features.custom', 'features.description', 'features.name']",6.663701232284547e-06,0/1
+both_exact_k20,"투수·타자 모두 exact snapshot, success k20",main72_same_pitchmix_both_exact,72,catboost_d8_decay085,catboost,1,0.2475219912506688,0.0,914.680603850404,"['features.custom', 'features.description', 'features.name']",1.012461244309648e-05,0/1
+both_exact_k50,"투수·타자 모두 exact snapshot, success k50",main72_same_pitchmix_both_exact_k50,72,catboost_d8_decay085,catboost,1,0.247527694058242,0.0,912.3977177642572,"['features.custom', 'features.description', 'features.name']",1.58274200162678e-05,0/1

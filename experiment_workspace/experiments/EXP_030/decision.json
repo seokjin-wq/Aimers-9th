@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_030",
+  "decision": "keep_control",
+  "selected_variant": "main60_control",
+  "reason": "GPU에서 양의 효과를 보인 네 피처가 결정론적 CPU에서는 모두 악화했다. GPU 변동에 의한 false positive로 판정하고 main60을 유지한다.",
+  "based_on": "EXP_029",
+  "reference_variant": "all_four",
+  "ablation_summary": "CPU depth6 400 lr0.04를 고정하고 scoring×LI, reverse shrinkage, log LI, batter missing, all-four를 다시 비교",
+  "selected_result": {
+    "variant": "main60_control",
+    "change": "control: CPU main60",
+    "feature_set": "main60_cat_batter_team",
+    "feature_count": 60,
+    "model": "catboost_top_d6_i400_lr040",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.247819028,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 795.7740748752,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "main60_control",
+    "change": "control: CPU main60",
+    "feature_set": "main60_cat_batter_team",
+    "feature_count": 60,
+    "model": "catboost_top_d6_i400_lr040",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.247819028,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 795.7740748752,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-17T18:10:04.874551+00:00",
+  "based_on_run_id": "RUN_001"
+}

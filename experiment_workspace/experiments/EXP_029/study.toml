@@ -1,0 +1,49 @@
+[study]
+id = "029_positive_feature_combinations"
+description = "EDA 양의 피처 조합"
+hypothesis = "단독 개선된 scoring×LI, reverse shrinkage, log LI, batter missing 일부 조합이 상호 보완적으로 추가 개선한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "scoring_control"
+
+[[variants]]
+name = "scoring_control"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main61_add_scoring_position_x_li"
+change = "control: scoring_position_x_li 단독"
+
+[[variants]]
+name = "scoring_reverse"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main62_scoring_reverse"
+change = "scoring×LI + reverse shrinkage"
+
+[[variants]]
+name = "scoring_logli"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main62_scoring_logli"
+change = "scoring×LI + log LI"
+
+[[variants]]
+name = "scoring_bmissing"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main62_scoring_bmissing"
+change = "scoring×LI + batter missing"
+
+[[variants]]
+name = "reverse_logli"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main62_reverse_logli"
+change = "reverse shrinkage + log LI"
+
+[[variants]]
+name = "scoring_reverse_logli"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main63_scoring_reverse_logli"
+change = "상위 3개 조합"
+
+[[variants]]
+name = "all_four"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main64_all_positive_individual"
+change = "상위 4개 전체 조합"

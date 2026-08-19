@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_008",
+  "decision": "adopt",
+  "selected_variant": "add_count_state",
+  "reason": "카운트·아웃 상태 5개가 Brier를 0.000041128 개선해 단일 묶음 최선으로 채택; 스무딩과 결측 플래그도 후속 조합 후보로 유지",
+  "based_on": "EXP_007",
+  "reference_variant": "catboost_control",
+  "ablation_summary": "native CatBoost를 고정하고 EDA 제안 피처를 결측, 스무딩, 경기 맥락, 카운트 묶음별로 각각 추가",
+  "selected_result": {
+    "variant": "add_count_state",
+    "change": "카운트·아웃 상태 파생 5개 추가",
+    "feature_set": "main55_plus_count",
+    "feature_count": 60,
+    "model": "catboost_native_300",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2479681399,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 736.0832056721,
+    "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+    "delta_brier_vs_control": -4.11276e-05,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "main55_control",
+    "change": "control: main55",
+    "feature_set": "main55",
+    "feature_count": 55,
+    "model": "catboost_native_300",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2480092675,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 719.6194426463,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-17T16:01:00.389279+00:00",
+  "based_on_run_id": "RUN_001"
+}

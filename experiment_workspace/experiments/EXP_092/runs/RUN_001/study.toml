@@ -1,0 +1,37 @@
+[study]
+id = "092_count_pressure_history"
+description = "카운트 압박 상태와 투수 과거 제구 이력 교호항"
+hypothesis = "카운트별 잔차는 투수 이력의 효과 기울기가 압박 상태마다 달라서 남는다."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "same_hand_control"
+
+[[variants]]
+name = "same_hand_control"
+model = "catboost_d8_decay085"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: EXP_084 CPU same-hand pitchmix"
+
+[[variants]]
+name = "two_strike_history"
+model = "catboost_d8_decay085"
+features = "main75_same_pitchmix_two_strike_history"
+change = "2스트라이크×투수 성공·반대·가운데 이력 3개"
+
+[[variants]]
+name = "three_ball_history"
+model = "catboost_d8_decay085"
+features = "main75_same_pitchmix_three_ball_history"
+change = "3볼×투수 성공·반대·가운데 이력 3개"
+
+[[variants]]
+name = "full_count_history"
+model = "catboost_d8_decay085"
+features = "main75_same_pitchmix_full_count_history"
+change = "풀카운트×투수 성공·반대·가운데 이력 3개"
+
+[[variants]]
+name = "all_pressure_history"
+model = "catboost_d8_decay085"
+features = "main81_same_pitchmix_count_pressure_history"
+change = "세 압박 상태의 9개 교호항 모두 추가"

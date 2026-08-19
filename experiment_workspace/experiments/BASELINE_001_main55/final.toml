@@ -1,0 +1,12 @@
+[final]
+name = "exp130_compliant_triple_count_trend_ols_full_2019_2024"
+provenance_repository = "Aimers-9th"
+provenance_commit = "349498b"
+provenance_manifest = "experiments/BASELINE_001_main55/provenance.toml"
+protocol = "holdout_2024"
+model = "triple_count_trend_ols"
+features = "main78_history_reliability"
+calibration_method = "official_train_oot_group_residual_plus_centered_season_trend"
+calibration_shift = 0.0
+calibration_source_seasons = [2024]
+uses_test_distribution = false

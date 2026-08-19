@@ -1,0 +1,117 @@
+{
+  "experiment_id": "EXP_011",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T16:12:26.007763+00:00",
+  "completed_at_utc": "2026-08-17T16:15:16.102482+00:00",
+  "config_hash": "808434d403de",
+  "based_on": "EXP_009",
+  "reference_variant": "count_control",
+  "ablation_summary": "main55+count와 CatBoost 구조를 고정하고 시즌이 한 해 과거로 갈 때의 sample weight decay만 1.0, 0.85, 0.70, 0.50, 0.25로 변경",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/011_season_recency_weight/20260817T161226009870Z_808434d403de",
+  "control": "uniform_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "uniform_control",
+  "best_mean_brier": 0.2479681399223257,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "uniform_control",
+      "change": "control: 모든 2019~2023 행 weight 1.0",
+      "feature_set": "main55_plus_count",
+      "feature_count": 60,
+      "model": "catboost_native_300",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2479681399,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 736.0832056721,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "decay_085",
+      "change": "과거 한 시즌마다 weight 0.85배",
+      "feature_set": "main55_plus_count",
+      "feature_count": 60,
+      "model": "catboost_native_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.248007538,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 720.3118015688,
+      "changed_fields_vs_control": "['model.name', 'model.season_decay']",
+      "delta_brier_vs_control": 3.93981e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "decay_070",
+      "change": "과거 한 시즌마다 weight 0.70배",
+      "feature_set": "main55_plus_count",
+      "feature_count": 60,
+      "model": "catboost_native_decay070",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2480906933,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 687.0239696228,
+      "changed_fields_vs_control": "['model.name', 'model.season_decay']",
+      "delta_brier_vs_control": 0.0001225534,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "decay_050",
+      "change": "과거 한 시즌마다 weight 0.50배",
+      "feature_set": "main55_plus_count",
+      "feature_count": 60,
+      "model": "catboost_native_decay050",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2481304019,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 671.1282518219,
+      "changed_fields_vs_control": "['model.name', 'model.season_decay']",
+      "delta_brier_vs_control": 0.000162262,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "decay_025",
+      "change": "과거 한 시즌마다 weight 0.25배",
+      "feature_set": "main55_plus_count",
+      "feature_count": 60,
+      "model": "catboost_native_decay025",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2481354346,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 669.1136312518,
+      "changed_fields_vs_control": "['model.name', 'model.season_decay']",
+      "delta_brier_vs_control": 0.0001672946,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "5e7ffaa2b445cba1b7728e695715e1dbf1d255c9f0dc93011bb43f4e8cdc72ab",
+  "git_commit": "80f20ba91e666fa40b7cbdb1647ff163e037bc50",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 169.9145724773407
+}

@@ -1,0 +1,132 @@
+{
+  "based_on": "BASELINE_001_main55",
+  "reference_variant": "random_forest_raw47",
+  "ablation_summary": "제공 raw47을 고정하고 RandomForest 대비 CatBoost 모델군 변경 효과를 검증",
+  "control": "random_forest_raw47",
+  "variants": [
+    {
+      "name": "random_forest_raw47",
+      "declared_change": "control: 제공 RandomForest 계열 기준",
+      "is_control": true,
+      "feature_count": 47,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "catboost_raw47",
+      "declared_change": "모델군만 RandomForest에서 CatBoost로 변경",
+      "is_control": false,
+      "feature_count": 47,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "random_forest",
+          "variant": "catboost"
+        },
+        {
+          "field": "model.name",
+          "control": "random_forest_default",
+          "variant": "catboost_default"
+        },
+        {
+          "field": "model.params.allow_writing_files",
+          "control": null,
+          "variant": false
+        },
+        {
+          "field": "model.params.depth",
+          "control": null,
+          "variant": 6
+        },
+        {
+          "field": "model.params.eval_metric",
+          "control": null,
+          "variant": "BrierScore"
+        },
+        {
+          "field": "model.params.iterations",
+          "control": null,
+          "variant": 300
+        },
+        {
+          "field": "model.params.l2_leaf_reg",
+          "control": null,
+          "variant": 3.0
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": null,
+          "variant": 0.05
+        },
+        {
+          "field": "model.params.loss_function",
+          "control": null,
+          "variant": "Logloss"
+        },
+        {
+          "field": "model.params.max_depth",
+          "control": 10,
+          "variant": null
+        },
+        {
+          "field": "model.params.min_samples_leaf",
+          "control": 200,
+          "variant": null
+        },
+        {
+          "field": "model.params.n_estimators",
+          "control": 100,
+          "variant": null
+        },
+        {
+          "field": "model.params.n_jobs",
+          "control": 8,
+          "variant": null
+        },
+        {
+          "field": "model.params.random_seed",
+          "control": null,
+          "variant": 42
+        },
+        {
+          "field": "model.params.random_state",
+          "control": 42,
+          "variant": null
+        },
+        {
+          "field": "model.params.subsample",
+          "control": null,
+          "variant": 0.7
+        },
+        {
+          "field": "model.params.task_type",
+          "control": null,
+          "variant": "CPU"
+        },
+        {
+          "field": "model.params.thread_count",
+          "control": null,
+          "variant": 8
+        },
+        {
+          "field": "model.params.verbose",
+          "control": null,
+          "variant": false
+        }
+      ]
+    }
+  ]
+}

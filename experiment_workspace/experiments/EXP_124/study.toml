@@ -1,0 +1,31 @@
+[study]
+id = "124_extratrees_season_decay_screen"
+description = "ExtraTrees season-decay screening"
+hypothesis = "The ExtraTrees diversity component may improve by emphasizing recent official training seasons instead of fitting all 2019-2023 rows uniformly."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "uniform_control"
+
+[[variants]]
+name = "uniform_control"
+model = "extratrees_leaf20_screen"
+features = "main78_history_reliability"
+change = "control: 100-tree ExtraTrees with uniform season weights"
+
+[[variants]]
+name = "decay_050"
+model = "extratrees_leaf20_screen_decay05"
+features = "main78_history_reliability"
+change = "season sample-weight decay none -> 0.50 only"
+
+[[variants]]
+name = "decay_070"
+model = "extratrees_leaf20_screen_decay07"
+features = "main78_history_reliability"
+change = "season sample-weight decay none -> 0.70 only"
+
+[[variants]]
+name = "decay_085"
+model = "extratrees_leaf20_screen_decay085"
+features = "main78_history_reliability"
+change = "season sample-weight decay none -> 0.85 only"

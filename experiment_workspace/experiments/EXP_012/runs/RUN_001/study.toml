@@ -1,0 +1,67 @@
+[study]
+id = "012_catboost_regularization"
+description = "CatBoost 규제 단일축 탐색"
+hypothesis = "300-tree 구조를 유지하면서 규제를 조정하면 2024 과적합을 줄여 Brier가 개선된다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "default_control"
+
+[[variants]]
+name = "default_control"
+model = "catboost_native_300"
+features = "main55_plus_count"
+change = "control: 기본 규제"
+
+[[variants]]
+name = "l2_10"
+model = "catboost_native_l2_10"
+features = "main55_plus_count"
+change = "l2_leaf_reg 3→10"
+
+[[variants]]
+name = "l2_30"
+model = "catboost_native_l2_30"
+features = "main55_plus_count"
+change = "l2_leaf_reg 3→30"
+
+[[variants]]
+name = "random_strength_0"
+model = "catboost_native_random0"
+features = "main55_plus_count"
+change = "random_strength 기본 1→0"
+
+[[variants]]
+name = "random_strength_3"
+model = "catboost_native_random3"
+features = "main55_plus_count"
+change = "random_strength 기본 1→3"
+
+[[variants]]
+name = "rsm_06"
+model = "catboost_native_rsm06"
+features = "main55_plus_count"
+change = "tree별 feature 비율 rsm 0.6"
+
+[[variants]]
+name = "rsm_08"
+model = "catboost_native_rsm08"
+features = "main55_plus_count"
+change = "tree별 feature 비율 rsm 0.8"
+
+[[variants]]
+name = "subsample_05"
+model = "catboost_native_sub05"
+features = "main55_plus_count"
+change = "row subsample 0.7→0.5"
+
+[[variants]]
+name = "subsample_09"
+model = "catboost_native_sub09"
+features = "main55_plus_count"
+change = "row subsample 0.7→0.9"
+
+[[variants]]
+name = "border_count_64"
+model = "catboost_native_border64"
+features = "main55_plus_count"
+change = "numeric border_count를 64로 제한"

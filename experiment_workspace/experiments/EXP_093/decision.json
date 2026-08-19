@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_093",
+  "decision": "adopt",
+  "selected_variant": "late_history",
+  "reason": "factorial 재검증에서 late-history 단독이 BSS 922.85로 다시 최고였고, full-count 단독 920.34 및 결합 909.79보다 우수했다. late-history만 유지한다.",
+  "based_on": "EXP_092",
+  "reference_variant": "full_count_history",
+  "ablation_summary": "Fix same-hand CPU base; compare late-inning block, full-count block, and their six-feature union.",
+  "selected_result": {
+    "variant": "late_history",
+    "change": "EXP_090 후반 이닝×투수이력 3개",
+    "feature_set": "main75_same_pitchmix_late_history",
+    "feature_count": 75,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475015773,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 922.8525101891,
+    "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+    "delta_brier_vs_control": -1.02894e-05,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "same_hand_control",
+    "change": "control: EXP_084 CPU same-hand pitchmix",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475118666,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 918.7335789118,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T07:32:37.743670+00:00",
+  "based_on_run_id": "RUN_001"
+}

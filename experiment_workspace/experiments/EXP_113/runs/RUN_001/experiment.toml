@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_113"
+title = "History reliability block decomposition"
+hypothesis = "The EXP_112 gain is concentrated in one of reliability level, success-rate weighting, or reverse/middle weighting; removing non-contributing blocks can reduce noise."
+change_scope = "features"
+study_config = "experiments/EXP_113/study.toml"
+based_on = "EXP_112"
+reference_variant = "history_reliability"
+ablation_summary = "Use the six-feature EXP_112 winner as control; remove exactly one two-feature block at a time: reliability levels, success-weighted rates, or reverse/middle-weighted rates."
+tags = ["compliance", "row-independent", "EDA", "reliability", "decomposition"]
+created_at_utc = "2026-08-18T11:23:11.065356+00:00"

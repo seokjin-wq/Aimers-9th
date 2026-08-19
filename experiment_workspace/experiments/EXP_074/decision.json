@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_074",
+  "decision": "keep_control",
+  "selected_variant": "success_k50_control",
+  "reason": "익명 투수 연결은 2023 가림 검증에서 불안정해 폐기했고, 안전한 Trackman 상황 집계도 physics BSS 892.48, pitchmix 899.32, all 902.32로 control 911.64보다 모두 악화됐다.",
+  "based_on": "EXP_073",
+  "reference_variant": "success_k50",
+  "ablation_summary": "Diagnose reference-only entity linkage, then compare main69 against linked historical Trackman pitcher aggregates without using any validation-row aggregate.",
+  "selected_result": {
+    "variant": "success_k50_control",
+    "change": "control: EXP_073의 k=50 당해 시즌 성공률",
+    "feature_set": "main69_season_success_k50",
+    "feature_count": 69,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475295876,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 911.6396980268,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "success_k50_control",
+    "change": "control: EXP_073의 k=50 당해 시즌 성공률",
+    "feature_set": "main69_season_success_k50",
+    "feature_count": 69,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475295876,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 911.6396980268,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T04:49:36.964318+00:00",
+  "based_on_run_id": "RUN_001"
+}

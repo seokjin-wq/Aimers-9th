@@ -1,0 +1,49 @@
+[study]
+id = "034_asof_pitch_sequence"
+description = "누적 asof 직전 투구 복원"
+hypothesis = "누적 asof 차분으로 복원한 직전·최근 투구 결과가 단기 제구 흐름을 제공한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main60_control"
+
+[[variants]]
+name = "main60_control"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main60_cat_batter_team"
+change = "control: 기존 main60"
+
+[[variants]]
+name = "pitcher_previous"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main61_add_pitcher_previous_pitch"
+change = "투수 직전 투구 성공만 추가"
+
+[[variants]]
+name = "batter_previous"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main61_add_batter_previous_pitch"
+change = "타자 직전 상대 투구 성공만 추가"
+
+[[variants]]
+name = "both_previous"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main62_add_both_previous_pitch"
+change = "투수·타자 직전 투구 성공 추가"
+
+[[variants]]
+name = "pitcher_recent"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main64_add_pitcher_recent_pitch"
+change = "투수 직전 및 최근 3·5·10투구 추가"
+
+[[variants]]
+name = "batter_recent"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main64_add_batter_recent_pitch"
+change = "타자 직전 및 최근 3·5·10투구 추가"
+
+[[variants]]
+name = "entity_recent_all"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main68_add_entity_recent_pitch"
+change = "투수·타자 직전 및 최근 3·5·10투구 모두 추가"

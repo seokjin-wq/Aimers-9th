@@ -1,0 +1,102 @@
+{
+  "experiment_id": "EXP_038",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T18:43:10.924342+00:00",
+  "completed_at_utc": "2026-08-17T18:45:44.150273+00:00",
+  "config_hash": "0ccd98d8b895",
+  "based_on": "EXP_037",
+  "reference_variant": "batter_middle",
+  "ablation_summary": "main81 최고 피처와 GPU CatBoost를 고정하고 pitcher/batter 행 간격, 바로 전 행 여부, 동일 타석, 타석 내 순번·최근 성공률만 개별·조합 추가",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/038_sequence_context/20260817T184310929165Z_0ccd98d8b895",
+  "control": "main81_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "plate_context",
+  "best_mean_brier": 0.2469250439724062,
+  "best_delta_brier_vs_control": -1.679576492968904e-05,
+  "leaderboard": [
+    {
+      "variant": "plate_context",
+      "change": "동일 타석·타석 내 순번·최근 2·3투구 추가",
+      "feature_set": "main85_add_plate_context",
+      "feature_count": 85,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.246925044,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1153.6440649572,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -1.67958e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "entity_gaps",
+      "change": "투수·타자 행 간격과 연속 플래그 추가",
+      "feature_set": "main86_add_entity_gaps",
+      "feature_count": 86,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2469318093,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1150.9358349352,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -1.00304e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "full_sequence",
+      "change": "행 간격·전역 직전 결과·동일 타석 문맥 모두 추가",
+      "feature_set": "main91_add_full_sequence_context",
+      "feature_count": 91,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2469340262,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1150.048395818,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -7.8135e-06,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "main81_control",
+      "change": "control: 현재 최고 main81",
+      "feature_set": "main81_add_batter_middle_short",
+      "feature_count": 81,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2469418397,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1146.9205664747,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "939cadaf1f2929c8502171159754e7f2dfcb39a020cf7f80fda4c7b552a638de",
+  "git_commit": "644a786b0a1c3638dccb6a9a611378f816ac506b",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 153.0415449142456
+}

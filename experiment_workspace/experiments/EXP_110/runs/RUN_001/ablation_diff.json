@@ -1,0 +1,113 @@
+{
+  "based_on": "EXP_109",
+  "reference_variant": "subsample_08",
+  "ablation_summary": "Fix the EXP_109 winning model and main72 features; vary only subsample across 0.75, 0.80, 0.85, and 0.90.",
+  "control": "subsample_08_control",
+  "variants": [
+    {
+      "name": "subsample_08_control",
+      "declared_change": "control: EXP_109 winner subsample=0.80",
+      "is_control": true,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "subsample_075",
+      "declared_change": "subsample 0.80 -> 0.75 only",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085_sub08",
+          "variant": "catboost_d8_decay085_sub075"
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.8,
+          "variant": 0.75
+        }
+      ]
+    },
+    {
+      "name": "subsample_085",
+      "declared_change": "subsample 0.80 -> 0.85 only",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085_sub08",
+          "variant": "catboost_d8_decay085_sub085"
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.8,
+          "variant": 0.85
+        }
+      ]
+    },
+    {
+      "name": "subsample_09",
+      "declared_change": "subsample 0.80 -> 0.90 only",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085_sub08",
+          "variant": "catboost_d8_decay085_sub09"
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.8,
+          "variant": 0.9
+        }
+      ]
+    }
+  ]
+}

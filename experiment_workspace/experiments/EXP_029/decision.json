@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_029",
+  "decision": "inconclusive",
+  "selected_variant": "all_four",
+  "reason": "all_four가 동일 RUN control보다 0.000002167 개선했지만 GPU 반복 실행 변동보다 작아 결론이 불충분하다. EXP_030 CPU 재검증이 필요하다.",
+  "based_on": "EXP_028",
+  "reference_variant": "add_scoring_position_x_li",
+  "ablation_summary": "GPU 모델과 main60을 고정하고 단독 양의 피처 4개의 2-way 및 전체 조합만 비교",
+  "selected_result": {
+    "variant": "all_four",
+    "change": "상위 4개 전체 조합",
+    "feature_set": "main64_all_positive_individual",
+    "feature_count": 64,
+    "model": "catboost_gpu_d6_i600_lr025_b128",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2478171344,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 796.5320853391,
+    "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+    "delta_brier_vs_control": -2.1668e-06,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "scoring_control",
+    "change": "control: scoring_position_x_li 단독",
+    "feature_set": "main61_add_scoring_position_x_li",
+    "feature_count": 61,
+    "model": "catboost_gpu_d6_i600_lr025_b128",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2478193012,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 795.6647149561,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-17T18:04:53.031588+00:00",
+  "based_on_run_id": "RUN_001"
+}

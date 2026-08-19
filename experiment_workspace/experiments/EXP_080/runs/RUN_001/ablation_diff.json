@@ -1,0 +1,41 @@
+{
+  "based_on": "EXP_072",
+  "reference_variant": "main69_control",
+  "ablation_summary": "Fix triple CPU45/GPU40/Extra15; compare old main69 against only the count+both-hands categorical treatment.",
+  "control": "old_main69_control",
+  "variants": [
+    {
+      "name": "old_main69_control",
+      "declared_change": "control: EXP_072 재현, 기존 categorical 4개",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "count_hands_promoted",
+      "declared_change": "control 대비 count_state·pitcher_hand·batter_hand categorical 추가",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

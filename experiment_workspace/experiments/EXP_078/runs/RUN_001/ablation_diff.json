@@ -1,0 +1,107 @@
+{
+  "based_on": "EXP_072",
+  "reference_variant": "main69_control",
+  "ablation_summary": "Fix main69 and d8 decay0.85; separately add count_state, hands, calendar, pitcher_team, or count plus hands to the native categorical list.",
+  "control": "main69_control",
+  "variants": [
+    {
+      "name": "main69_control",
+      "declared_change": "control: 문자열 3개와 batter_team만 categorical",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "count_state_cat",
+      "declared_change": "control 대비 count_state만 categorical 추가",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "hands_cat",
+      "declared_change": "control 대비 pitcher_hand·batter_hand만 categorical 추가",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "calendar_cat",
+      "declared_change": "control 대비 game_month·game_dayofweek만 categorical 추가",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "game_month",
+        "game_dayofweek"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pitcher_team_cat",
+      "declared_change": "control 대비 pitcher_team_id만 categorical 추가",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "pitcher_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "count_hands_cat",
+      "declared_change": "control 대비 count_state와 양손 코드를 categorical 추가",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

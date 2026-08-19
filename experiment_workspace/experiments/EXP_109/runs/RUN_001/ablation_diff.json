@@ -1,0 +1,229 @@
+{
+  "based_on": "EXP_108",
+  "reference_variant": "main72_control",
+  "ablation_summary": "Hold main72 features, 2019-2023 training, 2024 validation, depth, iterations, learning rate, decay, and seed fixed; change exactly one of l2_leaf_reg, random_strength, subsample, or rsm per candidate.",
+  "control": "regularization_control",
+  "variants": [
+    {
+      "name": "regularization_control",
+      "declared_change": "control: l2=3, random_strength=1, subsample=0.7, rsm=1",
+      "is_control": true,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "l2_1",
+      "declared_change": "l2_leaf_reg 3 -> 1 only",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "catboost_d8_decay085_l2_1"
+        },
+        {
+          "field": "model.params.l2_leaf_reg",
+          "control": 3.0,
+          "variant": 1.0
+        }
+      ]
+    },
+    {
+      "name": "l2_5",
+      "declared_change": "l2_leaf_reg 3 -> 5 only",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "catboost_d8_decay085_l2_5"
+        },
+        {
+          "field": "model.params.l2_leaf_reg",
+          "control": 3.0,
+          "variant": 5.0
+        }
+      ]
+    },
+    {
+      "name": "l2_8",
+      "declared_change": "l2_leaf_reg 3 -> 8 only",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "catboost_d8_decay085_l2_8"
+        },
+        {
+          "field": "model.params.l2_leaf_reg",
+          "control": 3.0,
+          "variant": 8.0
+        }
+      ]
+    },
+    {
+      "name": "random_strength_05",
+      "declared_change": "random_strength 1 -> 0.5 only",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "catboost_d8_decay085_rs05"
+        },
+        {
+          "field": "model.params.random_strength",
+          "control": null,
+          "variant": 0.5
+        }
+      ]
+    },
+    {
+      "name": "random_strength_15",
+      "declared_change": "random_strength 1 -> 1.5 only",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "catboost_d8_decay085_rs15"
+        },
+        {
+          "field": "model.params.random_strength",
+          "control": null,
+          "variant": 1.5
+        }
+      ]
+    },
+    {
+      "name": "subsample_08",
+      "declared_change": "subsample 0.7 -> 0.8 only",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "catboost_d8_decay085_sub08"
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.7,
+          "variant": 0.8
+        }
+      ]
+    },
+    {
+      "name": "rsm_09",
+      "declared_change": "rsm 1.0 -> 0.9 only",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "catboost_d8_decay085_rsm09"
+        },
+        {
+          "field": "model.params.rsm",
+          "control": null,
+          "variant": 0.9
+        }
+      ]
+    }
+  ]
+}

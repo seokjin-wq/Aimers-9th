@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_085",
+  "decision": "reject",
+  "selected_variant": "count_hands_control",
+  "reason": "세 결측 플래그 모두 control BSS 917.14보다 악화했다. 원시 결측·월·누적량으로 이미 표현된 중복 신호라 채택하지 않는다.",
+  "based_on": "EXP_080",
+  "reference_variant": "count_hands_promoted",
+  "ablation_summary": "Fix EXP_080 CPU base; add recent, pitcher, batter, or all three history-missing flags one block at a time.",
+  "selected_result": {
+    "variant": "count_hands_control",
+    "change": "control: EXP_080 CPU count+hands base",
+    "feature_set": "main69_cat_count_hands",
+    "feature_count": 69,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475158585,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 917.135588661,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "count_hands_control",
+    "change": "control: EXP_080 CPU count+hands base",
+    "feature_set": "main69_cat_count_hands",
+    "feature_count": 69,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475158585,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 917.135588661,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T06:08:38.621843+00:00",
+  "based_on_run_id": "RUN_001"
+}

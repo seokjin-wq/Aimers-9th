@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_061"
+title = "시즌 지표별 스무딩 강도"
+hypothesis = "현재 시즌 ball·strike·타자 middle은 성공률보다 저표본 변동이 커 더 강한 shrinkage가 일반화를 개선한다"
+change_scope = "features"
+study_config = "experiments/EXP_061/study.toml"
+based_on = "EXP_060"
+reference_variant = "decay085"
+ablation_summary = "main69 k20 공통 기준 대비 ball k500, strike k200, batter-middle k200을 개별 및 동시 교체"
+tags = ["rule_compliant", "shrinkage"]
+created_at_utc = "2026-08-18T03:01:37.336375+00:00"

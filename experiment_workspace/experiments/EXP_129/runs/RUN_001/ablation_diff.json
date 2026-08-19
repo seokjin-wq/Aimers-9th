@@ -1,0 +1,113 @@
+{
+  "based_on": "EXP_127",
+  "reference_variant": "count_trend_strength_100",
+  "ablation_summary": "Fix EXP_127 trend strength 1.00 and every model/calibration setting; vary only count-trend shrinkage across 0, 2500, 5000, and control 10000.",
+  "control": "shrinkage_10000_control",
+  "variants": [
+    {
+      "name": "shrinkage_10000_control",
+      "declared_change": "control: EXP_127 adopted trend shrinkage 10000",
+      "is_control": true,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "shrinkage_0",
+      "declared_change": "change only trend shrinkage from 10000 to 0",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "triple_count_trend_s100",
+          "variant": "triple_count_trend_k0"
+        },
+        {
+          "field": "model.trend_shrinkage",
+          "control": 10000.0,
+          "variant": 0.0
+        }
+      ]
+    },
+    {
+      "name": "shrinkage_2500",
+      "declared_change": "change only trend shrinkage from 10000 to 2500",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "triple_count_trend_s100",
+          "variant": "triple_count_trend_k2500"
+        },
+        {
+          "field": "model.trend_shrinkage",
+          "control": 10000.0,
+          "variant": 2500.0
+        }
+      ]
+    },
+    {
+      "name": "shrinkage_5000",
+      "declared_change": "change only trend shrinkage from 10000 to 5000",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "triple_count_trend_s100",
+          "variant": "triple_count_trend_k5000"
+        },
+        {
+          "field": "model.trend_shrinkage",
+          "control": 10000.0,
+          "variant": 5000.0
+        }
+      ]
+    }
+  ]
+}

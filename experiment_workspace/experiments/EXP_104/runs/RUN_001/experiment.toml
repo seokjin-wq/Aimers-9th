@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_104"
+title = "EDA context OOT residual calibration"
+hypothesis = "Residual biases by hand matchup, inning, or base state remain after the model and can be corrected using only 2023 official-training OOT residual tables and each row's own context."
+change_scope = "model"
+study_config = "experiments/EXP_104/study.toml"
+based_on = "EXP_103"
+reference_variant = "residual_scale_1_control"
+ablation_summary = "Keep the corrected triple, weights, features, and calibration mechanics fixed; compare count control against train-only residual groups for hands, count+hands, inning, base_state, and count+base_state."
+tags = ["compliance", "row-independent", "EDA", "calibration", "context"]
+created_at_utc = "2026-08-18T09:35:45.521541+00:00"

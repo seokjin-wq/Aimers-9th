@@ -1,0 +1,687 @@
+{
+  "based_on": "EXP_006",
+  "reference_variant": "d6_i300_control",
+  "ablation_summary": "main55를 고정하고 CatBoost, LightGBM, XGBoost 모델군과 대표 복잡도만 비교",
+  "control": "catboost_control",
+  "variants": [
+    {
+      "name": "catboost_control",
+      "declared_change": "control: native CatBoost depth6 300 trees",
+      "is_control": true,
+      "feature_count": 55,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "lightgbm_l31",
+      "declared_change": "LightGBM 31 leaves",
+      "is_control": false,
+      "feature_count": 55,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "lightgbm"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "lightgbm_l31"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params.allow_writing_files",
+          "control": false,
+          "variant": null
+        },
+        {
+          "field": "model.params.colsample_bytree",
+          "control": null,
+          "variant": 0.8
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": null
+        },
+        {
+          "field": "model.params.eval_metric",
+          "control": "BrierScore",
+          "variant": null
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": null
+        },
+        {
+          "field": "model.params.l2_leaf_reg",
+          "control": 3.0,
+          "variant": null
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.05,
+          "variant": 0.03
+        },
+        {
+          "field": "model.params.loss_function",
+          "control": "Logloss",
+          "variant": null
+        },
+        {
+          "field": "model.params.max_depth",
+          "control": null,
+          "variant": -1
+        },
+        {
+          "field": "model.params.min_child_samples",
+          "control": null,
+          "variant": 200
+        },
+        {
+          "field": "model.params.n_estimators",
+          "control": null,
+          "variant": 500
+        },
+        {
+          "field": "model.params.n_jobs",
+          "control": null,
+          "variant": 8
+        },
+        {
+          "field": "model.params.num_leaves",
+          "control": null,
+          "variant": 31
+        },
+        {
+          "field": "model.params.random_seed",
+          "control": 42,
+          "variant": null
+        },
+        {
+          "field": "model.params.random_state",
+          "control": null,
+          "variant": 42
+        },
+        {
+          "field": "model.params.reg_lambda",
+          "control": null,
+          "variant": 3.0
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.7,
+          "variant": 0.8
+        },
+        {
+          "field": "model.params.task_type",
+          "control": "CPU",
+          "variant": null
+        },
+        {
+          "field": "model.params.thread_count",
+          "control": 8,
+          "variant": null
+        },
+        {
+          "field": "model.params.verbose",
+          "control": false,
+          "variant": null
+        },
+        {
+          "field": "model.params.verbosity",
+          "control": null,
+          "variant": -1
+        }
+      ]
+    },
+    {
+      "name": "lightgbm_l63",
+      "declared_change": "LightGBM 63 leaves",
+      "is_control": false,
+      "feature_count": 55,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "lightgbm"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "lightgbm_l63"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params.allow_writing_files",
+          "control": false,
+          "variant": null
+        },
+        {
+          "field": "model.params.colsample_bytree",
+          "control": null,
+          "variant": 0.8
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": null
+        },
+        {
+          "field": "model.params.eval_metric",
+          "control": "BrierScore",
+          "variant": null
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": null
+        },
+        {
+          "field": "model.params.l2_leaf_reg",
+          "control": 3.0,
+          "variant": null
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.05,
+          "variant": 0.03
+        },
+        {
+          "field": "model.params.loss_function",
+          "control": "Logloss",
+          "variant": null
+        },
+        {
+          "field": "model.params.max_depth",
+          "control": null,
+          "variant": -1
+        },
+        {
+          "field": "model.params.min_child_samples",
+          "control": null,
+          "variant": 200
+        },
+        {
+          "field": "model.params.n_estimators",
+          "control": null,
+          "variant": 500
+        },
+        {
+          "field": "model.params.n_jobs",
+          "control": null,
+          "variant": 8
+        },
+        {
+          "field": "model.params.num_leaves",
+          "control": null,
+          "variant": 63
+        },
+        {
+          "field": "model.params.random_seed",
+          "control": 42,
+          "variant": null
+        },
+        {
+          "field": "model.params.random_state",
+          "control": null,
+          "variant": 42
+        },
+        {
+          "field": "model.params.reg_lambda",
+          "control": null,
+          "variant": 3.0
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.7,
+          "variant": 0.8
+        },
+        {
+          "field": "model.params.task_type",
+          "control": "CPU",
+          "variant": null
+        },
+        {
+          "field": "model.params.thread_count",
+          "control": 8,
+          "variant": null
+        },
+        {
+          "field": "model.params.verbose",
+          "control": false,
+          "variant": null
+        },
+        {
+          "field": "model.params.verbosity",
+          "control": null,
+          "variant": -1
+        }
+      ]
+    },
+    {
+      "name": "lightgbm_l127",
+      "declared_change": "LightGBM 127 leaves",
+      "is_control": false,
+      "feature_count": 55,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "lightgbm"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "lightgbm_l127"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params.allow_writing_files",
+          "control": false,
+          "variant": null
+        },
+        {
+          "field": "model.params.colsample_bytree",
+          "control": null,
+          "variant": 0.8
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": null
+        },
+        {
+          "field": "model.params.eval_metric",
+          "control": "BrierScore",
+          "variant": null
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": null
+        },
+        {
+          "field": "model.params.l2_leaf_reg",
+          "control": 3.0,
+          "variant": null
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.05,
+          "variant": 0.03
+        },
+        {
+          "field": "model.params.loss_function",
+          "control": "Logloss",
+          "variant": null
+        },
+        {
+          "field": "model.params.max_depth",
+          "control": null,
+          "variant": -1
+        },
+        {
+          "field": "model.params.min_child_samples",
+          "control": null,
+          "variant": 200
+        },
+        {
+          "field": "model.params.n_estimators",
+          "control": null,
+          "variant": 500
+        },
+        {
+          "field": "model.params.n_jobs",
+          "control": null,
+          "variant": 8
+        },
+        {
+          "field": "model.params.num_leaves",
+          "control": null,
+          "variant": 127
+        },
+        {
+          "field": "model.params.random_seed",
+          "control": 42,
+          "variant": null
+        },
+        {
+          "field": "model.params.random_state",
+          "control": null,
+          "variant": 42
+        },
+        {
+          "field": "model.params.reg_lambda",
+          "control": null,
+          "variant": 3.0
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.7,
+          "variant": 0.8
+        },
+        {
+          "field": "model.params.task_type",
+          "control": "CPU",
+          "variant": null
+        },
+        {
+          "field": "model.params.thread_count",
+          "control": 8,
+          "variant": null
+        },
+        {
+          "field": "model.params.verbose",
+          "control": false,
+          "variant": null
+        },
+        {
+          "field": "model.params.verbosity",
+          "control": null,
+          "variant": -1
+        }
+      ]
+    },
+    {
+      "name": "xgboost_d4",
+      "declared_change": "XGBoost depth4",
+      "is_control": false,
+      "feature_count": 55,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "xgboost"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "xgboost_d4"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params.allow_writing_files",
+          "control": false,
+          "variant": null
+        },
+        {
+          "field": "model.params.colsample_bytree",
+          "control": null,
+          "variant": 0.8
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": null
+        },
+        {
+          "field": "model.params.eval_metric",
+          "control": "BrierScore",
+          "variant": "logloss"
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": null
+        },
+        {
+          "field": "model.params.l2_leaf_reg",
+          "control": 3.0,
+          "variant": null
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.05,
+          "variant": 0.03
+        },
+        {
+          "field": "model.params.loss_function",
+          "control": "Logloss",
+          "variant": null
+        },
+        {
+          "field": "model.params.max_depth",
+          "control": null,
+          "variant": 4
+        },
+        {
+          "field": "model.params.min_child_weight",
+          "control": null,
+          "variant": 50.0
+        },
+        {
+          "field": "model.params.n_estimators",
+          "control": null,
+          "variant": 600
+        },
+        {
+          "field": "model.params.n_jobs",
+          "control": null,
+          "variant": 8
+        },
+        {
+          "field": "model.params.random_seed",
+          "control": 42,
+          "variant": null
+        },
+        {
+          "field": "model.params.random_state",
+          "control": null,
+          "variant": 42
+        },
+        {
+          "field": "model.params.reg_lambda",
+          "control": null,
+          "variant": 3.0
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.7,
+          "variant": 0.8
+        },
+        {
+          "field": "model.params.task_type",
+          "control": "CPU",
+          "variant": null
+        },
+        {
+          "field": "model.params.thread_count",
+          "control": 8,
+          "variant": null
+        },
+        {
+          "field": "model.params.tree_method",
+          "control": null,
+          "variant": "hist"
+        },
+        {
+          "field": "model.params.verbose",
+          "control": false,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "xgboost_d6",
+      "declared_change": "XGBoost depth6",
+      "is_control": false,
+      "feature_count": 55,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "xgboost"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "xgboost_d6"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params.allow_writing_files",
+          "control": false,
+          "variant": null
+        },
+        {
+          "field": "model.params.colsample_bytree",
+          "control": null,
+          "variant": 0.8
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": null
+        },
+        {
+          "field": "model.params.eval_metric",
+          "control": "BrierScore",
+          "variant": "logloss"
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": null
+        },
+        {
+          "field": "model.params.l2_leaf_reg",
+          "control": 3.0,
+          "variant": null
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.05,
+          "variant": 0.03
+        },
+        {
+          "field": "model.params.loss_function",
+          "control": "Logloss",
+          "variant": null
+        },
+        {
+          "field": "model.params.max_depth",
+          "control": null,
+          "variant": 6
+        },
+        {
+          "field": "model.params.min_child_weight",
+          "control": null,
+          "variant": 50.0
+        },
+        {
+          "field": "model.params.n_estimators",
+          "control": null,
+          "variant": 600
+        },
+        {
+          "field": "model.params.n_jobs",
+          "control": null,
+          "variant": 8
+        },
+        {
+          "field": "model.params.random_seed",
+          "control": 42,
+          "variant": null
+        },
+        {
+          "field": "model.params.random_state",
+          "control": null,
+          "variant": 42
+        },
+        {
+          "field": "model.params.reg_lambda",
+          "control": null,
+          "variant": 3.0
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.7,
+          "variant": 0.8
+        },
+        {
+          "field": "model.params.task_type",
+          "control": "CPU",
+          "variant": null
+        },
+        {
+          "field": "model.params.thread_count",
+          "control": 8,
+          "variant": null
+        },
+        {
+          "field": "model.params.tree_method",
+          "control": null,
+          "variant": "hist"
+        },
+        {
+          "field": "model.params.verbose",
+          "control": false,
+          "variant": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T16:34:56.323362+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "ff8e8b7b4da5",
+  "based_on": "EXP_015",
+  "reference_variant": "shift_m010",
+  "ablation_summary": "main55+count와 -0.010 shift를 고정하고 단일 seed 대비 3-seed, 5-seed 확률 평균만 비교"
+}

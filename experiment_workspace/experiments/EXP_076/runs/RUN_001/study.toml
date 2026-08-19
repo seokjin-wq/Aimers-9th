@@ -1,0 +1,37 @@
+[study]
+id = "076_season_event_counts"
+description = "행 독립 당해 시즌 사건 횟수 표현"
+hypothesis = "당해 시즌 비율과 전체 표본 수만으로 트리가 개별 사건량을 복원하기 어려우므로, 성공·실패·reverse·middle·ball·strike의 로그 횟수를 직접 주면 성능이 개선된다."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main69_control"
+
+[[variants]]
+name = "main69_control"
+model = "catboost_d8_decay085"
+features = "main69_pitcher_batter_season_all"
+change = "control: 당해 시즌 스무딩 비율과 표본 수"
+
+[[variants]]
+name = "pitcher_success_counts"
+model = "catboost_d8_decay085"
+features = "main71_pitcher_season_success_counts"
+change = "control 대비 투수 당해 시즌 성공·실패 로그 횟수 추가"
+
+[[variants]]
+name = "pitcher_event_counts"
+model = "catboost_d8_decay085"
+features = "main73_pitcher_season_event_counts"
+change = "control 대비 투수 reverse·middle·ball·strike 로그 횟수 추가"
+
+[[variants]]
+name = "batter_event_counts"
+model = "catboost_d8_decay085"
+features = "main72_batter_season_event_counts"
+change = "control 대비 타자 성공·실패·middle 로그 횟수 추가"
+
+[[variants]]
+name = "all_event_counts"
+model = "catboost_d8_decay085"
+features = "main78_all_season_event_counts"
+change = "control 대비 투수 6개와 타자 3개 사건 로그 횟수 모두 추가"

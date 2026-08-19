@@ -1,0 +1,25 @@
+[study]
+id = "101_count_triple_mean_refinement"
+description = "Count-calibrated triple mean refinement"
+hypothesis = "The current count-calibrated triple overpredicts 2024 by 0.00147; lowering the CatBoost component shift by about 0.0017 should remove this mean bias without changing ranking or row independence."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "catshift_m008_control"
+
+[[variants]]
+name = "catshift_m008_control"
+model = "triple_group_count_k500"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: EXP_094 count-k500 triple with CatBoost shift -0.008"
+
+[[variants]]
+name = "catshift_m0095"
+model = "triple_group_count_k500_catshift_m0095"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "lower CatBoost component shift to -0.0095"
+
+[[variants]]
+name = "catshift_m010"
+model = "triple_group_count_k500_catshift_m010"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "lower CatBoost component shift to -0.010"

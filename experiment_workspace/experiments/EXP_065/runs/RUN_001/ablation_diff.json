@@ -1,0 +1,95 @@
+{
+  "based_on": "EXP_064",
+  "reference_variant": "main69_control",
+  "ablation_summary": "EXP_064와 동일한 네 상황 효과를 leave-one-row-out 대신 leave-one-season-out으로 재계산",
+  "control": "main69_control",
+  "variants": [
+    {
+      "name": "main69_control",
+      "declared_change": "control: 합법 main69",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "count_hands_season_oof",
+      "declared_change": "season-OOF 볼카운트×손 조합 효과",
+      "is_control": false,
+      "feature_count": 70,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "count_hands_target_effect"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "count_out_base_season_oof",
+      "declared_change": "season-OOF 볼카운트×아웃×주자 효과",
+      "is_control": false,
+      "feature_count": 70,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "count_out_base_target_effect"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "game_pressure_season_oof",
+      "declared_change": "season-OOF 경기·압박 효과",
+      "is_control": false,
+      "feature_count": 71,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "inning_game_target_effect",
+        "pressure_state_target_effect"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "all_context_season_oof",
+      "declared_change": "season-OOF 네 상황 효과 전체",
+      "is_control": false,
+      "feature_count": 73,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "count_hands_target_effect",
+        "count_out_base_target_effect",
+        "inning_game_target_effect",
+        "pressure_state_target_effect"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

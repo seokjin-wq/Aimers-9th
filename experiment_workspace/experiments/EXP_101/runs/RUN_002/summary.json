@@ -1,0 +1,87 @@
+{
+  "experiment_id": "EXP_101",
+  "run_id": "RUN_002",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T08:55:48.735517+00:00",
+  "completed_at_utc": "2026-08-18T09:07:43.626683+00:00",
+  "config_hash": "1d0bb73296c7",
+  "based_on": "EXP_094",
+  "reference_variant": "count_k500_repro",
+  "ablation_summary": "Keep features, triple weights, component training, and train-only count calibration fixed; compare CatBoost component shifts -0.008, -0.0095, and -0.010.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/101_count_triple_mean_refinement/20260818T085548744631Z_1d0bb73296c7",
+  "control": "catshift_m008_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "catshift_m0095",
+  "best_mean_brier": 0.2474629932513661,
+  "best_delta_brier_vs_control": -2.1351995057039552e-06,
+  "leaderboard": [
+    {
+      "variant": "catshift_m0095",
+      "change": "lower CatBoost component shift to -0.0095",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "triple_group_count_k500_catshift_m0095",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474629933,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 938.2980431539,
+      "changed_fields_vs_control": "['model.cat_shift', 'model.name']",
+      "delta_brier_vs_control": -2.1352e-06,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "catshift_m010",
+      "change": "lower CatBoost component shift to -0.010",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "triple_group_count_k500_catshift_m010",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.247463004,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 938.2937330927,
+      "changed_fields_vs_control": "['model.cat_shift', 'model.name']",
+      "delta_brier_vs_control": -2.1244e-06,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "catshift_m008_control",
+      "change": "control: EXP_094 count-k500 triple with CatBoost shift -0.008",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "triple_group_count_k500",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474651285,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 937.443303242,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "1cda9441be51334a6524a7c4937503ff2a71760427abc3436274f9f7ec5a1ca9",
+  "git_commit": "b7b5929d4464b2929ec49f80d755e8f05d4275a5",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 714.692441701889
+}

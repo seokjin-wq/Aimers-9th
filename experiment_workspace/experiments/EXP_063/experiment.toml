@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_063"
+title = "구종 구성과 제외 피처 재검증"
+hypothesis = "현재 시즌 구종 구성과 과거에 제외했던 prev5·strike·fastball 원시값이 시즌 상태 모델에서는 추가 신호를 제공할 수 있다"
+change_scope = "features"
+study_config = "experiments/EXP_063/study.toml"
+based_on = "EXP_062"
+reference_variant = "extra_w18"
+ablation_summary = "main69 decay85 CatBoost 대비 시즌 pitchmix 3개, prev5 재추가, strike+fastball 재추가, 전체 조합 비교"
+tags = ["rule_compliant", "pitchmix"]
+created_at_utc = "2026-08-18T03:15:26.895469+00:00"

@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T07:01:18.457265+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "dda2b48326e7",
+  "based_on": "EXP_087",
+  "reference_variant": "same_hand_pitchmix_triple",
+  "ablation_summary": "Fix EXP_084 CPU features; add inning phase category, phase×LI slopes, late-inning×pitcher history slopes, or all blocks."
+}

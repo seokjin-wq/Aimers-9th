@@ -1,0 +1,5 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+shrinkage_0,change only trend shrinkage from 10000 to 0,main78_history_reliability,78,triple_count_trend_k0,cat_cpu_gpu_extra_blend,1,0.2474451306986526,0.0,945.4485865537432,"['model.name', 'model.trend_shrinkage']",-1.7843545030427066e-08,1/1
+shrinkage_2500,change only trend shrinkage from 10000 to 2500,main78_history_reliability,78,triple_count_trend_k2500,cat_cpu_gpu_extra_blend,1,0.2474451334526327,0.0,945.4474841102732,"['model.name', 'model.trend_shrinkage']",-1.5089564903147945e-08,1/1
+shrinkage_5000,change only trend shrinkage from 10000 to 5000,main78_history_reliability,78,triple_count_trend_k5000,cat_cpu_gpu_extra_blend,1,0.2474451358861006,0.0,945.446509970771,"['model.name', 'model.trend_shrinkage']",-1.2656096948227002e-08,1/1
+shrinkage_10000_control,control: EXP_127 adopted trend shrinkage 10000,main78_history_reliability,78,triple_count_trend_s100,cat_cpu_gpu_extra_blend,1,0.2474451485421976,0.0,945.4414436192882,[],0.0,0/1

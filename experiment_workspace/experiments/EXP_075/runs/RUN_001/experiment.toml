@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_075"
+title = "Pitcher versus batter success k50 decomposition"
+hypothesis = "The small k50 gain may come from only pitcher or batter season success; isolating the contributor avoids diluting a useful feature."
+change_scope = "features"
+study_config = "experiments/EXP_075/study.toml"
+based_on = "EXP_073"
+reference_variant = "success_k50"
+ablation_summary = "Fix all else and compare k20/k20, pitcher50/batter20, pitcher20/batter50, and k50/k50."
+tags = ["compliance,row-independent,season-state,factorial"]
+created_at_utc = "2026-08-18T04:49:37.712961+00:00"

@@ -1,0 +1,113 @@
+{
+  "based_on": "EXP_118",
+  "reference_variant": "d8_i300_control",
+  "ablation_summary": "Fix main78 features and all winning CPU parameters; change exactly one categorical-processing parameter per candidate: max_ctr_complexity=2, one_hot_max_size=5, or one_hot_max_size=16.",
+  "control": "categorical_control",
+  "variants": [
+    {
+      "name": "categorical_control",
+      "declared_change": "control: latest CPU default categorical processing",
+      "is_control": true,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "max_ctr_complexity_2",
+      "declared_change": "max_ctr_complexity default 1 -> 2 only",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085_sub08",
+          "variant": "catboost_d8_decay085_sub08_ctr2"
+        },
+        {
+          "field": "model.params.max_ctr_complexity",
+          "control": null,
+          "variant": 2
+        }
+      ]
+    },
+    {
+      "name": "one_hot_max_size_5",
+      "declared_change": "one_hot_max_size default 2 -> 5 only",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085_sub08",
+          "variant": "catboost_d8_decay085_sub08_onehot5"
+        },
+        {
+          "field": "model.params.one_hot_max_size",
+          "control": null,
+          "variant": 5
+        }
+      ]
+    },
+    {
+      "name": "one_hot_max_size_16",
+      "declared_change": "one_hot_max_size default 2 -> 16 only",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085_sub08",
+          "variant": "catboost_d8_decay085_sub08_onehot16"
+        },
+        {
+          "field": "model.params.one_hot_max_size",
+          "control": null,
+          "variant": 16
+        }
+      ]
+    }
+  ]
+}

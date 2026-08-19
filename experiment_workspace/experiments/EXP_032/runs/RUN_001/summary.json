@@ -1,0 +1,132 @@
+{
+  "experiment_id": "EXP_032",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T18:15:13.437425+00:00",
+  "completed_at_utc": "2026-08-17T18:17:30.545455+00:00",
+  "config_hash": "2b024d2e84dd",
+  "based_on": "EXP_031",
+  "reference_variant": "ensemble_3seed",
+  "ablation_summary": "GPU CatBoost와 main60을 고정하고 game_type, top_bottom, pitcher_hand 및 game_type×pitcher_hand로 학습 데이터를 분리",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/032_segmented_catboost/20260817T181513441644Z_2b024d2e84dd",
+  "control": "global_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "global_control",
+  "best_mean_brier": 0.2478182472007617,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "global_control",
+      "change": "control: 전역 GPU CatBoost",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2478182472,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 796.0866345241,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "game_i600",
+      "change": "game_type별 600-tree",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "seg_gpu_game_i600",
+      "model_family": "catboost_segmented",
+      "fold_count": 1,
+      "mean_brier": 0.2478427135,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 786.2925430912,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.segment_columns']",
+      "delta_brier_vs_control": 2.44663e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "game_i300",
+      "change": "game_type별 300-tree",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "seg_gpu_game_i300",
+      "model_family": "catboost_segmented",
+      "fold_count": 1,
+      "mean_brier": 0.2478702851,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 775.2553964716,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.params.iterations', 'model.params.learning_rate', 'model.segment_columns']",
+      "delta_brier_vs_control": 5.20379e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "top_bottom_i600",
+      "change": "top_bottom별 600-tree",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "seg_gpu_topbottom_i600",
+      "model_family": "catboost_segmented",
+      "fold_count": 1,
+      "mean_brier": 0.2478980642,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 764.1351671306,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.segment_columns']",
+      "delta_brier_vs_control": 7.9817e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "pitcher_hand_i600",
+      "change": "pitcher_hand별 600-tree",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "seg_gpu_pitcherhand_i600",
+      "model_family": "catboost_segmented",
+      "fold_count": 1,
+      "mean_brier": 0.2479063911,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 760.8018419422,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.segment_columns']",
+      "delta_brier_vs_control": 8.81439e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "game_pitcher_hand_i400",
+      "change": "game_type × pitcher_hand별 400-tree",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "seg_gpu_game_pitcherhand_i400",
+      "model_family": "catboost_segmented",
+      "fold_count": 1,
+      "mean_brier": 0.2480519925,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 702.516244111,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.params.iterations', 'model.params.learning_rate', 'model.segment_columns']",
+      "delta_brier_vs_control": 0.0002337453,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "67815fec25d5e797809b960184bf6071a3e4db773875adea586fa2ddd0ae2547",
+  "git_commit": "bae0199b08d07b8c3586fe26fe2195ad0a1c0c0e",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 136.92269659042358
+}

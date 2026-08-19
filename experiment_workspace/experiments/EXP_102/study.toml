@@ -1,0 +1,49 @@
+[study]
+id = "102_count_triple_weights"
+description = "Count-calibrated triple weight refinement"
+hypothesis = "On the latest features and corrected cache, a nearby CPU/GPU/ExtraTrees mixture improves the count-calibrated ensemble beyond 45/40/15."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "w45_40_15_control"
+
+[[variants]]
+name = "w45_40_15_control"
+model = "triple_group_count_k500_catshift_m0095"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: EXP_101 CPU45 GPU40 Extra15"
+
+[[variants]]
+name = "w50_35_15"
+model = "triple_group_count_k500_shift_m0095_w50_35_15"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "CPU50 GPU35 Extra15"
+
+[[variants]]
+name = "w40_45_15"
+model = "triple_group_count_k500_shift_m0095_w40_45_15"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "CPU40 GPU45 Extra15"
+
+[[variants]]
+name = "w45_35_20"
+model = "triple_group_count_k500_shift_m0095_w45_35_20"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "CPU45 GPU35 Extra20"
+
+[[variants]]
+name = "w50_40_10"
+model = "triple_group_count_k500_shift_m0095_w50_40_10"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "CPU50 GPU40 Extra10"
+
+[[variants]]
+name = "w40_50_10"
+model = "triple_group_count_k500_shift_m0095_w40_50_10"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "CPU40 GPU50 Extra10"
+
+[[variants]]
+name = "w50_30_20"
+model = "triple_group_count_k500_shift_m0095_w50_30_20"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "CPU50 GPU30 Extra20"

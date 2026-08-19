@@ -1,0 +1,49 @@
+[study]
+id = "081_composite_count_states"
+description = "행 단위 복합 카운트 상태 범주"
+hypothesis = "카운트와 손·아웃 상호작용을 하나의 복합 범주로 직접 표현하면 separate categorical보다 ordered statistics가 안정적으로 학습된다."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "separate_count_hands_control"
+
+[[variants]]
+name = "separate_count_hands_control"
+model = "catboost_d8_decay085"
+features = "main69_cat_count_hands"
+change = "control: count_state와 양손을 separate categorical"
+
+[[variants]]
+name = "count_hands_composite_only"
+model = "catboost_d8_decay085"
+features = "main70_cat_count_hands_composite_only"
+change = "separate categorical 대신 count×양손 복합 범주만 추가"
+
+[[variants]]
+name = "count_hands_composite_plus"
+model = "catboost_d8_decay085"
+features = "main70_cat_count_hands_composite_plus"
+change = "control에 count×양손 복합 범주 추가"
+
+[[variants]]
+name = "count_matchup_composite"
+model = "catboost_d8_decay085"
+features = "main70_cat_count_matchup_composite"
+change = "count×동일손 여부 복합 범주만 추가"
+
+[[variants]]
+name = "count_out_plus"
+model = "catboost_d8_decay085"
+features = "main70_cat_count_out_plus"
+change = "control에 count×outs 복합 범주 추가"
+
+[[variants]]
+name = "count_hands_out_only"
+model = "catboost_d8_decay085"
+features = "main70_cat_count_hands_out_only"
+change = "count×양손×outs 복합 범주만 추가"
+
+[[variants]]
+name = "count_hands_out_plus"
+model = "catboost_d8_decay085"
+features = "main70_cat_count_hands_out_plus"
+change = "control에 count×양손×outs 복합 범주 추가"

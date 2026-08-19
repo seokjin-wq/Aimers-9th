@@ -1,0 +1,21 @@
+experiment_id,best_local_bss,quarantine_status,reason
+EXP_034,1008.9307,rule_invalid,evaluation-row entity diff and rolling
+EXP_035,1055.9549,rule_invalid,evaluation-row entity rolling extensions
+EXP_036,1148.4569,rule_invalid,evaluation-row reverse diff and rolling
+EXP_037,1152.5466,rule_invalid,evaluation-row middle and ball rolling
+EXP_038,1153.6441,rule_invalid,evaluation-row plate and sequence context
+EXP_039,1163.7087,rule_invalid,descendant model tuning on invalid features
+EXP_040,1163.9723,rule_invalid,descendant ensemble on invalid features
+EXP_041,1177.1788,rule_invalid,descendant model tuning on invalid features
+EXP_042,1178.2521,rule_invalid,evaluation-row lag and sequence patterns
+EXP_043,1148.4053,rule_invalid,comparison and adoption of invalid features
+EXP_044,1148.4053,rule_invalid,pruning of invalid rolling features
+EXP_045,1151.5220,rule_invalid,evaluation-row EWMA features
+EXP_046,1151.5220,rule_invalid,descendant model comparison on invalid features
+EXP_047,1233.5246,rule_invalid,global evaluation-row rolling
+EXP_048,1244.8336,rule_invalid,global evaluation-row window tuning
+EXP_049,1244.8336,rule_invalid,global evaluation-row window tuning
+EXP_050,1264.6731,rule_invalid,model tuning on invalid global rolling
+EXP_051,1264.6731,rule_invalid,global evaluation-row reverse rolling
+EXP_052,1264.6731,rule_invalid,calibration probe of invalid descendant
+EXP_053,1303.3916,rule_invalid,evaluation-row team and game rolling

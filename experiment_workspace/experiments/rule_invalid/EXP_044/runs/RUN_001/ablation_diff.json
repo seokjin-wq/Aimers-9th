@@ -1,0 +1,100 @@
+{
+  "based_on": "EXP_043",
+  "reference_variant": "main77_reverse",
+  "ablation_summary": "CPU depth6 400 lr0.04와 reverse short를 고정하고 투수 recent20·30·50 및 타자 recent2·8 포함 여부만 변경",
+  "control": "main77_control",
+  "variants": [
+    {
+      "name": "main77_control",
+      "declared_change": "control: 투수 20·30·50 + 타자 2·8 포함",
+      "is_control": true,
+      "feature_count": 77,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pitcher20_30_50",
+      "declared_change": "타자 2·8 제거",
+      "is_control": false,
+      "feature_count": 75,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [
+        "batter_recent2_pitch_success",
+        "batter_recent8_pitch_success"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pitcher20_50",
+      "declared_change": "타자 2·8 및 투수 30 제거",
+      "is_control": false,
+      "feature_count": 74,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [
+        "pitcher_recent30_pitch_success",
+        "batter_recent2_pitch_success",
+        "batter_recent8_pitch_success"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pitcher20",
+      "declared_change": "투수 20만 유지",
+      "is_control": false,
+      "feature_count": 73,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [
+        "pitcher_recent30_pitch_success",
+        "pitcher_recent50_pitch_success",
+        "batter_recent2_pitch_success",
+        "batter_recent8_pitch_success"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pitcher50",
+      "declared_change": "투수 50만 유지",
+      "is_control": false,
+      "feature_count": 73,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [
+        "pitcher_recent20_pitch_success",
+        "pitcher_recent30_pitch_success",
+        "batter_recent2_pitch_success",
+        "batter_recent8_pitch_success"
+      ],
+      "model_changes_vs_control": []
+    }
+  ]
+}

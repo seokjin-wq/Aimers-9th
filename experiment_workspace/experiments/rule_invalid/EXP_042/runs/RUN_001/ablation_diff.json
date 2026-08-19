@@ -1,0 +1,124 @@
+{
+  "based_on": "EXP_041",
+  "reference_variant": "bag0",
+  "ablation_summary": "main85와 bag0 CatBoost를 고정하고 투수 lag2·3·5, 타자 lag2·3 및 최근 3개 이진 패턴만 개별·조합 추가",
+  "control": "main85_control",
+  "variants": [
+    {
+      "name": "main85_control",
+      "declared_change": "control: main85 bag0",
+      "is_control": true,
+      "feature_count": 85,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pitcher_lags",
+      "declared_change": "투수 lag2·3·5 추가",
+      "is_control": false,
+      "feature_count": 88,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_lag2_pitch_success",
+        "pitcher_lag3_pitch_success",
+        "pitcher_lag5_pitch_success"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "batter_lags",
+      "declared_change": "타자 lag2·3 추가",
+      "is_control": false,
+      "feature_count": 87,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "batter_lag2_pitch_success",
+        "batter_lag3_pitch_success"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "entity_lags",
+      "declared_change": "투수·타자 lag 모두 추가",
+      "is_control": false,
+      "feature_count": 90,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_lag2_pitch_success",
+        "pitcher_lag3_pitch_success",
+        "pitcher_lag5_pitch_success",
+        "batter_lag2_pitch_success",
+        "batter_lag3_pitch_success"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "patterns_numeric",
+      "declared_change": "투수·타자 최근 3개 패턴 numeric 추가",
+      "is_control": false,
+      "feature_count": 87,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_last3_success_pattern",
+        "batter_last3_success_pattern"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "lags_patterns_cat",
+      "declared_change": "모든 lag + 최근 3개 패턴 categorical 추가",
+      "is_control": false,
+      "feature_count": 92,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "pitcher_last3_success_pattern",
+        "batter_last3_success_pattern"
+      ],
+      "added_features_vs_control": [
+        "pitcher_lag2_pitch_success",
+        "pitcher_lag3_pitch_success",
+        "pitcher_lag5_pitch_success",
+        "batter_lag2_pitch_success",
+        "batter_lag3_pitch_success",
+        "pitcher_last3_success_pattern",
+        "batter_last3_success_pattern"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

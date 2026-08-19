@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_066",
+  "decision": "keep_control",
+  "selected_variant": "catboost_control",
+  "reason": "main69에서 HistGB, LightGBM, XGBoost 단독이 모두 CatBoost보다 크게 악화되어 주력 모델은 CatBoost 유지; Hist63은 소량 앙상블 다양성 후보만 보존",
+  "based_on": "EXP_062",
+  "reference_variant": "extra_w18",
+  "ablation_summary": "main69 고정 후 CatBoost, HistGradientBoosting, LightGBM, XGBoost 대표 설정 비교",
+  "selected_result": {
+    "variant": "catboost_control",
+    "change": "control: EXP_060 CatBoost",
+    "feature_set": "main69_pitcher_batter_season_all",
+    "feature_count": 69,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475377207,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 908.3839506927,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "catboost_control",
+    "change": "control: EXP_060 CatBoost",
+    "feature_set": "main69_pitcher_batter_season_all",
+    "feature_count": 69,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475377207,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 908.3839506927,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T03:36:17.092592+00:00",
+  "based_on_run_id": "RUN_001"
+}

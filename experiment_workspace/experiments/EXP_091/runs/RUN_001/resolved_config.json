@@ -1,0 +1,263 @@
+{
+  "study": {
+    "id": "091_promote_late_history",
+    "description": "후반 투수이력 피처의 앙상블 승격",
+    "hypothesis": "EXP_090 피처 개선이 현재 3모델 앙상블에서도 유지된다.",
+    "protocol": "holdout_2024",
+    "change_scope": [
+      "features"
+    ],
+    "control": "current_triple_control"
+  },
+  "protocol": {
+    "name": "holdout_2024",
+    "description": "2019~2023 전체로 학습하고 2024를 고정 primary holdout으로 검증",
+    "train_start_season": 2019,
+    "validation_seasons": [
+      2024
+    ],
+    "split_rule": "before_validation_season",
+    "primary_metric": "brier",
+    "secondary_metrics": [
+      "brier_skill_score",
+      "roc_auc"
+    ],
+    "target_column": "control_success",
+    "id_column": "row_id",
+    "season_column": "season",
+    "store_predictions": true,
+    "calibration": "none",
+    "seed": 42
+  },
+  "variants": [
+    {
+      "name": "current_triple_control",
+      "change": "control: EXP_087 same-hand pitchmix triple",
+      "model": {
+        "name": "triple_cpu45_gpu40_extra15",
+        "family": "cat_cpu_gpu_extra_blend",
+        "cpu_weight": 0.45,
+        "gpu_weight": 0.4,
+        "extra_weight": 0.15,
+        "season_decay": 0.85,
+        "cat_scale": 1.06,
+        "cat_shift": -0.008,
+        "extra_shift": -0.01,
+        "cpu_params": {
+          "iterations": 300,
+          "depth": 8,
+          "learning_rate": 0.035,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        },
+        "gpu_params": {
+          "iterations": 600,
+          "depth": 7,
+          "learning_rate": 0.025,
+          "l2_leaf_reg": 3.0,
+          "bootstrap_type": "Bayesian",
+          "bagging_temperature": 1.0,
+          "border_count": 128,
+          "random_seed": 42,
+          "task_type": "GPU",
+          "devices": "0",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        },
+        "extra_params": {
+          "n_estimators": 300,
+          "min_samples_leaf": 20,
+          "max_features": 0.7,
+          "n_jobs": 8,
+          "random_state": 42,
+          "verbose": 0
+        }
+      },
+      "features": {
+        "name": "main72_cat_count_hands_same_pitchmix",
+        "description": "EXP_080 CPU base plus same-hand by three historical pitch-mix interactions",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs",
+          "pitcher_season_n",
+          "pitcher_season_success_rate_k20",
+          "pitcher_season_reverse_rate_k20",
+          "pitcher_season_middle_rate_k20",
+          "pitcher_season_ball_rate_k20",
+          "pitcher_season_strike_rate_k20",
+          "batter_season_n",
+          "batter_season_success_rate_k20",
+          "batter_season_middle_rate_k20",
+          "same_hand_x_fastball",
+          "same_hand_x_breaking",
+          "same_hand_x_offspeed"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state",
+          "batter_team_id",
+          "count_state",
+          "pitcher_hand",
+          "batter_hand"
+        ],
+        "expected_count": 72
+      },
+      "changed_fields_vs_control": []
+    },
+    {
+      "name": "late_history_triple",
+      "change": "EXP_090 후반×투수이력 3개를 triple에 승격",
+      "model": {
+        "name": "triple_cpu45_gpu40_extra15",
+        "family": "cat_cpu_gpu_extra_blend",
+        "cpu_weight": 0.45,
+        "gpu_weight": 0.4,
+        "extra_weight": 0.15,
+        "season_decay": 0.85,
+        "cat_scale": 1.06,
+        "cat_shift": -0.008,
+        "extra_shift": -0.01,
+        "cpu_params": {
+          "iterations": 300,
+          "depth": 8,
+          "learning_rate": 0.035,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        },
+        "gpu_params": {
+          "iterations": 600,
+          "depth": 7,
+          "learning_rate": 0.025,
+          "l2_leaf_reg": 3.0,
+          "bootstrap_type": "Bayesian",
+          "bagging_temperature": 1.0,
+          "border_count": 128,
+          "random_seed": 42,
+          "task_type": "GPU",
+          "devices": "0",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        },
+        "extra_params": {
+          "n_estimators": 300,
+          "min_samples_leaf": 20,
+          "max_features": 0.7,
+          "n_jobs": 8,
+          "random_state": 42,
+          "verbose": 0
+        }
+      },
+      "features": {
+        "name": "main75_same_pitchmix_late_history",
+        "description": "EXP_084 base plus late-inning by pitcher career control slopes",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs",
+          "pitcher_season_n",
+          "pitcher_season_success_rate_k20",
+          "pitcher_season_reverse_rate_k20",
+          "pitcher_season_middle_rate_k20",
+          "pitcher_season_ball_rate_k20",
+          "pitcher_season_strike_rate_k20",
+          "batter_season_n",
+          "batter_season_success_rate_k20",
+          "batter_season_middle_rate_k20",
+          "same_hand_x_fastball",
+          "same_hand_x_breaking",
+          "same_hand_x_offspeed",
+          "late_inning_x_pitcher_success",
+          "late_inning_x_pitcher_reverse",
+          "late_inning_x_pitcher_middle"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state",
+          "batter_team_id",
+          "count_state",
+          "pitcher_hand",
+          "batter_hand"
+        ],
+        "expected_count": 75
+      },
+      "changed_fields_vs_control": [
+        "features.custom",
+        "features.description",
+        "features.expected_count",
+        "features.name"
+      ]
+    }
+  ],
+  "config_hash": "6b47f1555a72"
+}

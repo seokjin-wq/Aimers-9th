@@ -1,0 +1,19 @@
+[study]
+id = "111_promote_cpu_subsample08"
+description = "Subsample 0.8 promotion to corrected triple blend"
+hypothesis = "Replacing only the CPU CatBoost component with the EXP_109 subsample=0.8 winner will transfer its holdout gain into the rule-compliant corrected triple blend."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "triple_sub07_control"
+
+[[variants]]
+name = "triple_sub07_control"
+model = "triple_group_count_k500_catshift_m0095"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: EXP_101 corrected triple with CPU subsample=0.7"
+
+[[variants]]
+name = "triple_cpu_sub08"
+model = "triple_group_count_k500_catshift_m0095_cpu_sub08"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "CPU CatBoost subsample 0.7 -> 0.8 only"

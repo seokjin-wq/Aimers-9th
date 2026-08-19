@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T19:36:21.454479+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "f5fea1770c9b",
+  "based_on": "EXP_044",
+  "reference_variant": "main77_control",
+  "ablation_summary": "CPU main77을 고정하고 투수 success EWMA 0.05·0.10, 타자 success EWMA 0.10·0.20, 투수 reverse EWMA 0.05·0.10만 개별·조합 추가"
+}

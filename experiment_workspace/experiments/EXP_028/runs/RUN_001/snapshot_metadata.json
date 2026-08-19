@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T17:55:53.132204+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "cabb64a8efb0",
+  "based_on": "EXP_027",
+  "reference_variant": "gpu_d6_i600",
+  "ablation_summary": "GPU 모델을 고정하고 missing, shrinkage, log-count, context 파생 12개를 각각 하나씩만 추가"
+}

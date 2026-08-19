@@ -1,0 +1,650 @@
+{
+  "study": {
+    "id": "018_catboost_low_capacity",
+    "description": "CatBoost 저용량 정밀 탐색",
+    "hypothesis": "현재 300-tree depth6는 2024에 과적합되어 더 얕거나 적은 tree가 Brier를 개선한다",
+    "protocol": "holdout_2024",
+    "change_scope": [
+      "model"
+    ],
+    "control": "d6_i300_control"
+  },
+  "protocol": {
+    "name": "holdout_2024",
+    "description": "2019~2023 전체로 학습하고 2024를 고정 primary holdout으로 검증",
+    "train_start_season": 2019,
+    "validation_seasons": [
+      2024
+    ],
+    "split_rule": "before_validation_season",
+    "primary_metric": "brier",
+    "secondary_metrics": [
+      "brier_skill_score",
+      "roc_auc"
+    ],
+    "target_column": "control_success",
+    "id_column": "row_id",
+    "season_column": "season",
+    "store_predictions": true,
+    "calibration": "none",
+    "seed": 42
+  },
+  "variants": [
+    {
+      "name": "d6_i300_control",
+      "change": "control: depth6, 300 trees",
+      "model": {
+        "name": "catboost_native_shift_m010",
+        "family": "catboost",
+        "native_categorical": true,
+        "prediction_shift": -0.01,
+        "params": {
+          "iterations": 300,
+          "depth": 6,
+          "learning_rate": 0.05,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main55_plus_count",
+        "description": "main55 + 카운트·아웃 상태 플래그 5개",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state"
+        ],
+        "expected_count": 60
+      },
+      "changed_fields_vs_control": []
+    },
+    {
+      "name": "d4_i150",
+      "change": "depth4, 150 trees",
+      "model": {
+        "name": "catboost_native_d4_i150_shift",
+        "family": "catboost",
+        "native_categorical": true,
+        "prediction_shift": -0.01,
+        "params": {
+          "iterations": 150,
+          "depth": 4,
+          "learning_rate": 0.05,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main55_plus_count",
+        "description": "main55 + 카운트·아웃 상태 플래그 5개",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state"
+        ],
+        "expected_count": 60
+      },
+      "changed_fields_vs_control": [
+        "model.name",
+        "model.params.depth",
+        "model.params.iterations"
+      ]
+    },
+    {
+      "name": "d4_i250",
+      "change": "depth4, 250 trees",
+      "model": {
+        "name": "catboost_native_d4_i250_shift",
+        "family": "catboost",
+        "native_categorical": true,
+        "prediction_shift": -0.01,
+        "params": {
+          "iterations": 250,
+          "depth": 4,
+          "learning_rate": 0.05,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main55_plus_count",
+        "description": "main55 + 카운트·아웃 상태 플래그 5개",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state"
+        ],
+        "expected_count": 60
+      },
+      "changed_fields_vs_control": [
+        "model.name",
+        "model.params.depth",
+        "model.params.iterations"
+      ]
+    },
+    {
+      "name": "d4_i400",
+      "change": "depth4, 400 trees",
+      "model": {
+        "name": "catboost_native_d4_i400_shift",
+        "family": "catboost",
+        "native_categorical": true,
+        "prediction_shift": -0.01,
+        "params": {
+          "iterations": 400,
+          "depth": 4,
+          "learning_rate": 0.05,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main55_plus_count",
+        "description": "main55 + 카운트·아웃 상태 플래그 5개",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state"
+        ],
+        "expected_count": 60
+      },
+      "changed_fields_vs_control": [
+        "model.name",
+        "model.params.depth",
+        "model.params.iterations"
+      ]
+    },
+    {
+      "name": "d5_i150",
+      "change": "depth5, 150 trees",
+      "model": {
+        "name": "catboost_native_d5_i150_shift",
+        "family": "catboost",
+        "native_categorical": true,
+        "prediction_shift": -0.01,
+        "params": {
+          "iterations": 150,
+          "depth": 5,
+          "learning_rate": 0.05,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main55_plus_count",
+        "description": "main55 + 카운트·아웃 상태 플래그 5개",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state"
+        ],
+        "expected_count": 60
+      },
+      "changed_fields_vs_control": [
+        "model.name",
+        "model.params.depth",
+        "model.params.iterations"
+      ]
+    },
+    {
+      "name": "d5_i250",
+      "change": "depth5, 250 trees",
+      "model": {
+        "name": "catboost_native_d5_i250_shift",
+        "family": "catboost",
+        "native_categorical": true,
+        "prediction_shift": -0.01,
+        "params": {
+          "iterations": 250,
+          "depth": 5,
+          "learning_rate": 0.05,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main55_plus_count",
+        "description": "main55 + 카운트·아웃 상태 플래그 5개",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state"
+        ],
+        "expected_count": 60
+      },
+      "changed_fields_vs_control": [
+        "model.name",
+        "model.params.depth",
+        "model.params.iterations"
+      ]
+    },
+    {
+      "name": "d5_i400",
+      "change": "depth5, 400 trees",
+      "model": {
+        "name": "catboost_native_d5_i400_shift",
+        "family": "catboost",
+        "native_categorical": true,
+        "prediction_shift": -0.01,
+        "params": {
+          "iterations": 400,
+          "depth": 5,
+          "learning_rate": 0.05,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main55_plus_count",
+        "description": "main55 + 카운트·아웃 상태 플래그 5개",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state"
+        ],
+        "expected_count": 60
+      },
+      "changed_fields_vs_control": [
+        "model.name",
+        "model.params.depth",
+        "model.params.iterations"
+      ]
+    },
+    {
+      "name": "d6_i150",
+      "change": "depth6, 150 trees",
+      "model": {
+        "name": "catboost_native_d6_i150_shift",
+        "family": "catboost",
+        "native_categorical": true,
+        "prediction_shift": -0.01,
+        "params": {
+          "iterations": 150,
+          "depth": 6,
+          "learning_rate": 0.05,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main55_plus_count",
+        "description": "main55 + 카운트·아웃 상태 플래그 5개",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state"
+        ],
+        "expected_count": 60
+      },
+      "changed_fields_vs_control": [
+        "model.name",
+        "model.params.iterations"
+      ]
+    },
+    {
+      "name": "d6_i225",
+      "change": "depth6, 225 trees",
+      "model": {
+        "name": "catboost_native_d6_i225_shift",
+        "family": "catboost",
+        "native_categorical": true,
+        "prediction_shift": -0.01,
+        "params": {
+          "iterations": 225,
+          "depth": 6,
+          "learning_rate": 0.05,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main55_plus_count",
+        "description": "main55 + 카운트·아웃 상태 플래그 5개",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state"
+        ],
+        "expected_count": 60
+      },
+      "changed_fields_vs_control": [
+        "model.name",
+        "model.params.iterations"
+      ]
+    }
+  ],
+  "config_hash": "2b4e946ed0c1"
+}

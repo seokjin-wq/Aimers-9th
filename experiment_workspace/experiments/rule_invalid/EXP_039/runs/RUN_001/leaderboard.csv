@@ -1,0 +1,6 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+d6_i900,depth6 900 lr0.020,main85_add_plate_context,85,catboost_gpu_d6_i900_lr020_b128,catboost,1,0.2468999017096447,0.0,1163.7087429419269,"['model.name', 'model.params.iterations', 'model.params.learning_rate']",-3.095925117369003e-05,1/1
+d7_i600,depth7 600 lr0.025,main85_add_plate_context,85,catboost_gpu_d7_i600_lr025_b128,catboost,1,0.2469005457832526,0.0,1163.450914379549,"['model.name', 'model.params.depth']",-3.0315177565715112e-05,1/1
+d8_i450,depth8 450 lr0.025,main85_add_plate_context,85,catboost_gpu_d8_i450_lr025_b128,catboost,1,0.2469068243554639,0.0,1160.9375444370903,"['model.name', 'model.params.depth', 'model.params.iterations']",-2.40366053544383e-05,1/1
+d6_i600_control,control: depth6 600 lr0.025,main85_add_plate_context,85,catboost_gpu_d6_i600_lr025_b128,catboost,1,0.2469308609608184,0.0,1151.3154712358032,[],0.0,0/1
+d5_i800,depth5 800 lr0.025,main85_add_plate_context,85,catboost_gpu_d5_i800_lr025_b128,catboost,1,0.2469485902334082,0.0,1144.2182810897816,"['model.name', 'model.params.depth', 'model.params.iterations']",1.7729272589861456e-05,0/1

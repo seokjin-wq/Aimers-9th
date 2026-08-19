@@ -1,0 +1,8 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+batter_team_cat,batter_team_id만 범주형 추가,main60_cat_batter_team,60,catboost_native_shift_m010,catboost,1,0.2478308422999287,0.0,791.0447010075039,"['features.categorical', 'features.description', 'features.name']",-4.464998368047812e-05,1/1
+both_teams_cat,양 팀 ID를 범주형 추가,main60_cat_teams,60,catboost_native_shift_m010,catboost,1,0.247831040970178,0.0,790.9651714876786,"['features.categorical', 'features.description', 'features.name']",-4.445131343114306e-05,1/1
+numeric_control,control: 기본 3개만 범주형,main55_plus_count,60,catboost_native_shift_m010,catboost,1,0.2478754922836092,0.0,773.1709037272716,[],0.0,0/1
+hands_cat,투타 손 유형을 범주형 추가,main60_cat_hands,60,catboost_native_shift_m010,catboost,1,0.2478863270862483,0.0,768.8336330279433,"['features.categorical', 'features.description', 'features.name']",1.0834802639109188e-05,0/1
+pitcher_team_cat,pitcher_team_id만 범주형 추가,main60_cat_pitcher_team,60,catboost_native_shift_m010,catboost,1,0.2479021177319836,0.0,762.5124929617422,"['features.categorical', 'features.description', 'features.name']",2.6625448374478777e-05,0/1
+batter_id_cat,batter_id만 범주형 추가,main60_cat_batter,60,catboost_native_shift_m010,catboost,1,0.2479273830372957,0.0,752.3985599174998,"['features.categorical', 'features.description', 'features.name']",5.189075368655649e-05,0/1
+pitcher_id_cat,pitcher_id만 범주형 추가,main60_cat_pitcher,60,catboost_native_shift_m010,catboost,1,0.2480681976703417,0.0,696.0291730176982,"['features.categorical', 'features.description', 'features.name']",0.0001927053867325,0/1

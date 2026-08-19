@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_063",
+  "decision": "inconclusive",
+  "selected_variant": "season_pitchmix",
+  "reason": "현재 시즌 pitchmix가 Brier 0.000003018만 개선해 실행 변동 수준의 미세 효과이며 원시 제외 피처 재추가는 악화; 전체 최고에는 반영하지 않음",
+  "based_on": "EXP_062",
+  "reference_variant": "extra_w18",
+  "ablation_summary": "main69 decay85 CatBoost 대비 시즌 pitchmix 3개, prev5 재추가, strike+fastball 재추가, 전체 조합 비교",
+  "selected_result": {
+    "variant": "season_pitchmix",
+    "change": "현재 시즌 fastball·breaking·offspeed 비율 추가",
+    "feature_set": "main72_season_pitchmix",
+    "feature_count": 72,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475347024,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 909.592210271,
+    "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+    "delta_brier_vs_control": -3.0183e-06,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "main69_control",
+    "change": "control: EXP_060 최고 CatBoost",
+    "feature_set": "main69_pitcher_batter_season_all",
+    "feature_count": 69,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475377207,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 908.3839506927,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T03:20:37.793559+00:00",
+  "based_on_run_id": "RUN_001"
+}

@@ -1,0 +1,49 @@
+[study]
+id = "exp_053"
+description = "context grouped rolling signals"
+hypothesis = "경기·공격팀별 최근 success/middle 비율이 global200이 놓친 환경 편향을 보완한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "control"
+
+[[variants]]
+name = "control"
+model = "catboost_cpu_d6_i600_lr030"
+features = "main81_add_global200"
+change = "control: EXP050 best"
+
+[[variants]]
+name = "game_success200"
+model = "catboost_cpu_d6_i600_lr030"
+features = "main82_add_game_success200"
+change = "game recent200 success 한 개 추가"
+
+[[variants]]
+name = "pitcher_team_success200"
+model = "catboost_cpu_d6_i600_lr030"
+features = "main82_add_pitcher_team_success200"
+change = "pitcher team recent200 success 한 개 추가"
+
+[[variants]]
+name = "batter_team_success200"
+model = "catboost_cpu_d6_i600_lr030"
+features = "main82_add_batter_team_success200"
+change = "batter team recent200 success 한 개 추가"
+
+[[variants]]
+name = "game_middle200"
+model = "catboost_cpu_d6_i600_lr030"
+features = "main82_add_game_middle200"
+change = "game recent200 middle 한 개 추가"
+
+[[variants]]
+name = "pitcher_team_middle200"
+model = "catboost_cpu_d6_i600_lr030"
+features = "main82_add_pitcher_team_middle200"
+change = "pitcher team recent200 middle 한 개 추가"
+
+[[variants]]
+name = "batter_team_middle200"
+model = "catboost_cpu_d6_i600_lr030"
+features = "main82_add_batter_team_middle200"
+change = "batter team recent200 middle 한 개 추가"

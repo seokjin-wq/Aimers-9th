@@ -1,0 +1,49 @@
+[study]
+id = "024_cat_extra_blend"
+description = "CatBoost ExtraTrees 이종 앙상블"
+hypothesis = "상관이 낮은 ExtraTrees를 15~35% 혼합하면 CatBoost 단독보다 Brier가 개선된다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "catboost_control"
+
+[[variants]]
+name = "catboost_control"
+model = "catboost_native_scale106_shift_m008"
+features = "main60_cat_batter_team"
+change = "control: 현재 최고 CatBoost"
+
+[[variants]]
+name = "extra_w15"
+model = "cat_extra_blend_w15"
+features = "main60_cat_batter_team"
+change = "ExtraTrees 15% 혼합"
+
+[[variants]]
+name = "extra_w20"
+model = "cat_extra_blend_w20"
+features = "main60_cat_batter_team"
+change = "ExtraTrees 20% 혼합"
+
+[[variants]]
+name = "extra_w24"
+model = "cat_extra_blend_w24"
+features = "main60_cat_batter_team"
+change = "ExtraTrees 24% 혼합"
+
+[[variants]]
+name = "extra_w28"
+model = "cat_extra_blend_w28"
+features = "main60_cat_batter_team"
+change = "ExtraTrees 28% 혼합"
+
+[[variants]]
+name = "extra_w32"
+model = "cat_extra_blend_w32"
+features = "main60_cat_batter_team"
+change = "ExtraTrees 32% 혼합"
+
+[[variants]]
+name = "extra_w36"
+model = "cat_extra_blend_w36"
+features = "main60_cat_batter_team"
+change = "ExtraTrees 36% 혼합"

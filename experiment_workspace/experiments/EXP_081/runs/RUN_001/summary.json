@@ -1,0 +1,147 @@
+{
+  "experiment_id": "EXP_081",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T05:31:40.077803+00:00",
+  "completed_at_utc": "2026-08-18T05:38:39.448269+00:00",
+  "config_hash": "7f4cf5ecfd0a",
+  "based_on": "EXP_080",
+  "reference_variant": "count_hands_promoted",
+  "ablation_summary": "Screen composite count×hands, count×same-hand, count×outs, and count×hands×outs categories, alone or alongside the EXP_078 separate categories.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/081_composite_count_states/20260818T053140084814Z_7f4cf5ecfd0a",
+  "control": "separate_count_hands_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "separate_count_hands_control",
+  "best_mean_brier": 0.2475158585285612,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "separate_count_hands_control",
+      "change": "control: count_state와 양손을 separate categorical",
+      "feature_set": "main69_cat_count_hands",
+      "feature_count": 69,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475158585,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 917.135588661,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "count_hands_out_plus",
+      "change": "control에 count×양손×outs 복합 범주 추가",
+      "feature_set": "main70_cat_count_hands_out_plus",
+      "feature_count": 70,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475482045,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 904.1872108191,
+      "changed_fields_vs_control": "['features.categorical', 'features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 3.23459e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "count_hands_composite_only",
+      "change": "separate categorical 대신 count×양손 복합 범주만 추가",
+      "feature_set": "main70_cat_count_hands_composite_only",
+      "feature_count": 70,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475592254,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 899.775414629,
+      "changed_fields_vs_control": "['features.categorical', 'features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 4.33669e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "count_out_plus",
+      "change": "control에 count×outs 복합 범주 추가",
+      "feature_set": "main70_cat_count_out_plus",
+      "feature_count": 70,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475656264,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 897.2130522672,
+      "changed_fields_vs_control": "['features.categorical', 'features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 4.97679e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "count_hands_composite_plus",
+      "change": "control에 count×양손 복합 범주 추가",
+      "feature_set": "main70_cat_count_hands_composite_plus",
+      "feature_count": 70,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475742762,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 893.7504677856,
+      "changed_fields_vs_control": "['features.categorical', 'features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 5.84177e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "count_hands_out_only",
+      "change": "count×양손×outs 복합 범주만 추가",
+      "feature_set": "main70_cat_count_hands_out_only",
+      "feature_count": 70,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475791323,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 891.8064993501,
+      "changed_fields_vs_control": "['features.categorical', 'features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 6.32738e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "count_matchup_composite",
+      "change": "count×동일손 여부 복합 범주만 추가",
+      "feature_set": "main70_cat_count_matchup_composite",
+      "feature_count": 70,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475983525,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 884.1124839414,
+      "changed_fields_vs_control": "['features.categorical', 'features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 8.2494e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "41c6867fb309960529d3f23d8cb7823a49dacc4474534750ec46c1ee061c48d8",
+  "git_commit": "e15b25d042b9f09ba59ebb12ade8b67aa15e9976",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 419.18103098869324
+}

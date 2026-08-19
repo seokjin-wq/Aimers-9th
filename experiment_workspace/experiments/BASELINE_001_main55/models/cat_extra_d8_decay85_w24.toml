@@ -1,0 +1,28 @@
+[model]
+name = "cat_extra_d8_decay85_w24"
+family = "cat_extra_blend"
+extra_weight = 0.24
+cat_scale = 1.06
+cat_shift = -0.008
+cat_season_decay = 0.85
+extra_shift = -0.01
+[model.cat_params]
+iterations = 300
+depth = 8
+learning_rate = 0.035
+l2_leaf_reg = 3.0
+subsample = 0.7
+random_seed = 42
+thread_count = 8
+task_type = "CPU"
+loss_function = "Logloss"
+eval_metric = "BrierScore"
+allow_writing_files = false
+verbose = false
+[model.extra_params]
+n_estimators = 300
+min_samples_leaf = 20
+max_features = 0.7
+n_jobs = 8
+random_state = 42
+verbose = 0

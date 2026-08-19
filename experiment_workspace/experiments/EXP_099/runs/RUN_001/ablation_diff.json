@@ -1,0 +1,142 @@
+{
+  "based_on": "EXP_098",
+  "reference_variant": "depth8_300_control",
+  "ablation_summary": "Keep latest features and all CatBoost parameters fixed; compare season-decay values 0.80, 0.825, 0.85, 0.875, and 0.90.",
+  "control": "decay085_control",
+  "variants": [
+    {
+      "name": "decay085_control",
+      "declared_change": "control: current season decay 0.85",
+      "is_control": true,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "decay080",
+      "declared_change": "season decay 0.80",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "catboost_d8_decay080"
+        },
+        {
+          "field": "model.season_decay",
+          "control": 0.85,
+          "variant": 0.8
+        }
+      ]
+    },
+    {
+      "name": "decay0825",
+      "declared_change": "season decay 0.825",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "catboost_d8_decay0825"
+        },
+        {
+          "field": "model.season_decay",
+          "control": 0.85,
+          "variant": 0.825
+        }
+      ]
+    },
+    {
+      "name": "decay0875",
+      "declared_change": "season decay 0.875",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "catboost_d8_decay0875"
+        },
+        {
+          "field": "model.season_decay",
+          "control": 0.85,
+          "variant": 0.875
+        }
+      ]
+    },
+    {
+      "name": "decay090",
+      "declared_change": "season decay 0.90",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "catboost_d8_decay090"
+        },
+        {
+          "field": "model.season_decay",
+          "control": 0.85,
+          "variant": 0.9
+        }
+      ]
+    }
+  ]
+}

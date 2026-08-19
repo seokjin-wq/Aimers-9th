@@ -1,0 +1,23 @@
+{
+  "based_on": "EXP_050",
+  "reference_variant": "d6_i600",
+  "ablation_summary": "EXP050 최고 설정을 그대로 1회 재현하고 2024 row별 예측을 저장하여 affine 보정 가능 범위를 진단",
+  "control": "best_replay",
+  "variants": [
+    {
+      "name": "best_replay",
+      "declared_change": "EXP050 최고 설정을 동일 seed로 재현하고 예측 저장",
+      "is_control": true,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

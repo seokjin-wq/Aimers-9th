@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_065"
+title = "상황 교차 season-OOF 재검증"
+hypothesis = "학습행의 전체 시즌을 제외한 상황 효과는 자기 정답 지문 없이 안정적 상호작용을 제공한다"
+change_scope = "features"
+study_config = "experiments/EXP_065/study.toml"
+based_on = "EXP_064"
+reference_variant = "main69_control"
+ablation_summary = "EXP_064와 동일한 네 상황 효과를 leave-one-row-out 대신 leave-one-season-out으로 재계산"
+tags = ["rule_compliant", "season_oof", "leakage_fixed"]
+created_at_utc = "2026-08-18T03:27:54.277518+00:00"

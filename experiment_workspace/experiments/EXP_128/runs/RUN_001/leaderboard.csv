@@ -1,0 +1,5 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+strength_100_control,control: EXP_127 adopted trend strength 1.00,main78_history_reliability,78,triple_count_trend_s100,cat_cpu_gpu_extra_blend,1,0.2474502158484668,0.0,943.4129545237256,[],0.0,0/1
+strength_125,change only trend strength from 1.00 to 1.25,main78_history_reliability,78,triple_count_trend_s125,cat_cpu_gpu_extra_blend,1,0.2474505783581538,0.0,943.2678385769,"['model.name', 'model.trend_strength']",3.6250968699080843e-07,0/1
+strength_075,change only trend strength from 1.00 to 0.75,main78_history_reliability,78,triple_count_trend_s075,cat_cpu_gpu_extra_blend,1,0.2474506151806849,0.0,943.2530981805633,"['model.name', 'model.trend_strength']",3.993322180706471e-07,0/1
+strength_150,change only trend strength from 1.00 to 1.50,main78_history_reliability,78,triple_count_trend_s150,cat_cpu_gpu_extra_blend,1,0.2474517027097459,0.0,942.8177503400748,"['model.name', 'model.trend_strength']",1.4868612790985836e-06,0/1

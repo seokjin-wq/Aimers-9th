@@ -1,0 +1,102 @@
+{
+  "experiment_id": "EXP_068",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T03:42:16.711134+00:00",
+  "completed_at_utc": "2026-08-18T03:45:48.800478+00:00",
+  "config_hash": "23e151c38b60",
+  "based_on": "EXP_062",
+  "reference_variant": "extra_w18",
+  "ablation_summary": "main69 decay85 대비 Trackman 물리 6개, 구종비율 3개, 전체 9개를 season-OOF 방식으로 추가",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/068_official_trackman_context/20260818T034216716884Z_23e151c38b60",
+  "control": "main69_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": null
+  },
+  "best_variant": "track_physics",
+  "best_mean_brier": 0.2475359119795952,
+  "best_delta_brier_vs_control": -1.8087468155181248e-06,
+  "leaderboard": [
+    {
+      "variant": "track_physics",
+      "change": "공식 Trackman 물리 상황 평균 6개 추가",
+      "feature_set": "main75_track_physics",
+      "feature_count": 75,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.247535912,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 909.1080086037,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -1.8087e-06,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "main69_control",
+      "change": "control: Trackman 미사용",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475377207,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 908.3839506927,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "track_all",
+      "change": "Trackman 물리 6개와 구종 비율 3개 전체 추가",
+      "feature_set": "main78_track_all",
+      "feature_count": 78,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475545114,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 901.6624840256,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 1.67907e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "track_pitchmix",
+      "change": "공식 Trackman 구종 선택 비율 3개 추가",
+      "feature_set": "main72_track_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475740749,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 893.8310247713,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 3.63542e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "5381bdda55c8d4fc2f4eabd5ea05a2f1c52328a0cf6f87a8fca112989e943cce",
+  "git_commit": "7bde464991a4052a625a1c8c1d2e222d4b3c6542",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 211.90160608291626
+}

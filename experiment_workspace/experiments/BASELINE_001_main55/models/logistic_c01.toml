@@ -1,0 +1,12 @@
+[model]
+name = "logistic_c01"
+family = "logistic_regression"
+prediction_shift = -0.01
+
+[model.params]
+C = 0.1
+solver = "lbfgs"
+max_iter = 100
+tol = 0.00001
+random_state = 42
+verbose = 0

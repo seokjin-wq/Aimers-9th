@@ -1,0 +1,449 @@
+{
+  "study": {
+    "id": "079_count_hand_interaction",
+    "description": "카운트×손 범주 상호작용 분해",
+    "hypothesis": "EXP_078 개선은 카운트와 특정 손 유형의 결합에서 나오며 불필요한 범주를 제거하면 더 개선된다.",
+    "protocol": "holdout_2024",
+    "change_scope": [
+      "features"
+    ],
+    "control": "count_both_hands_control"
+  },
+  "protocol": {
+    "name": "holdout_2024",
+    "description": "2019~2023 전체로 학습하고 2024를 고정 primary holdout으로 검증",
+    "train_start_season": 2019,
+    "validation_seasons": [
+      2024
+    ],
+    "split_rule": "before_validation_season",
+    "primary_metric": "brier",
+    "secondary_metrics": [
+      "brier_skill_score",
+      "roc_auc"
+    ],
+    "target_column": "control_success",
+    "id_column": "row_id",
+    "season_column": "season",
+    "store_predictions": true,
+    "calibration": "none",
+    "seed": 42
+  },
+  "variants": [
+    {
+      "name": "count_both_hands_control",
+      "change": "control: count_state와 pitcher/batter hand categorical",
+      "model": {
+        "name": "catboost_d8_decay085",
+        "family": "catboost",
+        "native_categorical": true,
+        "season_decay": 0.85,
+        "prediction_scale": 1.06,
+        "prediction_shift": -0.008,
+        "params": {
+          "iterations": 300,
+          "depth": 8,
+          "learning_rate": 0.035,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main69_cat_count_hands",
+        "description": "main69 with isolated native categorical treatment: count_state, pitcher_hand, batter_hand",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs",
+          "pitcher_season_n",
+          "pitcher_season_success_rate_k20",
+          "pitcher_season_reverse_rate_k20",
+          "pitcher_season_middle_rate_k20",
+          "pitcher_season_ball_rate_k20",
+          "pitcher_season_strike_rate_k20",
+          "batter_season_n",
+          "batter_season_success_rate_k20",
+          "batter_season_middle_rate_k20"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state",
+          "batter_team_id",
+          "count_state",
+          "pitcher_hand",
+          "batter_hand"
+        ],
+        "expected_count": 69
+      },
+      "changed_fields_vs_control": []
+    },
+    {
+      "name": "count_pitcher_hand",
+      "change": "control에서 batter_hand categorical 제거",
+      "model": {
+        "name": "catboost_d8_decay085",
+        "family": "catboost",
+        "native_categorical": true,
+        "season_decay": 0.85,
+        "prediction_scale": 1.06,
+        "prediction_shift": -0.008,
+        "params": {
+          "iterations": 300,
+          "depth": 8,
+          "learning_rate": 0.035,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main69_cat_count_pitcher_hand",
+        "description": "main69 count categorical interaction with pitcher_hand",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs",
+          "pitcher_season_n",
+          "pitcher_season_success_rate_k20",
+          "pitcher_season_reverse_rate_k20",
+          "pitcher_season_middle_rate_k20",
+          "pitcher_season_ball_rate_k20",
+          "pitcher_season_strike_rate_k20",
+          "batter_season_n",
+          "batter_season_success_rate_k20",
+          "batter_season_middle_rate_k20"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state",
+          "batter_team_id",
+          "count_state",
+          "pitcher_hand"
+        ],
+        "expected_count": 69
+      },
+      "changed_fields_vs_control": [
+        "features.categorical",
+        "features.description",
+        "features.name"
+      ]
+    },
+    {
+      "name": "count_batter_hand",
+      "change": "control에서 pitcher_hand categorical 제거",
+      "model": {
+        "name": "catboost_d8_decay085",
+        "family": "catboost",
+        "native_categorical": true,
+        "season_decay": 0.85,
+        "prediction_scale": 1.06,
+        "prediction_shift": -0.008,
+        "params": {
+          "iterations": 300,
+          "depth": 8,
+          "learning_rate": 0.035,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main69_cat_count_batter_hand",
+        "description": "main69 count categorical interaction with batter_hand",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs",
+          "pitcher_season_n",
+          "pitcher_season_success_rate_k20",
+          "pitcher_season_reverse_rate_k20",
+          "pitcher_season_middle_rate_k20",
+          "pitcher_season_ball_rate_k20",
+          "pitcher_season_strike_rate_k20",
+          "batter_season_n",
+          "batter_season_success_rate_k20",
+          "batter_season_middle_rate_k20"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state",
+          "batter_team_id",
+          "count_state",
+          "batter_hand"
+        ],
+        "expected_count": 69
+      },
+      "changed_fields_vs_control": [
+        "features.categorical",
+        "features.description",
+        "features.name"
+      ]
+    },
+    {
+      "name": "count_same_hand",
+      "change": "양손 원본 categorical 대신 same_hand_matchup categorical",
+      "model": {
+        "name": "catboost_d8_decay085",
+        "family": "catboost",
+        "native_categorical": true,
+        "season_decay": 0.85,
+        "prediction_scale": 1.06,
+        "prediction_shift": -0.008,
+        "params": {
+          "iterations": 300,
+          "depth": 8,
+          "learning_rate": 0.035,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main69_cat_count_same_hand",
+        "description": "main69 count categorical interaction with same_hand_matchup",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs",
+          "pitcher_season_n",
+          "pitcher_season_success_rate_k20",
+          "pitcher_season_reverse_rate_k20",
+          "pitcher_season_middle_rate_k20",
+          "pitcher_season_ball_rate_k20",
+          "pitcher_season_strike_rate_k20",
+          "batter_season_n",
+          "batter_season_success_rate_k20",
+          "batter_season_middle_rate_k20"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state",
+          "batter_team_id",
+          "count_state",
+          "same_hand_matchup"
+        ],
+        "expected_count": 69
+      },
+      "changed_fields_vs_control": [
+        "features.categorical",
+        "features.description",
+        "features.name"
+      ]
+    },
+    {
+      "name": "count_hands_same",
+      "change": "control에 same_hand_matchup categorical 추가",
+      "model": {
+        "name": "catboost_d8_decay085",
+        "family": "catboost",
+        "native_categorical": true,
+        "season_decay": 0.85,
+        "prediction_scale": 1.06,
+        "prediction_shift": -0.008,
+        "params": {
+          "iterations": 300,
+          "depth": 8,
+          "learning_rate": 0.035,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main69_cat_count_hands_same",
+        "description": "main69 count categorical interaction with pitcher_hand, batter_hand, same_hand_matchup",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs",
+          "pitcher_season_n",
+          "pitcher_season_success_rate_k20",
+          "pitcher_season_reverse_rate_k20",
+          "pitcher_season_middle_rate_k20",
+          "pitcher_season_ball_rate_k20",
+          "pitcher_season_strike_rate_k20",
+          "batter_season_n",
+          "batter_season_success_rate_k20",
+          "batter_season_middle_rate_k20"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state",
+          "batter_team_id",
+          "count_state",
+          "pitcher_hand",
+          "batter_hand",
+          "same_hand_matchup"
+        ],
+        "expected_count": 69
+      },
+      "changed_fields_vs_control": [
+        "features.categorical",
+        "features.description",
+        "features.name"
+      ]
+    }
+  ],
+  "config_hash": "60969c5f075c"
+}

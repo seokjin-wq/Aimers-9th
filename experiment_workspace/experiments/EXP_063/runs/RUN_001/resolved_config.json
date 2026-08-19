@@ -1,0 +1,441 @@
+{
+  "study": {
+    "id": "063_pitchmix_and_readded_raw",
+    "description": "구종 구성과 제외 피처 재검증",
+    "hypothesis": "현재 시즌 구종 구성과 과거에 제외했던 prev5·strike·fastball 원시값이 시즌 상태 모델에서는 추가 신호를 제공할 수 있다",
+    "protocol": "holdout_2024",
+    "change_scope": [
+      "features"
+    ],
+    "control": "main69_control"
+  },
+  "protocol": {
+    "name": "holdout_2024",
+    "description": "2019~2023 전체로 학습하고 2024를 고정 primary holdout으로 검증",
+    "train_start_season": 2019,
+    "validation_seasons": [
+      2024
+    ],
+    "split_rule": "before_validation_season",
+    "primary_metric": "brier",
+    "secondary_metrics": [
+      "brier_skill_score",
+      "roc_auc"
+    ],
+    "target_column": "control_success",
+    "id_column": "row_id",
+    "season_column": "season",
+    "store_predictions": true,
+    "calibration": "none",
+    "seed": 42
+  },
+  "variants": [
+    {
+      "name": "main69_control",
+      "change": "control: EXP_060 최고 CatBoost",
+      "model": {
+        "name": "catboost_d8_decay085",
+        "family": "catboost",
+        "native_categorical": true,
+        "season_decay": 0.85,
+        "prediction_scale": 1.06,
+        "prediction_shift": -0.008,
+        "params": {
+          "iterations": 300,
+          "depth": 8,
+          "learning_rate": 0.035,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main69_pitcher_batter_season_all",
+        "description": "main60 + official-train snapshot current-season pitcher/batter state",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs",
+          "pitcher_season_n",
+          "pitcher_season_success_rate_k20",
+          "pitcher_season_reverse_rate_k20",
+          "pitcher_season_middle_rate_k20",
+          "pitcher_season_ball_rate_k20",
+          "pitcher_season_strike_rate_k20",
+          "batter_season_n",
+          "batter_season_success_rate_k20",
+          "batter_season_middle_rate_k20"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state",
+          "batter_team_id"
+        ],
+        "expected_count": 69
+      },
+      "changed_fields_vs_control": []
+    },
+    {
+      "name": "season_pitchmix",
+      "change": "현재 시즌 fastball·breaking·offspeed 비율 추가",
+      "model": {
+        "name": "catboost_d8_decay085",
+        "family": "catboost",
+        "native_categorical": true,
+        "season_decay": 0.85,
+        "prediction_scale": 1.06,
+        "prediction_shift": -0.008,
+        "params": {
+          "iterations": 300,
+          "depth": 8,
+          "learning_rate": 0.035,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main72_season_pitchmix",
+        "description": "main69 + current-season pitcher fastball/breaking/offspeed mix",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs",
+          "pitcher_season_n",
+          "pitcher_season_success_rate_k20",
+          "pitcher_season_reverse_rate_k20",
+          "pitcher_season_middle_rate_k20",
+          "pitcher_season_ball_rate_k20",
+          "pitcher_season_strike_rate_k20",
+          "batter_season_n",
+          "batter_season_success_rate_k20",
+          "batter_season_middle_rate_k20",
+          "pitcher_season_fastball_rate_k20",
+          "pitcher_season_breaking_rate_k20",
+          "pitcher_season_offspeed_rate_k20"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state",
+          "batter_team_id"
+        ],
+        "expected_count": 72
+      },
+      "changed_fields_vs_control": [
+        "features.custom",
+        "features.description",
+        "features.expected_count",
+        "features.name"
+      ]
+    },
+    {
+      "name": "readd_prev5",
+      "change": "제외했던 prev5 game success 원시값 재추가",
+      "model": {
+        "name": "catboost_d8_decay085",
+        "family": "catboost",
+        "native_categorical": true,
+        "season_decay": 0.85,
+        "prediction_scale": 1.06,
+        "prediction_shift": -0.008,
+        "params": {
+          "iterations": 300,
+          "depth": 8,
+          "learning_rate": 0.035,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main70_readd_prev5",
+        "description": "main69 + raw asof pitcher previous-5-game success rate",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs",
+          "pitcher_season_n",
+          "pitcher_season_success_rate_k20",
+          "pitcher_season_reverse_rate_k20",
+          "pitcher_season_middle_rate_k20",
+          "pitcher_season_ball_rate_k20",
+          "pitcher_season_strike_rate_k20",
+          "batter_season_n",
+          "batter_season_success_rate_k20",
+          "batter_season_middle_rate_k20"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state",
+          "batter_team_id"
+        ],
+        "expected_count": 70
+      },
+      "changed_fields_vs_control": [
+        "features.description",
+        "features.exclude",
+        "features.expected_count",
+        "features.name"
+      ]
+    },
+    {
+      "name": "readd_strike_fast",
+      "change": "제외했던 커리어 strike·fastball 원시값 재추가",
+      "model": {
+        "name": "catboost_d8_decay085",
+        "family": "catboost",
+        "native_categorical": true,
+        "season_decay": 0.85,
+        "prediction_scale": 1.06,
+        "prediction_shift": -0.008,
+        "params": {
+          "iterations": 300,
+          "depth": 8,
+          "learning_rate": 0.035,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main71_readd_strike_fast",
+        "description": "main69 + raw career strike and fastball rates",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs",
+          "pitcher_season_n",
+          "pitcher_season_success_rate_k20",
+          "pitcher_season_reverse_rate_k20",
+          "pitcher_season_middle_rate_k20",
+          "pitcher_season_ball_rate_k20",
+          "pitcher_season_strike_rate_k20",
+          "batter_season_n",
+          "batter_season_success_rate_k20",
+          "batter_season_middle_rate_k20"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state",
+          "batter_team_id"
+        ],
+        "expected_count": 71
+      },
+      "changed_fields_vs_control": [
+        "features.description",
+        "features.exclude",
+        "features.expected_count",
+        "features.name"
+      ]
+    },
+    {
+      "name": "all_readded_pitchmix",
+      "change": "원시값 3개와 현재 시즌 pitchmix 3개를 모두 추가",
+      "model": {
+        "name": "catboost_d8_decay085",
+        "family": "catboost",
+        "native_categorical": true,
+        "season_decay": 0.85,
+        "prediction_scale": 1.06,
+        "prediction_shift": -0.008,
+        "params": {
+          "iterations": 300,
+          "depth": 8,
+          "learning_rate": 0.035,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main75_readd_and_season_pitchmix",
+        "description": "main69 + prev5/strike/fastball raw + current-season pitch mix",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs",
+          "pitcher_season_n",
+          "pitcher_season_success_rate_k20",
+          "pitcher_season_reverse_rate_k20",
+          "pitcher_season_middle_rate_k20",
+          "pitcher_season_ball_rate_k20",
+          "pitcher_season_strike_rate_k20",
+          "batter_season_n",
+          "batter_season_success_rate_k20",
+          "batter_season_middle_rate_k20",
+          "pitcher_season_fastball_rate_k20",
+          "pitcher_season_breaking_rate_k20",
+          "pitcher_season_offspeed_rate_k20"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state",
+          "batter_team_id"
+        ],
+        "expected_count": 75
+      },
+      "changed_fields_vs_control": [
+        "features.custom",
+        "features.description",
+        "features.exclude",
+        "features.expected_count",
+        "features.name"
+      ]
+    }
+  ],
+  "config_hash": "12966d178c28"
+}

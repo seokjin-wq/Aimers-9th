@@ -1,0 +1,128 @@
+{
+  "based_on": "EXP_013",
+  "reference_variant": "catboost_logloss_control",
+  "ablation_summary": "native CatBoost를 고정하고 저중요도 context, 최근-gap, 기존 custom 전체, count 중복을 각각 제거",
+  "control": "main60_control",
+  "variants": [
+    {
+      "name": "main60_control",
+      "declared_change": "control: main55 + count 5개",
+      "is_control": true,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "drop_low_context_custom",
+      "declared_change": "저중요도 context 상호작용 5개 제거",
+      "is_control": false,
+      "feature_count": 55,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [
+        "win_expectancy_dist50",
+        "runners_x_li",
+        "reverse_rate_x_li",
+        "late_inning_x_recent_form",
+        "offspeed_x_li"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "drop_recent_gaps",
+      "declared_change": "최근 성공률과 커리어 차이 3개 제거",
+      "is_control": false,
+      "feature_count": 57,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [
+        "pitcher_gap_prev1_career",
+        "pitcher_gap_prev3_career",
+        "pitcher_gap_prev5_career"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "keep_count_only",
+      "declared_change": "기존 custom14를 모두 제거하고 count 5개만 유지",
+      "is_control": false,
+      "feature_count": 46,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [
+        "pitcher_gap_prev1_career",
+        "pitcher_gap_prev3_career",
+        "pitcher_gap_prev5_career",
+        "win_expectancy_dist50",
+        "count_diff",
+        "count_total",
+        "same_hand_matchup",
+        "pressure_x_recent_form",
+        "runners_x_li",
+        "batter_success_rate_shrunk",
+        "reverse_rate_x_li",
+        "middle_rate_x_count_diff",
+        "late_inning_x_recent_form",
+        "offspeed_x_li"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "keep_core_custom",
+      "declared_change": "상대적으로 중요한 custom 7개와 count 5개만 유지",
+      "is_control": false,
+      "feature_count": 53,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [
+        "win_expectancy_dist50",
+        "count_diff",
+        "count_total",
+        "runners_x_li",
+        "reverse_rate_x_li",
+        "late_inning_x_recent_form",
+        "offspeed_x_li"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "drop_count_redundancy",
+      "declared_change": "count_state와 중복되는 count_diff·count_total 제거",
+      "is_control": false,
+      "feature_count": 58,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [
+        "count_diff",
+        "count_total"
+      ],
+      "model_changes_vs_control": []
+    }
+  ]
+}

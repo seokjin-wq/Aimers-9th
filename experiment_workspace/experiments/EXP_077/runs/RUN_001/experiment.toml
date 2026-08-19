@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_077"
+title = "Direct Brier CatBoost capacity revisit"
+hypothesis = "With stronger season-state features and recency weighting, a depth-8 CatBoost RMSE regressor may now optimize Brier better than the Logloss classifier and provide ensemble diversity."
+change_scope = "model"
+study_config = "experiments/EXP_077/study.toml"
+based_on = "EXP_072"
+reference_variant = "main69_control"
+ablation_summary = "Fix main69; compare Logloss d8 against RMSE d7/d8 and affine-scaled RMSE d8, all with season decay 0.85."
+tags = ["compliance,row-independent,model-family,rmse"]
+created_at_utc = "2026-08-18T04:59:46.922117+00:00"

@@ -1,0 +1,37 @@
+[study]
+id = "098_latest_cpu_capacity"
+description = "Latest-feature CPU CatBoost capacity sweep"
+hypothesis = "The optimal CatBoost depth and boosting duration changed after adding season-state, categorical-hand, and same-hand pitch-mix features."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "depth8_300_control"
+
+[[variants]]
+name = "depth8_300_control"
+model = "catboost_d8_decay085"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: current depth8 300 trees lr0.035"
+
+[[variants]]
+name = "depth7_400"
+model = "catboost_cpu_d7_i400_lr035_decay85"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "depth7, 400 trees, lr0.035"
+
+[[variants]]
+name = "depth6_600"
+model = "catboost_cpu_d6_i600_lr030_decay85"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "depth6, 600 trees, lr0.030"
+
+[[variants]]
+name = "depth6_800"
+model = "catboost_cpu_d6_i800_lr020_decay85"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "depth6, 800 trees, lr0.020"
+
+[[variants]]
+name = "depth5_600"
+model = "catboost_cpu_d5_i600_lr035_decay85"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "depth5, 600 trees, lr0.035"

@@ -1,0 +1,19 @@
+[study]
+id = "080_count_hands_triple_promotion"
+description = "카운트×양손 범주 피처의 3모델 앙상블 승격"
+hypothesis = "CPU CatBoost에서 확인된 카운트×양손 범주 상호작용이 CPU·GPU·ExtraTrees 앙상블에서도 전체 Brier를 개선한다."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "old_main69_control"
+
+[[variants]]
+name = "old_main69_control"
+model = "triple_cpu45_gpu40_extra15"
+features = "main69_pitcher_batter_season_all"
+change = "control: EXP_072 재현, 기존 categorical 4개"
+
+[[variants]]
+name = "count_hands_promoted"
+model = "triple_cpu45_gpu40_extra15"
+features = "main69_cat_count_hands"
+change = "control 대비 count_state·pitcher_hand·batter_hand categorical 추가"

@@ -1,0 +1,261 @@
+{
+  "based_on": "EXP_021",
+  "reference_variant": "main60_control",
+  "ablation_summary": "최고 피처와 affine 보정을 고정하고 bootstrap_type, boosting_type, grow_policy, leaf estimation만 한 종류씩 변경",
+  "control": "default_control",
+  "variants": [
+    {
+      "name": "default_control",
+      "declared_change": "control: 기본 bootstrap, SymmetricTree",
+      "is_control": true,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "bernoulli",
+      "declared_change": "Bernoulli bootstrap",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_scale106_shift_m008",
+          "variant": "catboost_top_bernoulli"
+        },
+        {
+          "field": "model.params.bootstrap_type",
+          "control": null,
+          "variant": "Bernoulli"
+        }
+      ]
+    },
+    {
+      "name": "bayesian",
+      "declared_change": "Bayesian bootstrap",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_scale106_shift_m008",
+          "variant": "catboost_top_bayesian"
+        },
+        {
+          "field": "model.params.bagging_temperature",
+          "control": null,
+          "variant": 1.0
+        },
+        {
+          "field": "model.params.bootstrap_type",
+          "control": null,
+          "variant": "Bayesian"
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.7,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "no_bootstrap",
+      "declared_change": "bootstrap 없음",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_scale106_shift_m008",
+          "variant": "catboost_top_no_bootstrap"
+        },
+        {
+          "field": "model.params.bootstrap_type",
+          "control": null,
+          "variant": "No"
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.7,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "ordered_boosting",
+      "declared_change": "Ordered boosting",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_scale106_shift_m008",
+          "variant": "catboost_top_ordered"
+        },
+        {
+          "field": "model.params.boosting_type",
+          "control": null,
+          "variant": "Ordered"
+        }
+      ]
+    },
+    {
+      "name": "depthwise",
+      "declared_change": "Depthwise grow policy",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_scale106_shift_m008",
+          "variant": "catboost_top_depthwise"
+        },
+        {
+          "field": "model.params.grow_policy",
+          "control": null,
+          "variant": "Depthwise"
+        },
+        {
+          "field": "model.params.min_data_in_leaf",
+          "control": null,
+          "variant": 20
+        }
+      ]
+    },
+    {
+      "name": "lossguide",
+      "declared_change": "Lossguide grow policy",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_scale106_shift_m008",
+          "variant": "catboost_top_lossguide"
+        },
+        {
+          "field": "model.params.grow_policy",
+          "control": null,
+          "variant": "Lossguide"
+        },
+        {
+          "field": "model.params.max_leaves",
+          "control": null,
+          "variant": 64
+        },
+        {
+          "field": "model.params.min_data_in_leaf",
+          "control": null,
+          "variant": 20
+        }
+      ]
+    },
+    {
+      "name": "leaf_estimation_1",
+      "declared_change": "leaf estimation 1회",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_scale106_shift_m008",
+          "variant": "catboost_top_leaf1"
+        },
+        {
+          "field": "model.params.leaf_estimation_iterations",
+          "control": null,
+          "variant": 1
+        }
+      ]
+    },
+    {
+      "name": "leaf_estimation_20",
+      "declared_change": "leaf estimation 20회",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_scale106_shift_m008",
+          "variant": "catboost_top_leaf20"
+        },
+        {
+          "field": "model.params.leaf_estimation_iterations",
+          "control": null,
+          "variant": 20
+        }
+      ]
+    }
+  ]
+}

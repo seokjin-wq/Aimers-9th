@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_121"
+title = "Rule-compliant HistGB fourth-model blend"
+hypothesis = "A small HistGradientBoosting component can reduce correlated CatBoost/ExtraTrees errors despite weaker standalone Brier, improving the reliability-enhanced ensemble through diversity."
+change_scope = "model"
+study_config = "experiments/EXP_121/study.toml"
+based_on = "EXP_117"
+reference_variant = "weights_50_35_15"
+ablation_summary = "Fix main78 features, CPU/GPU weights 50/35, all component parameters and calibration; replace only 0%, 2.5%, or 5% of the ExtraTrees weight with a fixed HistGB component trained on official pre-validation data."
+tags = ["compliance", "row-independent", "ensemble", "diversity", "histgb"]
+created_at_utc = "2026-08-18T12:43:00.138373+00:00"

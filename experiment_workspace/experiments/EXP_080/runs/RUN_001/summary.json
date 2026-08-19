@@ -1,0 +1,72 @@
+{
+  "experiment_id": "EXP_080",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T05:17:41.572502+00:00",
+  "completed_at_utc": "2026-08-18T05:30:29.641889+00:00",
+  "config_hash": "08dcec119fe1",
+  "based_on": "EXP_072",
+  "reference_variant": "main69_control",
+  "ablation_summary": "Fix triple CPU45/GPU40/Extra15; compare old main69 against only the count+both-hands categorical treatment.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/080_count_hands_triple_promotion/20260818T051741579377Z_08dcec119fe1",
+  "control": "old_main69_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "count_hands_promoted",
+  "best_mean_brier": 0.24749380565941,
+  "best_delta_brier_vs_control": -2.941064502576252e-06,
+  "leaderboard": [
+    {
+      "variant": "count_hands_promoted",
+      "change": "control 대비 count_state·pitcher_hand·batter_hand categorical 추가",
+      "feature_set": "main69_cat_count_hands",
+      "feature_count": 69,
+      "model": "triple_cpu45_gpu40_extra15",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474938057,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 925.9635540971,
+      "changed_fields_vs_control": "['features.categorical', 'features.description', 'features.name']",
+      "delta_brier_vs_control": -2.9411e-06,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "old_main69_control",
+      "change": "control: EXP_072 재현, 기존 categorical 4개",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "triple_cpu45_gpu40_extra15",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474967467,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 924.7862190485,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "631acc7af5de2831f5990246811c46b0e21adc40e2d7da89cb3ccd5cd753ed72",
+  "git_commit": "e15b25d042b9f09ba59ebb12ade8b67aa15e9976",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 767.875129699707
+}

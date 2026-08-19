@@ -1,0 +1,37 @@
+[study]
+id = "099_latest_season_decay"
+description = "Latest-feature season-decay refinement"
+hypothesis = "The broad EXP_060 optimum near 0.85 can be refined on the latest 72-feature set to improve temporal generalization."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "decay085_control"
+
+[[variants]]
+name = "decay085_control"
+model = "catboost_d8_decay085"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: current season decay 0.85"
+
+[[variants]]
+name = "decay080"
+model = "catboost_d8_decay080"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "season decay 0.80"
+
+[[variants]]
+name = "decay0825"
+model = "catboost_d8_decay0825"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "season decay 0.825"
+
+[[variants]]
+name = "decay0875"
+model = "catboost_d8_decay0875"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "season decay 0.875"
+
+[[variants]]
+name = "decay090"
+model = "catboost_d8_decay090"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "season decay 0.90"

@@ -1,0 +1,125 @@
+{
+  "based_on": "EXP_080",
+  "reference_variant": "count_hands_promoted",
+  "ablation_summary": "Fix EXP_080 CPU base and add pure hand-matchup, same-hand×pitchmix, separate-hand×pitchmix, or full four-matchup×pitchmix interactions using only each row's asof values.",
+  "control": "count_hands_control",
+  "variants": [
+    {
+      "name": "count_hands_control",
+      "declared_change": "control: EXP_080 CPU count+hands base",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "hand_matchup_category",
+      "declared_change": "네 가지 투수손×타자손 조합 categorical 추가",
+      "is_control": false,
+      "feature_count": 70,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand",
+        "hand_matchup_state"
+      ],
+      "added_features_vs_control": [
+        "hand_matchup_state"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "same_hand_pitchmix",
+      "declared_change": "동일손 여부×과거 구종군 비율 3개 추가",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "same_hand_x_fastball",
+        "same_hand_x_breaking",
+        "same_hand_x_offspeed"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "separate_hands_pitchmix",
+      "declared_change": "투수손·타자손 각각과 과거 구종군 비율 6개 추가",
+      "is_control": false,
+      "feature_count": 75,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "pitcher_hand_x_fastball",
+        "pitcher_hand_x_breaking",
+        "pitcher_hand_x_offspeed",
+        "batter_hand_x_fastball",
+        "batter_hand_x_breaking",
+        "batter_hand_x_offspeed"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "full_matchup_pitchmix",
+      "declared_change": "네 손 조합 indicator×세 과거 구종군 비율 12개 추가",
+      "is_control": false,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "matchup0_x_fastball",
+        "matchup0_x_breaking",
+        "matchup0_x_offspeed",
+        "matchup1_x_fastball",
+        "matchup1_x_breaking",
+        "matchup1_x_offspeed",
+        "matchup2_x_fastball",
+        "matchup2_x_breaking",
+        "matchup2_x_offspeed",
+        "matchup3_x_fastball",
+        "matchup3_x_breaking",
+        "matchup3_x_offspeed"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

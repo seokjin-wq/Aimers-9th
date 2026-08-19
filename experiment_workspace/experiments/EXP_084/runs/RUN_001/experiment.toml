@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_084"
+title = "Hand matchup by historical pitch-mix interactions"
+hypothesis = "EDA shows control rate differences by pitcher-hand, batter-hand, and historical pitch-mix combinations; explicit row-local interaction terms can expose these slopes to CatBoost."
+change_scope = "features"
+study_config = "experiments/EXP_084/study.toml"
+based_on = "EXP_080"
+reference_variant = "count_hands_promoted"
+ablation_summary = "Fix EXP_080 CPU base and add pure hand-matchup, same-hand×pitchmix, separate-hand×pitchmix, or full four-matchup×pitchmix interactions using only each row's asof values."
+tags = ["compliance", "row-independent", "EDA", "hand-matchup", "pitchmix"]
+created_at_utc = "2026-08-18T05:56:14.880109+00:00"

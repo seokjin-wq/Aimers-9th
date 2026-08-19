@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_111"
+title = "Subsample 0.8 promotion to corrected triple blend"
+hypothesis = "Replacing only the CPU CatBoost component with the EXP_109 subsample=0.8 winner will transfer its holdout gain into the rule-compliant corrected triple blend."
+change_scope = "model"
+study_config = "experiments/EXP_111/study.toml"
+based_on = "EXP_101"
+reference_variant = "catshift_m0095"
+ablation_summary = "Keep main72 features, GPU CatBoost, ExtraTrees, 45/40/15 weights, count residual correction k=500, scales, and shifts fixed; change only CPU CatBoost subsample from 0.7 to 0.8."
+tags = ["compliance", "row-independent", "blend", "promotion", "subsample"]
+created_at_utc = "2026-08-18T10:51:06.482868+00:00"

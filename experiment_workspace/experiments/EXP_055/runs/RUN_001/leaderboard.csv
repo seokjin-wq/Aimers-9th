@@ -1,0 +1,5 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+main60_control,control: 합법 main60 CatBoost,main60_cat_batter_team,60,catboost_native_scale106_shift_m008,catboost,1,0.2478203209370681,0.0,795.2564988936595,[],0.0,0/1
+pitcher_te50,공식 학습 타깃만 사용한 투수 LOO 효과(k=50) 1개 추가,main61_pitcher_te50,61,catboost_native_scale106_shift_m008,catboost,1,0.290860151015694,0.0,0.0,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",0.0430398300786259,0/1
+pitcher_batter_te50,투수와 타자 LOO 효과(k=50) 2개 추가,main62_pitcher_batter_te50,62,catboost_native_scale106_shift_m008,catboost,1,0.3130310736253522,0.0,0.0,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",0.0652107526882841,0/1
+all_entity_team_te,투수·타자 효과(k=50)와 양 팀 효과(k=500) 4개 추가,main64_all_te,64,catboost_native_scale106_shift_m008,catboost,1,0.5134712643571869,0.0,0.0,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",0.2656509434201188,0/1

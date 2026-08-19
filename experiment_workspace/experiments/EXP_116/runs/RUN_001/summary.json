@@ -1,0 +1,72 @@
+{
+  "experiment_id": "EXP_116",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T11:37:49.839662+00:00",
+  "completed_at_utc": "2026-08-18T12:02:24.461038+00:00",
+  "config_hash": "a15a958ccc29",
+  "based_on": "EXP_111",
+  "reference_variant": "triple_cpu_sub08",
+  "ablation_summary": "Keep the full EXP_111 triple model, CPU subsample=0.8, weights, calibration, and count residual correction fixed; change only main72 versus main78 reliability features.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/116_promote_history_reliability/20260818T113749850324Z_a15a958ccc29",
+  "control": "triple_main72_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "triple_history_reliability",
+  "best_mean_brier": 0.2474572802214794,
+  "best_delta_brier_vs_control": -1.0635844379658366e-06,
+  "leaderboard": [
+    {
+      "variant": "triple_history_reliability",
+      "change": "add six EXP_112 row-local history reliability features only",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_group_count_k500_catshift_m0095_cpu_sub08",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474572802,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 940.5850213257,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -1.0636e-06,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "triple_main72_control",
+      "change": "control: EXP_111 new-best triple on main72",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "triple_group_count_k500_catshift_m0095_cpu_sub08",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474583438,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 940.1592587371,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "2cb1ca47569dcc310be13485b745cb1ef2eafb7709292d69d2d10e9fc5ef4594",
+  "git_commit": "90dd686559946a9d917d8ff38eb9008e107931a7",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 1474.4220261573792
+}

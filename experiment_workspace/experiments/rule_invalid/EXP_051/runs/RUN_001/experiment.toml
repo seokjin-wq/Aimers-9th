@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_051"
+title = "global reverse rolling windows"
+hypothesis = "전역 최근 역방향 비율이 직전 경기 환경과 scorer 경향을 보완해 Brier를 낮춘다"
+change_scope = "features"
+study_config = "experiments/EXP_051/study.toml"
+based_on = "EXP_050"
+reference_variant = "d6_i600"
+ablation_summary = "EXP050의 main81·CPU d6 i600을 고정하고 global reverse rolling window 50·100·150·200·300만 하나씩 추가"
+tags = ["sequential", "global", "reverse"]
+created_at_utc = "2026-08-17T20:21:18.561203+00:00"

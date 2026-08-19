@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_034",
+  "decision": "adopt",
+  "selected_variant": "entity_recent_all",
+  "reason": "투수·타자 직전 및 최근 3·5·10투구 조합이 모든 개별 후보보다 우수하고 BSS를 약 796에서 1009로 개선",
+  "based_on": "EXP_033",
+  "reference_variant": "global_control",
+  "ablation_summary": "GPU CatBoost와 main60을 고정하고 pitcher/batter의 직전 및 최근 3·5·10투구 성공률 파생만 개별·조합 추가",
+  "selected_result": {
+    "variant": "entity_recent_all",
+    "change": "투수·타자 직전 및 최근 3·5·10투구 모두 추가",
+    "feature_set": "main68_add_entity_recent_pitch",
+    "feature_count": 68,
+    "model": "catboost_gpu_d6_i600_lr025_b128",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.247286548,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 1008.9307075282,
+    "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+    "delta_brier_vs_control": -0.0005325165,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "main60_control",
+    "change": "control: 기존 main60",
+    "feature_set": "main60_cat_batter_team",
+    "feature_count": 60,
+    "model": "catboost_gpu_d6_i600_lr025_b128",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2478190645,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 795.759471711,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-17T18:28:25.878750+00:00",
+  "based_on_run_id": "RUN_001"
+}

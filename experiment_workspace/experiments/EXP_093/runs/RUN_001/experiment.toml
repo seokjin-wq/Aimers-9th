@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_093"
+title = "Late-inning and full-count interaction factorial"
+hypothesis = "The late-inning and full-count pitcher-history gains target distinct contexts and combine additively without the noisy two-strike or three-ball blocks."
+change_scope = "features"
+study_config = "experiments/EXP_093/study.toml"
+based_on = "EXP_092"
+reference_variant = "full_count_history"
+ablation_summary = "Fix same-hand CPU base; compare late-inning block, full-count block, and their six-feature union."
+tags = ["compliance", "row-independent", "factorial", "interaction"]
+created_at_utc = "2026-08-18T07:27:44.131423+00:00"

@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T10:03:04.881711+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "04234e24d9c3",
+  "based_on": "EXP_106",
+  "reference_variant": "track_velocity",
+  "ablation_summary": "Keep EXP_103 corrected count-calibrated triple fixed; compare current main72 against main72 plus only Trackman relative-speed and zone-speed context."
+}

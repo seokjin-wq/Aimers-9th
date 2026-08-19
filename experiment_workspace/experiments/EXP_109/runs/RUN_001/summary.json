@@ -1,0 +1,162 @@
+{
+  "experiment_id": "EXP_109",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T10:38:34.977185+00:00",
+  "completed_at_utc": "2026-08-18T10:46:04.276014+00:00",
+  "config_hash": "02a7bf14fa82",
+  "based_on": "EXP_108",
+  "reference_variant": "main72_control",
+  "ablation_summary": "Hold main72 features, 2019-2023 training, 2024 validation, depth, iterations, learning rate, decay, and seed fixed; change exactly one of l2_leaf_reg, random_strength, subsample, or rsm per candidate.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/109_latest_catboost_regularization/20260818T103834987105Z_02a7bf14fa82",
+  "control": "regularization_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "subsample_08",
+  "best_mean_brier": 0.2475041715012055,
+  "best_delta_brier_vs_control": -7.695137020202747e-06,
+  "leaderboard": [
+    {
+      "variant": "subsample_08",
+      "change": "subsample 0.7 -> 0.8 only",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay085_sub08",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475041715,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 921.8140127173,
+      "changed_fields_vs_control": "['model.name', 'model.params.subsample']",
+      "delta_brier_vs_control": -7.6951e-06,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "regularization_control",
+      "change": "control: l2=3, random_strength=1, subsample=0.7, rsm=1",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475118666,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 918.7335789118,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "l2_8",
+      "change": "l2_leaf_reg 3 -> 8 only",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay085_l2_8",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475141321,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 917.8267073497,
+      "changed_fields_vs_control": "['model.name', 'model.params.l2_leaf_reg']",
+      "delta_brier_vs_control": 2.2654e-06,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "l2_1",
+      "change": "l2_leaf_reg 3 -> 1 only",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay085_l2_1",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475466821,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 904.7966242427,
+      "changed_fields_vs_control": "['model.name', 'model.params.l2_leaf_reg']",
+      "delta_brier_vs_control": 3.48155e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "random_strength_05",
+      "change": "random_strength 1 -> 0.5 only",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay085_rs05",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475591482,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 899.8063221081,
+      "changed_fields_vs_control": "['model.name', 'model.params.random_strength']",
+      "delta_brier_vs_control": 4.72816e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "random_strength_15",
+      "change": "random_strength 1 -> 1.5 only",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay085_rs15",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475600642,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 899.4396661346,
+      "changed_fields_vs_control": "['model.name', 'model.params.random_strength']",
+      "delta_brier_vs_control": 4.81975e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "l2_5",
+      "change": "l2_leaf_reg 3 -> 5 only",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay085_l2_5",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475613382,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 898.929665538,
+      "changed_fields_vs_control": "['model.name', 'model.params.l2_leaf_reg']",
+      "delta_brier_vs_control": 4.94715e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "rsm_09",
+      "change": "rsm 1.0 -> 0.9 only",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay085_rsm09",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475828133,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 890.3329775998,
+      "changed_fields_vs_control": "['model.name', 'model.params.rsm']",
+      "delta_brier_vs_control": 7.09467e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "45088266a09b6b714ef4f56a3edc0eac49598629cd1ae615a59175c045475724",
+  "git_commit": "90dd686559946a9d917d8ff38eb9008e107931a7",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 449.1049451828003
+}

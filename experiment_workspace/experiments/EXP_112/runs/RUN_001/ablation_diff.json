@@ -1,0 +1,103 @@
+{
+  "based_on": "EXP_109",
+  "reference_variant": "subsample_08",
+  "ablation_summary": "Fix CPU CatBoost subsample=0.8 and main72; add only two categorical history-size buckets, only six numeric reliability features, or both blocks.",
+  "control": "main72_control",
+  "variants": [
+    {
+      "name": "main72_control",
+      "declared_change": "control: EXP_109 CPU winner",
+      "is_control": true,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "history_buckets",
+      "declared_change": "add pitcher/batter as-of history-size categorical buckets only",
+      "is_control": false,
+      "feature_count": 74,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand",
+        "pitcher_history_bucket",
+        "batter_history_bucket"
+      ],
+      "added_features_vs_control": [
+        "pitcher_history_bucket",
+        "batter_history_bucket"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "history_reliability",
+      "declared_change": "add six row-local reliability and reliability-weighted rate features only",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "pitcher_history_reliability_k100",
+        "batter_history_reliability_k100",
+        "pitcher_success_x_reliability",
+        "batter_success_x_reliability",
+        "pitcher_reverse_x_reliability",
+        "pitcher_middle_x_reliability"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "buckets_plus_reliability",
+      "declared_change": "add both history-size buckets and reliability features",
+      "is_control": false,
+      "feature_count": 80,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand",
+        "pitcher_history_bucket",
+        "batter_history_bucket"
+      ],
+      "added_features_vs_control": [
+        "pitcher_history_bucket",
+        "batter_history_bucket",
+        "pitcher_history_reliability_k100",
+        "batter_history_reliability_k100",
+        "pitcher_success_x_reliability",
+        "batter_success_x_reliability",
+        "pitcher_reverse_x_reliability",
+        "pitcher_middle_x_reliability"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

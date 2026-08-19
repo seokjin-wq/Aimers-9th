@@ -1,0 +1,43 @@
+[study]
+id = "041_catboost_generalization"
+description = "순차 피처 CatBoost 일반화 설정"
+hypothesis = "시간 순서와 랜덤성 조정이 순차 피처 학습을 안정화한다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "default_control"
+
+[[variants]]
+name = "default_control"
+model = "catboost_gpu_d6_i900_lr020_b128"
+features = "main85_add_plate_context"
+change = "control: 기본 랜덤성"
+
+[[variants]]
+name = "has_time"
+model = "catboost_gpu_d6_i900_has_time"
+features = "main85_add_plate_context"
+change = "입력 시간 순서 보존"
+
+[[variants]]
+name = "random0"
+model = "catboost_gpu_d6_i900_random0"
+features = "main85_add_plate_context"
+change = "random_strength 0"
+
+[[variants]]
+name = "random02"
+model = "catboost_gpu_d6_i900_random02"
+features = "main85_add_plate_context"
+change = "random_strength 0.2"
+
+[[variants]]
+name = "random2"
+model = "catboost_gpu_d6_i900_random2"
+features = "main85_add_plate_context"
+change = "random_strength 2"
+
+[[variants]]
+name = "bag0"
+model = "catboost_gpu_d6_i900_bag0"
+features = "main85_add_plate_context"
+change = "bagging_temperature 0"

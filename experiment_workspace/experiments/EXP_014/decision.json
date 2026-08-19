@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_014",
+  "decision": "keep_control",
+  "selected_variant": "main60_control",
+  "reason": "모든 파생 피처 pruning이 main55+count보다 악화되어 전체 19개 파생을 유지",
+  "based_on": "EXP_013",
+  "reference_variant": "catboost_logloss_control",
+  "ablation_summary": "native CatBoost를 고정하고 저중요도 context, 최근-gap, 기존 custom 전체, count 중복을 각각 제거",
+  "selected_result": {
+    "variant": "main60_control",
+    "change": "control: main55 + count 5개",
+    "feature_set": "main55_plus_count",
+    "feature_count": 60,
+    "model": "catboost_native_300",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2479681399,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 736.0832056721,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "main60_control",
+    "change": "control: main55 + count 5개",
+    "feature_set": "main55_plus_count",
+    "feature_count": 60,
+    "model": "catboost_native_300",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2479681399,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 736.0832056721,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-17T16:30:49.610701+00:00",
+  "based_on_run_id": "RUN_001"
+}

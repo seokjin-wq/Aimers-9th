@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_115"
+title = "Reliability with situational history interactions"
+hypothesis = "The new reliability representation may stabilize previously useful late-inning and full-count pitcher-history interactions, allowing a complementary gain."
+change_scope = "features"
+study_config = "experiments/EXP_115/study.toml"
+based_on = "EXP_114"
+reference_variant = "reliability_k100_control"
+ablation_summary = "Fix the EXP_114 CPU model and six reliability features; add only late-inning history, only full-count history, or both three-feature blocks."
+tags = ["compliance", "row-independent", "reliability", "interaction", "factorial"]
+created_at_utc = "2026-08-18T11:32:32.061316+00:00"

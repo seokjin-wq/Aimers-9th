@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_028"
+title = "EDA 파생 피처 개별 스크리닝"
+hypothesis = "묶음 추가에서 상쇄된 EDA 피처 중 일부는 최신 main60+team+GPU 기준에서 단독으로 Brier를 개선한다"
+change_scope = "features"
+study_config = "experiments/EXP_028/study.toml"
+based_on = "EXP_027"
+reference_variant = "gpu_d6_i600"
+ablation_summary = "GPU 모델을 고정하고 missing, shrinkage, log-count, context 파생 12개를 각각 하나씩만 추가"
+tags = ["feature-screening", "eda", "gpu"]
+created_at_utc = "2026-08-17T17:55:12.328719+00:00"

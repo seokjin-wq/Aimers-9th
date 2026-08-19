@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_053",
+  "decision": "adopt",
+  "selected_variant": "batter_team_middle200",
+  "reason": "batter team recent200 middle 추가가 Brier 0.2465509643, BSS 1303.39로 목표 1300을 최초 달성",
+  "based_on": "EXP_050",
+  "reference_variant": "d6_i600",
+  "ablation_summary": "EXP050 최고 설정을 고정하고 game·pitcher_team·batter_team 기준 recent200 success 또는 middle 한 개만 추가",
+  "selected_result": {
+    "variant": "batter_team_middle200",
+    "change": "batter team recent200 middle 한 개 추가",
+    "feature_set": "main82_add_batter_team_middle200",
+    "feature_count": 82,
+    "model": "catboost_cpu_d6_i600_lr030",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2465509643,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 1303.3915964086,
+    "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+    "delta_brier_vs_control": -9.67216e-05,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "control",
+    "change": "control: EXP050 best",
+    "feature_set": "main81_add_global200",
+    "feature_count": 81,
+    "model": "catboost_cpu_d6_i600_lr030",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2466476858,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 1264.6730738206,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-17T20:47:13.114476+00:00",
+  "based_on_run_id": "RUN_001"
+}

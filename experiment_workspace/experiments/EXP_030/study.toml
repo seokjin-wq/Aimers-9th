@@ -1,0 +1,43 @@
+[study]
+id = "030_cpu_feature_confirmation"
+description = "EDA 상위 피처 CPU 재검증"
+hypothesis = "GPU 스크리닝에서 양의 효과를 보인 피처가 결정론적 CPU CatBoost에서도 control보다 개선한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main60_control"
+
+[[variants]]
+name = "main60_control"
+model = "catboost_top_d6_i400_lr040"
+features = "main60_cat_batter_team"
+change = "control: CPU main60"
+
+[[variants]]
+name = "scoring_x_li"
+model = "catboost_top_d6_i400_lr040"
+features = "main61_add_scoring_position_x_li"
+change = "scoring_position_x_li 단독"
+
+[[variants]]
+name = "reverse_shrunk"
+model = "catboost_top_d6_i400_lr040"
+features = "main61_add_pitcher_reverse_rate_shrunk"
+change = "pitcher_reverse_rate_shrunk 단독"
+
+[[variants]]
+name = "log_li"
+model = "catboost_top_d6_i400_lr040"
+features = "main61_add_log1p_li"
+change = "log1p_li 단독"
+
+[[variants]]
+name = "batter_missing"
+model = "catboost_top_d6_i400_lr040"
+features = "main61_add_batter_history_missing"
+change = "batter_history_missing 단독"
+
+[[variants]]
+name = "all_four"
+model = "catboost_top_d6_i400_lr040"
+features = "main64_all_positive_individual"
+change = "상위 4개 전체"

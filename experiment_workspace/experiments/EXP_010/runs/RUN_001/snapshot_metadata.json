@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T16:08:15.240724+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "4ac15b964309",
+  "based_on": "EXP_009",
+  "reference_variant": "main55_control",
+  "ablation_summary": "main55를 기준으로 누수 없는 시즌 전체 prior, 직전 시즌 투수, 투수·타자, 선수·팀 타깃 이력을 단계적으로 추가"
+}

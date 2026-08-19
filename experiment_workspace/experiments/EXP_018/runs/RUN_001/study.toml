@@ -1,0 +1,61 @@
+[study]
+id = "018_catboost_low_capacity"
+description = "CatBoost 저용량 정밀 탐색"
+hypothesis = "현재 300-tree depth6는 2024에 과적합되어 더 얕거나 적은 tree가 Brier를 개선한다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "d6_i300_control"
+
+[[variants]]
+name = "d6_i300_control"
+model = "catboost_native_shift_m010"
+features = "main55_plus_count"
+change = "control: depth6, 300 trees"
+
+[[variants]]
+name = "d4_i150"
+model = "catboost_native_d4_i150_shift"
+features = "main55_plus_count"
+change = "depth4, 150 trees"
+
+[[variants]]
+name = "d4_i250"
+model = "catboost_native_d4_i250_shift"
+features = "main55_plus_count"
+change = "depth4, 250 trees"
+
+[[variants]]
+name = "d4_i400"
+model = "catboost_native_d4_i400_shift"
+features = "main55_plus_count"
+change = "depth4, 400 trees"
+
+[[variants]]
+name = "d5_i150"
+model = "catboost_native_d5_i150_shift"
+features = "main55_plus_count"
+change = "depth5, 150 trees"
+
+[[variants]]
+name = "d5_i250"
+model = "catboost_native_d5_i250_shift"
+features = "main55_plus_count"
+change = "depth5, 250 trees"
+
+[[variants]]
+name = "d5_i400"
+model = "catboost_native_d5_i400_shift"
+features = "main55_plus_count"
+change = "depth5, 400 trees"
+
+[[variants]]
+name = "d6_i150"
+model = "catboost_native_d6_i150_shift"
+features = "main55_plus_count"
+change = "depth6, 150 trees"
+
+[[variants]]
+name = "d6_i225"
+model = "catboost_native_d6_i225_shift"
+features = "main55_plus_count"
+change = "depth6, 225 trees"

@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T20:31:28.840477+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "e164ad302fe0",
+  "based_on": "EXP_050",
+  "reference_variant": "d6_i600",
+  "ablation_summary": "EXP050 최고 설정을 그대로 1회 재현하고 2024 row별 예측을 저장하여 affine 보정 가능 범위를 진단"
+}

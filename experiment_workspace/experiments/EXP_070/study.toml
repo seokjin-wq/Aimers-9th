@@ -1,0 +1,31 @@
+[study]
+id = "070_cpu_gpu_extra_triple"
+description = "CPU·GPU·ExtraTrees 3모델 앙상블"
+hypothesis = "CPU CatBoost, GPU CatBoost, ExtraTrees의 서로 다른 오차를 결합하면 2모델 앙상블보다 Brier가 낮아진다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "cpu_only"
+
+[[variants]]
+name = "cpu_only"
+model = "catboost_d8_decay085"
+features = "main69_pitcher_batter_season_all"
+change = "control: CPU depth8 decay85"
+
+[[variants]]
+name = "cpu40_gpu45_extra15"
+model = "triple_cpu40_gpu45_extra15"
+features = "main69_pitcher_batter_season_all"
+change = "CPU40 GPU45 Extra15"
+
+[[variants]]
+name = "cpu45_gpu40_extra15"
+model = "triple_cpu45_gpu40_extra15"
+features = "main69_pitcher_batter_season_all"
+change = "CPU45 GPU40 Extra15"
+
+[[variants]]
+name = "cpu40_gpu40_extra20"
+model = "triple_cpu40_gpu40_extra20"
+features = "main69_pitcher_batter_season_all"
+change = "CPU40 GPU40 Extra20"

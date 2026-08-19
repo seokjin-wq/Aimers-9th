@@ -1,0 +1,99 @@
+{
+  "based_on": "EXP_047",
+  "reference_variant": "global100",
+  "ablation_summary": "CPU main80과 전역 단일 rolling 구조를 고정하고 window 75·100·125·150·200만 변경",
+  "control": "global100_control",
+  "variants": [
+    {
+      "name": "global100_control",
+      "declared_change": "control: window100",
+      "is_control": true,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "global75",
+      "declared_change": "window75",
+      "is_control": false,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "global_recent75_success"
+      ],
+      "removed_features_vs_control": [
+        "global_recent100_success"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "global125",
+      "declared_change": "window125",
+      "is_control": false,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "global_recent125_success"
+      ],
+      "removed_features_vs_control": [
+        "global_recent100_success"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "global150",
+      "declared_change": "window150",
+      "is_control": false,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "global_recent150_success"
+      ],
+      "removed_features_vs_control": [
+        "global_recent100_success"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "global200",
+      "declared_change": "window200",
+      "is_control": false,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "global_recent200_success"
+      ],
+      "removed_features_vs_control": [
+        "global_recent100_success"
+      ],
+      "model_changes_vs_control": []
+    }
+  ]
+}

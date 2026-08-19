@@ -1,0 +1,20 @@
+[provenance]
+name = "team_main55_349498b"
+repository = "Aimers-9th"
+commit = "349498b"
+path = "submission_허원준"
+read_only = true
+features_sha256 = "33786669ee5987275311cd07c8359663df325556b52e2529f17316bbf85a5550"
+pipeline_sha256 = "1d43b9f0c4a4abb2e12c46fae747fbe3ece3a006903f359a25d3bc61b7a030cd"
+feature_screen_sha256 = "66de7aa9b09b8403136919c6beed4e5681c0284d9216c32507f87375acc3a4cd"
+calibration_result_sha256 = "10b132a89e99b45a24ec0ae53dfb39a7a4d9b9fcf0f1e81f449fb7bb80a6b132"
+
+[recorded_result]
+feature_set = "main55_fixed"
+validation_season = 2024
+feature_screen_brier = 0.2479964286927176
+feature_screen_brier_skill_score = 724.7589518736719
+final_iterations = 293
+raw_brier_skill_score = 736.3258820926699
+calibrated_brier_skill_score = 762.7598566080418
+calibration_shift = -0.010462037831246366

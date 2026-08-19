@@ -1,0 +1,117 @@
+{
+  "experiment_id": "EXP_010",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T16:08:15.240841+00:00",
+  "completed_at_utc": "2026-08-17T16:10:58.781035+00:00",
+  "config_hash": "4ac15b964309",
+  "based_on": "EXP_009",
+  "reference_variant": "main55_control",
+  "ablation_summary": "main55를 기준으로 누수 없는 시즌 전체 prior, 직전 시즌 투수, 투수·타자, 선수·팀 타깃 이력을 단계적으로 추가",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/010_previous_season_target_features/20260817T160815242704Z_4ac15b964309",
+  "control": "main55_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "main55_control",
+  "best_mean_brier": 0.2480092675427688,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "main55_control",
+      "change": "control: main55",
+      "feature_set": "main55",
+      "feature_count": 55,
+      "model": "catboost_native_300",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2480092675,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 719.6194426463,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "add_full_prev_season",
+      "change": "시즌 prior와 직전 시즌 선수·팀 스무딩 이력 추가",
+      "feature_set": "main55_plus_full_prev_season",
+      "feature_count": 65,
+      "model": "catboost_native_300",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2482120267,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 638.4530995971,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 0.0002027591,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "add_season_priors",
+      "change": "직전 시즌 전체 제구율과 선형 추세 prior 추가",
+      "feature_set": "main55_plus_season_priors",
+      "feature_count": 57,
+      "model": "catboost_native_300",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2483705637,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 574.9892795898,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 0.0003612962,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "add_player_prev_season",
+      "change": "시즌 prior와 직전 시즌 투수·타자 스무딩 이력 추가",
+      "feature_set": "main55_plus_player_prev_season",
+      "feature_count": 63,
+      "model": "catboost_native_300",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.248390713,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 566.9233515264,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 0.0003814454,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "add_pitcher_prev_season",
+      "change": "시즌 prior와 직전 시즌 투수 스무딩 이력 추가",
+      "feature_set": "main55_plus_pitcher_prev_season",
+      "feature_count": 60,
+      "model": "catboost_native_300",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2485072642,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 520.2668101748,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 0.0004979967,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "f199ccd2bceb167299708981f0f018e4bc9a90b56ec032966b60d3c558bd0dd6",
+  "git_commit": "80f20ba91e666fa40b7cbdb1647ff163e037bc50",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 163.3604154586792
+}

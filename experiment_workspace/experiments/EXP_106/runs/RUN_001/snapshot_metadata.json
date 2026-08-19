@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T09:57:36.197649+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "58b7515c1850",
+  "based_on": "EXP_068",
+  "reference_variant": "track_physics",
+  "ablation_summary": "Keep latest CPU main72 fixed; compare official pre-validation Trackman velocity pair, movement triple, extension alone, and all six physics context aggregates."
+}

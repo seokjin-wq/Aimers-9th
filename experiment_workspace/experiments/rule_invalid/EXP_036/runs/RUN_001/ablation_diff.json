@@ -1,0 +1,102 @@
+{
+  "based_on": "EXP_035",
+  "reference_variant": "add_all_extensions",
+  "ablation_summary": "main73과 GPU CatBoost를 고정하고 투수 reverse 직전·3·5·10·20·50투구 창의 포함 조합만 변경",
+  "control": "main73_control",
+  "variants": [
+    {
+      "name": "main73_control",
+      "declared_change": "control: 성공 rolling 최고 조합",
+      "is_control": true,
+      "feature_count": 73,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "reverse_previous",
+      "declared_change": "투수 직전 reverse만 추가",
+      "is_control": false,
+      "feature_count": 74,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_previous_pitch_reverse"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "reverse_short",
+      "declared_change": "투수 reverse 직전·3·5·10 추가",
+      "is_control": false,
+      "feature_count": 77,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_previous_pitch_reverse",
+        "pitcher_recent3_pitch_reverse",
+        "pitcher_recent5_pitch_reverse",
+        "pitcher_recent10_pitch_reverse"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "reverse_long",
+      "declared_change": "투수 reverse 직전·10·20·50 추가",
+      "is_control": false,
+      "feature_count": 77,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_previous_pitch_reverse",
+        "pitcher_recent10_pitch_reverse",
+        "pitcher_recent20_pitch_reverse",
+        "pitcher_recent50_pitch_reverse"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "reverse_all",
+      "declared_change": "투수 reverse 직전·3·5·10·20·50 모두 추가",
+      "is_control": false,
+      "feature_count": 79,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_previous_pitch_reverse",
+        "pitcher_recent3_pitch_reverse",
+        "pitcher_recent5_pitch_reverse",
+        "pitcher_recent10_pitch_reverse",
+        "pitcher_recent20_pitch_reverse",
+        "pitcher_recent50_pitch_reverse"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

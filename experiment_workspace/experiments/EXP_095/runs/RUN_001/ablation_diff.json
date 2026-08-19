@@ -1,0 +1,171 @@
+{
+  "based_on": "EXP_084",
+  "reference_variant": "same_hand_pitchmix",
+  "ablation_summary": "Keep the EXP_084 count+hands control fixed and compare each same-hand pitch-mix interaction alone, all three pairs, and the existing all-three variant.",
+  "control": "count_hands_base",
+  "variants": [
+    {
+      "name": "count_hands_base",
+      "declared_change": "control: EXP_084 count+hands base without same-hand pitch-mix interactions",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "fastball_only",
+      "declared_change": "add same_hand_x_fastball only",
+      "is_control": false,
+      "feature_count": 70,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "same_hand_x_fastball"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "breaking_only",
+      "declared_change": "add same_hand_x_breaking only",
+      "is_control": false,
+      "feature_count": 70,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "same_hand_x_breaking"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "offspeed_only",
+      "declared_change": "add same_hand_x_offspeed only",
+      "is_control": false,
+      "feature_count": 70,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "same_hand_x_offspeed"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "fastball_breaking",
+      "declared_change": "add same_hand_x_fastball and same_hand_x_breaking",
+      "is_control": false,
+      "feature_count": 71,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "same_hand_x_fastball",
+        "same_hand_x_breaking"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "fastball_offspeed",
+      "declared_change": "add same_hand_x_fastball and same_hand_x_offspeed",
+      "is_control": false,
+      "feature_count": 71,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "same_hand_x_fastball",
+        "same_hand_x_offspeed"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "breaking_offspeed",
+      "declared_change": "add same_hand_x_breaking and same_hand_x_offspeed",
+      "is_control": false,
+      "feature_count": 71,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "same_hand_x_breaking",
+        "same_hand_x_offspeed"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "all_three",
+      "declared_change": "EXP_084 reference: add all three same-hand pitch-mix interactions",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "same_hand_x_fastball",
+        "same_hand_x_breaking",
+        "same_hand_x_offspeed"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

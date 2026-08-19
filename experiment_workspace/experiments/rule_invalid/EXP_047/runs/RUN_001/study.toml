@@ -1,0 +1,37 @@
+[study]
+id = "047_cpu_global_rolling"
+description = "CPU 전역 시간축 rolling"
+hypothesis = "최근 전체 투구 흐름이 경기·당일 공통 제구 환경을 포착한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main80_control"
+
+[[variants]]
+name = "main80_control"
+model = "catboost_top_d6_i400_lr040"
+features = "main80_add_best_ewm"
+change = "control: entity sequence only"
+
+[[variants]]
+name = "global20"
+model = "catboost_top_d6_i400_lr040"
+features = "main81_add_global20"
+change = "전역 recent20 추가"
+
+[[variants]]
+name = "global50"
+model = "catboost_top_d6_i400_lr040"
+features = "main81_add_global50"
+change = "전역 recent50 추가"
+
+[[variants]]
+name = "global100"
+model = "catboost_top_d6_i400_lr040"
+features = "main81_add_global100"
+change = "전역 recent100 추가"
+
+[[variants]]
+name = "global_all"
+model = "catboost_top_d6_i400_lr040"
+features = "main85_add_global_all"
+change = "전역 recent5·10·20·50·100 모두 추가"

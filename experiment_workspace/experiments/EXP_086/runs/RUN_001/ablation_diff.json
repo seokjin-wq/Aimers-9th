@@ -1,0 +1,130 @@
+{
+  "based_on": "EXP_084",
+  "reference_variant": "same_hand_pitchmix",
+  "ablation_summary": "Fix EXP_084 CPU features; replace approximate pitcher/batter current-season success and count with exact completed-season snapshots using official training labels only, individually and together.",
+  "control": "approximate_control",
+  "variants": [
+    {
+      "name": "approximate_control",
+      "declared_change": "control: EXP_084 approximate season snapshot",
+      "is_control": true,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pitcher_exact",
+      "declared_change": "투수 시즌 n·success만 공식 마지막 타깃으로 정확히 닫음",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "pitcher_season_n_exact",
+        "pitcher_season_success_rate_exact_k20"
+      ],
+      "removed_features_vs_control": [
+        "pitcher_season_n",
+        "pitcher_season_success_rate_k20"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "batter_exact",
+      "declared_change": "타자 시즌 n·success만 공식 마지막 타깃으로 정확히 닫음",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "batter_season_n_exact",
+        "batter_season_success_rate_exact_k20"
+      ],
+      "removed_features_vs_control": [
+        "batter_season_n",
+        "batter_season_success_rate_k20"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "both_exact_k20",
+      "declared_change": "투수·타자 모두 exact snapshot, success k20",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "pitcher_season_n_exact",
+        "pitcher_season_success_rate_exact_k20",
+        "batter_season_n_exact",
+        "batter_season_success_rate_exact_k20"
+      ],
+      "removed_features_vs_control": [
+        "pitcher_season_n",
+        "pitcher_season_success_rate_k20",
+        "batter_season_n",
+        "batter_season_success_rate_k20"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "both_exact_k50",
+      "declared_change": "투수·타자 모두 exact snapshot, success k50",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "pitcher_season_n_exact",
+        "pitcher_season_success_rate_exact_k50",
+        "batter_season_n_exact",
+        "batter_season_success_rate_exact_k50"
+      ],
+      "removed_features_vs_control": [
+        "pitcher_season_n",
+        "pitcher_season_success_rate_k20",
+        "batter_season_n",
+        "batter_season_success_rate_k20"
+      ],
+      "model_changes_vs_control": []
+    }
+  ]
+}

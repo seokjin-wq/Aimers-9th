@@ -1,0 +1,117 @@
+{
+  "experiment_id": "EXP_085",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T06:03:55.921123+00:00",
+  "completed_at_utc": "2026-08-18T06:08:32.155080+00:00",
+  "config_hash": "522f6d7353fa",
+  "based_on": "EXP_080",
+  "reference_variant": "count_hands_promoted",
+  "ablation_summary": "Fix EXP_080 CPU base; add recent, pitcher, batter, or all three history-missing flags one block at a time.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/085_history_missingness/20260818T060355928744Z_522f6d7353fa",
+  "control": "count_hands_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "count_hands_control",
+  "best_mean_brier": 0.2475158585285612,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "count_hands_control",
+      "change": "control: EXP_080 CPU count+hands base",
+      "feature_set": "main69_cat_count_hands",
+      "feature_count": 69,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475158585,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 917.135588661,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "batter_missing",
+      "change": "타자 상대 통산 성공률 결측 여부만 추가",
+      "feature_set": "main70_cat_count_hands_batter_missing",
+      "feature_count": 70,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475460791,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 905.0380267345,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 3.02205e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "all_missing",
+      "change": "최근·투수·타자 이력 결측 플래그 3개 동시 추가",
+      "feature_set": "main72_cat_count_hands_all_missing",
+      "feature_count": 72,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475621335,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 898.6112742063,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 4.6275e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "recent_missing",
+      "change": "직전 경기 성공률 결측 여부만 추가",
+      "feature_set": "main70_cat_count_hands_recent_missing",
+      "feature_count": 70,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475732139,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 894.1757173491,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 5.73553e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "pitcher_missing",
+      "change": "투수 통산 성공률 결측 여부만 추가",
+      "feature_set": "main70_cat_count_hands_pitcher_missing",
+      "feature_count": 70,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.247589793,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 887.5389585273,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 7.39344e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "ba49b1d8e1bd709b6a8f3cd5eaa56ebbad47e060ace600f9d75b80c66cb90816",
+  "git_commit": "e15b25d042b9f09ba59ebb12ade8b67aa15e9976",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 276.04378151893616
+}

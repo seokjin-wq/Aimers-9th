@@ -1,0 +1,4 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+same_hand_pitchmix_triple,EXP_084 동일손×과거 구종군 피처 3개 승격,main72_cat_count_hands_same_pitchmix,72,triple_cpu45_gpu40_extra15,cat_cpu_gpu_extra_blend,1,0.2474714314352181,0.0,934.9201608983782,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",-2.2294199898048594e-05,1/1
+batter_exact_triple,동일손×구종군과 EXP_086 정확 타자 시즌 상태 동시 승격,main72_same_pitchmix_batter_exact,72,triple_cpu45_gpu40_extra15,cat_cpu_gpu_extra_blend,1,0.2474836249939392,0.0,930.0389676987096,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",-1.0100641176902236e-05,1/1
+original_triple,control: EXP_080 count+hands triple,main69_cat_count_hands,69,triple_cpu45_gpu40_extra15,cat_cpu_gpu_extra_blend,1,0.2474937256351161,0.0,925.9955885546512,[],0.0,0/1

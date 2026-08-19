@@ -1,0 +1,3 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+late_history_triple,EXP_090 후반×투수이력 3개를 triple에 승격,main75_same_pitchmix_late_history,75,triple_cpu45_gpu40_extra15,cat_cpu_gpu_extra_blend,1,0.2474787779602227,0.0,931.979279674633,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",-1.8981400752293709e-06,1/1
+current_triple_control,control: EXP_087 same-hand pitchmix triple,main72_cat_count_hands_same_pitchmix,72,triple_cpu45_gpu40_extra15,cat_cpu_gpu_extra_blend,1,0.2474806761002979,0.0,931.2194368232496,[],0.0,0/1

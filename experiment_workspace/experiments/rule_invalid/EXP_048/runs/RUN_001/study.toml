@@ -1,0 +1,37 @@
+[study]
+id = "048_cpu_global_window_fine"
+description = "CPU 전역 rolling 100 주변 탐색"
+hypothesis = "전역 rolling 최적 길이는 100 부근이다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "global100_control"
+
+[[variants]]
+name = "global100_control"
+model = "catboost_top_d6_i400_lr040"
+features = "main81_add_global100"
+change = "control: window100"
+
+[[variants]]
+name = "global75"
+model = "catboost_top_d6_i400_lr040"
+features = "main81_add_global75"
+change = "window75"
+
+[[variants]]
+name = "global125"
+model = "catboost_top_d6_i400_lr040"
+features = "main81_add_global125"
+change = "window125"
+
+[[variants]]
+name = "global150"
+model = "catboost_top_d6_i400_lr040"
+features = "main81_add_global150"
+change = "window150"
+
+[[variants]]
+name = "global200"
+model = "catboost_top_d6_i400_lr040"
+features = "main81_add_global200"
+change = "window200"

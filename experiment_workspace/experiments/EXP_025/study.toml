@@ -1,0 +1,61 @@
+[study]
+id = "025_catboost_learning_path"
+description = "CatBoost 학습률-트리수 경로"
+hypothesis = "총 boosting 강도를 비슷하게 유지하면서 작은 학습률과 많은 tree를 쓰면 기존 300x0.05보다 일반화 Brier가 개선된다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "d6_i300_lr050_control"
+
+[[variants]]
+name = "d6_i300_lr050_control"
+model = "catboost_native_scale106_shift_m008"
+features = "main60_cat_batter_team"
+change = "control: depth6, 300, lr0.05"
+
+[[variants]]
+name = "d6_i600_lr025"
+model = "catboost_top_d6_i600_lr025"
+features = "main60_cat_batter_team"
+change = "depth6, 600, lr0.025"
+
+[[variants]]
+name = "d6_i450_lr033"
+model = "catboost_top_d6_i450_lr033"
+features = "main60_cat_batter_team"
+change = "depth6, 450, lr0.033"
+
+[[variants]]
+name = "d6_i400_lr040"
+model = "catboost_top_d6_i400_lr040"
+features = "main60_cat_batter_team"
+change = "depth6, 400, lr0.04"
+
+[[variants]]
+name = "d6_i250_lr060"
+model = "catboost_top_d6_i250_lr060"
+features = "main60_cat_batter_team"
+change = "depth6, 250, lr0.06"
+
+[[variants]]
+name = "d6_i200_lr075"
+model = "catboost_top_d6_i200_lr075"
+features = "main60_cat_batter_team"
+change = "depth6, 200, lr0.075"
+
+[[variants]]
+name = "d6_i150_lr100"
+model = "catboost_top_d6_i150_lr100"
+features = "main60_cat_batter_team"
+change = "depth6, 150, lr0.10"
+
+[[variants]]
+name = "d7_i250_lr050"
+model = "catboost_top_d7_i250_lr050"
+features = "main60_cat_batter_team"
+change = "depth7, 250, lr0.05"
+
+[[variants]]
+name = "d8_i200_lr050"
+model = "catboost_top_d8_i200_lr050"
+features = "main60_cat_batter_team"
+change = "depth8, 200, lr0.05"

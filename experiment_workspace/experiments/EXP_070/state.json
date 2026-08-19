@@ -1,0 +1,10 @@
+{
+  "id": "EXP_070",
+  "status": "decided",
+  "created_at_utc": "2026-08-18T03:51:20.490133+00:00",
+  "updated_at_utc": "2026-08-18T03:59:19.654128+00:00",
+  "run_count": 1,
+  "latest_run_id": "RUN_001",
+  "decision": "adopt",
+  "selected_variant": "cpu45_gpu40_extra15"
+}

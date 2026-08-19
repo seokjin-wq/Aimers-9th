@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_023",
+  "decision": "keep_control",
+  "selected_variant": "catboost_control",
+  "reason": "모든 대체 모델 단독 점수가 CatBoost보다 낮았다. 다만 ExtraTrees leaf20은 CatBoost와 상관 0.807로 다양성이 있어 EXP_024 앙상블 후보로 넘긴다.",
+  "based_on": "EXP_022",
+  "reference_variant": "default_control",
+  "ablation_summary": "같은 main60 정보에서 logistic C, HistGradientBoosting leaf 수, ExtraTrees leaf 크기만 비교",
+  "selected_result": {
+    "variant": "catboost_control",
+    "change": "control: 현재 최고 CatBoost",
+    "feature_set": "main60_cat_batter_team",
+    "feature_count": 60,
+    "model": "catboost_native_scale106_shift_m008",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2478203209,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 795.2564988937,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "catboost_control",
+    "change": "control: 현재 최고 CatBoost",
+    "feature_set": "main60_cat_batter_team",
+    "feature_count": 60,
+    "model": "catboost_native_scale106_shift_m008",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2478203209,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 795.2564988937,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-17T17:33:04.693672+00:00",
+  "based_on_run_id": "RUN_001"
+}

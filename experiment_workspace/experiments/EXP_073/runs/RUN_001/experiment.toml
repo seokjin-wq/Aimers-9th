@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_073"
+title = "Current-season success shrinkage grid"
+hypothesis = "The k=20 prior may over-smooth or under-smooth current-season pitcher and batter success; tuning only their shrinkage can improve row-local calibration."
+change_scope = "features"
+study_config = "experiments/EXP_073/study.toml"
+based_on = "EXP_072"
+reference_variant = "main69_control"
+ablation_summary = "Fix main69 and CPU CatBoost d8 decay0.85; replace only pitcher/batter current-season success smoothing k among 5,10,20,50,100."
+tags = ["compliance,row-independent,season-state,shrinkage"]
+created_at_utc = "2026-08-18T04:34:29.462532+00:00"

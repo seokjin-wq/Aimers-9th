@@ -1,0 +1,22 @@
+[model]
+name = "catboost_gpu_d6_i300_lr050_b128"
+family = "catboost"
+native_categorical = true
+prediction_scale = 1.06
+prediction_shift = -0.008
+
+[model.params]
+iterations = 300
+depth = 6
+learning_rate = 0.05
+l2_leaf_reg = 3.0
+bootstrap_type = "Bayesian"
+bagging_temperature = 1.0
+border_count = 128
+random_seed = 42
+task_type = "GPU"
+devices = "0"
+loss_function = "Logloss"
+eval_metric = "BrierScore"
+allow_writing_files = false
+verbose = false

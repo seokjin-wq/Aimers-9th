@@ -1,0 +1,96 @@
+{
+  "based_on": "EXP_078",
+  "reference_variant": "count_hands_cat",
+  "ablation_summary": "Use count+both-hands as control; remove one hand at a time, replace hands by same_hand, or add same_hand to all three.",
+  "control": "count_both_hands_control",
+  "variants": [
+    {
+      "name": "count_both_hands_control",
+      "declared_change": "control: count_state와 pitcher/batter hand categorical",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "count_pitcher_hand",
+      "declared_change": "control에서 batter_hand categorical 제거",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "count_batter_hand",
+      "declared_change": "control에서 pitcher_hand categorical 제거",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "count_same_hand",
+      "declared_change": "양손 원본 categorical 대신 same_hand_matchup categorical",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "same_hand_matchup"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "count_hands_same",
+      "declared_change": "control에 same_hand_matchup categorical 추가",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand",
+        "same_hand_matchup"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

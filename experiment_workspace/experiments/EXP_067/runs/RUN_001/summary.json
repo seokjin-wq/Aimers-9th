@@ -1,0 +1,117 @@
+{
+  "experiment_id": "EXP_067",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T03:37:47.032780+00:00",
+  "completed_at_utc": "2026-08-18T03:40:17.312766+00:00",
+  "config_hash": "8cad4a6d639d",
+  "based_on": "EXP_062",
+  "reference_variant": "extra_w18",
+  "ablation_summary": "main69 depth8 decay85 base 고정, 2023 잔차모델 보정 가중치 0.25,0.5,0.75,1.0 비교",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/067_2023_residual_catboost/20260818T033747038423Z_8cad4a6d639d",
+  "control": "base_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": null
+  },
+  "best_variant": "base_control",
+  "best_mean_brier": 0.2475377207264107,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "base_control",
+      "change": "control: EXP_060 depth8 decay85",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475377207,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 908.3839506927,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "residual_w025",
+      "change": "2023 OOT 잔차 예측의 25% 적용",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "cat_residual_w025",
+      "model_family": "catboost_residual_correction",
+      "fold_count": 1,
+      "mean_brier": 0.2477254791,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 833.2225676181,
+      "changed_fields_vs_control": "['model.base_params.allow_writing_files', 'model.base_params.depth', 'model.base_params.eval_metric', 'model.base_params.iterations', 'model.base_params.l2_leaf_reg', 'model.base_params.learning_rate', 'model.base_params.loss_function', 'model.base_params.random_seed', 'model.base_params.subsample', 'model.base_params.task_type', 'model.base_params.thread_count', 'model.base_params.verbose', 'model.base_scale', 'model.base_season_decay', 'model.base_shift', 'model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.random_seed', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.verbose', 'model.prediction_scale', 'model.prediction_shift', 'model.residual_params.allow_writing_files', 'model.residual_params.depth', 'model.residual_params.iterations', 'model.residual_params.l2_leaf_reg', 'model.residual_params.learning_rate', 'model.residual_params.loss_function', 'model.residual_params.random_seed', 'model.residual_params.task_type', 'model.residual_params.thread_count', 'model.residual_params.verbose', 'model.residual_weight', 'model.season_decay']",
+      "delta_brier_vs_control": 0.0001877583,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "residual_w050",
+      "change": "2023 OOT 잔차 예측의 50% 적용",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "cat_residual_w050",
+      "model_family": "catboost_residual_correction",
+      "fold_count": 1,
+      "mean_brier": 0.2484490702,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 543.5624195975,
+      "changed_fields_vs_control": "['model.base_params.allow_writing_files', 'model.base_params.depth', 'model.base_params.eval_metric', 'model.base_params.iterations', 'model.base_params.l2_leaf_reg', 'model.base_params.learning_rate', 'model.base_params.loss_function', 'model.base_params.random_seed', 'model.base_params.subsample', 'model.base_params.task_type', 'model.base_params.thread_count', 'model.base_params.verbose', 'model.base_scale', 'model.base_season_decay', 'model.base_shift', 'model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.random_seed', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.verbose', 'model.prediction_scale', 'model.prediction_shift', 'model.residual_params.allow_writing_files', 'model.residual_params.depth', 'model.residual_params.iterations', 'model.residual_params.l2_leaf_reg', 'model.residual_params.learning_rate', 'model.residual_params.loss_function', 'model.residual_params.random_seed', 'model.residual_params.task_type', 'model.residual_params.thread_count', 'model.residual_params.verbose', 'model.residual_weight', 'model.season_decay']",
+      "delta_brier_vs_control": 0.0009113495,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "residual_w075",
+      "change": "2023 OOT 잔차 예측의 75% 적용",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "cat_residual_w075",
+      "model_family": "catboost_residual_correction",
+      "fold_count": 1,
+      "mean_brier": 0.2497084941,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 39.4035066308,
+      "changed_fields_vs_control": "['model.base_params.allow_writing_files', 'model.base_params.depth', 'model.base_params.eval_metric', 'model.base_params.iterations', 'model.base_params.l2_leaf_reg', 'model.base_params.learning_rate', 'model.base_params.loss_function', 'model.base_params.random_seed', 'model.base_params.subsample', 'model.base_params.task_type', 'model.base_params.thread_count', 'model.base_params.verbose', 'model.base_scale', 'model.base_season_decay', 'model.base_shift', 'model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.random_seed', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.verbose', 'model.prediction_scale', 'model.prediction_shift', 'model.residual_params.allow_writing_files', 'model.residual_params.depth', 'model.residual_params.iterations', 'model.residual_params.l2_leaf_reg', 'model.residual_params.learning_rate', 'model.residual_params.loss_function', 'model.residual_params.random_seed', 'model.residual_params.task_type', 'model.residual_params.thread_count', 'model.residual_params.verbose', 'model.residual_weight', 'model.season_decay']",
+      "delta_brier_vs_control": 0.0021707733,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "residual_w100",
+      "change": "2023 OOT 잔차 예측을 전부 적용",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "cat_residual_w100",
+      "model_family": "catboost_residual_correction",
+      "fold_count": 1,
+      "mean_brier": 0.2515037507,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 0.0,
+      "changed_fields_vs_control": "['model.base_params.allow_writing_files', 'model.base_params.depth', 'model.base_params.eval_metric', 'model.base_params.iterations', 'model.base_params.l2_leaf_reg', 'model.base_params.learning_rate', 'model.base_params.loss_function', 'model.base_params.random_seed', 'model.base_params.subsample', 'model.base_params.task_type', 'model.base_params.thread_count', 'model.base_params.verbose', 'model.base_scale', 'model.base_season_decay', 'model.base_shift', 'model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.random_seed', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.verbose', 'model.prediction_scale', 'model.prediction_shift', 'model.residual_params.allow_writing_files', 'model.residual_params.depth', 'model.residual_params.iterations', 'model.residual_params.l2_leaf_reg', 'model.residual_params.learning_rate', 'model.residual_params.loss_function', 'model.residual_params.random_seed', 'model.residual_params.task_type', 'model.residual_params.thread_count', 'model.residual_params.verbose', 'model.residual_weight', 'model.season_decay']",
+      "delta_brier_vs_control": 0.00396603,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "31f3af2890aaf5d7396adbcf00061cb93dfd6be23c80db522b8c3b8b3d169d20",
+  "git_commit": "7bde464991a4052a625a1c8c1d2e222d4b3c6542",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 150.09229564666748
+}

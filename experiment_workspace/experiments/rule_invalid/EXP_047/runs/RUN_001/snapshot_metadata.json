@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T19:53:08.494326+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "50636193b185",
+  "based_on": "EXP_046",
+  "reference_variant": "cat_control",
+  "ablation_summary": "CPU main80을 고정하고 복원 가능한 과거 전역 성공의 recent5·10·20·50·100 rolling만 개별·조합 추가"
+}

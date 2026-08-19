@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_072"
+title = "Career state pruning with current-season snapshots"
+hypothesis = "Current-season state may make career cumulative pitcher/batter state redundant; pruning it can free CatBoost split capacity and improve calibration."
+change_scope = "features"
+study_config = "experiments/EXP_072/study.toml"
+based_on = "EXP_070"
+reference_variant = "cpu45_gpu40_extra15"
+ablation_summary = "Keep EXP_070 model family fixed conceptually and compare main69 against dropping pitcher career, batter career, or both career state blocks."
+tags = ["compliance,row-independent,feature-pruning,season-state"]
+created_at_utc = "2026-08-18T04:08:42.846630+00:00"

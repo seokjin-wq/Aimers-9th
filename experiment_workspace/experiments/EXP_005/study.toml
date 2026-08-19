@@ -1,0 +1,31 @@
+[study]
+id = "005_categorical_scope"
+description = "CatBoost 범주 컬럼 범위"
+hypothesis = "숫자 코드인 선수·팀·이산 상황 변수를 명목 범주로 처리하면 2024 Brier가 개선된다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "basic3_control"
+
+[[variants]]
+name = "basic3_control"
+model = "catboost_native_300"
+features = "main55"
+change = "control: 문자열 3개만 native categorical"
+
+[[variants]]
+name = "add_player_ids"
+model = "catboost_native_300"
+features = "main55_cat_players"
+change = "pitcher_id와 batter_id를 범주로 추가"
+
+[[variants]]
+name = "add_players_teams_hands"
+model = "catboost_native_300"
+features = "main55_cat_players_teams"
+change = "선수·팀 ID와 손 유형을 범주로 추가"
+
+[[variants]]
+name = "all_discrete"
+model = "catboost_native_300"
+features = "main55_cat_discrete"
+change = "달력·카운트·주자 등 소수준 이산값도 범주로 추가"

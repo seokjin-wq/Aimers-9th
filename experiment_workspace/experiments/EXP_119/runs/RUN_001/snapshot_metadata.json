@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T12:23:10.979793+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "e9f0abc64a29",
+  "based_on": "EXP_117",
+  "reference_variant": "weights_50_35_15",
+  "ablation_summary": "Fix main78 features, component models, 50/35/15 weights, ExtraTrees shift, count correction, and scales; vary only CatBoost component shift among -0.0090, -0.0095, and -0.0100."
+}

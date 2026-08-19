@@ -1,0 +1,117 @@
+{
+  "experiment_id": "EXP_039",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T18:46:43.504909+00:00",
+  "completed_at_utc": "2026-08-17T18:50:01.347170+00:00",
+  "config_hash": "80437725bcd9",
+  "based_on": "EXP_038",
+  "reference_variant": "plate_context",
+  "ablation_summary": "main85와 affine 보정을 고정하고 GPU CatBoost depth 5~8, iterations 450~900, learning_rate 경로만 변경",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/039_sequence_capacity/20260817T184643509818Z_80437725bcd9",
+  "control": "d6_i600_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "d6_i900",
+  "best_mean_brier": 0.2468999017096447,
+  "best_delta_brier_vs_control": -3.095925117369003e-05,
+  "leaderboard": [
+    {
+      "variant": "d6_i900",
+      "change": "depth6 900 lr0.020",
+      "feature_set": "main85_add_plate_context",
+      "feature_count": 85,
+      "model": "catboost_gpu_d6_i900_lr020_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2468999017,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1163.7087429419,
+      "changed_fields_vs_control": "['model.name', 'model.params.iterations', 'model.params.learning_rate']",
+      "delta_brier_vs_control": -3.09593e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "d7_i600",
+      "change": "depth7 600 lr0.025",
+      "feature_set": "main85_add_plate_context",
+      "feature_count": 85,
+      "model": "catboost_gpu_d7_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2469005458,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1163.4509143795,
+      "changed_fields_vs_control": "['model.name', 'model.params.depth']",
+      "delta_brier_vs_control": -3.03152e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "d8_i450",
+      "change": "depth8 450 lr0.025",
+      "feature_set": "main85_add_plate_context",
+      "feature_count": 85,
+      "model": "catboost_gpu_d8_i450_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2469068244,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1160.9375444371,
+      "changed_fields_vs_control": "['model.name', 'model.params.depth', 'model.params.iterations']",
+      "delta_brier_vs_control": -2.40366e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "d6_i600_control",
+      "change": "control: depth6 600 lr0.025",
+      "feature_set": "main85_add_plate_context",
+      "feature_count": 85,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.246930861,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1151.3154712358,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "d5_i800",
+      "change": "depth5 800 lr0.025",
+      "feature_set": "main85_add_plate_context",
+      "feature_count": 85,
+      "model": "catboost_gpu_d5_i800_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2469485902,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1144.2182810898,
+      "changed_fields_vs_control": "['model.name', 'model.params.depth', 'model.params.iterations']",
+      "delta_brier_vs_control": 1.77293e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "b5c7bf08b36539c2e8f11211edf66e9daf684d8b6fd38bd076c622b56be33c62",
+  "git_commit": "b48450084b95bd09404af024e3e1faf7ee26ac91",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 197.65724682807922
+}

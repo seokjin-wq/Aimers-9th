@@ -1,0 +1,153 @@
+{
+  "based_on": "EXP_040",
+  "reference_variant": "cat_single_control",
+  "ablation_summary": "main85와 depth6 900 lr0.020을 고정하고 has_time, random_strength 0·0.2·2, bagging_temperature 0만 개별 변경",
+  "control": "default_control",
+  "variants": [
+    {
+      "name": "default_control",
+      "declared_change": "control: 기본 랜덤성",
+      "is_control": true,
+      "feature_count": 85,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "has_time",
+      "declared_change": "입력 시간 순서 보존",
+      "is_control": false,
+      "feature_count": 85,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_gpu_d6_i900_lr020_b128",
+          "variant": "catboost_gpu_d6_i900_has_time"
+        },
+        {
+          "field": "model.params.has_time",
+          "control": null,
+          "variant": true
+        }
+      ]
+    },
+    {
+      "name": "random0",
+      "declared_change": "random_strength 0",
+      "is_control": false,
+      "feature_count": 85,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_gpu_d6_i900_lr020_b128",
+          "variant": "catboost_gpu_d6_i900_random0"
+        },
+        {
+          "field": "model.params.random_strength",
+          "control": null,
+          "variant": 0.0
+        }
+      ]
+    },
+    {
+      "name": "random02",
+      "declared_change": "random_strength 0.2",
+      "is_control": false,
+      "feature_count": 85,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_gpu_d6_i900_lr020_b128",
+          "variant": "catboost_gpu_d6_i900_random02"
+        },
+        {
+          "field": "model.params.random_strength",
+          "control": null,
+          "variant": 0.2
+        }
+      ]
+    },
+    {
+      "name": "random2",
+      "declared_change": "random_strength 2",
+      "is_control": false,
+      "feature_count": 85,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_gpu_d6_i900_lr020_b128",
+          "variant": "catboost_gpu_d6_i900_random2"
+        },
+        {
+          "field": "model.params.random_strength",
+          "control": null,
+          "variant": 2.0
+        }
+      ]
+    },
+    {
+      "name": "bag0",
+      "declared_change": "bagging_temperature 0",
+      "is_control": false,
+      "feature_count": 85,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_gpu_d6_i900_lr020_b128",
+          "variant": "catboost_gpu_d6_i900_bag0"
+        },
+        {
+          "field": "model.params.bagging_temperature",
+          "control": 1.0,
+          "variant": 0.0
+        }
+      ]
+    }
+  ]
+}

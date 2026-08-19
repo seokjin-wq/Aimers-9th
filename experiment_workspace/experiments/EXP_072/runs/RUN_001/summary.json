@@ -1,0 +1,102 @@
+{
+  "experiment_id": "EXP_072",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T04:09:04.958047+00:00",
+  "completed_at_utc": "2026-08-18T04:34:18.865909+00:00",
+  "config_hash": "fe1730e1cabb",
+  "based_on": "EXP_070",
+  "reference_variant": "cpu45_gpu40_extra15",
+  "ablation_summary": "Keep EXP_070 model family fixed conceptually and compare main69 against dropping pitcher career, batter career, or both career state blocks.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/072_career_state_pruning/20260818T040904964217Z_fe1730e1cabb",
+  "control": "main69_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "main69_control",
+  "best_mean_brier": 0.2474960844851888,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "main69_control",
+      "change": "control: EXP_070 최고 조합과 동일",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "triple_cpu45_gpu40_extra15",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474960845,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 925.0513192731,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "drop_batter_career",
+      "change": "control 대비 타자 통산 n/success/middle 상태 3개 제거",
+      "feature_set": "main66_drop_batter_career_state",
+      "feature_count": 66,
+      "model": "triple_cpu45_gpu40_extra15",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.247509302,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 919.7602438489,
+      "changed_fields_vs_control": "['features.description', 'features.exclude', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 1.32175e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "drop_all_career",
+      "change": "control 대비 투수 5개와 타자 3개 통산 상태를 모두 제거",
+      "feature_set": "main61_drop_all_career_state",
+      "feature_count": 61,
+      "model": "triple_cpu45_gpu40_extra15",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2475208709,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 915.1290865262,
+      "changed_fields_vs_control": "['features.description', 'features.exclude', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 2.47864e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "drop_pitcher_career",
+      "change": "control 대비 투수 통산 n/success/reverse/middle/ball 상태 5개 제거",
+      "feature_set": "main64_drop_pitcher_career_state",
+      "feature_count": 64,
+      "model": "triple_cpu45_gpu40_extra15",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2475540379,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 901.852051732,
+      "changed_fields_vs_control": "['features.description', 'features.exclude', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 5.79534e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "e89058c15515be61934954967fb7da037782bde9d7c3392a0bacc55d764cb080",
+  "git_commit": "7bde464991a4052a625a1c8c1d2e222d4b3c6542",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 1513.711284160614
+}

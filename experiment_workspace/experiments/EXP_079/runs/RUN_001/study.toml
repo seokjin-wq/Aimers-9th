@@ -1,0 +1,37 @@
+[study]
+id = "079_count_hand_interaction"
+description = "카운트×손 범주 상호작용 분해"
+hypothesis = "EXP_078 개선은 카운트와 특정 손 유형의 결합에서 나오며 불필요한 범주를 제거하면 더 개선된다."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "count_both_hands_control"
+
+[[variants]]
+name = "count_both_hands_control"
+model = "catboost_d8_decay085"
+features = "main69_cat_count_hands"
+change = "control: count_state와 pitcher/batter hand categorical"
+
+[[variants]]
+name = "count_pitcher_hand"
+model = "catboost_d8_decay085"
+features = "main69_cat_count_pitcher_hand"
+change = "control에서 batter_hand categorical 제거"
+
+[[variants]]
+name = "count_batter_hand"
+model = "catboost_d8_decay085"
+features = "main69_cat_count_batter_hand"
+change = "control에서 pitcher_hand categorical 제거"
+
+[[variants]]
+name = "count_same_hand"
+model = "catboost_d8_decay085"
+features = "main69_cat_count_same_hand"
+change = "양손 원본 categorical 대신 same_hand_matchup categorical"
+
+[[variants]]
+name = "count_hands_same"
+model = "catboost_d8_decay085"
+features = "main69_cat_count_hands_same"
+change = "control에 same_hand_matchup categorical 추가"

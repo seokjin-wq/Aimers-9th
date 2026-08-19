@@ -1,0 +1,120 @@
+{
+  "based_on": "EXP_090",
+  "reference_variant": "late_pitcher_history",
+  "ablation_summary": "Fix EXP_084 CPU features; add exactly one pressure state by pitcher success/reverse/middle block, then all three blocks.",
+  "control": "same_hand_control",
+  "variants": [
+    {
+      "name": "same_hand_control",
+      "declared_change": "control: EXP_084 CPU same-hand pitchmix",
+      "is_control": true,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "two_strike_history",
+      "declared_change": "2스트라이크×투수 성공·반대·가운데 이력 3개",
+      "is_control": false,
+      "feature_count": 75,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "two_strike_x_pitcher_success",
+        "two_strike_x_pitcher_reverse",
+        "two_strike_x_pitcher_middle"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "three_ball_history",
+      "declared_change": "3볼×투수 성공·반대·가운데 이력 3개",
+      "is_control": false,
+      "feature_count": 75,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "three_ball_x_pitcher_success",
+        "three_ball_x_pitcher_reverse",
+        "three_ball_x_pitcher_middle"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "full_count_history",
+      "declared_change": "풀카운트×투수 성공·반대·가운데 이력 3개",
+      "is_control": false,
+      "feature_count": 75,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "full_count_x_pitcher_success",
+        "full_count_x_pitcher_reverse",
+        "full_count_x_pitcher_middle"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "all_pressure_history",
+      "declared_change": "세 압박 상태의 9개 교호항 모두 추가",
+      "is_control": false,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "two_strike_x_pitcher_success",
+        "two_strike_x_pitcher_reverse",
+        "two_strike_x_pitcher_middle",
+        "three_ball_x_pitcher_success",
+        "three_ball_x_pitcher_reverse",
+        "three_ball_x_pitcher_middle",
+        "full_count_x_pitcher_success",
+        "full_count_x_pitcher_reverse",
+        "full_count_x_pitcher_middle"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+[study]
+id = "112_history_reliability"
+description = "Row-local history reliability representation"
+hypothesis = "Explicit sample-size buckets and reliability-weighted as-of rates will make the latest CatBoost robust to the 2024 new-player and small-history population identified in EDA."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main72_control"
+
+[[variants]]
+name = "main72_control"
+model = "catboost_d8_decay085_sub08"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: EXP_109 CPU winner"
+
+[[variants]]
+name = "history_buckets"
+model = "catboost_d8_decay085_sub08"
+features = "main74_history_buckets"
+change = "add pitcher/batter as-of history-size categorical buckets only"
+
+[[variants]]
+name = "history_reliability"
+model = "catboost_d8_decay085_sub08"
+features = "main78_history_reliability"
+change = "add six row-local reliability and reliability-weighted rate features only"
+
+[[variants]]
+name = "buckets_plus_reliability"
+model = "catboost_d8_decay085_sub08"
+features = "main80_history_buckets_reliability"
+change = "add both history-size buckets and reliability features"

@@ -1,0 +1,25 @@
+[study]
+id = "119_reliability_triple_shift"
+description = "Reliability triple CatBoost shift refinement"
+hypothesis = "The reliability features and 50/35/15 weights slightly change ensemble calibration, so neighboring CatBoost shifts around -0.0095 may improve Brier."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "catshift_m0095_control"
+
+[[variants]]
+name = "catshift_m0095_control"
+model = "triple_count_m0095_sub08_w50_35_15"
+features = "main78_history_reliability"
+change = "control: EXP_117 winner cat_shift=-0.0095"
+
+[[variants]]
+name = "catshift_m009"
+model = "triple_count_sub08_w50_35_15_shift_m009"
+features = "main78_history_reliability"
+change = "cat_shift -0.0095 -> -0.0090 only"
+
+[[variants]]
+name = "catshift_m010"
+model = "triple_count_sub08_w50_35_15_shift_m010"
+features = "main78_history_reliability"
+change = "cat_shift -0.0095 -> -0.0100 only"

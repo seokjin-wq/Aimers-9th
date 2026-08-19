@@ -1,0 +1,2 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+extra_w24_safe,control: EXP_024 extra_w24를 규칙 준수 row-local 엔진에서 재현,main60_cat_batter_team,60,cat_extra_blend_w24,cat_extra_blend,1,0.2477775942238894,0.0,812.3603933826384,[],0.0,0/1

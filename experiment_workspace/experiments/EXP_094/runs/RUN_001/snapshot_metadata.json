@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T07:33:34.417047+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "703d2c5a6e6c",
+  "based_on": "EXP_088",
+  "reference_variant": "count_k500",
+  "ablation_summary": "Freshly rerun the identical triple control, count k500, and count k2000 settings; no feature or parameter search."
+}

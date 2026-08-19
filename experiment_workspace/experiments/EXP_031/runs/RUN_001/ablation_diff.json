@@ -1,0 +1,105 @@
+{
+  "based_on": "EXP_030",
+  "reference_variant": "main60_control",
+  "ablation_summary": "GPU depth6 600 lr0.025와 main60을 고정하고 3-seed 및 5-seed 확률 평균만 비교",
+  "control": "single_seed_control",
+  "variants": [
+    {
+      "name": "single_seed_control",
+      "declared_change": "control: GPU seed42 단일",
+      "is_control": true,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "ensemble_3seed",
+      "declared_change": "GPU 3 seed 평균",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_ensemble"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_gpu_d6_i600_lr025_b128",
+          "variant": "catboost_gpu_ensemble3"
+        },
+        {
+          "field": "model.params.random_seed",
+          "control": 42,
+          "variant": null
+        },
+        {
+          "field": "model.seeds",
+          "control": null,
+          "variant": [
+            17,
+            42,
+            97
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ensemble_5seed",
+      "declared_change": "GPU 5 seed 평균",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_ensemble"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_gpu_d6_i600_lr025_b128",
+          "variant": "catboost_gpu_ensemble5"
+        },
+        {
+          "field": "model.params.random_seed",
+          "control": 42,
+          "variant": null
+        },
+        {
+          "field": "model.seeds",
+          "control": null,
+          "variant": [
+            7,
+            17,
+            42,
+            97,
+            2025
+          ]
+        }
+      ]
+    }
+  ]
+}

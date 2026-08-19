@@ -1,0 +1,824 @@
+{
+  "based_on": "EXP_045",
+  "reference_variant": "best_three",
+  "ablation_summary": "main80을 고정하고 CPU CatBoost 대비 LightGBM leaves31·63·127, HistGB leaves31·63, Logistic C0.01만 변경",
+  "control": "cat_control",
+  "variants": [
+    {
+      "name": "cat_control",
+      "declared_change": "control: CPU CatBoost",
+      "is_control": true,
+      "feature_count": 80,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "lgb31",
+      "declared_change": "LightGBM leaves31",
+      "is_control": false,
+      "feature_count": 80,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "lightgbm"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_top_d6_i400_lr040",
+          "variant": "lightgbm_l31"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params.allow_writing_files",
+          "control": false,
+          "variant": null
+        },
+        {
+          "field": "model.params.colsample_bytree",
+          "control": null,
+          "variant": 0.8
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": null
+        },
+        {
+          "field": "model.params.eval_metric",
+          "control": "BrierScore",
+          "variant": null
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 400,
+          "variant": null
+        },
+        {
+          "field": "model.params.l2_leaf_reg",
+          "control": 3.0,
+          "variant": null
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.04,
+          "variant": 0.03
+        },
+        {
+          "field": "model.params.loss_function",
+          "control": "Logloss",
+          "variant": null
+        },
+        {
+          "field": "model.params.max_depth",
+          "control": null,
+          "variant": -1
+        },
+        {
+          "field": "model.params.min_child_samples",
+          "control": null,
+          "variant": 200
+        },
+        {
+          "field": "model.params.n_estimators",
+          "control": null,
+          "variant": 500
+        },
+        {
+          "field": "model.params.n_jobs",
+          "control": null,
+          "variant": 8
+        },
+        {
+          "field": "model.params.num_leaves",
+          "control": null,
+          "variant": 31
+        },
+        {
+          "field": "model.params.random_seed",
+          "control": 42,
+          "variant": null
+        },
+        {
+          "field": "model.params.random_state",
+          "control": null,
+          "variant": 42
+        },
+        {
+          "field": "model.params.reg_lambda",
+          "control": null,
+          "variant": 3.0
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.7,
+          "variant": 0.8
+        },
+        {
+          "field": "model.params.task_type",
+          "control": "CPU",
+          "variant": null
+        },
+        {
+          "field": "model.params.thread_count",
+          "control": 8,
+          "variant": null
+        },
+        {
+          "field": "model.params.verbose",
+          "control": false,
+          "variant": null
+        },
+        {
+          "field": "model.params.verbosity",
+          "control": null,
+          "variant": -1
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "lgb63",
+      "declared_change": "LightGBM leaves63",
+      "is_control": false,
+      "feature_count": 80,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "lightgbm"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_top_d6_i400_lr040",
+          "variant": "lightgbm_l63"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params.allow_writing_files",
+          "control": false,
+          "variant": null
+        },
+        {
+          "field": "model.params.colsample_bytree",
+          "control": null,
+          "variant": 0.8
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": null
+        },
+        {
+          "field": "model.params.eval_metric",
+          "control": "BrierScore",
+          "variant": null
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 400,
+          "variant": null
+        },
+        {
+          "field": "model.params.l2_leaf_reg",
+          "control": 3.0,
+          "variant": null
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.04,
+          "variant": 0.03
+        },
+        {
+          "field": "model.params.loss_function",
+          "control": "Logloss",
+          "variant": null
+        },
+        {
+          "field": "model.params.max_depth",
+          "control": null,
+          "variant": -1
+        },
+        {
+          "field": "model.params.min_child_samples",
+          "control": null,
+          "variant": 200
+        },
+        {
+          "field": "model.params.n_estimators",
+          "control": null,
+          "variant": 500
+        },
+        {
+          "field": "model.params.n_jobs",
+          "control": null,
+          "variant": 8
+        },
+        {
+          "field": "model.params.num_leaves",
+          "control": null,
+          "variant": 63
+        },
+        {
+          "field": "model.params.random_seed",
+          "control": 42,
+          "variant": null
+        },
+        {
+          "field": "model.params.random_state",
+          "control": null,
+          "variant": 42
+        },
+        {
+          "field": "model.params.reg_lambda",
+          "control": null,
+          "variant": 3.0
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.7,
+          "variant": 0.8
+        },
+        {
+          "field": "model.params.task_type",
+          "control": "CPU",
+          "variant": null
+        },
+        {
+          "field": "model.params.thread_count",
+          "control": 8,
+          "variant": null
+        },
+        {
+          "field": "model.params.verbose",
+          "control": false,
+          "variant": null
+        },
+        {
+          "field": "model.params.verbosity",
+          "control": null,
+          "variant": -1
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "lgb127",
+      "declared_change": "LightGBM leaves127",
+      "is_control": false,
+      "feature_count": 80,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "lightgbm"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_top_d6_i400_lr040",
+          "variant": "lightgbm_l127"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params.allow_writing_files",
+          "control": false,
+          "variant": null
+        },
+        {
+          "field": "model.params.colsample_bytree",
+          "control": null,
+          "variant": 0.8
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": null
+        },
+        {
+          "field": "model.params.eval_metric",
+          "control": "BrierScore",
+          "variant": null
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 400,
+          "variant": null
+        },
+        {
+          "field": "model.params.l2_leaf_reg",
+          "control": 3.0,
+          "variant": null
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.04,
+          "variant": 0.03
+        },
+        {
+          "field": "model.params.loss_function",
+          "control": "Logloss",
+          "variant": null
+        },
+        {
+          "field": "model.params.max_depth",
+          "control": null,
+          "variant": -1
+        },
+        {
+          "field": "model.params.min_child_samples",
+          "control": null,
+          "variant": 200
+        },
+        {
+          "field": "model.params.n_estimators",
+          "control": null,
+          "variant": 500
+        },
+        {
+          "field": "model.params.n_jobs",
+          "control": null,
+          "variant": 8
+        },
+        {
+          "field": "model.params.num_leaves",
+          "control": null,
+          "variant": 127
+        },
+        {
+          "field": "model.params.random_seed",
+          "control": 42,
+          "variant": null
+        },
+        {
+          "field": "model.params.random_state",
+          "control": null,
+          "variant": 42
+        },
+        {
+          "field": "model.params.reg_lambda",
+          "control": null,
+          "variant": 3.0
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.7,
+          "variant": 0.8
+        },
+        {
+          "field": "model.params.task_type",
+          "control": "CPU",
+          "variant": null
+        },
+        {
+          "field": "model.params.thread_count",
+          "control": 8,
+          "variant": null
+        },
+        {
+          "field": "model.params.verbose",
+          "control": false,
+          "variant": null
+        },
+        {
+          "field": "model.params.verbosity",
+          "control": null,
+          "variant": -1
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "hist31",
+      "declared_change": "HistGradientBoosting leaves31",
+      "is_control": false,
+      "feature_count": 80,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "hist_gradient_boosting"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_top_d6_i400_lr040",
+          "variant": "histgb_leaf31"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params.allow_writing_files",
+          "control": false,
+          "variant": null
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": null
+        },
+        {
+          "field": "model.params.eval_metric",
+          "control": "BrierScore",
+          "variant": null
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 400,
+          "variant": null
+        },
+        {
+          "field": "model.params.l2_leaf_reg",
+          "control": 3.0,
+          "variant": null
+        },
+        {
+          "field": "model.params.l2_regularization",
+          "control": null,
+          "variant": 1.0
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.04,
+          "variant": 0.05
+        },
+        {
+          "field": "model.params.loss_function",
+          "control": "Logloss",
+          "variant": null
+        },
+        {
+          "field": "model.params.max_iter",
+          "control": null,
+          "variant": 300
+        },
+        {
+          "field": "model.params.max_leaf_nodes",
+          "control": null,
+          "variant": 31
+        },
+        {
+          "field": "model.params.min_samples_leaf",
+          "control": null,
+          "variant": 50
+        },
+        {
+          "field": "model.params.random_seed",
+          "control": 42,
+          "variant": null
+        },
+        {
+          "field": "model.params.random_state",
+          "control": null,
+          "variant": 42
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.7,
+          "variant": null
+        },
+        {
+          "field": "model.params.task_type",
+          "control": "CPU",
+          "variant": null
+        },
+        {
+          "field": "model.params.thread_count",
+          "control": 8,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": -0.01
+        }
+      ]
+    },
+    {
+      "name": "hist63",
+      "declared_change": "HistGradientBoosting leaves63",
+      "is_control": false,
+      "feature_count": 80,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "hist_gradient_boosting"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_top_d6_i400_lr040",
+          "variant": "histgb_leaf63"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params.allow_writing_files",
+          "control": false,
+          "variant": null
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": null
+        },
+        {
+          "field": "model.params.eval_metric",
+          "control": "BrierScore",
+          "variant": null
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 400,
+          "variant": null
+        },
+        {
+          "field": "model.params.l2_leaf_reg",
+          "control": 3.0,
+          "variant": null
+        },
+        {
+          "field": "model.params.l2_regularization",
+          "control": null,
+          "variant": 1.0
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.04,
+          "variant": 0.05
+        },
+        {
+          "field": "model.params.loss_function",
+          "control": "Logloss",
+          "variant": null
+        },
+        {
+          "field": "model.params.max_iter",
+          "control": null,
+          "variant": 300
+        },
+        {
+          "field": "model.params.max_leaf_nodes",
+          "control": null,
+          "variant": 63
+        },
+        {
+          "field": "model.params.min_samples_leaf",
+          "control": null,
+          "variant": 50
+        },
+        {
+          "field": "model.params.random_seed",
+          "control": 42,
+          "variant": null
+        },
+        {
+          "field": "model.params.random_state",
+          "control": null,
+          "variant": 42
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.7,
+          "variant": null
+        },
+        {
+          "field": "model.params.task_type",
+          "control": "CPU",
+          "variant": null
+        },
+        {
+          "field": "model.params.thread_count",
+          "control": 8,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": -0.01
+        }
+      ]
+    },
+    {
+      "name": "logistic",
+      "declared_change": "LogisticRegression C0.01",
+      "is_control": false,
+      "feature_count": 80,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "logistic_regression"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_top_d6_i400_lr040",
+          "variant": "logistic_c01"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params.C",
+          "control": null,
+          "variant": 0.1
+        },
+        {
+          "field": "model.params.allow_writing_files",
+          "control": false,
+          "variant": null
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": null
+        },
+        {
+          "field": "model.params.eval_metric",
+          "control": "BrierScore",
+          "variant": null
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 400,
+          "variant": null
+        },
+        {
+          "field": "model.params.l2_leaf_reg",
+          "control": 3.0,
+          "variant": null
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.04,
+          "variant": null
+        },
+        {
+          "field": "model.params.loss_function",
+          "control": "Logloss",
+          "variant": null
+        },
+        {
+          "field": "model.params.max_iter",
+          "control": null,
+          "variant": 100
+        },
+        {
+          "field": "model.params.random_seed",
+          "control": 42,
+          "variant": null
+        },
+        {
+          "field": "model.params.random_state",
+          "control": null,
+          "variant": 42
+        },
+        {
+          "field": "model.params.solver",
+          "control": null,
+          "variant": "lbfgs"
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.7,
+          "variant": null
+        },
+        {
+          "field": "model.params.task_type",
+          "control": "CPU",
+          "variant": null
+        },
+        {
+          "field": "model.params.thread_count",
+          "control": 8,
+          "variant": null
+        },
+        {
+          "field": "model.params.tol",
+          "control": null,
+          "variant": 1e-05
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": -0.01
+        }
+      ]
+    }
+  ]
+}

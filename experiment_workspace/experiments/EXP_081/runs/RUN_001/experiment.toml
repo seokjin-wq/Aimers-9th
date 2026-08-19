@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_081"
+title = "Composite count-handedness states"
+hypothesis = "A single row-local composite category for count and handedness can expose the interaction more directly than separate categories and improve CatBoost ordered statistics."
+change_scope = "features"
+study_config = "experiments/EXP_081/study.toml"
+based_on = "EXP_080"
+reference_variant = "count_hands_promoted"
+ablation_summary = "Screen composite count×hands, count×same-hand, count×outs, and count×hands×outs categories, alone or alongside the EXP_078 separate categories."
+tags = ["compliance,row-independent,categorical,composite-state"]
+created_at_utc = "2026-08-18T05:30:46.746243+00:00"

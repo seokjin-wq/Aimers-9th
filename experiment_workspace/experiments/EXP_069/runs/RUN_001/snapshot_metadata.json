@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T03:47:04.618957+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "b24ece403521",
+  "based_on": "EXP_062",
+  "reference_variant": "extra_w18",
+  "ablation_summary": "main69와 decay0.85 고정, CPU d8-300 대비 GPU d6-900, d7-600, d8-450 비교"
+}

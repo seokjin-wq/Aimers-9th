@@ -1,0 +1,131 @@
+{
+  "based_on": "EXP_028",
+  "reference_variant": "add_scoring_position_x_li",
+  "ablation_summary": "GPU 모델과 main60을 고정하고 단독 양의 피처 4개의 2-way 및 전체 조합만 비교",
+  "control": "scoring_control",
+  "variants": [
+    {
+      "name": "scoring_control",
+      "declared_change": "control: scoring_position_x_li 단독",
+      "is_control": true,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "scoring_reverse",
+      "declared_change": "scoring×LI + reverse shrinkage",
+      "is_control": false,
+      "feature_count": 62,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_reverse_rate_shrunk"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "scoring_logli",
+      "declared_change": "scoring×LI + log LI",
+      "is_control": false,
+      "feature_count": 62,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "log1p_li"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "scoring_bmissing",
+      "declared_change": "scoring×LI + batter missing",
+      "is_control": false,
+      "feature_count": 62,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "batter_history_missing"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "reverse_logli",
+      "declared_change": "reverse shrinkage + log LI",
+      "is_control": false,
+      "feature_count": 62,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_reverse_rate_shrunk",
+        "log1p_li"
+      ],
+      "removed_features_vs_control": [
+        "scoring_position_x_li"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "scoring_reverse_logli",
+      "declared_change": "상위 3개 조합",
+      "is_control": false,
+      "feature_count": 63,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_reverse_rate_shrunk",
+        "log1p_li"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "all_four",
+      "declared_change": "상위 4개 전체 조합",
+      "is_control": false,
+      "feature_count": 64,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_reverse_rate_shrunk",
+        "log1p_li",
+        "batter_history_missing"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_085"
+title = "History missingness on current best"
+hypothesis = "EDA shows that missing recent history is a stable cold-start and early-season signal even after month control, so explicit row-local missing flags may improve the current model."
+change_scope = "features"
+study_config = "experiments/EXP_085/study.toml"
+based_on = "EXP_080"
+reference_variant = "count_hands_promoted"
+ablation_summary = "Fix EXP_080 CPU base; add recent, pitcher, batter, or all three history-missing flags one block at a time."
+tags = ["compliance", "row-independent", "EDA", "missingness", "cold-start"]
+created_at_utc = "2026-08-18T05:56:23.201086+00:00"

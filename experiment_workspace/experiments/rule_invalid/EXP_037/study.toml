@@ -1,0 +1,43 @@
+[study]
+id = "037_middle_ball_sequence"
+description = "middle·ball 최근 투구 복원"
+hypothesis = "최근 middle·ball 상태가 success·reverse에 남은 신호를 보완한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main77_control"
+
+[[variants]]
+name = "main77_control"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main77_add_pitcher_reverse_short"
+change = "control: success+reverse 최고 조합"
+
+[[variants]]
+name = "pitcher_middle"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main81_add_pitcher_middle_short"
+change = "투수 middle 단기 창 추가"
+
+[[variants]]
+name = "pitcher_ball"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main81_add_pitcher_ball_short"
+change = "투수 ball 단기 창 추가"
+
+[[variants]]
+name = "batter_middle"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main81_add_batter_middle_short"
+change = "타자 middle 단기 창 추가"
+
+[[variants]]
+name = "pitcher_middle_ball"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main85_add_pitcher_middle_ball_short"
+change = "투수 middle·ball 단기 창 추가"
+
+[[variants]]
+name = "all_state"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main89_add_all_state_short"
+change = "투수 middle·ball 및 타자 middle 단기 창 모두 추가"

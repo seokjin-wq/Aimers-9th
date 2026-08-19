@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_119"
+title = "Reliability triple CatBoost shift refinement"
+hypothesis = "The reliability features and 50/35/15 weights slightly change ensemble calibration, so neighboring CatBoost shifts around -0.0095 may improve Brier."
+change_scope = "model"
+study_config = "experiments/EXP_119/study.toml"
+based_on = "EXP_117"
+reference_variant = "weights_50_35_15"
+ablation_summary = "Fix main78 features, component models, 50/35/15 weights, ExtraTrees shift, count correction, and scales; vary only CatBoost component shift among -0.0090, -0.0095, and -0.0100."
+tags = ["compliance", "row-independent", "calibration", "shift", "refinement"]
+created_at_utc = "2026-08-18T12:22:35.680569+00:00"

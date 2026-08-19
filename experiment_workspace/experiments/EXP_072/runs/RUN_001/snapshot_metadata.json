@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T04:09:04.957924+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "fe1730e1cabb",
+  "based_on": "EXP_070",
+  "reference_variant": "cpu45_gpu40_extra15",
+  "ablation_summary": "Keep EXP_070 model family fixed conceptually and compare main69 against dropping pitcher career, batter career, or both career state blocks."
+}

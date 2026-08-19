@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_099"
+title = "Latest-feature season-decay refinement"
+hypothesis = "The broad EXP_060 optimum near 0.85 can be refined on the latest 72-feature set to improve temporal generalization."
+change_scope = "model"
+study_config = "experiments/EXP_099/study.toml"
+based_on = "EXP_098"
+reference_variant = "depth8_300_control"
+ablation_summary = "Keep latest features and all CatBoost parameters fixed; compare season-decay values 0.80, 0.825, 0.85, 0.875, and 0.90."
+tags = ["compliance", "row-independent", "drift", "season-decay"]
+created_at_utc = "2026-08-18T08:29:36.684372+00:00"

@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T02:55:51.888959+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "27fd2ed60ecb",
+  "based_on": "EXP_059",
+  "reference_variant": "d8_i300",
+  "ablation_summary": "main69 depth8을 고정하고 시즌당 sample weight decay 1.0, 0.95, 0.90, 0.85, 0.75만 변경"
+}

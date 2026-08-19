@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_047"
+title = "CPU 전역 시간축 rolling"
+hypothesis = "투수·타자별 이력과 별개로 직전 전체 투구 흐름이 경기·당일 공통 제구 환경을 포착한다"
+change_scope = "features"
+study_config = "experiments/EXP_047/study.toml"
+based_on = "EXP_046"
+reference_variant = "cat_control"
+ablation_summary = "CPU main80을 고정하고 복원 가능한 과거 전역 성공의 recent5·10·20·50·100 rolling만 개별·조합 추가"
+tags = ["cpu", "global-sequence", "rolling"]
+created_at_utc = "2026-08-17T19:52:07.909788+00:00"

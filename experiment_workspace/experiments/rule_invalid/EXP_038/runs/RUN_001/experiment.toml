@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_038"
+title = "연속 투구·동일 타석 문맥"
+hypothesis = "직전 결과의 시간 간격과 동일 타석 여부를 명시하면 오래된 직전 등판과 바로 전 공의 효과를 구분할 수 있다"
+change_scope = "features"
+study_config = "experiments/EXP_038/study.toml"
+based_on = "EXP_037"
+reference_variant = "batter_middle"
+ablation_summary = "main81 최고 피처와 GPU CatBoost를 고정하고 pitcher/batter 행 간격, 바로 전 행 여부, 동일 타석, 타석 내 순번·최근 성공률만 개별·조합 추가"
+tags = ["sequence", "plate-appearance", "gap"]
+created_at_utc = "2026-08-17T18:41:36.577655+00:00"

@@ -1,0 +1,31 @@
+[study]
+id = "075_success_k50_factorial"
+description = "투수·타자 당해 시즌 성공률 k=50 기여 분해"
+hypothesis = "k=50의 소폭 개선은 투수 또는 타자 한쪽에서만 나올 수 있으므로 기여 요소만 유지하면 추가 개선된다."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "k20_k20_control"
+
+[[variants]]
+name = "k20_k20_control"
+model = "catboost_d8_decay085"
+features = "main69_pitcher_batter_season_all"
+change = "control: 투수 k20, 타자 k20"
+
+[[variants]]
+name = "pitcher_k50"
+model = "catboost_d8_decay085"
+features = "main69_pitcher_success_k50"
+change = "control 대비 투수 성공률만 k50"
+
+[[variants]]
+name = "batter_k50"
+model = "catboost_d8_decay085"
+features = "main69_batter_success_k50"
+change = "control 대비 타자 성공률만 k50"
+
+[[variants]]
+name = "both_k50"
+model = "catboost_d8_decay085"
+features = "main69_season_success_k50"
+change = "control 대비 투수·타자 성공률 모두 k50"

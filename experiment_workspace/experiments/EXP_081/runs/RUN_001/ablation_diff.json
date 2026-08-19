@@ -1,0 +1,143 @@
+{
+  "based_on": "EXP_080",
+  "reference_variant": "count_hands_promoted",
+  "ablation_summary": "Screen composite count×hands, count×same-hand, count×outs, and count×hands×outs categories, alone or alongside the EXP_078 separate categories.",
+  "control": "separate_count_hands_control",
+  "variants": [
+    {
+      "name": "separate_count_hands_control",
+      "declared_change": "control: count_state와 양손을 separate categorical",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "count_hands_composite_only",
+      "declared_change": "separate categorical 대신 count×양손 복합 범주만 추가",
+      "is_control": false,
+      "feature_count": 70,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_hands_state"
+      ],
+      "added_features_vs_control": [
+        "count_hands_state"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "count_hands_composite_plus",
+      "declared_change": "control에 count×양손 복합 범주 추가",
+      "is_control": false,
+      "feature_count": 70,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand",
+        "count_hands_state"
+      ],
+      "added_features_vs_control": [
+        "count_hands_state"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "count_matchup_composite",
+      "declared_change": "count×동일손 여부 복합 범주만 추가",
+      "is_control": false,
+      "feature_count": 70,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_matchup_state"
+      ],
+      "added_features_vs_control": [
+        "count_matchup_state"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "count_out_plus",
+      "declared_change": "control에 count×outs 복합 범주 추가",
+      "is_control": false,
+      "feature_count": 70,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand",
+        "count_out_state"
+      ],
+      "added_features_vs_control": [
+        "count_out_state"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "count_hands_out_only",
+      "declared_change": "count×양손×outs 복합 범주만 추가",
+      "is_control": false,
+      "feature_count": 70,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_hands_out_state"
+      ],
+      "added_features_vs_control": [
+        "count_hands_out_state"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "count_hands_out_plus",
+      "declared_change": "control에 count×양손×outs 복합 범주 추가",
+      "is_control": false,
+      "feature_count": 70,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand",
+        "count_hands_out_state"
+      ],
+      "added_features_vs_control": [
+        "count_hands_out_state"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

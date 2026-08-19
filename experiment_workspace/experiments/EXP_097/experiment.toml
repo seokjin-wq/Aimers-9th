@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_097"
+title = "Late-history triple promotion reproducibility"
+hypothesis = "The complete late-inning pitcher-history block reproduces its small EXP_091 gain in a fresh three-model ensemble run."
+change_scope = "features"
+study_config = "experiments/EXP_097/study.toml"
+based_on = "EXP_096"
+reference_variant = "late_all_three"
+ablation_summary = "Rerun the fixed triple ensemble with current versus complete late-history features only; defer count calibration to a separate experiment."
+tags = ["compliance", "row-independent", "promotion", "reproducibility"]
+created_at_utc = "2026-08-18T08:05:08.904953+00:00"

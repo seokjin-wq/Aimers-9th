@@ -1,0 +1,6 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+shift_m010,모든 확률에 -0.010,main55_plus_count,60,catboost_native_shift_m010,catboost,1,0.2478754922836092,0.0,773.1709037272716,"['model.name', 'model.prediction_shift']",-9.264763871655313e-05,1/1
+shift_forward,2022~2023 과거 fold 편향으로 고정한 -0.0113955,main55_plus_count,60,catboost_native_shift_forward,catboost,1,0.2478784657198155,0.0,771.9806099892423,"['model.name', 'model.prediction_shift']",-8.967420251021485e-05,1/1
+shift_m005,모든 확률에 -0.005,main55_plus_count,60,catboost_native_shift_m005,catboost,1,0.2478968161029674,0.0,764.6347835983725,"['model.name', 'model.prediction_shift']",-7.132381935828769e-05,1/1
+shift_m015,모든 확률에 -0.015,main55_plus_count,60,catboost_native_shift_m015,catboost,1,0.2479041684642509,0.0,761.6915660587642,"['model.name', 'model.prediction_shift']",-6.397145807482407e-05,1/1
+no_shift_control,control: shift 0,main55_plus_count,60,catboost_native_300,catboost,1,0.2479681399223257,0.0,736.0832056720667,[],0.0,0/1

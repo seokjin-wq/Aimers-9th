@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_101"
+title = "Count-calibrated triple mean refinement"
+hypothesis = "The current count-calibrated triple overpredicts 2024 by 0.00147; lowering the CatBoost component shift by about 0.0017 should remove this mean bias without changing ranking or row independence."
+change_scope = "model"
+study_config = "experiments/EXP_101/study.toml"
+based_on = "EXP_094"
+reference_variant = "count_k500_repro"
+ablation_summary = "Keep features, triple weights, component training, and train-only count calibration fixed; compare CatBoost component shifts -0.008, -0.0095, and -0.010."
+tags = ["compliance", "row-independent", "calibration", "ensemble-bias"]
+created_at_utc = "2026-08-18T08:41:53.363192+00:00"

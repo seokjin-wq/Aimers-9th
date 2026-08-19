@@ -1,0 +1,3 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+uniform_300_control,control: full 300-tree ExtraTrees with uniform season weights,main78_history_reliability,78,extratrees_leaf20,extra_trees,1,0.2479186108902047,0.0,755.9101307153426,[],0.0,0/1
+decay085_300,season sample-weight decay none -> 0.85 only,main78_history_reliability,78,extratrees_leaf20_decay085,extra_trees,1,0.2479238099343056,0.0,753.8289057596015,"['model.name', 'model.season_decay']",5.199044100845374e-06,0/1

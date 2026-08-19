@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_005"
+title = "CatBoost 범주 컬럼 범위"
+hypothesis = "숫자 코드인 선수·팀·이산 상황 변수를 명목 범주로 처리하면 2024 Brier가 개선된다"
+change_scope = "features"
+study_config = "experiments/EXP_005/study.toml"
+based_on = "EXP_004"
+reference_variant = "native_basic"
+ablation_summary = "CatBoost native 모델을 고정하고 범주로 지정하는 컬럼 범위만 basic3, 선수 ID, 선수·팀·손, 전체 이산으로 확대"
+tags = ["categorical", "feature-role"]
+created_at_utc = "2026-08-17T15:39:24.936166+00:00"

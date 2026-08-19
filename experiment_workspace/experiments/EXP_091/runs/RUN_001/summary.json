@@ -1,0 +1,72 @@
+{
+  "experiment_id": "EXP_091",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T07:07:28.076713+00:00",
+  "completed_at_utc": "2026-08-18T07:21:04.474097+00:00",
+  "config_hash": "6b47f1555a72",
+  "based_on": "EXP_090",
+  "reference_variant": "late_pitcher_history",
+  "ablation_summary": "Fix the EXP_087 triple model and compare only the original same-hand features against the EXP_090 late-history feature addition.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/091_promote_late_history/20260818T070728084855Z_6b47f1555a72",
+  "control": "current_triple_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "late_history_triple",
+  "best_mean_brier": 0.2474787779602227,
+  "best_delta_brier_vs_control": -1.8981400752293709e-06,
+  "leaderboard": [
+    {
+      "variant": "late_history_triple",
+      "change": "EXP_090 후반×투수이력 3개를 triple에 승격",
+      "feature_set": "main75_same_pitchmix_late_history",
+      "feature_count": 75,
+      "model": "triple_cpu45_gpu40_extra15",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.247478778,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 931.9792796746,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -1.8981e-06,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "current_triple_control",
+      "change": "control: EXP_087 same-hand pitchmix triple",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "triple_cpu45_gpu40_extra15",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474806761,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 931.2194368232,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "69483acf9271fdf0ab530edac45c2f60db2d982a45d173a15d8efd47aa31d3fb",
+  "git_commit": "1cc09d6b1bddb26fa400b2c568886e934b9b4858",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 816.2022178173065
+}

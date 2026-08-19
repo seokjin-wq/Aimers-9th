@@ -1,0 +1,25 @@
+[study]
+id = "114_reliability_k_refinement"
+description = "History reliability shrinkage refinement"
+hypothesis = "The amount of history needed to trust as-of rates can be tuned around k=100; k=50 or k=200 may better generalize to the 2024 new-player mix."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "reliability_k100_control"
+
+[[variants]]
+name = "reliability_k100_control"
+model = "catboost_d8_decay085_sub08"
+features = "main78_history_reliability"
+change = "control: EXP_112/113 winner reliability k=100"
+
+[[variants]]
+name = "reliability_k50"
+model = "catboost_d8_decay085_sub08"
+features = "main78_history_reliability_k50"
+change = "change all six reliability denominators k=100 -> 50 only"
+
+[[variants]]
+name = "reliability_k200"
+model = "catboost_d8_decay085_sub08"
+features = "main78_history_reliability_k200"
+change = "change all six reliability denominators k=100 -> 200 only"

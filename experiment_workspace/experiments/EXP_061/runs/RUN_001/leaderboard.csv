@@ -1,0 +1,6 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+common_k20,control: 모든 현재 시즌 비율 k20,main69_pitcher_batter_season_all,69,catboost_d8_decay085,catboost,1,0.2475377207264107,0.0,908.3839506926596,[],0.0,0/1
+metric_specific_all,ball500·strike200·batter-middle200을 동시에 적용,main69_tuned_metric_shrinkage,69,catboost_d8_decay085,catboost,1,0.2475534835936923,0.0,902.0739305958592,"['features.custom', 'features.description', 'features.name']",1.5762867281554627e-05,0/1
+ball_k500,투수 ball만 k20에서 k500으로 변경,main69_tuned_ball,69,catboost_d8_decay085,catboost,1,0.2475565423694413,0.0,900.849474657528,"['features.custom', 'features.description', 'features.name']",1.882164303057543e-05,0/1
+batter_middle_k200,타자 middle만 k20에서 k200으로 변경,main69_tuned_batter_middle,69,catboost_d8_decay085,catboost,1,0.2475676504702778,0.0,896.4028001874902,"['features.custom', 'features.description', 'features.name']",2.9929743867063152e-05,0/1
+strike_k200,투수 strike만 k20에서 k200으로 변경,main69_tuned_strike,69,catboost_d8_decay085,catboost,1,0.2475731258165187,0.0,894.210968955278,"['features.custom', 'features.description', 'features.name']",3.540509010793724e-05,0/1

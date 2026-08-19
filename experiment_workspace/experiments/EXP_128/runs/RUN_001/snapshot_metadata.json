@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T14:05:05.577011+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "d4ccedc513a4",
+  "based_on": "EXP_127",
+  "reference_variant": "count_trend_strength_100",
+  "ablation_summary": "Fix EXP_127 model, features, count trend groups, trend shrinkage, and all calibration; vary only trend_strength around 1.00 using 0.75, 1.00, 1.25, and 1.50."
+}

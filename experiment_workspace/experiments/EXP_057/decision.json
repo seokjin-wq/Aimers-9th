@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_057",
+  "decision": "adopt",
+  "selected_variant": "extra_w24",
+  "reason": "main69 시즌 상태 피처에서도 ExtraTrees 24% 혼합이 CatBoost 대비 Brier 0.000042509 개선해 BSS 900.763의 새 합법 최고를 기록",
+  "based_on": "EXP_056",
+  "reference_variant": "pitcher_batter_season_all",
+  "ablation_summary": "main69 피처를 고정하고 CatBoost 단독 대비 ExtraTrees 가중치 15,20,24,28,32%만 변경",
+  "selected_result": {
+    "variant": "extra_w24",
+    "change": "ExtraTrees 24% 혼합",
+    "feature_set": "main69_pitcher_batter_season_all",
+    "feature_count": 69,
+    "model": "cat_extra_blend_w24",
+    "model_family": "cat_extra_blend",
+    "fold_count": 1,
+    "mean_brier": 0.2475567595,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 900.7625488221,
+    "changed_fields_vs_control": "['model.cat_params.allow_writing_files', 'model.cat_params.depth', 'model.cat_params.eval_metric', 'model.cat_params.iterations', 'model.cat_params.l2_leaf_reg', 'model.cat_params.learning_rate', 'model.cat_params.loss_function', 'model.cat_params.random_seed', 'model.cat_params.subsample', 'model.cat_params.task_type', 'model.cat_params.thread_count', 'model.cat_params.verbose', 'model.cat_scale', 'model.cat_shift', 'model.extra_params.max_features', 'model.extra_params.min_samples_leaf', 'model.extra_params.n_estimators', 'model.extra_params.n_jobs', 'model.extra_params.random_state', 'model.extra_params.verbose', 'model.extra_shift', 'model.extra_weight', 'model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.random_seed', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.verbose', 'model.prediction_scale', 'model.prediction_shift']",
+    "delta_brier_vs_control": -4.25086e-05,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "catboost_control",
+    "change": "control: EXP_056 최고 CatBoost",
+    "feature_set": "main69_pitcher_batter_season_all",
+    "feature_count": 69,
+    "model": "catboost_native_scale106_shift_m008",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475992681,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 883.7459693801,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T02:44:16.618588+00:00",
+  "based_on_run_id": "RUN_001"
+}

@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T10:38:34.977068+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "02a7bf14fa82",
+  "based_on": "EXP_108",
+  "reference_variant": "main72_control",
+  "ablation_summary": "Hold main72 features, 2019-2023 training, 2024 validation, depth, iterations, learning rate, decay, and seed fixed; change exactly one of l2_leaf_reg, random_strength, subsample, or rsm per candidate."
+}

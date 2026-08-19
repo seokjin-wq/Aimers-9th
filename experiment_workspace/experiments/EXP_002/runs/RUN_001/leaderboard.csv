@@ -1,0 +1,5 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+drop_state,상태 재조합 3개와 의존 파생 제거,main55_without_state,51,catboost_default,catboost,1,0.2480135964950074,0.0,717.8865234295562,"['features.categorical', 'features.custom', 'features.description', 'features.exclude', 'features.expected_count', 'features.name']",-9.857927747297657e-06,1/1
+main55_control,control: 선택 제공 41개 + 파생 14개,main55,55,catboost_default,catboost,1,0.2480234544227547,0.0,713.9403046936388,[],0.0,0/1
+drop_context,기대 승률·LI와 의존 파생 제거,main55_without_context,48,catboost_default,catboost,1,0.2480276600656633,0.0,712.256747330664,"['features.custom', 'features.description', 'features.exclude', 'features.expected_count', 'features.name']",4.2056429086223535e-06,0/1
+drop_calendar,"달력 파생 season, month, dayofweek 제거",main55_without_calendar,52,catboost_default,catboost,1,0.248937713657333,0.0,347.95396218185726,"['features.description', 'features.exclude', 'features.expected_count', 'features.name']",0.0009142592345782,0/1

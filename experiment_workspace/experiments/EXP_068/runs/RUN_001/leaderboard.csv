@@ -1,0 +1,5 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+track_physics,공식 Trackman 물리 상황 평균 6개 추가,main75_track_physics,75,catboost_d8_decay085,catboost,1,0.2475359119795952,0.0,909.1080086036984,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",-1.8087468155181248e-06,1/1
+main69_control,control: Trackman 미사용,main69_pitcher_batter_season_all,69,catboost_d8_decay085,catboost,1,0.2475377207264107,0.0,908.3839506926596,[],0.0,0/1
+track_all,Trackman 물리 6개와 구종 비율 3개 전체 추가,main78_track_all,78,catboost_d8_decay085,catboost,1,0.2475545114157247,0.0,901.6624840255894,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",1.679068931398353e-05,0/1
+track_pitchmix,공식 Trackman 구종 선택 비율 3개 추가,main72_track_pitchmix,72,catboost_d8_decay085,catboost,1,0.247574074943408,0.0,893.8310247713188,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",3.635421699729746e-05,0/1

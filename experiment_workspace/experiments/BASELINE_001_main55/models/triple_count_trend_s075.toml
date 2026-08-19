@@ -1,0 +1,52 @@
+[model]
+name = "triple_count_trend_s075"
+family = "cat_cpu_gpu_extra_blend"
+cpu_weight = 0.50
+gpu_weight = 0.35
+extra_weight = 0.15
+season_decay = 0.85
+cat_scale = 1.06
+cat_shift = -0.0095
+extra_shift = -0.01
+group_columns = ["balls_before", "strikes_before"]
+group_shrinkage = 500.0
+center_residual = true
+residual_scale = 1.0
+trend_group_columns = ["balls_before", "strikes_before"]
+trend_strength = 0.75
+trend_shrinkage = 10000.0
+[model.cpu_params]
+iterations = 300
+depth = 8
+learning_rate = 0.035
+l2_leaf_reg = 3.0
+subsample = 0.8
+random_seed = 42
+thread_count = 8
+task_type = "CPU"
+loss_function = "Logloss"
+eval_metric = "BrierScore"
+allow_writing_files = false
+verbose = false
+[model.gpu_params]
+iterations = 600
+depth = 7
+learning_rate = 0.025
+l2_leaf_reg = 3.0
+bootstrap_type = "Bayesian"
+bagging_temperature = 1.0
+border_count = 128
+random_seed = 42
+task_type = "GPU"
+devices = "0"
+loss_function = "Logloss"
+eval_metric = "BrierScore"
+allow_writing_files = false
+verbose = false
+[model.extra_params]
+n_estimators = 300
+min_samples_leaf = 20
+max_features = 0.7
+n_jobs = 8
+random_state = 42
+verbose = 0

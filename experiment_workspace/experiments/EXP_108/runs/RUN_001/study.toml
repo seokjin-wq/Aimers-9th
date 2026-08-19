@@ -1,0 +1,49 @@
+[study]
+id = "108_restore_excluded_raw"
+description = "Latest-feature excluded raw column restoration"
+hypothesis = "Some raw columns excluded for redundancy on earlier models, especially prev5 form and pitcher strike/fastball rates, regain incremental value after season-state and interaction features changed the representation."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main72_control"
+
+[[variants]]
+name = "main72_control"
+model = "catboost_d8_decay085"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: current main72 exclusion list"
+
+[[variants]]
+name = "restore_run_total"
+model = "catboost_d8_decay085"
+features = "main73_restore_run_total"
+change = "restore raw run_total_before only"
+
+[[variants]]
+name = "restore_score_diff_home"
+model = "catboost_d8_decay085"
+features = "main73_restore_score_diff_home"
+change = "restore raw score_diff_home only"
+
+[[variants]]
+name = "restore_pitchmix_n"
+model = "catboost_d8_decay085"
+features = "main73_restore_pitchmix_n"
+change = "restore raw asof_pitcher_pitchmix_n only"
+
+[[variants]]
+name = "restore_strike_rate"
+model = "catboost_d8_decay085"
+features = "main73_restore_strike_rate"
+change = "restore raw asof_pitcher_strike_rate only"
+
+[[variants]]
+name = "restore_fastball_rate"
+model = "catboost_d8_decay085"
+features = "main73_restore_fastball_rate"
+change = "restore raw asof_pitcher_fastball_rate only"
+
+[[variants]]
+name = "restore_prev5_success"
+model = "catboost_d8_decay085"
+features = "main73_restore_prev5_success"
+change = "restore raw asof_pitcher_prev5_game_success_rate only"

@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_094"
+title = "Reproducibility audit of current best count calibration"
+hypothesis = "The 2023 count residual calibration improves the same-hand triple again under a fresh GPU run, demonstrating that EXP_088 is larger than runtime nondeterminism."
+change_scope = "model"
+study_config = "experiments/EXP_094/study.toml"
+based_on = "EXP_088"
+reference_variant = "count_k500"
+ablation_summary = "Freshly rerun the identical triple control, count k500, and count k2000 settings; no feature or parameter search."
+tags = ["compliance", "row-independent", "reproducibility", "audit"]
+created_at_utc = "2026-08-18T07:33:10.093070+00:00"

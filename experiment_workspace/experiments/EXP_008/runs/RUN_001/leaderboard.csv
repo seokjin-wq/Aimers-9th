@@ -1,0 +1,6 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+add_count_state,카운트·아웃 상태 파생 5개 추가,main55_plus_count,60,catboost_native_300,catboost,1,0.2479681399223257,0.0,736.0832056720667,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",-4.112762044308771e-05,1/1
+add_smoothing,누적 성공·reverse 스무딩과 log 표본 수 5개 추가,main55_plus_smoothing,60,catboost_native_300,catboost,1,0.2479852533098789,0.0,729.2325599452254,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",-2.401423288986293e-05,1/1
+add_missing_flags,최근·누적 이력 결측 플래그 3개 추가,main55_plus_missing,58,catboost_native_300,catboost,1,0.2479894298210716,0.0,727.5606642748733,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",-1.9837721697196772e-05,1/1
+main55_control,control: main55,main55,55,catboost_native_300,catboost,1,0.2480092675427688,0.0,719.6194426463354,[],0.0,0/1
+add_context,투수팀 기대승률·log LI·득점권 상호작용 4개 추가,main55_plus_context,59,catboost_native_300,catboost,1,0.2480483357700889,0.0,703.9800735434198,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",3.906822732013815e-05,0/1

@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_026",
+  "decision": "adopt",
+  "selected_variant": "count_k500",
+  "reason": "직전 시즌 선수·팀 잔차는 전이되지 않아 크게 악화했고, count 조합 보정만 Brier를 0.000000958 소폭 개선했다. 전체 최고는 EXP_024 앙상블이다.",
+  "based_on": "EXP_025",
+  "reference_variant": "d6_i400_lr040",
+  "ablation_summary": "2019~2022→2023 OOF 잔차만 사용해 pitcher, batter, team, count별 shrinkage offset을 학습하고 2019~2023→2024 예측에 적용",
+  "selected_result": {
+    "variant": "count_k500",
+    "change": "ball-strike-out 조합 잔차",
+    "feature_set": "main60_cat_batter_team",
+    "feature_count": 60,
+    "model": "groupcal_count_k500",
+    "model_family": "catboost_group_calibrated",
+    "fold_count": 1,
+    "mean_brier": 0.2478180702,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 796.1575008434,
+    "changed_fields_vs_control": "['model.cat_params.allow_writing_files', 'model.cat_params.depth', 'model.cat_params.eval_metric', 'model.cat_params.iterations', 'model.cat_params.l2_leaf_reg', 'model.cat_params.learning_rate', 'model.cat_params.loss_function', 'model.cat_params.random_seed', 'model.cat_params.subsample', 'model.cat_params.task_type', 'model.cat_params.thread_count', 'model.cat_params.verbose', 'model.cat_scale', 'model.cat_shift', 'model.family', 'model.group_columns', 'model.group_shrinkage', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.random_seed', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.verbose', 'model.prediction_scale', 'model.prediction_shift']",
+    "delta_brier_vs_control": -9.578e-07,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "catboost_control",
+    "change": "control: depth6 400 lr0.04, 그룹 보정 없음",
+    "feature_set": "main60_cat_batter_team",
+    "feature_count": 60,
+    "model": "catboost_top_d6_i400_lr040",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.247819028,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 795.7740748752,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-17T17:51:12.377913+00:00",
+  "based_on_run_id": "RUN_001"
+}

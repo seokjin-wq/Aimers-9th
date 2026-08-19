@@ -1,0 +1,129 @@
+{
+  "based_on": "EXP_095",
+  "reference_variant": "all_three",
+  "ablation_summary": "Keep latest CPU CatBoost and main72 fixed; add one safe official-train context target-effect feature at a time and then all four together.",
+  "control": "same_pitchmix_control",
+  "variants": [
+    {
+      "name": "same_pitchmix_control",
+      "declared_change": "control: current CPU main72",
+      "is_control": true,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "count_hands_effect",
+      "declared_change": "add season-OOF official-train count x hands target effect",
+      "is_control": false,
+      "feature_count": 73,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "count_hands_target_effect"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "count_out_base_effect",
+      "declared_change": "add season-OOF official-train count x outs x base target effect",
+      "is_control": false,
+      "feature_count": 73,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "count_out_base_target_effect"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "inning_game_effect",
+      "declared_change": "add season-OOF official-train inning x half x game-type target effect",
+      "is_control": false,
+      "feature_count": 73,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "inning_game_target_effect"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pressure_effect",
+      "declared_change": "add season-OOF official-train inning x count x outs x runners target effect",
+      "is_control": false,
+      "feature_count": 73,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "pressure_state_target_effect"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "all_context_effects",
+      "declared_change": "add all four season-OOF official-train context target effects",
+      "is_control": false,
+      "feature_count": 76,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "count_hands_target_effect",
+        "count_out_base_target_effect",
+        "inning_game_target_effect",
+        "pressure_state_target_effect"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

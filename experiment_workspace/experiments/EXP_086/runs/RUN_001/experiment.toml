@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_086"
+title = "Exact completed-season success snapshots"
+hypothesis = "The current season-state approximation assigns each entity's final prior-season pitch to the new season; using its official target to close the snapshot removes this off-by-one error, especially early in a season."
+change_scope = "features"
+study_config = "experiments/EXP_086/study.toml"
+based_on = "EXP_084"
+reference_variant = "same_hand_pitchmix"
+ablation_summary = "Fix EXP_084 CPU features; replace approximate pitcher/batter current-season success and count with exact completed-season snapshots using official training labels only, individually and together."
+tags = ["compliance", "row-independent", "state-snapshot", "off-by-one"]
+created_at_utc = "2026-08-18T06:08:45.733254+00:00"

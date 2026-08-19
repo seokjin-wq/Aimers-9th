@@ -1,0 +1,43 @@
+[study]
+id = "045_cpu_ewma"
+description = "CPU 지수감쇠 최근 제구"
+hypothesis = "EWMA가 고정 rolling보다 최근성과 장기성을 잘 균형화한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main77_control"
+
+[[variants]]
+name = "main77_control"
+model = "catboost_top_d6_i400_lr040"
+features = "main77_add_pitcher_reverse_short"
+change = "control: 고정 rolling"
+
+[[variants]]
+name = "pitcher_success05"
+model = "catboost_top_d6_i400_lr040"
+features = "main78_add_pitcher_success_ewm05"
+change = "투수 success EWMA 0.05 추가"
+
+[[variants]]
+name = "batter_success20"
+model = "catboost_top_d6_i400_lr040"
+features = "main78_add_batter_success_ewm20"
+change = "타자 success EWMA 0.20 추가"
+
+[[variants]]
+name = "pitcher_reverse05"
+model = "catboost_top_d6_i400_lr040"
+features = "main78_add_pitcher_reverse_ewm05"
+change = "투수 reverse EWMA 0.05 추가"
+
+[[variants]]
+name = "best_three"
+model = "catboost_top_d6_i400_lr040"
+features = "main80_add_best_ewm"
+change = "상관 최상 EWMA 세 개 추가"
+
+[[variants]]
+name = "all_six"
+model = "catboost_top_d6_i400_lr040"
+features = "main83_add_all_ewm"
+change = "EWMA 여섯 개 모두 추가"

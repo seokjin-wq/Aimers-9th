@@ -1,0 +1,102 @@
+{
+  "experiment_id": "EXP_115",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T11:33:14.085241+00:00",
+  "completed_at_utc": "2026-08-18T11:37:16.552372+00:00",
+  "config_hash": "e21d3ee09289",
+  "based_on": "EXP_114",
+  "reference_variant": "reliability_k100_control",
+  "ablation_summary": "Fix the EXP_114 CPU model and six reliability features; add only late-inning history, only full-count history, or both three-feature blocks.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/115_reliability_situation_factorial/20260818T113314095778Z_e21d3ee09289",
+  "control": "reliability_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "reliability_control",
+  "best_mean_brier": 0.2474879925802901,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "reliability_control",
+      "change": "control: EXP_112-114 six-feature reliability winner",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "catboost_d8_decay085_sub08",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2474879926,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 928.2905828931,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "add_both_blocks",
+      "change": "add both late-inning and full-count history blocks",
+      "feature_set": "main84_reliability_late_full",
+      "feature_count": 84,
+      "model": "catboost_d8_decay085_sub08",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475198669,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 915.5310162001,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 3.18743e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "add_late_history",
+      "change": "add late-inning x pitcher success/reverse/middle only",
+      "feature_set": "main81_reliability_late_history",
+      "feature_count": 81,
+      "model": "catboost_d8_decay085_sub08",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475381544,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 908.2103467977,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 5.01618e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "add_full_count_history",
+      "change": "add full-count x pitcher success/reverse/middle only",
+      "feature_set": "main81_reliability_full_count",
+      "feature_count": 81,
+      "model": "catboost_d8_decay085_sub08",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.247572012,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 894.6568290938,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 8.40194e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "2cb1ca47569dcc310be13485b745cb1ef2eafb7709292d69d2d10e9fc5ef4594",
+  "git_commit": "90dd686559946a9d917d8ff38eb9008e107931a7",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 242.2731795310974
+}

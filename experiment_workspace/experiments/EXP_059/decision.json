@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_059",
+  "decision": "adopt",
+  "selected_variant": "d8_i300",
+  "reason": "main69에서 depth8 300 lr0.035가 CatBoost Brier를 0.000031520 개선해 새 최적 CatBoost 구성요소로 채택; 전체 최고는 EXP_057 앙상블",
+  "based_on": "EXP_057",
+  "reference_variant": "extra_w24",
+  "ablation_summary": "main69 고정 후 depth5~8, 300~600 trees의 기존 결정론적 CPU 후보만 재비교",
+  "selected_result": {
+    "variant": "d8_i300",
+    "change": "depth8 300 lr0.035",
+    "feature_set": "main69_pitcher_batter_season_all",
+    "feature_count": 69,
+    "model": "catboost_cpu_d8_i300_lr035",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475677481,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 896.3637145626,
+    "changed_fields_vs_control": "['model.name', 'model.params.depth', 'model.params.learning_rate']",
+    "delta_brier_vs_control": -3.152e-05,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "d6_i300_control",
+    "change": "control: depth6 300 lr0.05",
+    "feature_set": "main69_pitcher_batter_season_all",
+    "feature_count": 69,
+    "model": "catboost_native_scale106_shift_m008",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475992681,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 883.7459693801,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T02:55:05.961751+00:00",
+  "based_on_run_id": "RUN_001"
+}

@@ -1,0 +1,251 @@
+{
+  "based_on": "EXP_019",
+  "reference_variant": "batter_team_cat",
+  "ablation_summary": "batter-team categorical CatBoost와 피처를 고정하고 prediction_scale 및 prediction_shift만 변경",
+  "control": "scale100_shift010_control",
+  "variants": [
+    {
+      "name": "scale100_shift010_control",
+      "declared_change": "control: scale 1.00, shift -0.010",
+      "is_control": true,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "scale103_shift008",
+      "declared_change": "scale 1.03, shift -0.008",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_shift_m010",
+          "variant": "catboost_native_scale103_shift_m008"
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": null,
+          "variant": 1.03
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.01,
+          "variant": -0.008
+        }
+      ]
+    },
+    {
+      "name": "scale103_shift010",
+      "declared_change": "scale 1.03, shift -0.010",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_shift_m010",
+          "variant": "catboost_native_scale103_shift_m010"
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": null,
+          "variant": 1.03
+        }
+      ]
+    },
+    {
+      "name": "scale103_shift012",
+      "declared_change": "scale 1.03, shift -0.012",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_shift_m010",
+          "variant": "catboost_native_scale103_shift_m012"
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": null,
+          "variant": 1.03
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.01,
+          "variant": -0.012
+        }
+      ]
+    },
+    {
+      "name": "scale106_shift008",
+      "declared_change": "scale 1.06, shift -0.008",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_shift_m010",
+          "variant": "catboost_native_scale106_shift_m008"
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.01,
+          "variant": -0.008
+        }
+      ]
+    },
+    {
+      "name": "scale106_shift010",
+      "declared_change": "scale 1.06, shift -0.010",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_shift_m010",
+          "variant": "catboost_native_scale106_shift_m010"
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": null,
+          "variant": 1.06
+        }
+      ]
+    },
+    {
+      "name": "scale106_shift012",
+      "declared_change": "scale 1.06, shift -0.012",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_shift_m010",
+          "variant": "catboost_native_scale106_shift_m012"
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.01,
+          "variant": -0.012
+        }
+      ]
+    },
+    {
+      "name": "scale109_shift010",
+      "declared_change": "scale 1.09, shift -0.010",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_shift_m010",
+          "variant": "catboost_native_scale109_shift_m010"
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": null,
+          "variant": 1.09
+        }
+      ]
+    },
+    {
+      "name": "scale112_shift010",
+      "declared_change": "scale 1.12, shift -0.010",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_shift_m010",
+          "variant": "catboost_native_scale112_shift_m010"
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": null,
+          "variant": 1.12
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+[study]
+id = "125_extratrees_decay_full"
+description = "Full ExtraTrees decay 0.85 confirmation"
+hypothesis = "The strong 100-tree ExtraTrees decay=0.85 gain will persist at the full 300-tree capacity used by the winning ensemble."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "uniform_300_control"
+
+[[variants]]
+name = "uniform_300_control"
+model = "extratrees_leaf20"
+features = "main78_history_reliability"
+change = "control: full 300-tree ExtraTrees with uniform season weights"
+
+[[variants]]
+name = "decay085_300"
+model = "extratrees_leaf20_decay085"
+features = "main78_history_reliability"
+change = "season sample-weight decay none -> 0.85 only"

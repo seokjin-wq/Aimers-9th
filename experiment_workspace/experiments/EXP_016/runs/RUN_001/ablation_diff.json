@@ -1,0 +1,102 @@
+{
+  "based_on": "EXP_015",
+  "reference_variant": "shift_m010",
+  "ablation_summary": "main55+count와 -0.010 shift를 고정하고 단일 seed 대비 3-seed, 5-seed 확률 평균만 비교",
+  "control": "single_seed_control",
+  "variants": [
+    {
+      "name": "single_seed_control",
+      "declared_change": "control: seed42 단일 모델 + shift",
+      "is_control": true,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "ensemble_3seed",
+      "declared_change": "seed 17·42·73 확률 평균 + shift",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_ensemble"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_native_shift_m010",
+          "variant": "catboost_ensemble3_shift"
+        },
+        {
+          "field": "model.params.random_seed",
+          "control": 42,
+          "variant": null
+        },
+        {
+          "field": "model.seeds",
+          "control": null,
+          "variant": [
+            17,
+            42,
+            73
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ensemble_5seed",
+      "declared_change": "seed 7·17·42·73·101 확률 평균 + shift",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_ensemble"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_native_shift_m010",
+          "variant": "catboost_ensemble5_shift"
+        },
+        {
+          "field": "model.params.random_seed",
+          "control": 42,
+          "variant": null
+        },
+        {
+          "field": "model.seeds",
+          "control": null,
+          "variant": [
+            7,
+            17,
+            42,
+            73,
+            101
+          ]
+        }
+      ]
+    }
+  ]
+}

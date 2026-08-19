@@ -1,0 +1,132 @@
+{
+  "experiment_id": "EXP_007",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T15:54:57.806016+00:00",
+  "completed_at_utc": "2026-08-17T15:56:30.800761+00:00",
+  "config_hash": "c3d0b2afa616",
+  "based_on": "EXP_006",
+  "reference_variant": "d6_i300_control",
+  "ablation_summary": "main55를 고정하고 CatBoost, LightGBM, XGBoost 모델군과 대표 복잡도만 비교",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/007_boosting_family/20260817T155457807603Z_c3d0b2afa616",
+  "control": "catboost_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "catboost_control",
+  "best_mean_brier": 0.2480092675427688,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "catboost_control",
+      "change": "control: native CatBoost depth6 300 trees",
+      "feature_set": "main55",
+      "feature_count": 55,
+      "model": "catboost_native_300",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2480092675,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 719.6194426463,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "lightgbm_l31",
+      "change": "LightGBM 31 leaves",
+      "feature_set": "main55",
+      "feature_count": 55,
+      "model": "lightgbm_l31",
+      "model_family": "lightgbm",
+      "fold_count": 1,
+      "mean_brier": 0.2481151015,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 677.2531399745,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.colsample_bytree', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.max_depth', 'model.params.min_child_samples', 'model.params.n_estimators', 'model.params.n_jobs', 'model.params.num_leaves', 'model.params.random_seed', 'model.params.random_state', 'model.params.reg_lambda', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.verbose', 'model.params.verbosity']",
+      "delta_brier_vs_control": 0.000105834,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "xgboost_d4",
+      "change": "XGBoost depth4",
+      "feature_set": "main55",
+      "feature_count": 55,
+      "model": "xgboost_d4",
+      "model_family": "xgboost",
+      "fold_count": 1,
+      "mean_brier": 0.248179828,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 651.3425147692,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.colsample_bytree', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.max_depth', 'model.params.min_child_weight', 'model.params.n_estimators', 'model.params.n_jobs', 'model.params.random_seed', 'model.params.random_state', 'model.params.reg_lambda', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.tree_method', 'model.params.verbose']",
+      "delta_brier_vs_control": 0.0001705605,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "lightgbm_l63",
+      "change": "LightGBM 63 leaves",
+      "feature_set": "main55",
+      "feature_count": 55,
+      "model": "lightgbm_l63",
+      "model_family": "lightgbm",
+      "fold_count": 1,
+      "mean_brier": 0.2481973673,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 644.3214058668,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.colsample_bytree', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.max_depth', 'model.params.min_child_samples', 'model.params.n_estimators', 'model.params.n_jobs', 'model.params.num_leaves', 'model.params.random_seed', 'model.params.random_state', 'model.params.reg_lambda', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.verbose', 'model.params.verbosity']",
+      "delta_brier_vs_control": 0.0001880997,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "lightgbm_l127",
+      "change": "LightGBM 127 leaves",
+      "feature_set": "main55",
+      "feature_count": 55,
+      "model": "lightgbm_l127",
+      "model_family": "lightgbm",
+      "fold_count": 1,
+      "mean_brier": 0.2482432718,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 625.9453916208,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.colsample_bytree', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.max_depth', 'model.params.min_child_samples', 'model.params.n_estimators', 'model.params.n_jobs', 'model.params.num_leaves', 'model.params.random_seed', 'model.params.random_state', 'model.params.reg_lambda', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.verbose', 'model.params.verbosity']",
+      "delta_brier_vs_control": 0.0002340043,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "xgboost_d6",
+      "change": "XGBoost depth6",
+      "feature_set": "main55",
+      "feature_count": 55,
+      "model": "xgboost_d6",
+      "model_family": "xgboost",
+      "fold_count": 1,
+      "mean_brier": 0.2482536721,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 621.7820719612,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.colsample_bytree', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.max_depth', 'model.params.min_child_weight', 'model.params.n_estimators', 'model.params.n_jobs', 'model.params.random_seed', 'model.params.random_state', 'model.params.reg_lambda', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.tree_method', 'model.params.verbose']",
+      "delta_brier_vs_control": 0.0002444045,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "7593653978432063c9b07d9acf9513f29214bc48d97b9f6b1e734d2c2095162f",
+  "git_commit": "80f20ba91e666fa40b7cbdb1647ff163e037bc50",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 92.81207585334778
+}

@@ -1,0 +1,43 @@
+[study]
+id = "103_count_residual_scale"
+description = "Count residual correction strength sweep"
+hypothesis = "The 2023 count residual pattern transfers to 2024, but its optimal amplitude differs from the current scale 1.0 after weight and mean refinement."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "residual_scale_1_control"
+
+[[variants]]
+name = "residual_scale_1_control"
+model = "triple_group_count_k500_shift_m0095_w50_35_15"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: EXP_102 residual scale 1.0"
+
+[[variants]]
+name = "residual_scale_0p5"
+model = "triple_group_count_k500_shift_m0095_w50_35_15_r0p5"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "multiply train-only count residual offsets by 0.5"
+
+[[variants]]
+name = "residual_scale_0p75"
+model = "triple_group_count_k500_shift_m0095_w50_35_15_r0p75"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "multiply train-only count residual offsets by 0.75"
+
+[[variants]]
+name = "residual_scale_1p25"
+model = "triple_group_count_k500_shift_m0095_w50_35_15_r1p25"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "multiply train-only count residual offsets by 1.25"
+
+[[variants]]
+name = "residual_scale_1p5"
+model = "triple_group_count_k500_shift_m0095_w50_35_15_r1p5"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "multiply train-only count residual offsets by 1.5"
+
+[[variants]]
+name = "residual_scale_2p0"
+model = "triple_group_count_k500_shift_m0095_w50_35_15_r2"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "multiply train-only count residual offsets by 2.0"

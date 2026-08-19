@@ -1,0 +1,147 @@
+{
+  "experiment_id": "EXP_019",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T16:53:31.771665+00:00",
+  "completed_at_utc": "2026-08-17T16:57:35.878977+00:00",
+  "config_hash": "cfbe63f5735b",
+  "based_on": "EXP_018",
+  "reference_variant": "d6_i300_control",
+  "ablation_summary": "main55+count와 CatBoost 설정을 고정하고 pitcher/batter/team/hand ID를 한 종류씩만 native categorical로 추가",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/019_identifier_categorical/20260817T165331774474Z_cfbe63f5735b",
+  "control": "numeric_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "batter_team_cat",
+  "best_mean_brier": 0.2478308422999287,
+  "best_delta_brier_vs_control": -4.464998368047812e-05,
+  "leaderboard": [
+    {
+      "variant": "batter_team_cat",
+      "change": "batter_team_id만 범주형 추가",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "catboost_native_shift_m010",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2478308423,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 791.0447010075,
+      "changed_fields_vs_control": "['features.categorical', 'features.description', 'features.name']",
+      "delta_brier_vs_control": -4.465e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "both_teams_cat",
+      "change": "양 팀 ID를 범주형 추가",
+      "feature_set": "main60_cat_teams",
+      "feature_count": 60,
+      "model": "catboost_native_shift_m010",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.247831041,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 790.9651714877,
+      "changed_fields_vs_control": "['features.categorical', 'features.description', 'features.name']",
+      "delta_brier_vs_control": -4.44513e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "numeric_control",
+      "change": "control: 기본 3개만 범주형",
+      "feature_set": "main55_plus_count",
+      "feature_count": 60,
+      "model": "catboost_native_shift_m010",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2478754923,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 773.1709037273,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "hands_cat",
+      "change": "투타 손 유형을 범주형 추가",
+      "feature_set": "main60_cat_hands",
+      "feature_count": 60,
+      "model": "catboost_native_shift_m010",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2478863271,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 768.8336330279,
+      "changed_fields_vs_control": "['features.categorical', 'features.description', 'features.name']",
+      "delta_brier_vs_control": 1.08348e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "pitcher_team_cat",
+      "change": "pitcher_team_id만 범주형 추가",
+      "feature_set": "main60_cat_pitcher_team",
+      "feature_count": 60,
+      "model": "catboost_native_shift_m010",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2479021177,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 762.5124929617,
+      "changed_fields_vs_control": "['features.categorical', 'features.description', 'features.name']",
+      "delta_brier_vs_control": 2.66254e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "batter_id_cat",
+      "change": "batter_id만 범주형 추가",
+      "feature_set": "main60_cat_batter",
+      "feature_count": 60,
+      "model": "catboost_native_shift_m010",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.247927383,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 752.3985599175,
+      "changed_fields_vs_control": "['features.categorical', 'features.description', 'features.name']",
+      "delta_brier_vs_control": 5.18908e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "pitcher_id_cat",
+      "change": "pitcher_id만 범주형 추가",
+      "feature_set": "main60_cat_pitcher",
+      "feature_count": 60,
+      "model": "catboost_native_shift_m010",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2480681977,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 696.0291730177,
+      "changed_fields_vs_control": "['features.categorical', 'features.description', 'features.name']",
+      "delta_brier_vs_control": 0.0001927054,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "309dce97e844431ef10876a7a792efa2d9bd47552d233f9312dd62729357c40c",
+  "git_commit": "80f20ba91e666fa40b7cbdb1647ff163e037bc50",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 243.9248490333557
+}

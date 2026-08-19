@@ -1,0 +1,49 @@
+[study]
+id = "082_context_categories"
+description = "카운트×양손 기준의 인접 상황 범주 추가"
+hypothesis = "카운트와 양손 범주가 활성화된 상태에서 아웃·이닝·팀·월·원시 카운트·주자수 중 하나가 고차 상호작용을 추가한다."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "count_hands_control"
+
+[[variants]]
+name = "count_hands_control"
+model = "catboost_d8_decay085"
+features = "main69_cat_count_hands"
+change = "control: count_state와 양손 categorical"
+
+[[variants]]
+name = "add_outs"
+model = "catboost_d8_decay085"
+features = "main69_cat_count_hands_outs"
+change = "control에 outs_before categorical 추가"
+
+[[variants]]
+name = "add_inning"
+model = "catboost_d8_decay085"
+features = "main69_cat_count_hands_inning"
+change = "control에 inning categorical 추가"
+
+[[variants]]
+name = "add_pitcher_team"
+model = "catboost_d8_decay085"
+features = "main69_cat_count_hands_pitcher_team"
+change = "control에 pitcher_team_id categorical 추가"
+
+[[variants]]
+name = "add_month"
+model = "catboost_d8_decay085"
+features = "main69_cat_count_hands_month"
+change = "control에 game_month categorical 추가"
+
+[[variants]]
+name = "add_raw_count"
+model = "catboost_d8_decay085"
+features = "main69_cat_count_hands_raw_count"
+change = "control에 balls_before·strikes_before categorical 추가"
+
+[[variants]]
+name = "add_runners"
+model = "catboost_d8_decay085"
+features = "main69_cat_count_hands_runners"
+change = "control에 num_runners_on categorical 추가"

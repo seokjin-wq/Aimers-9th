@@ -1,0 +1,102 @@
+{
+  "experiment_id": "EXP_126",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T13:33:06.000317+00:00",
+  "completed_at_utc": "2026-08-18T13:45:47.722286+00:00",
+  "config_hash": "922489f64e9a",
+  "based_on": "EXP_117",
+  "reference_variant": "weights_50_35_15",
+  "ablation_summary": "Fix main78 features, all component models, shifts, and count correction; blend manual 50/35/15 weights toward 2023 OOT simplex-optimal weights by 25%, 50%, or 100%.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/126_oot_simplex_blend_weights/20260818T133306011733Z_922489f64e9a",
+  "control": "manual_weights_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "manual_weights_control",
+  "best_mean_brier": 0.2474515836082144,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "manual_weights_control",
+      "change": "control: fixed manual CPU/GPU/Extra weights 50/35/15",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_count_m0095_sub08_w50_35_15",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474515836,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 942.8654277736,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "oot_weight_strength_025",
+      "change": "move 25% from manual weights toward 2023 OOT simplex optimum",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_oot_weights_s025",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474546785,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 941.6265300571,
+      "changed_fields_vs_control": "['model.learned_weight_strength', 'model.name']",
+      "delta_brier_vs_control": 3.0949e-06,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "oot_weight_strength_050",
+      "change": "move 50% from manual weights toward 2023 OOT simplex optimum",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_oot_weights_s050",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474642621,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 937.790097058,
+      "changed_fields_vs_control": "['model.learned_weight_strength', 'model.name']",
+      "delta_brier_vs_control": 1.26785e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "oot_weight_strength_100",
+      "change": "use 2023 OOT simplex-optimal weights directly",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_oot_weights_s100",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.247502896,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 922.3246252126,
+      "changed_fields_vs_control": "['model.learned_weight_strength', 'model.name']",
+      "delta_brier_vs_control": 5.13123e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "058ee077563e5ceba2d7e79b091084cb9175bd35e47342f5b893c5ecc0471635",
+  "git_commit": "d3c3b17f92ef8be5fccfb7926e638999d2315134",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 761.5249338150024
+}

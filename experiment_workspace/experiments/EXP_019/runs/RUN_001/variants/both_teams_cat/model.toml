@@ -1,0 +1,18 @@
+[model]
+name = "catboost_native_shift_m010"
+family = "catboost"
+native_categorical = true
+prediction_shift = -0.01
+[model.params]
+iterations = 300
+depth = 6
+learning_rate = 0.05
+l2_leaf_reg = 3.0
+subsample = 0.7
+random_seed = 42
+thread_count = 8
+task_type = "CPU"
+loss_function = "Logloss"
+eval_metric = "BrierScore"
+allow_writing_files = false
+verbose = false

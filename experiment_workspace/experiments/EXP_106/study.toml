@@ -1,0 +1,37 @@
+[study]
+id = "106_trackman_physics_decomposition"
+description = "Latest-feature Trackman physics decomposition"
+hypothesis = "The small Trackman gain seen on the earlier feature set comes from a subset of velocity, movement, or extension context and can complement the latest same-hand pitch-mix features."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "same_pitchmix_control"
+
+[[variants]]
+name = "same_pitchmix_control"
+model = "catboost_d8_decay085"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: latest CPU main72 without Trackman context"
+
+[[variants]]
+name = "track_velocity"
+model = "catboost_d8_decay085"
+features = "main74_same_pitchmix_track_velocity"
+change = "add official Trackman relative-speed and zone-speed context"
+
+[[variants]]
+name = "track_movement"
+model = "catboost_d8_decay085"
+features = "main75_same_pitchmix_track_movement"
+change = "add official Trackman spin, vertical-break, and horizontal-break context"
+
+[[variants]]
+name = "track_extension"
+model = "catboost_d8_decay085"
+features = "main73_same_pitchmix_track_extension"
+change = "add official Trackman extension context only"
+
+[[variants]]
+name = "track_all_physics"
+model = "catboost_d8_decay085"
+features = "main78_same_pitchmix_track_physics"
+change = "add all six official Trackman physics context aggregates"

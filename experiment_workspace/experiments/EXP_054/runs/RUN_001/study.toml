@@ -1,0 +1,19 @@
+[study]
+id = "054_rule_compliant_baseline_replay"
+description = "규칙 준수 베이스라인 재현"
+hypothesis = "평가 행간 연산을 차단한 안전 피처 경로에서도 EXP_024 ExtraTrees 24% 혼합 점수가 동일하게 재현된다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "extra_w24_safe"
+
+[[variants]]
+name = "extra_w24_safe"
+model = "cat_extra_blend_w24"
+features = "main60_cat_batter_team"
+change = "control: EXP_024 extra_w24를 규칙 준수 row-local 엔진에서 재현"
+
+[[variants]]
+name = "catboost_only"
+model = "catboost_native_scale106_shift_m008"
+features = "main60_cat_batter_team"
+change = "ExtraTrees 혼합만 제거한 CatBoost 단독 비교"

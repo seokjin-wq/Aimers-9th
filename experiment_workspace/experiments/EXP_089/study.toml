@@ -1,0 +1,37 @@
+[study]
+id = "089_safe_season_progress"
+description = "공식 학습 경계와 현재 행 ID만 쓰는 시즌 진행도"
+hypothesis = "월보다 세밀한 시즌 내 진행도가 시간 드리프트를 포착한다."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "same_hand_control"
+
+[[variants]]
+name = "same_hand_control"
+model = "catboost_d8_decay085"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: EXP_084 CPU same-hand pitchmix"
+
+[[variants]]
+name = "progress_index"
+model = "catboost_d8_decay085"
+features = "main73_same_pitchmix_progress_index"
+change = "현재 행의 안전한 시즌 내 투구 index 추가"
+
+[[variants]]
+name = "phase_numeric"
+model = "catboost_d8_decay085"
+features = "main73_same_pitchmix_progress_phase"
+change = "12,500행 단위 시즌 phase를 numeric으로 추가"
+
+[[variants]]
+name = "phase_categorical"
+model = "catboost_d8_decay085"
+features = "main73_same_pitchmix_progress_phase_cat"
+change = "동일 시즌 phase를 categorical로 추가"
+
+[[variants]]
+name = "index_plus_phase"
+model = "catboost_d8_decay085"
+features = "main74_same_pitchmix_progress_both"
+change = "안전한 numeric index와 categorical phase 동시 추가"

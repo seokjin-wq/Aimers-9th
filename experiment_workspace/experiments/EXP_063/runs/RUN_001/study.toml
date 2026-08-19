@@ -1,0 +1,37 @@
+[study]
+id = "063_pitchmix_and_readded_raw"
+description = "구종 구성과 제외 피처 재검증"
+hypothesis = "현재 시즌 구종 구성과 과거에 제외했던 prev5·strike·fastball 원시값이 시즌 상태 모델에서는 추가 신호를 제공할 수 있다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main69_control"
+
+[[variants]]
+name = "main69_control"
+model = "catboost_d8_decay085"
+features = "main69_pitcher_batter_season_all"
+change = "control: EXP_060 최고 CatBoost"
+
+[[variants]]
+name = "season_pitchmix"
+model = "catboost_d8_decay085"
+features = "main72_season_pitchmix"
+change = "현재 시즌 fastball·breaking·offspeed 비율 추가"
+
+[[variants]]
+name = "readd_prev5"
+model = "catboost_d8_decay085"
+features = "main70_readd_prev5"
+change = "제외했던 prev5 game success 원시값 재추가"
+
+[[variants]]
+name = "readd_strike_fast"
+model = "catboost_d8_decay085"
+features = "main71_readd_strike_fast"
+change = "제외했던 커리어 strike·fastball 원시값 재추가"
+
+[[variants]]
+name = "all_readded_pitchmix"
+model = "catboost_d8_decay085"
+features = "main75_readd_and_season_pitchmix"
+change = "원시값 3개와 현재 시즌 pitchmix 3개를 모두 추가"

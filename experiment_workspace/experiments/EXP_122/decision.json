@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_122",
+  "decision": "keep_control",
+  "selected_variant": "main78_control",
+  "reason": "Reliability-weighted ball/strike rates, pitch-mix rates, and their union all worsened Brier; retain only the original six reliability features.",
+  "based_on": "EXP_114",
+  "reference_variant": "reliability_k100_control",
+  "ablation_summary": "Fix main78 reliability CPU winner; add only ball/strike reliability-weighted rates, only three pitch-mix reliability-weighted rates, or all five.",
+  "selected_result": {
+    "variant": "main78_control",
+    "change": "control: six-feature history reliability winner",
+    "feature_set": "main78_history_reliability",
+    "feature_count": 78,
+    "model": "catboost_d8_decay085_sub08",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2474879926,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 928.2905828931,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "main78_control",
+    "change": "control: six-feature history reliability winner",
+    "feature_set": "main78_history_reliability",
+    "feature_count": 78,
+    "model": "catboost_d8_decay085_sub08",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2474879926,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 928.2905828931,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T13:02:37.311712+00:00",
+  "based_on_run_id": "RUN_001"
+}

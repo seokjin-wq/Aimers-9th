@@ -1,0 +1,117 @@
+{
+  "experiment_id": "EXP_063",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T03:15:44.770396+00:00",
+  "completed_at_utc": "2026-08-18T03:20:04.493618+00:00",
+  "config_hash": "12966d178c28",
+  "based_on": "EXP_062",
+  "reference_variant": "extra_w18",
+  "ablation_summary": "main69 decay85 CatBoost 대비 시즌 pitchmix 3개, prev5 재추가, strike+fastball 재추가, 전체 조합 비교",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/063_pitchmix_and_readded_raw/20260818T031544775575Z_12966d178c28",
+  "control": "main69_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": null
+  },
+  "best_variant": "season_pitchmix",
+  "best_mean_brier": 0.2475347024102909,
+  "best_delta_brier_vs_control": -3.018316119790532e-06,
+  "leaderboard": [
+    {
+      "variant": "season_pitchmix",
+      "change": "현재 시즌 fastball·breaking·offspeed 비율 추가",
+      "feature_set": "main72_season_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475347024,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 909.592210271,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -3.0183e-06,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "main69_control",
+      "change": "control: EXP_060 최고 CatBoost",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475377207,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 908.3839506927,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "readd_prev5",
+      "change": "제외했던 prev5 game success 원시값 재추가",
+      "feature_set": "main70_readd_prev5",
+      "feature_count": 70,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475495005,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 903.6683859938,
+      "changed_fields_vs_control": "['features.description', 'features.exclude', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 1.17798e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "readd_strike_fast",
+      "change": "제외했던 커리어 strike·fastball 원시값 재추가",
+      "feature_set": "main71_readd_strike_fast",
+      "feature_count": 71,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475499099,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 903.5045041571,
+      "changed_fields_vs_control": "['features.description', 'features.exclude', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 1.21892e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "all_readded_pitchmix",
+      "change": "원시값 3개와 현재 시즌 pitchmix 3개를 모두 추가",
+      "feature_set": "main75_readd_and_season_pitchmix",
+      "feature_count": 75,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.247569909,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 895.4987093228,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.exclude', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 3.21882e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "830bf50a9ab075c9500caa0e755516bd4b077a4389c34c89db8ce74d5164531f",
+  "git_commit": "7bde464991a4052a625a1c8c1d2e222d4b3c6542",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 259.5357999801636
+}

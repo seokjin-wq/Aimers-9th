@@ -1,0 +1,72 @@
+{
+  "experiment_id": "EXP_004",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T15:37:56.416273+00:00",
+  "completed_at_utc": "2026-08-17T15:38:43.575236+00:00",
+  "config_hash": "b6f93d4ab123",
+  "based_on": "EXP_003",
+  "reference_variant": "main55_control",
+  "ablation_summary": "main55와 CatBoost 파라미터를 고정하고 범주 전처리만 ordinal encoding에서 CatBoost native categorical로 변경",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/004_native_categorical/20260817T153756417596Z_b6f93d4ab123",
+  "control": "ordinal_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "native_basic",
+  "best_mean_brier": 0.2480092675427688,
+  "best_delta_brier_vs_control": -1.4186879985916834e-05,
+  "leaderboard": [
+    {
+      "variant": "native_basic",
+      "change": "동일 3개 범주를 CatBoost native categorical로 처리",
+      "feature_set": "main55",
+      "feature_count": 55,
+      "model": "catboost_native_300",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2480092675,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 719.6194426463,
+      "changed_fields_vs_control": "['model.name', 'model.native_categorical']",
+      "delta_brier_vs_control": -1.41869e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "ordinal_control",
+      "change": "control: top_bottom, game_type, base_state를 ordinal 숫자로 변환",
+      "feature_set": "main55",
+      "feature_count": 55,
+      "model": "catboost_default",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2480234544,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 713.9403046936,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "59c4cecab4b356f15665427042c40de3507e8f8a87896079f6963ef265a05681",
+  "git_commit": "80f20ba91e666fa40b7cbdb1647ff163e037bc50",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 46.97937059402466
+}

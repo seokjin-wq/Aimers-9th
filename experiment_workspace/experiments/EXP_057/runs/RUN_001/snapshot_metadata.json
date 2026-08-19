@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T02:37:27.432692+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "b3ac66fbebdd",
+  "based_on": "EXP_056",
+  "reference_variant": "pitcher_batter_season_all",
+  "ablation_summary": "main69 피처를 고정하고 CatBoost 단독 대비 ExtraTrees 가중치 15,20,24,28,32%만 변경"
+}

@@ -1,0 +1,127 @@
+{
+  "based_on": "EXP_059",
+  "reference_variant": "d8_i300",
+  "ablation_summary": "main69 depth8을 고정하고 시즌당 sample weight decay 1.0, 0.95, 0.90, 0.85, 0.75만 변경",
+  "control": "uniform",
+  "variants": [
+    {
+      "name": "uniform",
+      "declared_change": "control: 모든 2019~2023 행 동일 가중",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "decay095",
+      "declared_change": "과거 1년당 가중치 0.95배",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_cpu_d8_i300_lr035",
+          "variant": "catboost_d8_decay095"
+        },
+        {
+          "field": "model.season_decay",
+          "control": null,
+          "variant": 0.95
+        }
+      ]
+    },
+    {
+      "name": "decay090",
+      "declared_change": "과거 1년당 가중치 0.90배",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_cpu_d8_i300_lr035",
+          "variant": "catboost_d8_decay090"
+        },
+        {
+          "field": "model.season_decay",
+          "control": null,
+          "variant": 0.9
+        }
+      ]
+    },
+    {
+      "name": "decay085",
+      "declared_change": "과거 1년당 가중치 0.85배",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_cpu_d8_i300_lr035",
+          "variant": "catboost_d8_decay085"
+        },
+        {
+          "field": "model.season_decay",
+          "control": null,
+          "variant": 0.85
+        }
+      ]
+    },
+    {
+      "name": "decay075",
+      "declared_change": "과거 1년당 가중치 0.75배",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_cpu_d8_i300_lr035",
+          "variant": "catboost_d8_decay075"
+        },
+        {
+          "field": "model.season_decay",
+          "control": null,
+          "variant": 0.75
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T16:26:18.614201+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "af9a1d57c71f",
+  "based_on": "EXP_013",
+  "reference_variant": "catboost_logloss_control",
+  "ablation_summary": "native CatBoost를 고정하고 저중요도 context, 최근-gap, 기존 custom 전체, count 중복을 각각 제거"
+}

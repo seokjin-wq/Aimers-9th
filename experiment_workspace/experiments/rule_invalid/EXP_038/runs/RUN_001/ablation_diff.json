@@ -1,0 +1,90 @@
+{
+  "based_on": "EXP_037",
+  "reference_variant": "batter_middle",
+  "ablation_summary": "main81 최고 피처와 GPU CatBoost를 고정하고 pitcher/batter 행 간격, 바로 전 행 여부, 동일 타석, 타석 내 순번·최근 성공률만 개별·조합 추가",
+  "control": "main81_control",
+  "variants": [
+    {
+      "name": "main81_control",
+      "declared_change": "control: 현재 최고 main81",
+      "is_control": true,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "entity_gaps",
+      "declared_change": "투수·타자 행 간격과 연속 플래그 추가",
+      "is_control": false,
+      "feature_count": 86,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_row_gap",
+        "batter_row_gap",
+        "pitcher_is_immediate",
+        "batter_is_immediate",
+        "same_matchup_previous"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "plate_context",
+      "declared_change": "동일 타석·타석 내 순번·최근 2·3투구 추가",
+      "is_control": false,
+      "feature_count": 85,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "same_matchup_previous",
+        "plate_appearance_pitch_index",
+        "plate_appearance_recent2_success",
+        "plate_appearance_recent3_success"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "full_sequence",
+      "declared_change": "행 간격·전역 직전 결과·동일 타석 문맥 모두 추가",
+      "is_control": false,
+      "feature_count": 91,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_row_gap",
+        "batter_row_gap",
+        "pitcher_is_immediate",
+        "batter_is_immediate",
+        "same_matchup_previous",
+        "previous_global_success",
+        "previous_global_reverse",
+        "plate_appearance_pitch_index",
+        "plate_appearance_recent2_success",
+        "plate_appearance_recent3_success"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "based_on": "EXP_114",
+  "reference_variant": "reliability_k100_control",
+  "ablation_summary": "Fix main78 reliability CPU winner; add only ball/strike reliability-weighted rates, only three pitch-mix reliability-weighted rates, or all five.",
+  "control": "main78_control",
+  "variants": [
+    {
+      "name": "main78_control",
+      "declared_change": "control: six-feature history reliability winner",
+      "is_control": true,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_ball_strike_reliability",
+      "declared_change": "add reliability-weighted pitcher ball and strike rates only",
+      "is_control": false,
+      "feature_count": 80,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "pitcher_ball_x_reliability",
+        "pitcher_strike_x_reliability"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_pitchmix_reliability",
+      "declared_change": "add reliability-weighted fastball, breaking, and offspeed rates only",
+      "is_control": false,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "pitcher_fastball_x_reliability",
+        "pitcher_breaking_x_reliability",
+        "pitcher_offspeed_x_reliability"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_all_extended_rates",
+      "declared_change": "add all five extended reliability-weighted rates",
+      "is_control": false,
+      "feature_count": 83,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "pitcher_ball_x_reliability",
+        "pitcher_strike_x_reliability",
+        "pitcher_fastball_x_reliability",
+        "pitcher_breaking_x_reliability",
+        "pitcher_offspeed_x_reliability"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

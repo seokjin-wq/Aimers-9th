@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_010"
+title = "직전 시즌 타깃 이력 피처"
+hypothesis = "이전 시즌만으로 만든 투수·타자·팀 제구율이 커리어 누적률보다 최근 실력을 잘 반영해 2024 Brier를 개선한다"
+change_scope = "features"
+study_config = "experiments/EXP_010/study.toml"
+based_on = "EXP_009"
+reference_variant = "main55_control"
+ablation_summary = "main55를 기준으로 누수 없는 시즌 전체 prior, 직전 시즌 투수, 투수·타자, 선수·팀 타깃 이력을 단계적으로 추가"
+tags = ["temporal", "target-encoding", "leakage-safe"]
+created_at_utc = "2026-08-17T16:07:44.858860+00:00"

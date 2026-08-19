@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_041"
+title = "순차 피처 CatBoost 일반화 설정"
+hypothesis = "시간 순서 보존과 낮은 랜덤성·bootstrap 온도 조정이 순차 피처의 안정적 분할을 돕는다"
+change_scope = "model"
+study_config = "experiments/EXP_041/study.toml"
+based_on = "EXP_040"
+reference_variant = "cat_single_control"
+ablation_summary = "main85와 depth6 900 lr0.020을 고정하고 has_time, random_strength 0·0.2·2, bagging_temperature 0만 개별 변경"
+tags = ["catboost", "regularization", "time-order"]
+created_at_utc = "2026-08-17T19:11:03.916637+00:00"

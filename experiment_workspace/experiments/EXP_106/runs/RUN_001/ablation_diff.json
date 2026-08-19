@@ -1,0 +1,114 @@
+{
+  "based_on": "EXP_068",
+  "reference_variant": "track_physics",
+  "ablation_summary": "Keep latest CPU main72 fixed; compare official pre-validation Trackman velocity pair, movement triple, extension alone, and all six physics context aggregates.",
+  "control": "same_pitchmix_control",
+  "variants": [
+    {
+      "name": "same_pitchmix_control",
+      "declared_change": "control: latest CPU main72 without Trackman context",
+      "is_control": true,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "track_velocity",
+      "declared_change": "add official Trackman relative-speed and zone-speed context",
+      "is_control": false,
+      "feature_count": 74,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "track_context_rel_speed",
+        "track_context_zone_speed"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "track_movement",
+      "declared_change": "add official Trackman spin, vertical-break, and horizontal-break context",
+      "is_control": false,
+      "feature_count": 75,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "track_context_spin_rate",
+        "track_context_induced_vert_break",
+        "track_context_abs_horz_break"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "track_extension",
+      "declared_change": "add official Trackman extension context only",
+      "is_control": false,
+      "feature_count": 73,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "track_context_extension"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "track_all_physics",
+      "declared_change": "add all six official Trackman physics context aggregates",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "track_context_rel_speed",
+        "track_context_spin_rate",
+        "track_context_induced_vert_break",
+        "track_context_abs_horz_break",
+        "track_context_extension",
+        "track_context_zone_speed"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

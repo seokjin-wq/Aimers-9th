@@ -1,0 +1,10 @@
+{
+  "id": "EXP_039",
+  "status": "decided",
+  "created_at_utc": "2026-08-17T18:46:08.063375+00:00",
+  "updated_at_utc": "2026-08-17T18:50:17.555732+00:00",
+  "run_count": 1,
+  "latest_run_id": "RUN_001",
+  "decision": "adopt",
+  "selected_variant": "d6_i900"
+}

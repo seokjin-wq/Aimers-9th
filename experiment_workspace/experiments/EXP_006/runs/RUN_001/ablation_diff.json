@@ -1,0 +1,197 @@
+{
+  "based_on": "EXP_004",
+  "reference_variant": "native_basic",
+  "ablation_summary": "main55와 native 기본 3개 범주를 고정하고 CatBoost depth와 iterations 조합만 변경",
+  "control": "d6_i300_control",
+  "variants": [
+    {
+      "name": "d6_i300_control",
+      "declared_change": "control: depth6, 300 trees",
+      "is_control": true,
+      "feature_count": 55,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "d5_i600",
+      "declared_change": "depth5, 600 trees",
+      "is_control": false,
+      "feature_count": 55,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "catboost_d5_i600"
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": 5
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 600
+        }
+      ]
+    },
+    {
+      "name": "d6_i600",
+      "declared_change": "depth6, 600 trees",
+      "is_control": false,
+      "feature_count": 55,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "catboost_d6_i600"
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 600
+        }
+      ]
+    },
+    {
+      "name": "d6_i1000",
+      "declared_change": "depth6, 1000 trees",
+      "is_control": false,
+      "feature_count": 55,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "catboost_d6_i1000"
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 1000
+        }
+      ]
+    },
+    {
+      "name": "d7_i600",
+      "declared_change": "depth7, 600 trees",
+      "is_control": false,
+      "feature_count": 55,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "catboost_d7_i600"
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": 7
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 600
+        }
+      ]
+    },
+    {
+      "name": "d8_i600",
+      "declared_change": "depth8, 600 trees",
+      "is_control": false,
+      "feature_count": 55,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "catboost_d8_i600"
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": 8
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 600
+        }
+      ]
+    },
+    {
+      "name": "d7_i1000_lr03",
+      "declared_change": "depth7, 1000 trees, learning_rate 0.03",
+      "is_control": false,
+      "feature_count": 55,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "catboost_d7_i1000_lr03"
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": 7
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 1000
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.05,
+          "variant": 0.03
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+[study]
+id = "062_d8_decay_cat_extra_blend"
+description = "depth8 최근성 CatBoost 이종 앙상블"
+hypothesis = "EXP_060의 최근성 depth8 CatBoost와 ExtraTrees를 혼합하면 새 최고 구성의 편향과 분산을 동시에 낮춘다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "cat_d8_decay85"
+
+[[variants]]
+name = "cat_d8_decay85"
+model = "catboost_d8_decay085"
+features = "main69_pitcher_batter_season_all"
+change = "control: EXP_060 최고 CatBoost"
+
+[[variants]]
+name = "extra_w18"
+model = "cat_extra_d8_decay85_w18"
+features = "main69_pitcher_batter_season_all"
+change = "ExtraTrees 18% 혼합"
+
+[[variants]]
+name = "extra_w24"
+model = "cat_extra_d8_decay85_w24"
+features = "main69_pitcher_batter_season_all"
+change = "ExtraTrees 24% 혼합"
+
+[[variants]]
+name = "extra_w30"
+model = "cat_extra_d8_decay85_w30"
+features = "main69_pitcher_batter_season_all"
+change = "ExtraTrees 30% 혼합"

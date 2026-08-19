@@ -1,0 +1,4 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+ensemble_3seed,GPU 3 seed 평균,main60_cat_batter_team,60,catboost_gpu_ensemble3,catboost_ensemble,1,0.2478039438422107,0.0,801.8123999129157,"['model.family', 'model.name', 'model.params.random_seed', 'model.seeds']",-1.360402368813518e-05,1/1
+ensemble_5seed,GPU 5 seed 평균,main60_cat_batter_team,60,catboost_gpu_ensemble5,catboost_ensemble,1,0.2478097666666227,0.0,799.4814699872732,"['model.family', 'model.name', 'model.params.random_seed', 'model.seeds']",-7.781199276052364e-06,1/1
+single_seed_control,control: GPU seed42 단일,main60_cat_batter_team,60,catboost_gpu_d6_i600_lr025_b128,catboost,1,0.2478175478658988,0.0,796.366584672814,[],0.0,0/1

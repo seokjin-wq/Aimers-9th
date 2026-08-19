@@ -1,0 +1,463 @@
+{
+  "based_on": "EXP_032",
+  "reference_variant": "global_control",
+  "ablation_summary": "CatBoost와 main60을 고정하고 2019~2022→2023 예측에서 학습한 mean-shift, affine, Platt, beta, isotonic 보정만 변경",
+  "control": "global_control",
+  "variants": [
+    {
+      "name": "global_control",
+      "declared_change": "control: 직접 고른 affine 보정 GPU CatBoost",
+      "is_control": true,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "mean_shift",
+      "declared_change": "2023 평균 예측 오차만 보정",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.calibration_method",
+          "control": null,
+          "variant": "mean_shift"
+        },
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 600,
+            "depth": 6,
+            "learning_rate": 0.025,
+            "l2_leaf_reg": 3.0,
+            "bootstrap_type": "Bayesian",
+            "bagging_temperature": 1.0,
+            "border_count": 128,
+            "random_seed": 42,
+            "task_type": "GPU",
+            "devices": "0",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_probability_calibrated"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_gpu_d6_i600_lr025_b128",
+          "variant": "catcal_mean_shift"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 600,
+            "depth": 6,
+            "learning_rate": 0.025,
+            "l2_leaf_reg": 3.0,
+            "bootstrap_type": "Bayesian",
+            "bagging_temperature": 1.0,
+            "border_count": 128,
+            "random_seed": 42,
+            "task_type": "GPU",
+            "devices": "0",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "affine",
+      "declared_change": "2023 선형 최소제곱 보정",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.calibration_method",
+          "control": null,
+          "variant": "affine"
+        },
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 600,
+            "depth": 6,
+            "learning_rate": 0.025,
+            "l2_leaf_reg": 3.0,
+            "bootstrap_type": "Bayesian",
+            "bagging_temperature": 1.0,
+            "border_count": 128,
+            "random_seed": 42,
+            "task_type": "GPU",
+            "devices": "0",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_probability_calibrated"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_gpu_d6_i600_lr025_b128",
+          "variant": "catcal_affine"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 600,
+            "depth": 6,
+            "learning_rate": 0.025,
+            "l2_leaf_reg": 3.0,
+            "bootstrap_type": "Bayesian",
+            "bagging_temperature": 1.0,
+            "border_count": 128,
+            "random_seed": 42,
+            "task_type": "GPU",
+            "devices": "0",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "platt",
+      "declared_change": "2023 logit Platt 보정",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.calibration_c",
+          "control": null,
+          "variant": 1000.0
+        },
+        {
+          "field": "model.calibration_method",
+          "control": null,
+          "variant": "platt"
+        },
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 600,
+            "depth": 6,
+            "learning_rate": 0.025,
+            "l2_leaf_reg": 3.0,
+            "bootstrap_type": "Bayesian",
+            "bagging_temperature": 1.0,
+            "border_count": 128,
+            "random_seed": 42,
+            "task_type": "GPU",
+            "devices": "0",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_probability_calibrated"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_gpu_d6_i600_lr025_b128",
+          "variant": "catcal_platt"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 600,
+            "depth": 6,
+            "learning_rate": 0.025,
+            "l2_leaf_reg": 3.0,
+            "bootstrap_type": "Bayesian",
+            "bagging_temperature": 1.0,
+            "border_count": 128,
+            "random_seed": 42,
+            "task_type": "GPU",
+            "devices": "0",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "beta",
+      "declared_change": "2023 beta calibration",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.calibration_c",
+          "control": null,
+          "variant": 1000.0
+        },
+        {
+          "field": "model.calibration_method",
+          "control": null,
+          "variant": "beta"
+        },
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 600,
+            "depth": 6,
+            "learning_rate": 0.025,
+            "l2_leaf_reg": 3.0,
+            "bootstrap_type": "Bayesian",
+            "bagging_temperature": 1.0,
+            "border_count": 128,
+            "random_seed": 42,
+            "task_type": "GPU",
+            "devices": "0",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_probability_calibrated"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_gpu_d6_i600_lr025_b128",
+          "variant": "catcal_beta"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 600,
+            "depth": 6,
+            "learning_rate": 0.025,
+            "l2_leaf_reg": 3.0,
+            "bootstrap_type": "Bayesian",
+            "bagging_temperature": 1.0,
+            "border_count": 128,
+            "random_seed": 42,
+            "task_type": "GPU",
+            "devices": "0",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "isotonic",
+      "declared_change": "2023 isotonic 비모수 보정",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.calibration_method",
+          "control": null,
+          "variant": "isotonic"
+        },
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 600,
+            "depth": 6,
+            "learning_rate": 0.025,
+            "l2_leaf_reg": 3.0,
+            "bootstrap_type": "Bayesian",
+            "bagging_temperature": 1.0,
+            "border_count": 128,
+            "random_seed": 42,
+            "task_type": "GPU",
+            "devices": "0",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_probability_calibrated"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_gpu_d6_i600_lr025_b128",
+          "variant": "catcal_isotonic"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 600,
+            "depth": 6,
+            "learning_rate": 0.025,
+            "l2_leaf_reg": 3.0,
+            "bootstrap_type": "Bayesian",
+            "bagging_temperature": 1.0,
+            "border_count": 128,
+            "random_seed": 42,
+            "task_type": "GPU",
+            "devices": "0",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    }
+  ]
+}

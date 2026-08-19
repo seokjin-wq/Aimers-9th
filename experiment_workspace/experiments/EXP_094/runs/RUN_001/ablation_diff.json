@@ -1,0 +1,120 @@
+{
+  "based_on": "EXP_088",
+  "reference_variant": "count_k500",
+  "ablation_summary": "Freshly rerun the identical triple control, count k500, and count k2000 settings; no feature or parameter search.",
+  "control": "triple_control",
+  "variants": [
+    {
+      "name": "triple_control",
+      "declared_change": "control: EXP_087 same-hand triple fresh run",
+      "is_control": true,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "count_k500_repro",
+      "declared_change": "EXP_088 count residual k500 동일 설정 재현",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.center_residual",
+          "control": null,
+          "variant": true
+        },
+        {
+          "field": "model.group_columns",
+          "control": null,
+          "variant": [
+            "balls_before",
+            "strikes_before"
+          ]
+        },
+        {
+          "field": "model.group_shrinkage",
+          "control": null,
+          "variant": 500.0
+        },
+        {
+          "field": "model.name",
+          "control": "triple_cpu45_gpu40_extra15",
+          "variant": "triple_group_count_k500"
+        },
+        {
+          "field": "model.residual_scale",
+          "control": null,
+          "variant": 1.0
+        }
+      ]
+    },
+    {
+      "name": "count_k2000_repro",
+      "declared_change": "EXP_088 count residual k2000 동일 설정 재현",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.center_residual",
+          "control": null,
+          "variant": true
+        },
+        {
+          "field": "model.group_columns",
+          "control": null,
+          "variant": [
+            "balls_before",
+            "strikes_before"
+          ]
+        },
+        {
+          "field": "model.group_shrinkage",
+          "control": null,
+          "variant": 2000.0
+        },
+        {
+          "field": "model.name",
+          "control": "triple_cpu45_gpu40_extra15",
+          "variant": "triple_group_count_k2000"
+        },
+        {
+          "field": "model.residual_scale",
+          "control": null,
+          "variant": 1.0
+        }
+      ]
+    }
+  ]
+}

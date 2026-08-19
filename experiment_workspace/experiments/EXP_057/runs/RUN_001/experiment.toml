@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_057"
+title = "시즌 상태 모델 이종 앙상블"
+hypothesis = "새 시즌 상태 피처에서도 CatBoost와 ExtraTrees의 오차 다양성이 유지되어 15~32% 혼합이 Brier를 추가 개선한다"
+change_scope = "model"
+study_config = "experiments/EXP_057/study.toml"
+based_on = "EXP_056"
+reference_variant = "pitcher_batter_season_all"
+ablation_summary = "main69 피처를 고정하고 CatBoost 단독 대비 ExtraTrees 가중치 15,20,24,28,32%만 변경"
+tags = ["rule_compliant", "ensemble"]
+created_at_utc = "2026-08-18T02:37:06.498851+00:00"

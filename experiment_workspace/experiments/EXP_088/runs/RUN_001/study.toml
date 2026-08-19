@@ -1,0 +1,55 @@
+[study]
+id = "088_triple_group_calibration"
+description = "2023 OOT residual만 사용한 현재 최고 앙상블 그룹 보정"
+hypothesis = "2023에서 반복된 상황별 잔차 편향이 2024로 전이된다."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "triple_control"
+
+[[variants]]
+name = "triple_control"
+model = "triple_cpu45_gpu40_extra15"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: EXP_087 same-hand pitchmix triple"
+
+[[variants]]
+name = "count_k500"
+model = "triple_group_count_k500"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "2023 ball×strike residual, shrinkage 500"
+
+[[variants]]
+name = "count_k2000"
+model = "triple_group_count_k2000"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "2023 ball×strike residual, shrinkage 2000"
+
+[[variants]]
+name = "count_out_k500"
+model = "triple_group_count_out_k500"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "2023 ball×strike×out residual, shrinkage 500"
+
+[[variants]]
+name = "count_out_k2000"
+model = "triple_group_count_out_k2000"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "2023 ball×strike×out residual, shrinkage 2000"
+
+[[variants]]
+name = "month_count_k2000"
+model = "triple_group_month_count_k2000"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "2023 month×ball×strike residual, shrinkage 2000"
+
+[[variants]]
+name = "batter_team_k2000"
+model = "triple_group_batter_team_k2000"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "2023 batter-team residual, shrinkage 2000"
+
+[[variants]]
+name = "count_out_raw_k2000"
+model = "triple_group_count_out_raw_k2000"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "2023 global bias를 보존한 ball×strike×out residual, shrinkage 2000"

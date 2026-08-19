@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_055",
+  "decision": "reject",
+  "selected_variant": "main60_control",
+  "reason": "공식 학습 전용 구현과 불변성은 충족했지만 투수 효과의 train 상관 0.0916이 2024에서 0.0283으로 붕괴해 과적합했고 모든 TE 후보가 크게 악화; 후속 기준에 사용하지 않음",
+  "based_on": "EXP_054",
+  "reference_variant": "extra_w24_safe",
+  "ablation_summary": "main60 CatBoost를 고정하고 official-train-only 투수 TE, 투수+타자 TE, 투수+타자+팀 TE만 단계적으로 추가",
+  "selected_result": {
+    "variant": "main60_control",
+    "change": "control: 합법 main60 CatBoost",
+    "feature_set": "main60_cat_batter_team",
+    "feature_count": 60,
+    "model": "catboost_native_scale106_shift_m008",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2478203209,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 795.2564988937,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "main60_control",
+    "change": "control: 합법 main60 CatBoost",
+    "feature_set": "main60_cat_batter_team",
+    "feature_count": 60,
+    "model": "catboost_native_scale106_shift_m008",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2478203209,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 795.2564988937,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T02:32:01.527199+00:00",
+  "based_on_run_id": "RUN_001"
+}

@@ -1,0 +1,49 @@
+[study]
+id = "083_recent_form_blends"
+description = "평가 행 자체의 사전 제공 최근경기 통계 조합"
+hypothesis = "직전 1·3·5경기 성공·가운데 비율을 안정적으로 요약하면 개별 원시 horizon보다 일반화가 좋아진다."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "count_hands_control"
+
+[[variants]]
+name = "count_hands_control"
+model = "catboost_d8_decay085"
+features = "main69_cat_count_hands"
+change = "control: EXP_080 CPU count+hands base"
+
+[[variants]]
+name = "recent_success_blend"
+model = "catboost_d8_decay085"
+features = "main70_cat_count_hands_recent_success"
+change = "0.2×직전1 + 0.5×직전3 + 0.3×직전5 경기 성공률 추가"
+
+[[variants]]
+name = "recent_middle_blend"
+model = "catboost_d8_decay085"
+features = "main70_cat_count_hands_recent_middle"
+change = "동일 가중치의 최근 가운데공 비율 추가"
+
+[[variants]]
+name = "recent_both_blends"
+model = "catboost_d8_decay085"
+features = "main71_cat_count_hands_recent_both"
+change = "최근 성공률·가운데공 가중 요약 동시 추가"
+
+[[variants]]
+name = "recent_quality"
+model = "catboost_d8_decay085"
+features = "main70_cat_count_hands_recent_quality"
+change = "최근 성공률 요약에서 가운데공 요약을 뺀 quality 추가"
+
+[[variants]]
+name = "recent_spans"
+model = "catboost_d8_decay085"
+features = "main71_cat_count_hands_recent_spans"
+change = "직전1-직전5 성공률·가운데공 절대차 추가"
+
+[[variants]]
+name = "recent_all"
+model = "catboost_d8_decay085"
+features = "main74_cat_count_hands_recent_all"
+change = "다섯 최근 폼 요약을 모두 추가"

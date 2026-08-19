@@ -1,0 +1,117 @@
+{
+  "experiment_id": "EXP_008",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T15:58:08.472719+00:00",
+  "completed_at_utc": "2026-08-17T16:00:51.084236+00:00",
+  "config_hash": "3139b29cd826",
+  "based_on": "EXP_007",
+  "reference_variant": "catboost_control",
+  "ablation_summary": "native CatBoost를 고정하고 EDA 제안 피처를 결측, 스무딩, 경기 맥락, 카운트 묶음별로 각각 추가",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/008_eda_feature_groups/20260817T155808474432Z_3139b29cd826",
+  "control": "main55_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "add_count_state",
+  "best_mean_brier": 0.2479681399223257,
+  "best_delta_brier_vs_control": -4.112762044308771e-05,
+  "leaderboard": [
+    {
+      "variant": "add_count_state",
+      "change": "카운트·아웃 상태 파생 5개 추가",
+      "feature_set": "main55_plus_count",
+      "feature_count": 60,
+      "model": "catboost_native_300",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2479681399,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 736.0832056721,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -4.11276e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "add_smoothing",
+      "change": "누적 성공·reverse 스무딩과 log 표본 수 5개 추가",
+      "feature_set": "main55_plus_smoothing",
+      "feature_count": 60,
+      "model": "catboost_native_300",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2479852533,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 729.2325599452,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -2.40142e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "add_missing_flags",
+      "change": "최근·누적 이력 결측 플래그 3개 추가",
+      "feature_set": "main55_plus_missing",
+      "feature_count": 58,
+      "model": "catboost_native_300",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2479894298,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 727.5606642749,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -1.98377e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "main55_control",
+      "change": "control: main55",
+      "feature_set": "main55",
+      "feature_count": 55,
+      "model": "catboost_native_300",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2480092675,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 719.6194426463,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "add_context",
+      "change": "투수팀 기대승률·log LI·득점권 상호작용 4개 추가",
+      "feature_set": "main55_plus_context",
+      "feature_count": 59,
+      "model": "catboost_native_300",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2480483358,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 703.9800735434,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 3.90682e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "a526bded8a1594f84d99f1caed34d83bd543a883c6aa7275366b83f2024cba3b",
+  "git_commit": "80f20ba91e666fa40b7cbdb1647ff163e037bc50",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 162.4321482181549
+}

@@ -1,0 +1,47 @@
+{
+  "based_on": "EXP_003",
+  "reference_variant": "main55_control",
+  "ablation_summary": "main55와 CatBoost 파라미터를 고정하고 범주 전처리만 ordinal encoding에서 CatBoost native categorical로 변경",
+  "control": "ordinal_control",
+  "variants": [
+    {
+      "name": "ordinal_control",
+      "declared_change": "control: top_bottom, game_type, base_state를 ordinal 숫자로 변환",
+      "is_control": true,
+      "feature_count": 55,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "native_basic",
+      "declared_change": "동일 3개 범주를 CatBoost native categorical로 처리",
+      "is_control": false,
+      "feature_count": 55,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_default",
+          "variant": "catboost_native_300"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": null,
+          "variant": true
+        }
+      ]
+    }
+  ]
+}

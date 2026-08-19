@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T19:47:47.428658+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "0cd4317b64db",
+  "based_on": "EXP_045",
+  "reference_variant": "best_three",
+  "ablation_summary": "main80을 고정하고 CPU CatBoost 대비 LightGBM leaves31·63·127, HistGB leaves31·63, Logistic C0.01만 변경"
+}

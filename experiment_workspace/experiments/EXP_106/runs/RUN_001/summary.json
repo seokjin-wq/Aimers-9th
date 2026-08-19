@@ -1,0 +1,117 @@
+{
+  "experiment_id": "EXP_106",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T09:57:36.197806+00:00",
+  "completed_at_utc": "2026-08-18T10:02:23.063796+00:00",
+  "config_hash": "58b7515c1850",
+  "based_on": "EXP_068",
+  "reference_variant": "track_physics",
+  "ablation_summary": "Keep latest CPU main72 fixed; compare official pre-validation Trackman velocity pair, movement triple, extension alone, and all six physics context aggregates.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/106_trackman_physics_decomposition/20260818T095736207460Z_58b7515c1850",
+  "control": "same_pitchmix_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "track_velocity",
+  "best_mean_brier": 0.2475086986091755,
+  "best_delta_brier_vs_control": -3.168029050260035e-06,
+  "leaderboard": [
+    {
+      "variant": "track_velocity",
+      "change": "add official Trackman relative-speed and zone-speed context",
+      "feature_set": "main74_same_pitchmix_track_velocity",
+      "feature_count": 74,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475086986,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 920.0017699469,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -3.168e-06,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "same_pitchmix_control",
+      "change": "control: latest CPU main72 without Trackman context",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475118666,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 918.7335789118,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "track_extension",
+      "change": "add official Trackman extension context only",
+      "feature_set": "main73_same_pitchmix_track_extension",
+      "feature_count": 73,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475421965,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 906.5922679751,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 3.03298e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "track_movement",
+      "change": "add official Trackman spin, vertical-break, and horizontal-break context",
+      "feature_set": "main75_same_pitchmix_track_movement",
+      "feature_count": 75,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475501827,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 903.395312987,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 3.83161e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "track_all_physics",
+      "change": "add all six official Trackman physics context aggregates",
+      "feature_set": "main78_same_pitchmix_track_physics",
+      "feature_count": 78,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475834425,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 890.0811020628,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 7.15759e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "981f272f2cfbe85e3c59aaf5b64e212f6a186fcaa71176352adf828d554047b3",
+  "git_commit": "a108cbe6a48503bc68fb979395aa0e5fb70ef6cf",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 286.6730844974518
+}

@@ -1,0 +1,102 @@
+{
+  "experiment_id": "EXP_118",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T12:17:25.653385+00:00",
+  "completed_at_utc": "2026-08-18T12:22:01.750628+00:00",
+  "config_hash": "29b3fc0f7105",
+  "based_on": "EXP_117",
+  "reference_variant": "weights_50_35_15",
+  "ablation_summary": "Use main78 reliability features and CPU screening with season decay, subsample, affine postprocess, seed, and all other parameters fixed; compare depth8/300 to depth7/450, depth8/450 low-lr, and depth9/220.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/118_reliability_capacity_refresh/20260818T121725664124Z_29b3fc0f7105",
+  "control": "d8_i300_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "d8_i300_control",
+  "best_mean_brier": 0.2474879925802901,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "d8_i300_control",
+      "change": "control: reliability CPU depth8, 300 trees, lr0.035",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "catboost_d8_decay085_sub08",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2474879926,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 928.2905828931,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "d8_i450_lr025",
+      "change": "depth8/300/lr.035 -> depth8/450/lr.025 schedule",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "catboost_d8_i450_lr025_decay085_sub08",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475041967,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 921.8039195102,
+      "changed_fields_vs_control": "['model.name', 'model.params.iterations', 'model.params.learning_rate']",
+      "delta_brier_vs_control": 1.62041e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "d9_i220_lr03",
+      "change": "depth8/300/lr.035 -> depth9/220/lr.03 schedule",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "catboost_d9_i220_lr03_decay085_sub08",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.247536362,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 908.9278431813,
+      "changed_fields_vs_control": "['model.name', 'model.params.depth', 'model.params.iterations', 'model.params.learning_rate']",
+      "delta_brier_vs_control": 4.83695e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "d7_i450_lr03",
+      "change": "depth8/300/lr.035 -> depth7/450/lr.03 schedule",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "catboost_d7_i450_lr03_decay085_sub08",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475412224,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 906.9822167263,
+      "changed_fields_vs_control": "['model.name', 'model.params.depth', 'model.params.iterations', 'model.params.learning_rate']",
+      "delta_brier_vs_control": 5.32298e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "40a418af6ed23fb1d5d79d8b7a5e7dc5d0c5323154dda7508bc171b9dd001008",
+  "git_commit": "31f4b8303592bc3a303201f51114579b900329c1",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 275.90340971946716
+}

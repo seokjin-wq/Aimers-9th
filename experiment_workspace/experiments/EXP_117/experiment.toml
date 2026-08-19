@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_117"
+title = "Reliability triple blend-weight refinement"
+hypothesis = "The reliability-enhanced CPU component may deserve more weight than the original 45/40/15 allocation, improving the corrected triple blend."
+change_scope = "model"
+study_config = "experiments/EXP_117/study.toml"
+based_on = "EXP_116"
+reference_variant = "triple_history_reliability"
+ablation_summary = "Fix main78 reliability features, all component parameters, shifts, count correction, and ExtraTrees weight where applicable; vary only CPU/GPU/Extra blend weights around 45/40/15."
+tags = ["compliance", "row-independent", "blend", "weights", "refinement"]
+created_at_utc = "2026-08-18T12:02:42.648395+00:00"

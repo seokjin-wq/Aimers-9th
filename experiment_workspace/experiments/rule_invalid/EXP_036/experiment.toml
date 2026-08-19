@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_036"
+title = "투수 reverse 최근 투구 복원"
+hypothesis = "누적 reverse 비율 차분으로 복원한 최근 반대 제구 상태가 성공 rolling과 독립적인 단기 위험 신호를 제공한다"
+change_scope = "features"
+study_config = "experiments/EXP_036/study.toml"
+based_on = "EXP_035"
+reference_variant = "add_all_extensions"
+ablation_summary = "main73과 GPU CatBoost를 고정하고 투수 reverse 직전·3·5·10·20·50투구 창의 포함 조합만 변경"
+tags = ["asof", "reverse", "rolling"]
+created_at_utc = "2026-08-17T18:33:29.723669+00:00"

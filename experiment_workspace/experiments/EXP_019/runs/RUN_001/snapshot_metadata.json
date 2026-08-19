@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T16:53:31.771543+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "cfbe63f5735b",
+  "based_on": "EXP_018",
+  "reference_variant": "d6_i300_control",
+  "ablation_summary": "main55+count와 CatBoost 설정을 고정하고 pitcher/batter/team/hand ID를 한 종류씩만 native categorical로 추가"
+}

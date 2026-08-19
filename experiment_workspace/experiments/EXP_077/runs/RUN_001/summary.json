@@ -1,0 +1,117 @@
+{
+  "experiment_id": "EXP_077",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T05:00:19.067784+00:00",
+  "completed_at_utc": "2026-08-18T05:03:45.536420+00:00",
+  "config_hash": "4fed9cc4a8c6",
+  "based_on": "EXP_072",
+  "reference_variant": "main69_control",
+  "ablation_summary": "Fix main69; compare Logloss d8 against RMSE d7/d8 and affine-scaled RMSE d8, all with season decay 0.85.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/077_direct_brier_revisit/20260818T050019074391Z_4fed9cc4a8c6",
+  "control": "logloss_d8_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "logloss_d8_control",
+  "best_mean_brier": 0.2475377207264107,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "logloss_d8_control",
+      "change": "control: Logloss depth8 300",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475377207,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 908.3839506927,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "rmse_d8_scaled",
+      "change": "RMSE depth8에 classifier와 동일한 scale1.06 shift-0.008",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "catreg_d8_i300_decay85_scaled",
+      "model_family": "catboost_regressor",
+      "fold_count": 1,
+      "mean_brier": 0.2475650235,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 897.454381803,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.params.eval_metric', 'model.params.loss_function']",
+      "delta_brier_vs_control": 2.73028e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "rmse_d9_i200",
+      "change": "RMSE 회귀 depth9 200",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "catreg_d9_i200_decay85",
+      "model_family": "catboost_regressor",
+      "fold_count": 1,
+      "mean_brier": 0.2476475714,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 864.4097128066,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.loss_function', 'model.prediction_scale', 'model.prediction_shift']",
+      "delta_brier_vs_control": 0.0001098507,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "rmse_d7_i500",
+      "change": "RMSE 회귀 depth7 500",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "catreg_d7_i500_decay85",
+      "model_family": "catboost_regressor",
+      "fold_count": 1,
+      "mean_brier": 0.2476611801,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 858.9620381609,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.learning_rate', 'model.params.loss_function', 'model.prediction_scale', 'model.prediction_shift']",
+      "delta_brier_vs_control": 0.0001234594,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "rmse_d8_i300",
+      "change": "RMSE 회귀 depth8 300",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "catreg_d8_i300_decay85",
+      "model_family": "catboost_regressor",
+      "fold_count": 1,
+      "mean_brier": 0.2476648221,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 857.5040883602,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.params.eval_metric', 'model.params.loss_function', 'model.prediction_scale', 'model.prediction_shift']",
+      "delta_brier_vs_control": 0.0001271014,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "87ef553cfb50c08f392d1d8499efbefc602e6cc45c768dbfae23079e14695843",
+  "git_commit": "e15b25d042b9f09ba59ebb12ade8b67aa15e9976",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 206.27992010116577
+}

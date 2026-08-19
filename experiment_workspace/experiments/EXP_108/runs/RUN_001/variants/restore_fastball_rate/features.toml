@@ -1,0 +1,8 @@
+[features]
+name = "main73_restore_fastball_rate"
+description = "EXP_108 main72 plus restored asof_pitcher_fastball_rate"
+include_all_raw = true
+exclude = ["run_total_before","score_diff_home","asof_pitcher_pitchmix_n","asof_pitcher_strike_rate","asof_pitcher_prev5_game_success_rate"]
+custom = ["pitcher_gap_prev1_career","pitcher_gap_prev3_career","pitcher_gap_prev5_career","win_expectancy_dist50","count_diff","count_total","same_hand_matchup","pressure_x_recent_form","runners_x_li","batter_success_rate_shrunk","reverse_rate_x_li","middle_rate_x_count_diff","late_inning_x_recent_form","offspeed_x_li","count_state","is_full_count","has_two_strikes","has_three_balls","has_two_outs","pitcher_season_n","pitcher_season_success_rate_k20","pitcher_season_reverse_rate_k20","pitcher_season_middle_rate_k20","pitcher_season_ball_rate_k20","pitcher_season_strike_rate_k20","batter_season_n","batter_season_success_rate_k20","batter_season_middle_rate_k20","same_hand_x_fastball","same_hand_x_breaking","same_hand_x_offspeed"]
+categorical = ["top_bottom","game_type","base_state","batter_team_id","count_state","pitcher_hand","batter_hand"]
+expected_count = 73

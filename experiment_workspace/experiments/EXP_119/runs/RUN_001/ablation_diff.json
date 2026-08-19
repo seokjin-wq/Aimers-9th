@@ -1,0 +1,84 @@
+{
+  "based_on": "EXP_117",
+  "reference_variant": "weights_50_35_15",
+  "ablation_summary": "Fix main78 features, component models, 50/35/15 weights, ExtraTrees shift, count correction, and scales; vary only CatBoost component shift among -0.0090, -0.0095, and -0.0100.",
+  "control": "catshift_m0095_control",
+  "variants": [
+    {
+      "name": "catshift_m0095_control",
+      "declared_change": "control: EXP_117 winner cat_shift=-0.0095",
+      "is_control": true,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "catshift_m009",
+      "declared_change": "cat_shift -0.0095 -> -0.0090 only",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_shift",
+          "control": -0.0095,
+          "variant": -0.009
+        },
+        {
+          "field": "model.name",
+          "control": "triple_count_m0095_sub08_w50_35_15",
+          "variant": "triple_count_sub08_w50_35_15_shift_m009"
+        }
+      ]
+    },
+    {
+      "name": "catshift_m010",
+      "declared_change": "cat_shift -0.0095 -> -0.0100 only",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_shift",
+          "control": -0.0095,
+          "variant": -0.01
+        },
+        {
+          "field": "model.name",
+          "control": "triple_count_m0095_sub08_w50_35_15",
+          "variant": "triple_count_sub08_w50_35_15_shift_m010"
+        }
+      ]
+    }
+  ]
+}

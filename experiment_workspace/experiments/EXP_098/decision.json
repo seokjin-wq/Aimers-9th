@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_098",
+  "decision": "keep_control",
+  "selected_variant": "depth8_300_control",
+  "reason": "The current depth8/300-tree CPU CatBoost remained best at BSS 918.734. All shallower longer schedules worsened Brier, so retain current capacity.",
+  "based_on": "EXP_095",
+  "reference_variant": "all_three",
+  "ablation_summary": "Keep main72 features, season decay 0.85, probability scale/shift, sampling, and seed fixed; compare depth/iteration/learning-rate schedules from depth 5 through 8.",
+  "selected_result": {
+    "variant": "depth8_300_control",
+    "change": "control: current depth8 300 trees lr0.035",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475118666,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 918.7335789118,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "depth8_300_control",
+    "change": "control: current depth8 300 trees lr0.035",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475118666,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 918.7335789118,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T08:29:35.957194+00:00",
+  "based_on_run_id": "RUN_001"
+}

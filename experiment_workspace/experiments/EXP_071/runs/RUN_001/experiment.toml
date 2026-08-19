@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_071"
+title = "시즌 상태 선수 ID 범주 재검증"
+hypothesis = "현재 시즌 상태로 시간 변화가 분리된 뒤에는 선수 ID의 native categorical 효과가 안정적으로 남은 개인차를 포착한다"
+change_scope = "features"
+study_config = "experiments/EXP_071/study.toml"
+based_on = "EXP_070"
+reference_variant = "cpu45_gpu40_extra15"
+ablation_summary = "main69 decay85에서 pitcher, batter, 둘 다, pitcher+양팀 categorical만 변경"
+tags = ["rule_compliant", "categorical_id"]
+created_at_utc = "2026-08-18T03:59:58.855192+00:00"

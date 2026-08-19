@@ -1,0 +1,409 @@
+{
+  "based_on": "EXP_026",
+  "reference_variant": "count_k500",
+  "ablation_summary": "main60과 affine을 고정하고 GPU depth 6~8, iterations 300~600, learning rate 0.025~0.05를 비교",
+  "control": "cpu_control",
+  "variants": [
+    {
+      "name": "cpu_control",
+      "declared_change": "control: CPU depth6 400 lr0.04",
+      "is_control": true,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "gpu_d6_i300",
+      "declared_change": "GPU depth6 300 lr0.05 border128",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_top_d6_i400_lr040",
+          "variant": "catboost_gpu_d6_i300_lr050_b128"
+        },
+        {
+          "field": "model.params.bagging_temperature",
+          "control": null,
+          "variant": 1.0
+        },
+        {
+          "field": "model.params.bootstrap_type",
+          "control": null,
+          "variant": "Bayesian"
+        },
+        {
+          "field": "model.params.border_count",
+          "control": null,
+          "variant": 128
+        },
+        {
+          "field": "model.params.devices",
+          "control": null,
+          "variant": "0"
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 400,
+          "variant": 300
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.04,
+          "variant": 0.05
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.7,
+          "variant": null
+        },
+        {
+          "field": "model.params.task_type",
+          "control": "CPU",
+          "variant": "GPU"
+        },
+        {
+          "field": "model.params.thread_count",
+          "control": 8,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "gpu_d6_i500",
+      "declared_change": "GPU depth6 500 lr0.03 border128",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_top_d6_i400_lr040",
+          "variant": "catboost_gpu_d6_i500_lr030_b128"
+        },
+        {
+          "field": "model.params.bagging_temperature",
+          "control": null,
+          "variant": 1.0
+        },
+        {
+          "field": "model.params.bootstrap_type",
+          "control": null,
+          "variant": "Bayesian"
+        },
+        {
+          "field": "model.params.border_count",
+          "control": null,
+          "variant": 128
+        },
+        {
+          "field": "model.params.devices",
+          "control": null,
+          "variant": "0"
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 400,
+          "variant": 500
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.04,
+          "variant": 0.03
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.7,
+          "variant": null
+        },
+        {
+          "field": "model.params.task_type",
+          "control": "CPU",
+          "variant": "GPU"
+        },
+        {
+          "field": "model.params.thread_count",
+          "control": 8,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "gpu_d6_i600",
+      "declared_change": "GPU depth6 600 lr0.025 border128",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_top_d6_i400_lr040",
+          "variant": "catboost_gpu_d6_i600_lr025_b128"
+        },
+        {
+          "field": "model.params.bagging_temperature",
+          "control": null,
+          "variant": 1.0
+        },
+        {
+          "field": "model.params.bootstrap_type",
+          "control": null,
+          "variant": "Bayesian"
+        },
+        {
+          "field": "model.params.border_count",
+          "control": null,
+          "variant": 128
+        },
+        {
+          "field": "model.params.devices",
+          "control": null,
+          "variant": "0"
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 400,
+          "variant": 600
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.04,
+          "variant": 0.025
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.7,
+          "variant": null
+        },
+        {
+          "field": "model.params.task_type",
+          "control": "CPU",
+          "variant": "GPU"
+        },
+        {
+          "field": "model.params.thread_count",
+          "control": 8,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "gpu_d7_i300",
+      "declared_change": "GPU depth7 300 lr0.04 border128",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_top_d6_i400_lr040",
+          "variant": "catboost_gpu_d7_i300_lr040_b128"
+        },
+        {
+          "field": "model.params.bagging_temperature",
+          "control": null,
+          "variant": 1.0
+        },
+        {
+          "field": "model.params.bootstrap_type",
+          "control": null,
+          "variant": "Bayesian"
+        },
+        {
+          "field": "model.params.border_count",
+          "control": null,
+          "variant": 128
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": 7
+        },
+        {
+          "field": "model.params.devices",
+          "control": null,
+          "variant": "0"
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 400,
+          "variant": 300
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.7,
+          "variant": null
+        },
+        {
+          "field": "model.params.task_type",
+          "control": "CPU",
+          "variant": "GPU"
+        },
+        {
+          "field": "model.params.thread_count",
+          "control": 8,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "gpu_d8_i250",
+      "declared_change": "GPU depth8 250 lr0.04 border128",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_top_d6_i400_lr040",
+          "variant": "catboost_gpu_d8_i250_lr040_b128"
+        },
+        {
+          "field": "model.params.bagging_temperature",
+          "control": null,
+          "variant": 1.0
+        },
+        {
+          "field": "model.params.bootstrap_type",
+          "control": null,
+          "variant": "Bayesian"
+        },
+        {
+          "field": "model.params.border_count",
+          "control": null,
+          "variant": 128
+        },
+        {
+          "field": "model.params.depth",
+          "control": 6,
+          "variant": 8
+        },
+        {
+          "field": "model.params.devices",
+          "control": null,
+          "variant": "0"
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 400,
+          "variant": 250
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.7,
+          "variant": null
+        },
+        {
+          "field": "model.params.task_type",
+          "control": "CPU",
+          "variant": "GPU"
+        },
+        {
+          "field": "model.params.thread_count",
+          "control": 8,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "gpu_d6_i400_b64",
+      "declared_change": "GPU depth6 400 lr0.04 border64",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_top_d6_i400_lr040",
+          "variant": "catboost_gpu_d6_i400_lr040_b64"
+        },
+        {
+          "field": "model.params.bagging_temperature",
+          "control": null,
+          "variant": 1.0
+        },
+        {
+          "field": "model.params.bootstrap_type",
+          "control": null,
+          "variant": "Bayesian"
+        },
+        {
+          "field": "model.params.border_count",
+          "control": null,
+          "variant": 64
+        },
+        {
+          "field": "model.params.devices",
+          "control": null,
+          "variant": "0"
+        },
+        {
+          "field": "model.params.subsample",
+          "control": 0.7,
+          "variant": null
+        },
+        {
+          "field": "model.params.task_type",
+          "control": "CPU",
+          "variant": "GPU"
+        },
+        {
+          "field": "model.params.thread_count",
+          "control": 8,
+          "variant": null
+        }
+      ]
+    }
+  ]
+}

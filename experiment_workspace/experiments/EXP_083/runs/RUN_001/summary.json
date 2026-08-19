@@ -1,0 +1,147 @@
+{
+  "experiment_id": "EXP_083",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T05:49:25.529546+00:00",
+  "completed_at_utc": "2026-08-18T05:55:54.455553+00:00",
+  "config_hash": "4dffdaaab882",
+  "based_on": "EXP_080",
+  "reference_variant": "count_hands_promoted",
+  "ablation_summary": "Fix the EXP_080 count+hands CPU base; add only row-local weighted recent success, middle, quality, or horizon-spread features.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/083_recent_form_blends/20260818T054925536782Z_4dffdaaab882",
+  "control": "count_hands_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "count_hands_control",
+  "best_mean_brier": 0.2475158585285612,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "count_hands_control",
+      "change": "control: EXP_080 CPU count+hands base",
+      "feature_set": "main69_cat_count_hands",
+      "feature_count": 69,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475158585,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 917.135588661,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "recent_success_blend",
+      "change": "0.2×직전1 + 0.5×직전3 + 0.3×직전5 경기 성공률 추가",
+      "feature_set": "main70_cat_count_hands_recent_success",
+      "feature_count": 70,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475568579,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 900.7231651105,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 4.09994e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "recent_spans",
+      "change": "직전1-직전5 성공률·가운데공 절대차 추가",
+      "feature_set": "main71_cat_count_hands_recent_spans",
+      "feature_count": 71,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.247557198,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 900.5870174863,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 4.13395e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "recent_all",
+      "change": "다섯 최근 폼 요약을 모두 추가",
+      "feature_set": "main74_cat_count_hands_recent_all",
+      "feature_count": 74,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475655072,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 897.2607611076,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 4.96487e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "recent_middle_blend",
+      "change": "동일 가중치의 최근 가운데공 비율 추가",
+      "feature_set": "main70_cat_count_hands_recent_middle",
+      "feature_count": 70,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475685802,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 896.0306242498,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 5.27217e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "recent_quality",
+      "change": "최근 성공률 요약에서 가운데공 요약을 뺀 quality 추가",
+      "feature_set": "main70_cat_count_hands_recent_quality",
+      "feature_count": 70,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.247570387,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 895.3073477591,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 5.45285e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "recent_both_blends",
+      "change": "최근 성공률·가운데공 가중 요약 동시 추가",
+      "feature_set": "main71_cat_count_hands_recent_both",
+      "feature_count": 71,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475800806,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 891.4269010715,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 6.42221e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "2a64968bbaafbd3b2ef97ab33222d2007e4021f1cf1b002e489f294edb5f6189",
+  "git_commit": "e15b25d042b9f09ba59ebb12ade8b67aa15e9976",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 388.73615407943726
+}

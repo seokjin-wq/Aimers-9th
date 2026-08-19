@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_020",
+  "decision": "adopt",
+  "selected_variant": "scale106_shift008",
+  "reason": "scale 1.06, shift -0.008이 Brier 0.2478203209, BSS 795.256으로 affine 후보 중 최고였고 control보다 0.000010521 개선했다.",
+  "based_on": "EXP_019",
+  "reference_variant": "batter_team_cat",
+  "ablation_summary": "batter-team categorical CatBoost와 피처를 고정하고 prediction_scale 및 prediction_shift만 변경",
+  "selected_result": {
+    "variant": "scale106_shift008",
+    "change": "scale 1.06, shift -0.008",
+    "feature_set": "main60_cat_batter_team",
+    "feature_count": 60,
+    "model": "catboost_native_scale106_shift_m008",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2478203209,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 795.2564988937,
+    "changed_fields_vs_control": "['model.name', 'model.prediction_scale', 'model.prediction_shift']",
+    "delta_brier_vs_control": -1.05214e-05,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "scale100_shift010_control",
+    "change": "control: scale 1.00, shift -0.010",
+    "feature_set": "main60_cat_batter_team",
+    "feature_count": 60,
+    "model": "catboost_native_shift_m010",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2478308423,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 791.0447010075,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-17T17:04:05.540835+00:00",
+  "based_on_run_id": "RUN_001"
+}

@@ -1,0 +1,43 @@
+[study]
+id = "040_sequence_diverse_models"
+description = "순차 피처 이종 모델 후보"
+hypothesis = "순차 피처 ExtraTrees와 seed 평균이 CatBoost 오차를 보완한다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "cat_single_control"
+
+[[variants]]
+name = "cat_single_control"
+model = "catboost_gpu_d6_i900_lr020_b128"
+features = "main85_add_plate_context"
+change = "control: CatBoost depth6 900"
+
+[[variants]]
+name = "cat_ensemble3"
+model = "catboost_gpu_d6_i900_ensemble3"
+features = "main85_add_plate_context"
+change = "동일 CatBoost 3-seed 확률 평균"
+
+[[variants]]
+name = "extra_leaf5"
+model = "extratrees_leaf5"
+features = "main85_add_plate_context"
+change = "ExtraTrees leaf5"
+
+[[variants]]
+name = "extra_leaf10"
+model = "extratrees_leaf10"
+features = "main85_add_plate_context"
+change = "ExtraTrees leaf10"
+
+[[variants]]
+name = "extra_leaf20"
+model = "extratrees_leaf20"
+features = "main85_add_plate_context"
+change = "ExtraTrees leaf20"
+
+[[variants]]
+name = "extra_leaf50"
+model = "extratrees_leaf50"
+features = "main85_add_plate_context"
+change = "ExtraTrees leaf50"

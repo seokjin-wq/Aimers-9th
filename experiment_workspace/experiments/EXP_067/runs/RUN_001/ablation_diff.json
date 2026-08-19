@@ -1,0 +1,495 @@
+{
+  "based_on": "EXP_062",
+  "reference_variant": "extra_w18",
+  "ablation_summary": "main69 depth8 decay85 base 고정, 2023 잔차모델 보정 가중치 0.25,0.5,0.75,1.0 비교",
+  "control": "base_control",
+  "variants": [
+    {
+      "name": "base_control",
+      "declared_change": "control: EXP_060 depth8 decay85",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "residual_w025",
+      "declared_change": "2023 OOT 잔차 예측의 25% 적용",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.base_params",
+          "control": null,
+          "variant": {
+            "iterations": 300,
+            "depth": 8,
+            "learning_rate": 0.035,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.base_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.base_season_decay",
+          "control": null,
+          "variant": 0.85
+        },
+        {
+          "field": "model.base_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_residual_correction"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "cat_residual_w025"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 300,
+            "depth": 8,
+            "learning_rate": 0.035,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        },
+        {
+          "field": "model.residual_params",
+          "control": null,
+          "variant": {
+            "iterations": 200,
+            "depth": 4,
+            "learning_rate": 0.03,
+            "l2_leaf_reg": 10.0,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "RMSE",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.residual_weight",
+          "control": null,
+          "variant": 0.25
+        },
+        {
+          "field": "model.season_decay",
+          "control": 0.85,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "residual_w050",
+      "declared_change": "2023 OOT 잔차 예측의 50% 적용",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.base_params",
+          "control": null,
+          "variant": {
+            "iterations": 300,
+            "depth": 8,
+            "learning_rate": 0.035,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.base_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.base_season_decay",
+          "control": null,
+          "variant": 0.85
+        },
+        {
+          "field": "model.base_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_residual_correction"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "cat_residual_w050"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 300,
+            "depth": 8,
+            "learning_rate": 0.035,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        },
+        {
+          "field": "model.residual_params",
+          "control": null,
+          "variant": {
+            "iterations": 200,
+            "depth": 4,
+            "learning_rate": 0.03,
+            "l2_leaf_reg": 10.0,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "RMSE",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.residual_weight",
+          "control": null,
+          "variant": 0.5
+        },
+        {
+          "field": "model.season_decay",
+          "control": 0.85,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "residual_w075",
+      "declared_change": "2023 OOT 잔차 예측의 75% 적용",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.base_params",
+          "control": null,
+          "variant": {
+            "iterations": 300,
+            "depth": 8,
+            "learning_rate": 0.035,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.base_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.base_season_decay",
+          "control": null,
+          "variant": 0.85
+        },
+        {
+          "field": "model.base_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_residual_correction"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "cat_residual_w075"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 300,
+            "depth": 8,
+            "learning_rate": 0.035,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        },
+        {
+          "field": "model.residual_params",
+          "control": null,
+          "variant": {
+            "iterations": 200,
+            "depth": 4,
+            "learning_rate": 0.03,
+            "l2_leaf_reg": 10.0,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "RMSE",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.residual_weight",
+          "control": null,
+          "variant": 0.75
+        },
+        {
+          "field": "model.season_decay",
+          "control": 0.85,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "residual_w100",
+      "declared_change": "2023 OOT 잔차 예측을 전부 적용",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.base_params",
+          "control": null,
+          "variant": {
+            "iterations": 300,
+            "depth": 8,
+            "learning_rate": 0.035,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.base_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.base_season_decay",
+          "control": null,
+          "variant": 0.85
+        },
+        {
+          "field": "model.base_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_residual_correction"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "cat_residual_w100"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 300,
+            "depth": 8,
+            "learning_rate": 0.035,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        },
+        {
+          "field": "model.residual_params",
+          "control": null,
+          "variant": {
+            "iterations": 200,
+            "depth": 4,
+            "learning_rate": 0.03,
+            "l2_leaf_reg": 10.0,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "RMSE",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.residual_weight",
+          "control": null,
+          "variant": 1.0
+        },
+        {
+          "field": "model.season_decay",
+          "control": 0.85,
+          "variant": null
+        }
+      ]
+    }
+  ]
+}

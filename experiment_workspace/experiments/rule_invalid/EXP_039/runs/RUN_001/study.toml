@@ -1,0 +1,37 @@
+[study]
+id = "039_sequence_capacity"
+description = "순차 피처 CatBoost 용량 재탐색"
+hypothesis = "main85는 기존 모델보다 다른 깊이·학습 길이가 적합하다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "d6_i600_control"
+
+[[variants]]
+name = "d6_i600_control"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main85_add_plate_context"
+change = "control: depth6 600 lr0.025"
+
+[[variants]]
+name = "d5_i800"
+model = "catboost_gpu_d5_i800_lr025_b128"
+features = "main85_add_plate_context"
+change = "depth5 800 lr0.025"
+
+[[variants]]
+name = "d6_i900"
+model = "catboost_gpu_d6_i900_lr020_b128"
+features = "main85_add_plate_context"
+change = "depth6 900 lr0.020"
+
+[[variants]]
+name = "d7_i600"
+model = "catboost_gpu_d7_i600_lr025_b128"
+features = "main85_add_plate_context"
+change = "depth7 600 lr0.025"
+
+[[variants]]
+name = "d8_i450"
+model = "catboost_gpu_d8_i450_lr025_b128"
+features = "main85_add_plate_context"
+change = "depth8 450 lr0.025"

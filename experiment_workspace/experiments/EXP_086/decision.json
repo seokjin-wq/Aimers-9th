@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_086",
+  "decision": "adopt",
+  "selected_variant": "batter_exact",
+  "reason": "타자 exact snapshot만 Brier 0.2475118666→0.2475094620, BSS 918.73→919.70으로 개선했다. 투수 exact 및 동시 exact는 악화해 타자 쪽만 채택한다.",
+  "based_on": "EXP_084",
+  "reference_variant": "same_hand_pitchmix",
+  "ablation_summary": "Fix EXP_084 CPU features; replace approximate pitcher/batter current-season success and count with exact completed-season snapshots using official training labels only, individually and together.",
+  "selected_result": {
+    "variant": "batter_exact",
+    "change": "타자 시즌 n·success만 공식 마지막 타깃으로 정확히 닫음",
+    "feature_set": "main72_same_pitchmix_batter_exact",
+    "feature_count": 72,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.247509462,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 919.6961758836,
+    "changed_fields_vs_control": "['features.custom', 'features.description', 'features.name']",
+    "delta_brier_vs_control": -2.4046e-06,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "approximate_control",
+    "change": "control: EXP_084 approximate season snapshot",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475118666,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 918.7335789118,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T06:15:39.351843+00:00",
+  "based_on_run_id": "RUN_001"
+}

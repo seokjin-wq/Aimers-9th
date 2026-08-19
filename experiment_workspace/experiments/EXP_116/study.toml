@@ -1,0 +1,19 @@
+[study]
+id = "116_promote_history_reliability"
+description = "History reliability promotion to corrected triple blend"
+hypothesis = "The six row-local reliability features that improved CPU BSS by 6.48 will transfer into the EXP_111 corrected triple blend and set a new compliant best."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "triple_main72_control"
+
+[[variants]]
+name = "triple_main72_control"
+model = "triple_group_count_k500_catshift_m0095_cpu_sub08"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: EXP_111 new-best triple on main72"
+
+[[variants]]
+name = "triple_history_reliability"
+model = "triple_group_count_k500_catshift_m0095_cpu_sub08"
+features = "main78_history_reliability"
+change = "add six EXP_112 row-local history reliability features only"

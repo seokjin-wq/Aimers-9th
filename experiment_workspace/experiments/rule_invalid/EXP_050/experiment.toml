@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_050"
+title = "global200 CPU CatBoost 용량 탐색"
+hypothesis = "강한 전역 순차 피처가 추가된 main81은 기존 400-tree보다 긴 학습 또는 다른 depth에서 잔여 신호를 더 학습한다"
+change_scope = "model"
+study_config = "experiments/EXP_050/study.toml"
+based_on = "EXP_049"
+reference_variant = "global200_control"
+ablation_summary = "main81 global200과 affine을 고정하고 CPU CatBoost depth5~8, iterations300~800, learning_rate0.02~0.04만 변경"
+tags = ["cpu", "catboost", "capacity"]
+created_at_utc = "2026-08-17T20:11:52.352885+00:00"

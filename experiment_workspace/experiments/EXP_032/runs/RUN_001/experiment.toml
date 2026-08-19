@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_032"
+title = "상황별 분리 CatBoost"
+hypothesis = "game_type 또는 투타 상황별 별도 모델이 전역 트리보다 조건부 상호작용을 더 잘 학습한다"
+change_scope = "model"
+study_config = "experiments/EXP_032/study.toml"
+based_on = "EXP_031"
+reference_variant = "ensemble_3seed"
+ablation_summary = "GPU CatBoost와 main60을 고정하고 game_type, top_bottom, pitcher_hand 및 game_type×pitcher_hand로 학습 데이터를 분리"
+tags = ["segmentation", "interactions", "gpu"]
+created_at_utc = "2026-08-17T18:14:46.340000+00:00"

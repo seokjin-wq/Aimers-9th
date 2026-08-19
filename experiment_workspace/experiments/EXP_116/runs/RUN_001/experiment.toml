@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_116"
+title = "History reliability promotion to corrected triple blend"
+hypothesis = "The six row-local reliability features that improved CPU BSS by 6.48 will transfer into the EXP_111 corrected triple blend and set a new compliant best."
+change_scope = "features"
+study_config = "experiments/EXP_116/study.toml"
+based_on = "EXP_111"
+reference_variant = "triple_cpu_sub08"
+ablation_summary = "Keep the full EXP_111 triple model, CPU subsample=0.8, weights, calibration, and count residual correction fixed; change only main72 versus main78 reliability features."
+tags = ["compliance", "row-independent", "reliability", "blend", "promotion"]
+created_at_utc = "2026-08-18T11:37:29.676585+00:00"

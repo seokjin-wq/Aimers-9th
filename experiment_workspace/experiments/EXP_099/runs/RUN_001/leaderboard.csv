@@ -1,0 +1,6 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+decay085_control,control: current season decay 0.85,main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay085,catboost,1,0.2475118666382257,0.0,918.7335789118011,[],0.0,0/1
+decay0875,season decay 0.875,main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay0875,catboost,1,0.2475291930734038,0.0,911.797648270063,"['model.name', 'model.season_decay']",1.7326435178127708e-05,0/1
+decay0825,season decay 0.825,main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay0825,catboost,1,0.2475347860516912,0.0,909.5587278526108,"['model.name', 'model.season_decay']",2.29194134654942e-05,0/1
+decay090,season decay 0.90,main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay090,catboost,1,0.2475361436773852,0.0,909.0152578569488,"['model.name', 'model.season_decay']",2.4277039159498196e-05,0/1
+decay080,season decay 0.80,main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay080,catboost,1,0.2475446322446026,0.0,905.6172066789547,"['model.name', 'model.season_decay']",3.276560637685555e-05,0/1

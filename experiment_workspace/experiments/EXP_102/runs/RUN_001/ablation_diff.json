@@ -1,0 +1,240 @@
+{
+  "based_on": "EXP_101",
+  "reference_variant": "catshift_m0095",
+  "ablation_summary": "Keep all component models, features, CatBoost shift -0.0095, and train-only count-k500 calibration fixed; vary only CPU/GPU/ExtraTrees weights around 45/40/15.",
+  "control": "w45_40_15_control",
+  "variants": [
+    {
+      "name": "w45_40_15_control",
+      "declared_change": "control: EXP_101 CPU45 GPU40 Extra15",
+      "is_control": true,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "w50_35_15",
+      "declared_change": "CPU50 GPU35 Extra15",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cpu_weight",
+          "control": 0.45,
+          "variant": 0.5
+        },
+        {
+          "field": "model.gpu_weight",
+          "control": 0.4,
+          "variant": 0.35
+        },
+        {
+          "field": "model.name",
+          "control": "triple_group_count_k500_catshift_m0095",
+          "variant": "triple_group_count_k500_shift_m0095_w50_35_15"
+        }
+      ]
+    },
+    {
+      "name": "w40_45_15",
+      "declared_change": "CPU40 GPU45 Extra15",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cpu_weight",
+          "control": 0.45,
+          "variant": 0.4
+        },
+        {
+          "field": "model.gpu_weight",
+          "control": 0.4,
+          "variant": 0.45
+        },
+        {
+          "field": "model.name",
+          "control": "triple_group_count_k500_catshift_m0095",
+          "variant": "triple_group_count_k500_shift_m0095_w40_45_15"
+        }
+      ]
+    },
+    {
+      "name": "w45_35_20",
+      "declared_change": "CPU45 GPU35 Extra20",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.extra_weight",
+          "control": 0.15,
+          "variant": 0.2
+        },
+        {
+          "field": "model.gpu_weight",
+          "control": 0.4,
+          "variant": 0.35
+        },
+        {
+          "field": "model.name",
+          "control": "triple_group_count_k500_catshift_m0095",
+          "variant": "triple_group_count_k500_shift_m0095_w45_35_20"
+        }
+      ]
+    },
+    {
+      "name": "w50_40_10",
+      "declared_change": "CPU50 GPU40 Extra10",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cpu_weight",
+          "control": 0.45,
+          "variant": 0.5
+        },
+        {
+          "field": "model.extra_weight",
+          "control": 0.15,
+          "variant": 0.1
+        },
+        {
+          "field": "model.name",
+          "control": "triple_group_count_k500_catshift_m0095",
+          "variant": "triple_group_count_k500_shift_m0095_w50_40_10"
+        }
+      ]
+    },
+    {
+      "name": "w40_50_10",
+      "declared_change": "CPU40 GPU50 Extra10",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cpu_weight",
+          "control": 0.45,
+          "variant": 0.4
+        },
+        {
+          "field": "model.extra_weight",
+          "control": 0.15,
+          "variant": 0.1
+        },
+        {
+          "field": "model.gpu_weight",
+          "control": 0.4,
+          "variant": 0.5
+        },
+        {
+          "field": "model.name",
+          "control": "triple_group_count_k500_catshift_m0095",
+          "variant": "triple_group_count_k500_shift_m0095_w40_50_10"
+        }
+      ]
+    },
+    {
+      "name": "w50_30_20",
+      "declared_change": "CPU50 GPU30 Extra20",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cpu_weight",
+          "control": 0.45,
+          "variant": 0.5
+        },
+        {
+          "field": "model.extra_weight",
+          "control": 0.15,
+          "variant": 0.2
+        },
+        {
+          "field": "model.gpu_weight",
+          "control": 0.4,
+          "variant": 0.3
+        },
+        {
+          "field": "model.name",
+          "control": "triple_group_count_k500_catshift_m0095",
+          "variant": "triple_group_count_k500_shift_m0095_w50_30_20"
+        }
+      ]
+    }
+  ]
+}

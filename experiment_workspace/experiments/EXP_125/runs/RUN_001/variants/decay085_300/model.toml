@@ -1,0 +1,12 @@
+[model]
+name = "extratrees_leaf20_decay085"
+family = "extra_trees"
+season_decay = 0.85
+prediction_shift = -0.01
+[model.params]
+n_estimators = 300
+min_samples_leaf = 20
+max_features = 0.7
+n_jobs = 8
+random_state = 42
+verbose = 0

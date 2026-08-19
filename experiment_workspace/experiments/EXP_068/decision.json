@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_068",
+  "decision": "inconclusive",
+  "selected_variant": "track_physics",
+  "reason": "공식 Trackman 물리 통계는 Brier 0.000001809만 개선해 실질적 동률이고 구종 비율은 악화; 전체 최고에는 반영하지 않음",
+  "based_on": "EXP_062",
+  "reference_variant": "extra_w18",
+  "ablation_summary": "main69 decay85 대비 Trackman 물리 6개, 구종비율 3개, 전체 9개를 season-OOF 방식으로 추가",
+  "selected_result": {
+    "variant": "track_physics",
+    "change": "공식 Trackman 물리 상황 평균 6개 추가",
+    "feature_set": "main75_track_physics",
+    "feature_count": 75,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.247535912,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 909.1080086037,
+    "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+    "delta_brier_vs_control": -1.8087e-06,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "main69_control",
+    "change": "control: Trackman 미사용",
+    "feature_set": "main69_pitcher_batter_season_all",
+    "feature_count": 69,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475377207,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 908.3839506927,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T03:46:26.345060+00:00",
+  "based_on_run_id": "RUN_001"
+}

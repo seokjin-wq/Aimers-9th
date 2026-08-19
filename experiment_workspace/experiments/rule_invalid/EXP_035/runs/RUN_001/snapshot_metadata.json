@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T18:29:56.901578+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "3614fb04c38e",
+  "based_on": "EXP_034",
+  "reference_variant": "entity_recent_all",
+  "ablation_summary": "main68과 GPU CatBoost를 고정하고 투수 recent20·30·50 및 타자 recent2·8 rolling 피처만 개별·조합 추가"
+}

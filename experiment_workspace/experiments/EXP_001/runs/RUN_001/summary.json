@@ -1,0 +1,74 @@
+{
+  "experiment_id": "EXP_001",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T14:43:55.694623+00:00",
+  "completed_at_utc": "2026-08-17T14:44:39.390230+00:00",
+  "config_hash": "d951333c26e6",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/001_model_family/20260817T144355696321Z_d951333c26e6",
+  "control": "random_forest_raw47",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": null
+  },
+  "best_variant": "catboost_raw47",
+  "best_mean_brier": 0.2480727249536104,
+  "best_delta_brier_vs_control": -0.0006960696405035,
+  "leaderboard": [
+    {
+      "variant": "catboost_raw47",
+      "change": "모델군만 RandomForest에서 CatBoost로 변경",
+      "feature_set": "raw47",
+      "feature_count": 47,
+      "model": "catboost_default",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.248072725,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 694.2168600737,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.params.allow_writing_files', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.max_depth', 'model.params.min_samples_leaf', 'model.params.n_estimators', 'model.params.n_jobs', 'model.params.random_seed', 'model.params.random_state', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.verbose']",
+      "delta_brier_vs_control": -0.0006960696,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "random_forest_raw47",
+      "change": "control: 제공 RandomForest 계열 기준",
+      "feature_set": "raw47",
+      "feature_count": 47,
+      "model": "random_forest_default",
+      "model_family": "random_forest",
+      "fold_count": 1,
+      "mean_brier": 0.2487687946,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 415.5738098026,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "b240eb47543ecbc89e86182c68286dc1353d553660dcf6980b7c680a2f5c0e43",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 43.51514410972595,
+  "based_on": "BASELINE_001_main55",
+  "reference_variant": "random_forest_raw47",
+  "ablation_summary": "제공 raw47을 고정하고 RandomForest 대비 CatBoost 모델군 변경 효과를 검증",
+  "git_commit": "c29c002cd9ab38929f8ae2c2631467f69b5c63d0",
+  "snapshot_backfilled_after_run": true,
+  "snapshot_backfilled_at_utc": "2026-08-17T15:03:10.951329+00:00"
+}

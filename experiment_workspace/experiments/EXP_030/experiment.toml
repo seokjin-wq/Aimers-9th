@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_030"
+title = "EDA 상위 피처 CPU 재검증"
+hypothesis = "GPU 스크리닝에서 양의 효과를 보인 피처가 결정론적 CPU CatBoost에서도 control보다 개선한다"
+change_scope = "features"
+study_config = "experiments/EXP_030/study.toml"
+based_on = "EXP_029"
+reference_variant = "all_four"
+ablation_summary = "CPU depth6 400 lr0.04를 고정하고 scoring×LI, reverse shrinkage, log LI, batter missing, all-four를 다시 비교"
+tags = ["confirmation", "cpu", "deterministic"]
+created_at_utc = "2026-08-17T18:04:53.774182+00:00"

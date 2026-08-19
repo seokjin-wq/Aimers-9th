@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_105"
+title = "Official-train context target effects"
+hypothesis = "Season-OOF context target effects fitted only on official training seasons provide stable nonlinear priors that CatBoost cannot recover efficiently from raw count, hand, inning, and base-state columns alone."
+change_scope = "features"
+study_config = "experiments/EXP_105/study.toml"
+based_on = "EXP_095"
+reference_variant = "all_three"
+ablation_summary = "Keep latest CPU CatBoost and main72 fixed; add one safe official-train context target-effect feature at a time and then all four together."
+tags = ["compliance", "row-independent", "target-encoding", "context", "EDA"]
+created_at_utc = "2026-08-18T09:49:01.409523+00:00"

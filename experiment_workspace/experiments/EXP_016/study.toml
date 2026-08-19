@@ -1,0 +1,25 @@
+[study]
+id = "016_seed_ensemble"
+description = "CatBoost seed 확률 앙상블"
+hypothesis = "서로 다른 seed CatBoost의 확률 평균이 단일 모델 분산을 줄여 2024 Brier를 개선한다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "single_seed_control"
+
+[[variants]]
+name = "single_seed_control"
+model = "catboost_native_shift_m010"
+features = "main55_plus_count"
+change = "control: seed42 단일 모델 + shift"
+
+[[variants]]
+name = "ensemble_3seed"
+model = "catboost_ensemble3_shift"
+features = "main55_plus_count"
+change = "seed 17·42·73 확률 평균 + shift"
+
+[[variants]]
+name = "ensemble_5seed"
+model = "catboost_ensemble5_shift"
+features = "main55_plus_count"
+change = "seed 7·17·42·73·101 확률 평균 + shift"

@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_080"
+title = "Count-hands feature promotion to triple ensemble"
+hypothesis = "The count-by-hands categorical interaction that improves CPU CatBoost also improves the CPU/GPU/ExtraTrees ensemble and raises the compliant overall best."
+change_scope = "features"
+study_config = "experiments/EXP_080/study.toml"
+based_on = "EXP_072"
+reference_variant = "main69_control"
+ablation_summary = "Fix triple CPU45/GPU40/Extra15; compare old main69 against only the count+both-hands categorical treatment."
+tags = ["compliance,row-independent,promotion,ensemble,categorical"]
+created_at_utc = "2026-08-18T05:17:22.805235+00:00"

@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T18:58:01.142993+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "08c7d5c398c1",
+  "based_on": "EXP_039",
+  "reference_variant": "d6_i900",
+  "ablation_summary": "main85를 고정하고 CatBoost 3-seed 평균과 ExtraTrees min_samples_leaf 5·10·20·50만 비교"
+}

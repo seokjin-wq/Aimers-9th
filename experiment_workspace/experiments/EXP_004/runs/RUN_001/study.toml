@@ -1,0 +1,19 @@
+[study]
+id = "004_native_categorical"
+description = "CatBoost 네이티브 범주 처리"
+hypothesis = "문자열 범주를 CatBoost ordered statistics로 처리하면 ordinal 숫자 처리보다 2024 Brier가 개선된다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "ordinal_control"
+
+[[variants]]
+name = "ordinal_control"
+model = "catboost_default"
+features = "main55"
+change = "control: top_bottom, game_type, base_state를 ordinal 숫자로 변환"
+
+[[variants]]
+name = "native_basic"
+model = "catboost_native_300"
+features = "main55"
+change = "동일 3개 범주를 CatBoost native categorical로 처리"

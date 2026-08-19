@@ -1,0 +1,5 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+late_history,EXP_090 후반 이닝×투수이력 3개,main75_same_pitchmix_late_history,75,catboost_d8_decay085,catboost,1,0.2475015772625867,0.0,922.8525101890984,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",-1.0289375639016551e-05,1/1
+full_count_history,EXP_092 풀카운트×투수이력 3개,main75_same_pitchmix_full_count_history,75,catboost_d8_decay085,catboost,1,0.247507849974981,0.0,920.3414859850434,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",-4.016663244760244e-06,1/1
+same_hand_control,control: EXP_084 CPU same-hand pitchmix,main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay085,catboost,1,0.2475118666382257,0.0,918.7335789118011,[],0.0,0/1
+late_plus_full,후반 이닝과 풀카운트 교호항 6개 결합,main78_same_pitchmix_late_full_history,78,catboost_d8_decay085,catboost,1,0.2475342058041124,0.0,909.7910062711323,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",2.233916588664786e-05,0/1

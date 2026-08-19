@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_106"
+title = "Latest-feature Trackman physics decomposition"
+hypothesis = "The small Trackman gain seen on the earlier feature set comes from a subset of velocity, movement, or extension context and can complement the latest same-hand pitch-mix features."
+change_scope = "features"
+study_config = "experiments/EXP_106/study.toml"
+based_on = "EXP_068"
+reference_variant = "track_physics"
+ablation_summary = "Keep latest CPU main72 fixed; compare official pre-validation Trackman velocity pair, movement triple, extension alone, and all six physics context aggregates."
+tags = ["compliance", "row-independent", "trackman", "official-data", "physics"]
+created_at_utc = "2026-08-18T09:56:41.470204+00:00"

@@ -1,0 +1,6 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+batter_team_control,control: batter_team만 범주형,main69_pitcher_batter_season_all,69,catboost_d8_decay085,catboost,1,0.2475377207264107,0.0,908.3839506926596,[],0.0,0/1
+batter_cat,batter_id 범주형 추가,main69_cat_batter,69,catboost_d8_decay085,catboost,1,0.247557126010577,0.0,900.6158377671047,"['features.categorical', 'features.description', 'features.name']",1.9405284166329476e-05,0/1
+pitcher_teams_cat,pitcher_id와 양 팀 ID 범주형,main69_cat_pitcher_teams,69,catboost_d8_decay085,catboost,1,0.2476632509860541,0.0,858.1330384088815,"['features.categorical', 'features.description', 'features.name']",0.0001255302596433,0/1
+pitcher_cat,pitcher_id 범주형 추가,main69_cat_pitcher,69,catboost_d8_decay085,catboost,1,0.2476639189011883,0.0,857.8656658652317,"['features.categorical', 'features.description', 'features.name']",0.0001261981747776,0/1
+pitcher_batter_cat,pitcher_id와 batter_id 범주형 추가,main69_cat_pitcher_batter,69,catboost_d8_decay085,catboost,1,0.2477217606095474,0.0,834.7111004134211,"['features.categorical', 'features.description', 'features.name']",0.0001840398831366,0/1

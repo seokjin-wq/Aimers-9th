@@ -1,0 +1,108 @@
+{
+  "based_on": "EXP_050",
+  "reference_variant": "d6_i600",
+  "ablation_summary": "EXP050의 main81·CPU d6 i600을 고정하고 global reverse rolling window 50·100·150·200·300만 하나씩 추가",
+  "control": "control",
+  "variants": [
+    {
+      "name": "control",
+      "declared_change": "control: EXP050 d6 i600 + global200 success",
+      "is_control": true,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "reverse50",
+      "declared_change": "global recent50 reverse 추가",
+      "is_control": false,
+      "feature_count": 82,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "global_recent50_reverse"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "reverse100",
+      "declared_change": "global recent100 reverse 추가",
+      "is_control": false,
+      "feature_count": 82,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "global_recent100_reverse"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "reverse150",
+      "declared_change": "global recent150 reverse 추가",
+      "is_control": false,
+      "feature_count": 82,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "global_recent150_reverse"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "reverse200",
+      "declared_change": "global recent200 reverse 추가",
+      "is_control": false,
+      "feature_count": 82,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "global_recent200_reverse"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "reverse300",
+      "declared_change": "global recent300 reverse 추가",
+      "is_control": false,
+      "feature_count": 82,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "global_recent300_reverse"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

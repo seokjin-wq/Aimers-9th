@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T04:54:52.558794+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "184ce208985f",
+  "based_on": "EXP_072",
+  "reference_variant": "main69_control",
+  "ablation_summary": "Fix main69 and CPU d8 decay0.85; add pitcher success/failure counts, pitcher event counts, batter event counts, or all counts."
+}

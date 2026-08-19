@@ -1,0 +1,78 @@
+{
+  "based_on": "EXP_054",
+  "reference_variant": "extra_w24_safe",
+  "ablation_summary": "main60 CatBoost를 고정하고 official-train-only 투수 TE, 투수+타자 TE, 투수+타자+팀 TE만 단계적으로 추가",
+  "control": "main60_control",
+  "variants": [
+    {
+      "name": "main60_control",
+      "declared_change": "control: 합법 main60 CatBoost",
+      "is_control": true,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pitcher_te50",
+      "declared_change": "공식 학습 타깃만 사용한 투수 LOO 효과(k=50) 1개 추가",
+      "is_control": false,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_target_effect_k50"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pitcher_batter_te50",
+      "declared_change": "투수와 타자 LOO 효과(k=50) 2개 추가",
+      "is_control": false,
+      "feature_count": 62,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_target_effect_k50",
+        "batter_target_effect_k50"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "all_entity_team_te",
+      "declared_change": "투수·타자 효과(k=50)와 양 팀 효과(k=500) 4개 추가",
+      "is_control": false,
+      "feature_count": 64,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_target_effect_k50",
+        "batter_target_effect_k50",
+        "pitcher_team_target_effect_k500",
+        "batter_team_target_effect_k500"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

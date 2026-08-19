@@ -1,0 +1,6 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+global100,전역 recent100 추가,main81_add_global100,81,catboost_top_d6_i400_lr040,catboost,1,0.2467254968172914,0.0,1233.5246181931047,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",-0.0002048483109715,1/1
+global_all,전역 recent5·10·20·50·100 모두 추가,main85_add_global_all,85,catboost_top_d6_i400_lr040,catboost,1,0.2467725868872427,0.0,1214.6740320373328,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",-0.0001577582410201,1/1
+global50,전역 recent50 추가,main81_add_global50,81,catboost_top_d6_i400_lr040,catboost,1,0.2468469830690174,0.0,1184.8925593053284,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",-8.336205924547313e-05,1/1
+global20,전역 recent20 추가,main81_add_global20,81,catboost_top_d6_i400_lr040,catboost,1,0.2469193534935213,0.0,1155.922015756583,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",-1.0991634741608358e-05,1/1
+main80_control,control: entity sequence only,main80_add_best_ewm,80,catboost_top_d6_i400_lr040,catboost,1,0.2469303451282629,0.0,1151.521963730684,[],0.0,0/1

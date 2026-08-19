@@ -1,0 +1,31 @@
+[study]
+id = "120_reliability_categorical_processing"
+description = "Reliability CatBoost categorical processing"
+hypothesis = "The expanded categorical and reliability representation may benefit from richer CatBoost CTR combinations or different one-hot thresholds even though tree-capacity changes failed."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "categorical_control"
+
+[[variants]]
+name = "categorical_control"
+model = "catboost_d8_decay085_sub08"
+features = "main78_history_reliability"
+change = "control: latest CPU default categorical processing"
+
+[[variants]]
+name = "max_ctr_complexity_2"
+model = "catboost_d8_decay085_sub08_ctr2"
+features = "main78_history_reliability"
+change = "max_ctr_complexity default 1 -> 2 only"
+
+[[variants]]
+name = "one_hot_max_size_5"
+model = "catboost_d8_decay085_sub08_onehot5"
+features = "main78_history_reliability"
+change = "one_hot_max_size default 2 -> 5 only"
+
+[[variants]]
+name = "one_hot_max_size_16"
+model = "catboost_d8_decay085_sub08_onehot16"
+features = "main78_history_reliability"
+change = "one_hot_max_size default 2 -> 16 only"

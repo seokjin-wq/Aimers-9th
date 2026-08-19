@@ -1,0 +1,31 @@
+[study]
+id = "127_count_relative_season_trend"
+description = "Count-relative season trend correction"
+hypothesis = "A row-local balls/strikes correction learned from 2019-2023 centered target-rate trends will improve 2024 Brier beyond the existing global shift and 2023 OOT count residual."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "count_control"
+
+[[variants]]
+name = "count_control"
+model = "triple_count_m0095_sub08_w50_35_15"
+features = "main78_history_reliability"
+change = "control: fixed EXP_117 triple with 2023 OOT count residual"
+
+[[variants]]
+name = "count_trend_strength_025"
+model = "triple_count_trend_s025"
+features = "main78_history_reliability"
+change = "add 25% of official-train centered count season trend"
+
+[[variants]]
+name = "count_trend_strength_050"
+model = "triple_count_trend_s050"
+features = "main78_history_reliability"
+change = "add 50% of official-train centered count season trend"
+
+[[variants]]
+name = "count_trend_strength_100"
+model = "triple_count_trend_s100"
+features = "main78_history_reliability"
+change = "add 100% of official-train centered count season trend"

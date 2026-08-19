@@ -1,0 +1,10 @@
+{
+  "id": "EXP_068",
+  "status": "decided",
+  "created_at_utc": "2026-08-18T03:41:59.161022+00:00",
+  "updated_at_utc": "2026-08-18T03:46:26.345211+00:00",
+  "run_count": 1,
+  "latest_run_id": "RUN_001",
+  "decision": "inconclusive",
+  "selected_variant": "track_physics"
+}

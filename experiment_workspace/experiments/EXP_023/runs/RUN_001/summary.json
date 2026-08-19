@@ -1,0 +1,162 @@
+{
+  "experiment_id": "EXP_023",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T17:22:14.221361+00:00",
+  "completed_at_utc": "2026-08-17T17:32:24.423220+00:00",
+  "config_hash": "b251bedf3158",
+  "based_on": "EXP_022",
+  "reference_variant": "default_control",
+  "ablation_summary": "같은 main60 정보에서 logistic C, HistGradientBoosting leaf 수, ExtraTrees leaf 크기만 비교",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/023_diverse_model_families/20260817T172214224590Z_b251bedf3158",
+  "control": "catboost_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": null
+  },
+  "best_variant": "catboost_control",
+  "best_mean_brier": 0.2478203209370681,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "catboost_control",
+      "change": "control: 현재 최고 CatBoost",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "catboost_native_scale106_shift_m008",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2478203209,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 795.2564988937,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "extratrees_leaf100",
+      "change": "ExtraTrees min leaf 100",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "extratrees_leaf100",
+      "model_family": "extra_trees",
+      "fold_count": 1,
+      "mean_brier": 0.2480068321,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 720.594357747,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.max_features', 'model.params.min_samples_leaf', 'model.params.n_estimators', 'model.params.n_jobs', 'model.params.random_seed', 'model.params.random_state', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.prediction_scale', 'model.prediction_shift']",
+      "delta_brier_vs_control": 0.0001865112,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "histgb_leaf31",
+      "change": "HistGradientBoosting 31 leaves",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "histgb_leaf31",
+      "model_family": "hist_gradient_boosting",
+      "fold_count": 1,
+      "mean_brier": 0.2480534386,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 701.9373817577,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.l2_regularization', 'model.params.loss_function', 'model.params.max_iter', 'model.params.max_leaf_nodes', 'model.params.min_samples_leaf', 'model.params.random_seed', 'model.params.random_state', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.prediction_scale', 'model.prediction_shift']",
+      "delta_brier_vs_control": 0.0002331176,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "histgb_leaf63",
+      "change": "HistGradientBoosting 63 leaves",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "histgb_leaf63",
+      "model_family": "hist_gradient_boosting",
+      "fold_count": 1,
+      "mean_brier": 0.2481438669,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 665.7380687566,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.l2_regularization', 'model.params.loss_function', 'model.params.max_iter', 'model.params.max_leaf_nodes', 'model.params.min_samples_leaf', 'model.params.random_seed', 'model.params.random_state', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.prediction_scale', 'model.prediction_shift']",
+      "delta_brier_vs_control": 0.000323546,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "extratrees_leaf20",
+      "change": "ExtraTrees min leaf 20",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "extratrees_leaf20",
+      "model_family": "extra_trees",
+      "fold_count": 1,
+      "mean_brier": 0.2482141408,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 637.6068149888,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.max_features', 'model.params.min_samples_leaf', 'model.params.n_estimators', 'model.params.n_jobs', 'model.params.random_seed', 'model.params.random_state', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.prediction_scale', 'model.prediction_shift']",
+      "delta_brier_vs_control": 0.0003938198,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "logistic_c1",
+      "change": "one-hot logistic C=1.0",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "logistic_c1",
+      "model_family": "logistic_regression",
+      "fold_count": 1,
+      "mean_brier": 0.2489219405,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 354.2681104518,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.native_categorical', 'model.params.C', 'model.params.allow_writing_files', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.max_iter', 'model.params.random_seed', 'model.params.random_state', 'model.params.solver', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.tol', 'model.prediction_scale', 'model.prediction_shift']",
+      "delta_brier_vs_control": 0.0011016195,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "logistic_c01",
+      "change": "one-hot logistic C=0.1",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "logistic_c01",
+      "model_family": "logistic_regression",
+      "fold_count": 1,
+      "mean_brier": 0.2489360282,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 348.6286696493,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.native_categorical', 'model.params.C', 'model.params.allow_writing_files', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.max_iter', 'model.params.random_seed', 'model.params.random_state', 'model.params.solver', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.tol', 'model.prediction_scale', 'model.prediction_shift']",
+      "delta_brier_vs_control": 0.0011157073,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "logistic_c001",
+      "change": "one-hot logistic C=0.01",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "logistic_c001",
+      "model_family": "logistic_regression",
+      "fold_count": 1,
+      "mean_brier": 0.2490250299,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 313.0004722572,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.native_categorical', 'model.params.C', 'model.params.allow_writing_files', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.max_iter', 'model.params.random_seed', 'model.params.random_state', 'model.params.solver', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.tol', 'model.prediction_scale', 'model.prediction_shift']",
+      "delta_brier_vs_control": 0.001204709,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "efcf733736e221643b03f179692ef98e212dae64bf6e30043dc44e9f6d3c7023",
+  "git_commit": "bae0199b08d07b8c3586fe26fe2195ad0a1c0c0e",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 610.0163106918335
+}

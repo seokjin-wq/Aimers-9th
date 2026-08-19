@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_065",
+  "decision": "keep_control",
+  "selected_variant": "main69_control",
+  "reason": "season-OOF로 자기 정답 지문은 제거했지만 모든 상황 교차 효과가 악화되어 CatBoost가 원시 상황을 더 잘 학습한다고 판단",
+  "based_on": "EXP_064",
+  "reference_variant": "main69_control",
+  "ablation_summary": "EXP_064와 동일한 네 상황 효과를 leave-one-row-out 대신 leave-one-season-out으로 재계산",
+  "selected_result": {
+    "variant": "main69_control",
+    "change": "control: 합법 main69",
+    "feature_set": "main69_pitcher_batter_season_all",
+    "feature_count": 69,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475377207,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 908.3839506927,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "main69_control",
+    "change": "control: 합법 main69",
+    "feature_set": "main69_pitcher_batter_season_all",
+    "feature_count": 69,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475377207,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 908.3839506927,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T03:32:53.792259+00:00",
+  "based_on_run_id": "RUN_001"
+}

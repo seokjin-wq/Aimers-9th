@@ -1,0 +1,111 @@
+{
+  "based_on": "EXP_029",
+  "reference_variant": "all_four",
+  "ablation_summary": "CPU depth6 400 lr0.04를 고정하고 scoring×LI, reverse shrinkage, log LI, batter missing, all-four를 다시 비교",
+  "control": "main60_control",
+  "variants": [
+    {
+      "name": "main60_control",
+      "declared_change": "control: CPU main60",
+      "is_control": true,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "scoring_x_li",
+      "declared_change": "scoring_position_x_li 단독",
+      "is_control": false,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "scoring_position_x_li"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "reverse_shrunk",
+      "declared_change": "pitcher_reverse_rate_shrunk 단독",
+      "is_control": false,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_reverse_rate_shrunk"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "log_li",
+      "declared_change": "log1p_li 단독",
+      "is_control": false,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "log1p_li"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "batter_missing",
+      "declared_change": "batter_history_missing 단독",
+      "is_control": false,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "batter_history_missing"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "all_four",
+      "declared_change": "상위 4개 전체",
+      "is_control": false,
+      "feature_count": 64,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "scoring_position_x_li",
+        "pitcher_reverse_rate_shrunk",
+        "log1p_li",
+        "batter_history_missing"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

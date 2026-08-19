@@ -1,0 +1,20 @@
+[model]
+name = "catboost_top_d7_i250_lr050"
+family = "catboost"
+native_categorical = true
+prediction_scale = 1.06
+prediction_shift = -0.008
+
+[model.params]
+iterations = 250
+depth = 7
+learning_rate = 0.05
+l2_leaf_reg = 3.0
+subsample = 0.7
+random_seed = 42
+thread_count = 8
+task_type = "CPU"
+loss_function = "Logloss"
+eval_metric = "BrierScore"
+allow_writing_files = false
+verbose = false

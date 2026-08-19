@@ -1,0 +1,5 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+decay_085,season sample-weight decay none -> 0.85 only,main78_history_reliability,78,extratrees_leaf20_screen_decay085,extra_trees,1,0.2481164796351176,0.0,676.7014604507792,"['model.name', 'model.season_decay']",-3.24073609550557e-05,1/1
+decay_070,season sample-weight decay none -> 0.70 only,main78_history_reliability,78,extratrees_leaf20_screen_decay07,extra_trees,1,0.2481400823400595,0.0,667.253081557373,"['model.name', 'model.season_decay']",-8.804656013106094e-06,1/1
+uniform_control,control: 100-tree ExtraTrees with uniform season weights,main78_history_reliability,78,extratrees_leaf20_screen,extra_trees,1,0.2481488869960726,0.0,663.7284971403478,[],0.0,0/1
+decay_050,season sample-weight decay none -> 0.50 only,main78_history_reliability,78,extratrees_leaf20_screen_decay05,extra_trees,1,0.2483003184514496,0.0,603.1090990543997,"['model.name', 'model.season_decay']",0.0001514314553769,0/1

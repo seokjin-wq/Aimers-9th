@@ -1,0 +1,43 @@
+[study]
+id = "042_lag_patterns"
+description = "최근 투구 lag 순서 패턴"
+hypothesis = "rolling 평균에 가려진 lag 순서가 다음 제구를 추가 설명한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main85_control"
+
+[[variants]]
+name = "main85_control"
+model = "catboost_gpu_d6_i900_bag0"
+features = "main85_add_plate_context"
+change = "control: main85 bag0"
+
+[[variants]]
+name = "pitcher_lags"
+model = "catboost_gpu_d6_i900_bag0"
+features = "main88_add_pitcher_lags"
+change = "투수 lag2·3·5 추가"
+
+[[variants]]
+name = "batter_lags"
+model = "catboost_gpu_d6_i900_bag0"
+features = "main87_add_batter_lags"
+change = "타자 lag2·3 추가"
+
+[[variants]]
+name = "entity_lags"
+model = "catboost_gpu_d6_i900_bag0"
+features = "main90_add_entity_lags"
+change = "투수·타자 lag 모두 추가"
+
+[[variants]]
+name = "patterns_numeric"
+model = "catboost_gpu_d6_i900_bag0"
+features = "main87_add_patterns"
+change = "투수·타자 최근 3개 패턴 numeric 추가"
+
+[[variants]]
+name = "lags_patterns_cat"
+model = "catboost_gpu_d6_i900_bag0"
+features = "main92_add_lags_patterns_cat"
+change = "모든 lag + 최근 3개 패턴 categorical 추가"

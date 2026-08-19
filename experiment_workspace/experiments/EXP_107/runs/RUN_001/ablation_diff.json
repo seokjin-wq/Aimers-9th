@@ -1,0 +1,47 @@
+{
+  "based_on": "EXP_106",
+  "reference_variant": "track_velocity",
+  "ablation_summary": "Keep EXP_103 corrected count-calibrated triple fixed; compare current main72 against main72 plus only Trackman relative-speed and zone-speed context.",
+  "control": "current_corrected_triple",
+  "variants": [
+    {
+      "name": "current_corrected_triple",
+      "declared_change": "control: EXP_103 corrected count-calibrated triple",
+      "is_control": true,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "track_velocity_corrected_triple",
+      "declared_change": "add EXP_106 official Trackman relative-speed and zone-speed context",
+      "is_control": false,
+      "feature_count": 74,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "track_context_rel_speed",
+        "track_context_zone_speed"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

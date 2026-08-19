@@ -1,0 +1,117 @@
+{
+  "experiment_id": "EXP_048",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T19:59:17.319480+00:00",
+  "completed_at_utc": "2026-08-17T20:04:19.210165+00:00",
+  "config_hash": "446dccc82008",
+  "based_on": "EXP_047",
+  "reference_variant": "global100",
+  "ablation_summary": "CPU main80과 전역 단일 rolling 구조를 고정하고 window 75·100·125·150·200만 변경",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/048_cpu_global_window_fine/20260817T195917325175Z_446dccc82008",
+  "control": "global100_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "global200",
+  "best_mean_brier": 0.2466972461084666,
+  "best_delta_brier_vs_control": -2.8250708824784088e-05,
+  "leaderboard": [
+    {
+      "variant": "global200",
+      "change": "window200",
+      "feature_set": "main81_add_global200",
+      "feature_count": 81,
+      "model": "catboost_top_d6_i400_lr040",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2466972461,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1244.8336355977,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.name']",
+      "delta_brier_vs_control": -2.82507e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "global150",
+      "change": "window150",
+      "feature_set": "main81_add_global150",
+      "feature_count": 81,
+      "model": "catboost_top_d6_i400_lr040",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2467061501,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1241.2692733611,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.name']",
+      "delta_brier_vs_control": -1.93467e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "global125",
+      "change": "window125",
+      "feature_set": "main81_add_global125",
+      "feature_count": 81,
+      "model": "catboost_top_d6_i400_lr040",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2467193521,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1235.9844190322,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.name']",
+      "delta_brier_vs_control": -6.1448e-06,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "global100_control",
+      "change": "control: window100",
+      "feature_set": "main81_add_global100",
+      "feature_count": 81,
+      "model": "catboost_top_d6_i400_lr040",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2467254968,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1233.5246181931,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "global75",
+      "change": "window75",
+      "feature_set": "main81_add_global75",
+      "feature_count": 81,
+      "model": "catboost_top_d6_i400_lr040",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2467867264,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1209.0138690863,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.name']",
+      "delta_brier_vs_control": 6.12295e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "f353109215d3a91b2151f8d56a110271b2b40dab2fce8e1d3a4748597cd5072b",
+  "git_commit": "68edbf84e3f92e8376713a6b9b1d069e053f4d85",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 301.70350551605225
+}

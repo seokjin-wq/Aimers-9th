@@ -1,0 +1,89 @@
+{
+  "based_on": "EXP_062",
+  "reference_variant": "extra_w18",
+  "ablation_summary": "main69 decay85 대비 Trackman 물리 6개, 구종비율 3개, 전체 9개를 season-OOF 방식으로 추가",
+  "control": "main69_control",
+  "variants": [
+    {
+      "name": "main69_control",
+      "declared_change": "control: Trackman 미사용",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "track_physics",
+      "declared_change": "공식 Trackman 물리 상황 평균 6개 추가",
+      "is_control": false,
+      "feature_count": 75,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "track_context_rel_speed",
+        "track_context_spin_rate",
+        "track_context_induced_vert_break",
+        "track_context_abs_horz_break",
+        "track_context_extension",
+        "track_context_zone_speed"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "track_pitchmix",
+      "declared_change": "공식 Trackman 구종 선택 비율 3개 추가",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "track_context_fastball_share",
+        "track_context_breaking_share",
+        "track_context_offspeed_share"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "track_all",
+      "declared_change": "Trackman 물리 6개와 구종 비율 3개 전체 추가",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "track_context_rel_speed",
+        "track_context_spin_rate",
+        "track_context_induced_vert_break",
+        "track_context_abs_horz_break",
+        "track_context_extension",
+        "track_context_zone_speed",
+        "track_context_fastball_share",
+        "track_context_breaking_share",
+        "track_context_offspeed_share"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_100"
+title = "Latest-feature affine probability refinement"
+hypothesis = "The latest 72-feature CatBoost has a different optimal probability spread and mean than the earlier main60 model, so small scale or shift changes can reduce Brier."
+change_scope = "model"
+study_config = "experiments/EXP_100/study.toml"
+based_on = "EXP_099"
+reference_variant = "decay085_control"
+ablation_summary = "Keep model training fixed at depth8/300 and decay0.85; vary only post-prediction scale around 1.06 or shift around -0.008, one coordinate at a time."
+tags = ["compliance", "row-independent", "calibration", "affine"]
+created_at_utc = "2026-08-18T08:36:00.979962+00:00"

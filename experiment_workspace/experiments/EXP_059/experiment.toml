@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_059"
+title = "시즌 상태 CatBoost 용량 재탐색"
+hypothesis = "새로운 현재 시즌 상태 신호는 기존 main60과 다른 최적 트리 깊이·반복 수를 가질 수 있다"
+change_scope = "model"
+study_config = "experiments/EXP_059/study.toml"
+based_on = "EXP_057"
+reference_variant = "extra_w24"
+ablation_summary = "main69 고정 후 depth5~8, 300~600 trees의 기존 결정론적 CPU 후보만 재비교"
+tags = ["rule_compliant", "model_capacity"]
+created_at_utc = "2026-08-18T02:48:40.868871+00:00"

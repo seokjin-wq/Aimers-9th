@@ -1,0 +1,14 @@
+[protocol]
+name = "holdout_2024"
+description = "2019~2023 전체로 학습하고 2024를 고정 primary holdout으로 검증"
+train_start_season = 2019
+validation_seasons = [2024]
+split_rule = "before_validation_season"
+primary_metric = "brier"
+secondary_metrics = ["brier_skill_score", "roc_auc"]
+target_column = "control_success"
+id_column = "row_id"
+season_column = "season"
+store_predictions = true
+calibration = "none"
+seed = 42

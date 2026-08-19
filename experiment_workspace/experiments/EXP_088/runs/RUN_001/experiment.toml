@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_088"
+title = "2023-to-2024 triple residual group calibration"
+hypothesis = "Residual biases by count, outs, month, or team that are learned strictly on the 2023 out-of-time fold transfer to 2024 and improve the current triple without using any evaluation-row aggregate."
+change_scope = "model"
+study_config = "experiments/EXP_088/study.toml"
+based_on = "EXP_087"
+reference_variant = "same_hand_pitchmix_triple"
+ablation_summary = "Fix EXP_087 features and triple components; fit group residual offsets only from 2019-2022→2023 predictions and vary group columns and shrinkage before applying to 2024."
+tags = ["compliance", "row-independent", "calibration", "out-of-time"]
+created_at_utc = "2026-08-18T06:38:28.155250+00:00"

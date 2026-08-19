@@ -1,0 +1,440 @@
+{
+  "based_on": "EXP_062",
+  "reference_variant": "extra_w18",
+  "ablation_summary": "main69 고정 후 CPU/GPU/Extra 비중 40/45/15,45/40/15,40/40/20 비교",
+  "control": "cpu_only",
+  "variants": [
+    {
+      "name": "cpu_only",
+      "declared_change": "control: CPU depth8 decay85",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "cpu40_gpu45_extra15",
+      "declared_change": "CPU40 GPU45 Extra15",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.cat_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.cpu_params",
+          "control": null,
+          "variant": {
+            "iterations": 300,
+            "depth": 8,
+            "learning_rate": 0.035,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.cpu_weight",
+          "control": null,
+          "variant": 0.4
+        },
+        {
+          "field": "model.extra_params",
+          "control": null,
+          "variant": {
+            "n_estimators": 300,
+            "min_samples_leaf": 20,
+            "max_features": 0.7,
+            "n_jobs": 8,
+            "random_state": 42,
+            "verbose": 0
+          }
+        },
+        {
+          "field": "model.extra_shift",
+          "control": null,
+          "variant": -0.01
+        },
+        {
+          "field": "model.extra_weight",
+          "control": null,
+          "variant": 0.15
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "cat_cpu_gpu_extra_blend"
+        },
+        {
+          "field": "model.gpu_params",
+          "control": null,
+          "variant": {
+            "iterations": 600,
+            "depth": 7,
+            "learning_rate": 0.025,
+            "l2_leaf_reg": 3.0,
+            "bootstrap_type": "Bayesian",
+            "bagging_temperature": 1.0,
+            "border_count": 128,
+            "random_seed": 42,
+            "task_type": "GPU",
+            "devices": "0",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.gpu_weight",
+          "control": null,
+          "variant": 0.45
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "triple_cpu40_gpu45_extra15"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 300,
+            "depth": 8,
+            "learning_rate": 0.035,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "cpu45_gpu40_extra15",
+      "declared_change": "CPU45 GPU40 Extra15",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.cat_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.cpu_params",
+          "control": null,
+          "variant": {
+            "iterations": 300,
+            "depth": 8,
+            "learning_rate": 0.035,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.cpu_weight",
+          "control": null,
+          "variant": 0.45
+        },
+        {
+          "field": "model.extra_params",
+          "control": null,
+          "variant": {
+            "n_estimators": 300,
+            "min_samples_leaf": 20,
+            "max_features": 0.7,
+            "n_jobs": 8,
+            "random_state": 42,
+            "verbose": 0
+          }
+        },
+        {
+          "field": "model.extra_shift",
+          "control": null,
+          "variant": -0.01
+        },
+        {
+          "field": "model.extra_weight",
+          "control": null,
+          "variant": 0.15
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "cat_cpu_gpu_extra_blend"
+        },
+        {
+          "field": "model.gpu_params",
+          "control": null,
+          "variant": {
+            "iterations": 600,
+            "depth": 7,
+            "learning_rate": 0.025,
+            "l2_leaf_reg": 3.0,
+            "bootstrap_type": "Bayesian",
+            "bagging_temperature": 1.0,
+            "border_count": 128,
+            "random_seed": 42,
+            "task_type": "GPU",
+            "devices": "0",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.gpu_weight",
+          "control": null,
+          "variant": 0.4
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "triple_cpu45_gpu40_extra15"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 300,
+            "depth": 8,
+            "learning_rate": 0.035,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "cpu40_gpu40_extra20",
+      "declared_change": "CPU40 GPU40 Extra20",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.cat_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.cpu_params",
+          "control": null,
+          "variant": {
+            "iterations": 300,
+            "depth": 8,
+            "learning_rate": 0.035,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.cpu_weight",
+          "control": null,
+          "variant": 0.4
+        },
+        {
+          "field": "model.extra_params",
+          "control": null,
+          "variant": {
+            "n_estimators": 300,
+            "min_samples_leaf": 20,
+            "max_features": 0.7,
+            "n_jobs": 8,
+            "random_state": 42,
+            "verbose": 0
+          }
+        },
+        {
+          "field": "model.extra_shift",
+          "control": null,
+          "variant": -0.01
+        },
+        {
+          "field": "model.extra_weight",
+          "control": null,
+          "variant": 0.2
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "cat_cpu_gpu_extra_blend"
+        },
+        {
+          "field": "model.gpu_params",
+          "control": null,
+          "variant": {
+            "iterations": 600,
+            "depth": 7,
+            "learning_rate": 0.025,
+            "l2_leaf_reg": 3.0,
+            "bootstrap_type": "Bayesian",
+            "bagging_temperature": 1.0,
+            "border_count": 128,
+            "random_seed": 42,
+            "task_type": "GPU",
+            "devices": "0",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.gpu_weight",
+          "control": null,
+          "variant": 0.4
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "triple_cpu40_gpu40_extra20"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 300,
+            "depth": 8,
+            "learning_rate": 0.035,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    }
+  ]
+}

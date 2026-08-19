@@ -1,0 +1,10 @@
+{
+  "id": "EXP_043",
+  "status": "decided",
+  "created_at_utc": "2026-08-17T19:23:05.489657+00:00",
+  "updated_at_utc": "2026-08-17T19:28:41.212819+00:00",
+  "run_count": 1,
+  "latest_run_id": "RUN_001",
+  "decision": "adopt",
+  "selected_variant": "main77_reverse"
+}

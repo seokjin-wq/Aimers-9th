@@ -1,0 +1,31 @@
+[study]
+id = "038_sequence_context"
+description = "연속 투구·동일 타석 문맥"
+hypothesis = "행 간격과 동일 타석 여부가 직전 결과의 시간적 의미를 구분한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main81_control"
+
+[[variants]]
+name = "main81_control"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main81_add_batter_middle_short"
+change = "control: 현재 최고 main81"
+
+[[variants]]
+name = "entity_gaps"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main86_add_entity_gaps"
+change = "투수·타자 행 간격과 연속 플래그 추가"
+
+[[variants]]
+name = "plate_context"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main85_add_plate_context"
+change = "동일 타석·타석 내 순번·최근 2·3투구 추가"
+
+[[variants]]
+name = "full_sequence"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main91_add_full_sequence_context"
+change = "행 간격·전역 직전 결과·동일 타석 문맥 모두 추가"

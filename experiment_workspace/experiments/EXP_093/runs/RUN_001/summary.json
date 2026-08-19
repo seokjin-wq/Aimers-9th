@@ -1,0 +1,102 @@
+{
+  "experiment_id": "EXP_093",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T07:28:22.274969+00:00",
+  "completed_at_utc": "2026-08-18T07:32:10.856455+00:00",
+  "config_hash": "bdffb9d5d4a3",
+  "based_on": "EXP_092",
+  "reference_variant": "full_count_history",
+  "ablation_summary": "Fix same-hand CPU base; compare late-inning block, full-count block, and their six-feature union.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/093_late_full_factorial/20260818T072822283239Z_bdffb9d5d4a3",
+  "control": "same_hand_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "late_history",
+  "best_mean_brier": 0.2475015772625867,
+  "best_delta_brier_vs_control": -1.0289375639016551e-05,
+  "leaderboard": [
+    {
+      "variant": "late_history",
+      "change": "EXP_090 후반 이닝×투수이력 3개",
+      "feature_set": "main75_same_pitchmix_late_history",
+      "feature_count": 75,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475015773,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 922.8525101891,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -1.02894e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "full_count_history",
+      "change": "EXP_092 풀카운트×투수이력 3개",
+      "feature_set": "main75_same_pitchmix_full_count_history",
+      "feature_count": 75,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.24750785,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 920.341485985,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -4.0167e-06,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "same_hand_control",
+      "change": "control: EXP_084 CPU same-hand pitchmix",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475118666,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 918.7335789118,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "late_plus_full",
+      "change": "후반 이닝과 풀카운트 교호항 6개 결합",
+      "feature_set": "main78_same_pitchmix_late_full_history",
+      "feature_count": 78,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475342058,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 909.7910062711,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 2.23392e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "4d32363f8410b0fc43bc7098ff0eb3cde74513ea50916793c9f46c66af2bae82",
+  "git_commit": "1cc09d6b1bddb26fa400b2c568886e934b9b4858",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 228.3904995918274
+}

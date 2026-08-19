@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T17:41:32.314738+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "660d2bdf9b48",
+  "based_on": "EXP_024",
+  "reference_variant": "extra_w24",
+  "ablation_summary": "main60과 categorical/affine을 고정하고 iterations와 learning_rate 조합 및 인접 depth만 변경"
+}

@@ -1,0 +1,43 @@
+[study]
+id = "105_official_train_context_effects"
+description = "Official-train context target effects"
+hypothesis = "Season-OOF context target effects fitted only on official training seasons provide stable nonlinear priors that CatBoost cannot recover efficiently from raw count, hand, inning, and base-state columns alone."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "same_pitchmix_control"
+
+[[variants]]
+name = "same_pitchmix_control"
+model = "catboost_d8_decay085"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: current CPU main72"
+
+[[variants]]
+name = "count_hands_effect"
+model = "catboost_d8_decay085"
+features = "main73_same_pitchmix_count_hands_effect"
+change = "add season-OOF official-train count x hands target effect"
+
+[[variants]]
+name = "count_out_base_effect"
+model = "catboost_d8_decay085"
+features = "main73_same_pitchmix_count_out_base_effect"
+change = "add season-OOF official-train count x outs x base target effect"
+
+[[variants]]
+name = "inning_game_effect"
+model = "catboost_d8_decay085"
+features = "main73_same_pitchmix_inning_game_effect"
+change = "add season-OOF official-train inning x half x game-type target effect"
+
+[[variants]]
+name = "pressure_effect"
+model = "catboost_d8_decay085"
+features = "main73_same_pitchmix_pressure_effect"
+change = "add season-OOF official-train inning x count x outs x runners target effect"
+
+[[variants]]
+name = "all_context_effects"
+model = "catboost_d8_decay085"
+features = "main76_same_pitchmix_all_context_effects"
+change = "add all four season-OOF official-train context target effects"

@@ -1,0 +1,3 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+count_hands_promoted,control 대비 count_state·pitcher_hand·batter_hand categorical 추가,main69_cat_count_hands,69,triple_cpu45_gpu40_extra15,cat_cpu_gpu_extra_blend,1,0.24749380565941,0.0,925.96355409712,"['features.categorical', 'features.description', 'features.name']",-2.941064502576252e-06,1/1
+old_main69_control,"control: EXP_072 재현, 기존 categorical 4개",main69_pitcher_batter_season_all,69,triple_cpu45_gpu40_extra15,cat_cpu_gpu_extra_blend,1,0.2474967467239126,0.0,924.7862190485012,[],0.0,0/1

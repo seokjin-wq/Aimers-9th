@@ -1,0 +1,102 @@
+{
+  "experiment_id": "EXP_127",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T13:51:09.689907+00:00",
+  "completed_at_utc": "2026-08-18T14:03:50.554830+00:00",
+  "config_hash": "5373baac01c7",
+  "based_on": "EXP_117",
+  "reference_variant": "weights_50_35_15",
+  "ablation_summary": "Fix main78, all three component models, 50/35/15 weights, affine shifts, and OOT count residual; add only an official-train-only centered count trend offset at strengths 0.25, 0.50, or 1.00.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/127_count_relative_season_trend/20260818T135109701732Z_5373baac01c7",
+  "control": "count_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "count_trend_strength_100",
+  "best_mean_brier": 0.2474451413791715,
+  "best_delta_brier_vs_control": -6.376167141441957e-06,
+  "leaderboard": [
+    {
+      "variant": "count_trend_strength_100",
+      "change": "add 100% of official-train centered count season trend",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_count_trend_s100",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474451414,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 945.4443110442,
+      "changed_fields_vs_control": "['model.name', 'model.trend_group_columns', 'model.trend_shrinkage', 'model.trend_strength']",
+      "delta_brier_vs_control": -6.3762e-06,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "count_trend_strength_050",
+      "change": "add 50% of official-train centered count season trend",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_count_trend_s050",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474468058,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 944.7780365809,
+      "changed_fields_vs_control": "['model.name', 'model.trend_group_columns', 'model.trend_shrinkage', 'model.trend_strength']",
+      "delta_brier_vs_control": -4.7118e-06,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "count_trend_strength_025",
+      "change": "add 25% of official-train centered count season trend",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_count_trend_s025",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474487807,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 943.9874409143,
+      "changed_fields_vs_control": "['model.name', 'model.trend_group_columns', 'model.trend_shrinkage', 'model.trend_strength']",
+      "delta_brier_vs_control": -2.7368e-06,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "count_control",
+      "change": "control: fixed EXP_117 triple with 2023 OOT count residual",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_count_m0095_sub08_w50_35_15",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474515175,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 942.8918729576,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "bba9eb48fc0d9eb7635e708aa22dc360c26fd201d7b8b4cca4a2407e17e13df5",
+  "git_commit": "b19d888aa010bf7b4b496dd35b7f874e2b709462",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 760.6658887863159
+}

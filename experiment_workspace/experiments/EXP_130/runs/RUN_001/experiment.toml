@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_130"
+title = "Count trend estimator final ablation"
+hypothesis = "OLS or endpoint count-relative slopes from all official 2019-2023 seasons will improve the EXP_129 WLS trend without using evaluation-row information."
+change_scope = "model"
+study_config = "experiments/EXP_130/study.toml"
+based_on = "EXP_129"
+reference_variant = "shrinkage_0"
+ablation_summary = "Fix EXP_129 shrinkage 0, trend strength 1.0, features, models, weights, and calibration; vary only count trend estimator among WLS, OLS, and first-to-last endpoint slope."
+tags = ["compliance", "row-independent", "season-drift", "count", "final"]
+created_at_utc = "2026-08-18T14:33:40.752082+00:00"

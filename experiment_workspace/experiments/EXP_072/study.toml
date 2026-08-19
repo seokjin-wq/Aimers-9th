@@ -1,0 +1,31 @@
+[study]
+id = "072_career_state_pruning"
+description = "당해 시즌 상태 사용 시 통산 누적 상태 피처 가지치기"
+hypothesis = "당해 시즌 상태 피처가 이미 최신 선수 상태를 설명하므로, 중복되는 통산 누적 상태 피처를 제거하면 CatBoost의 분할 용량과 확률 보정이 개선된다."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main69_control"
+
+[[variants]]
+name = "main69_control"
+model = "triple_cpu45_gpu40_extra15"
+features = "main69_pitcher_batter_season_all"
+change = "control: EXP_070 최고 조합과 동일"
+
+[[variants]]
+name = "drop_pitcher_career"
+model = "triple_cpu45_gpu40_extra15"
+features = "main64_drop_pitcher_career_state"
+change = "control 대비 투수 통산 n/success/reverse/middle/ball 상태 5개 제거"
+
+[[variants]]
+name = "drop_batter_career"
+model = "triple_cpu45_gpu40_extra15"
+features = "main66_drop_batter_career_state"
+change = "control 대비 타자 통산 n/success/middle 상태 3개 제거"
+
+[[variants]]
+name = "drop_all_career"
+model = "triple_cpu45_gpu40_extra15"
+features = "main61_drop_all_career_state"
+change = "control 대비 투수 5개와 타자 3개 통산 상태를 모두 제거"

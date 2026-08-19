@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T18:43:10.924222+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "0ccd98d8b895",
+  "based_on": "EXP_037",
+  "reference_variant": "batter_middle",
+  "ablation_summary": "main81 최고 피처와 GPU CatBoost를 고정하고 pitcher/batter 행 간격, 바로 전 행 여부, 동일 타석, 타석 내 순번·최근 성공률만 개별·조합 추가"
+}

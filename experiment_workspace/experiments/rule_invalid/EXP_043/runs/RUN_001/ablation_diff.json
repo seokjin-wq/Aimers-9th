@@ -1,0 +1,169 @@
+{
+  "based_on": "EXP_042",
+  "reference_variant": "batter_lags",
+  "ablation_summary": "CPU depth6 400 lr0.04를 고정하고 main60→main73→main77→main85→main87 핵심 누적 피처 단계만 비교",
+  "control": "main60_control",
+  "variants": [
+    {
+      "name": "main60_control",
+      "declared_change": "control: 순차 피처 없음",
+      "is_control": true,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "main73_success",
+      "declared_change": "success rolling 전체 추가",
+      "is_control": false,
+      "feature_count": 73,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_previous_pitch_success",
+        "pitcher_recent3_pitch_success",
+        "pitcher_recent5_pitch_success",
+        "pitcher_recent10_pitch_success",
+        "batter_previous_pitch_success",
+        "batter_recent3_pitch_success",
+        "batter_recent5_pitch_success",
+        "batter_recent10_pitch_success",
+        "pitcher_recent20_pitch_success",
+        "pitcher_recent30_pitch_success",
+        "pitcher_recent50_pitch_success",
+        "batter_recent2_pitch_success",
+        "batter_recent8_pitch_success"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "main77_reverse",
+      "declared_change": "success rolling + reverse short",
+      "is_control": false,
+      "feature_count": 77,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_previous_pitch_success",
+        "pitcher_recent3_pitch_success",
+        "pitcher_recent5_pitch_success",
+        "pitcher_recent10_pitch_success",
+        "batter_previous_pitch_success",
+        "batter_recent3_pitch_success",
+        "batter_recent5_pitch_success",
+        "batter_recent10_pitch_success",
+        "pitcher_recent20_pitch_success",
+        "pitcher_recent30_pitch_success",
+        "pitcher_recent50_pitch_success",
+        "batter_recent2_pitch_success",
+        "batter_recent8_pitch_success",
+        "pitcher_previous_pitch_reverse",
+        "pitcher_recent3_pitch_reverse",
+        "pitcher_recent5_pitch_reverse",
+        "pitcher_recent10_pitch_reverse"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "main85_plate",
+      "declared_change": "타자 middle + 동일 타석 문맥까지 추가",
+      "is_control": false,
+      "feature_count": 85,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_previous_pitch_success",
+        "pitcher_recent3_pitch_success",
+        "pitcher_recent5_pitch_success",
+        "pitcher_recent10_pitch_success",
+        "batter_previous_pitch_success",
+        "batter_recent3_pitch_success",
+        "batter_recent5_pitch_success",
+        "batter_recent10_pitch_success",
+        "pitcher_recent20_pitch_success",
+        "pitcher_recent30_pitch_success",
+        "pitcher_recent50_pitch_success",
+        "batter_recent2_pitch_success",
+        "batter_recent8_pitch_success",
+        "pitcher_previous_pitch_reverse",
+        "pitcher_recent3_pitch_reverse",
+        "pitcher_recent5_pitch_reverse",
+        "pitcher_recent10_pitch_reverse",
+        "batter_previous_pitch_middle",
+        "batter_recent3_pitch_middle",
+        "batter_recent5_pitch_middle",
+        "batter_recent10_pitch_middle",
+        "same_matchup_previous",
+        "plate_appearance_pitch_index",
+        "plate_appearance_recent2_success",
+        "plate_appearance_recent3_success"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "main87_batter_lags",
+      "declared_change": "main85 + 타자 lag2·3 추가",
+      "is_control": false,
+      "feature_count": 87,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_previous_pitch_success",
+        "pitcher_recent3_pitch_success",
+        "pitcher_recent5_pitch_success",
+        "pitcher_recent10_pitch_success",
+        "batter_previous_pitch_success",
+        "batter_recent3_pitch_success",
+        "batter_recent5_pitch_success",
+        "batter_recent10_pitch_success",
+        "pitcher_recent20_pitch_success",
+        "pitcher_recent30_pitch_success",
+        "pitcher_recent50_pitch_success",
+        "batter_recent2_pitch_success",
+        "batter_recent8_pitch_success",
+        "pitcher_previous_pitch_reverse",
+        "pitcher_recent3_pitch_reverse",
+        "pitcher_recent5_pitch_reverse",
+        "pitcher_recent10_pitch_reverse",
+        "batter_previous_pitch_middle",
+        "batter_recent3_pitch_middle",
+        "batter_recent5_pitch_middle",
+        "batter_recent10_pitch_middle",
+        "same_matchup_previous",
+        "plate_appearance_pitch_index",
+        "plate_appearance_recent2_success",
+        "plate_appearance_recent3_success",
+        "batter_lag2_pitch_success",
+        "batter_lag3_pitch_success"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

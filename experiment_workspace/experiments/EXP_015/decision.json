@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_015",
+  "decision": "adopt",
+  "selected_variant": "shift_m010",
+  "reason": "shift -0.010이 Brier를 0.000092648 개선해 채택하며 과거-fold 고정 shift -0.0113955도 거의 같은 성능으로 누수 없는 근거를 확인",
+  "based_on": "EXP_014",
+  "reference_variant": "main60_control",
+  "ablation_summary": "main55+count CatBoost를 고정하고 prediction shift만 0, -0.005, -0.010, 과거-fold -0.0113955, -0.015로 변경",
+  "selected_result": {
+    "variant": "shift_m010",
+    "change": "모든 확률에 -0.010",
+    "feature_set": "main55_plus_count",
+    "feature_count": 60,
+    "model": "catboost_native_shift_m010",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2478754923,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 773.1709037273,
+    "changed_fields_vs_control": "['model.name', 'model.prediction_shift']",
+    "delta_brier_vs_control": -9.26476e-05,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "no_shift_control",
+    "change": "control: shift 0",
+    "feature_set": "main55_plus_count",
+    "feature_count": 60,
+    "model": "catboost_native_300",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2479681399,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 736.0832056721,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-17T16:34:36.913615+00:00",
+  "based_on_run_id": "RUN_001"
+}

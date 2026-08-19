@@ -1,0 +1,227 @@
+{
+  "based_on": "EXP_027",
+  "reference_variant": "gpu_d6_i600",
+  "ablation_summary": "GPU 모델을 고정하고 missing, shrinkage, log-count, context 파생 12개를 각각 하나씩만 추가",
+  "control": "main60_control",
+  "variants": [
+    {
+      "name": "main60_control",
+      "declared_change": "control: GPU main60",
+      "is_control": true,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_recent_history_missing",
+      "declared_change": "recent_history_missing 단독 추가",
+      "is_control": false,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "recent_history_missing"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_pitcher_history_missing",
+      "declared_change": "pitcher_history_missing 단독 추가",
+      "is_control": false,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_history_missing"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_batter_history_missing",
+      "declared_change": "batter_history_missing 단독 추가",
+      "is_control": false,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "batter_history_missing"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_pitcher_success_rate_shrunk",
+      "declared_change": "pitcher_success_rate_shrunk 단독 추가",
+      "is_control": false,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_success_rate_shrunk"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_pitcher_reverse_rate_shrunk",
+      "declared_change": "pitcher_reverse_rate_shrunk 단독 추가",
+      "is_control": false,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_reverse_rate_shrunk"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_success_minus_reverse",
+      "declared_change": "success_minus_reverse 단독 추가",
+      "is_control": false,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "success_minus_reverse"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_log1p_pitcher_n",
+      "declared_change": "log1p_pitcher_n 단독 추가",
+      "is_control": false,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "log1p_pitcher_n"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_log1p_batter_n",
+      "declared_change": "log1p_batter_n 단독 추가",
+      "is_control": false,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "log1p_batter_n"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_pitcher_team_win_expectancy",
+      "declared_change": "pitcher_team_win_expectancy 단독 추가",
+      "is_control": false,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_team_win_expectancy"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_log1p_li",
+      "declared_change": "log1p_li 단독 추가",
+      "is_control": false,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "log1p_li"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_scoring_position",
+      "declared_change": "scoring_position 단독 추가",
+      "is_control": false,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "scoring_position"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_scoring_position_x_li",
+      "declared_change": "scoring_position_x_li 단독 추가",
+      "is_control": false,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "scoring_position_x_li"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

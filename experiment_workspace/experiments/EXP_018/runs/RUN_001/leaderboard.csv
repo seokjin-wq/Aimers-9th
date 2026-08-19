@@ -1,0 +1,10 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+d6_i300_control,"control: depth6, 300 trees",main55_plus_count,60,catboost_native_shift_m010,catboost,1,0.2478754922836092,0.0,773.1709037272716,[],0.0,0/1
+d6_i225,"depth6, 225 trees",main55_plus_count,60,catboost_native_d6_i225_shift,catboost,1,0.2479103419164803,0.0,759.2202766075306,"['model.name', 'model.params.iterations']",3.4849632871120084e-05,0/1
+d5_i400,"depth5, 400 trees",main55_plus_count,60,catboost_native_d5_i400_shift,catboost,1,0.2479709329209996,0.0,734.9651427303594,"['model.name', 'model.params.depth', 'model.params.iterations']",9.54406373904204e-05,0/1
+d4_i400,"depth4, 400 trees",main55_plus_count,60,catboost_native_d4_i400_shift,catboost,1,0.2479724201483024,0.0,734.369792024081,"['model.name', 'model.params.depth', 'model.params.iterations']",9.692786469320258e-05,0/1
+d6_i150,"depth6, 150 trees",main55_plus_count,60,catboost_native_d6_i150_shift,catboost,1,0.2480009104568011,0.0,722.9648606762673,"['model.name', 'model.params.iterations']",0.0001254181731918,0/1
+d5_i250,"depth5, 250 trees",main55_plus_count,60,catboost_native_d5_i250_shift,catboost,1,0.2480085578670026,0.0,719.9035323533054,"['model.name', 'model.params.depth', 'model.params.iterations']",0.0001330655833934,0/1
+d4_i250,"depth4, 250 trees",main55_plus_count,60,catboost_native_d4_i250_shift,catboost,1,0.2480274770109019,0.0,712.3300258277343,"['model.name', 'model.params.depth', 'model.params.iterations']",0.0001519847272926,0/1
+d5_i150,"depth5, 150 trees",main55_plus_count,60,catboost_native_d5_i150_shift,catboost,1,0.2480674167209781,0.0,696.3417941982964,"['model.name', 'model.params.depth', 'model.params.iterations']",0.0001919244373689,0/1
+d4_i150,"depth4, 150 trees",main55_plus_count,60,catboost_native_d4_i150_shift,catboost,1,0.2481798754496132,0.0,651.3235354593583,"['model.name', 'model.params.depth', 'model.params.iterations']",0.000304383166004,0/1

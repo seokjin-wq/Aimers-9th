@@ -1,0 +1,107 @@
+{
+  "based_on": "EXP_009",
+  "reference_variant": "main55_control",
+  "ablation_summary": "main55를 기준으로 누수 없는 시즌 전체 prior, 직전 시즌 투수, 투수·타자, 선수·팀 타깃 이력을 단계적으로 추가",
+  "control": "main55_control",
+  "variants": [
+    {
+      "name": "main55_control",
+      "declared_change": "control: main55",
+      "is_control": true,
+      "feature_count": 55,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_season_priors",
+      "declared_change": "직전 시즌 전체 제구율과 선형 추세 prior 추가",
+      "is_control": false,
+      "feature_count": 57,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [
+        "previous_season_target_rate",
+        "season_trend_prior"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_pitcher_prev_season",
+      "declared_change": "시즌 prior와 직전 시즌 투수 스무딩 이력 추가",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [
+        "previous_season_target_rate",
+        "season_trend_prior",
+        "pitcher_prev_season_rate",
+        "pitcher_prev_season_log_n",
+        "pitcher_prev_season_delta"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_player_prev_season",
+      "declared_change": "시즌 prior와 직전 시즌 투수·타자 스무딩 이력 추가",
+      "is_control": false,
+      "feature_count": 63,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [
+        "previous_season_target_rate",
+        "season_trend_prior",
+        "pitcher_prev_season_rate",
+        "pitcher_prev_season_log_n",
+        "pitcher_prev_season_delta",
+        "batter_prev_season_rate",
+        "batter_prev_season_log_n",
+        "batter_prev_season_delta"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_full_prev_season",
+      "declared_change": "시즌 prior와 직전 시즌 선수·팀 스무딩 이력 추가",
+      "is_control": false,
+      "feature_count": 65,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [
+        "previous_season_target_rate",
+        "season_trend_prior",
+        "pitcher_prev_season_rate",
+        "pitcher_prev_season_log_n",
+        "pitcher_prev_season_delta",
+        "batter_prev_season_rate",
+        "batter_prev_season_log_n",
+        "batter_prev_season_delta",
+        "pitcher_team_prev_season_rate",
+        "batter_team_prev_season_rate"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

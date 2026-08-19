@@ -1,0 +1,13 @@
+[study]
+id = "exp_052"
+description = "best prediction calibration probe"
+hypothesis = "EXP050 최고 모델 예측의 잔여 평균·분산 편향을 보정하면 Brier를 추가로 낮출 수 있다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "best_replay"
+
+[[variants]]
+name = "best_replay"
+model = "catboost_cpu_d6_i600_lr030"
+features = "main81_add_global200"
+change = "EXP050 최고 설정을 동일 seed로 재현하고 예측 저장"

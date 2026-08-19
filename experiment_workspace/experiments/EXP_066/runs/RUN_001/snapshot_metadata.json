@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T03:33:16.595763+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "aaf747e71b25",
+  "based_on": "EXP_062",
+  "reference_variant": "extra_w18",
+  "ablation_summary": "main69 고정 후 CatBoost, HistGradientBoosting, LightGBM, XGBoost 대표 설정 비교"
+}

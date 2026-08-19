@@ -1,0 +1,122 @@
+{
+  "based_on": "EXP_014",
+  "reference_variant": "main60_control",
+  "ablation_summary": "main55+count CatBoost를 고정하고 prediction shift만 0, -0.005, -0.010, 과거-fold -0.0113955, -0.015로 변경",
+  "control": "no_shift_control",
+  "variants": [
+    {
+      "name": "no_shift_control",
+      "declared_change": "control: shift 0",
+      "is_control": true,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "shift_m005",
+      "declared_change": "모든 확률에 -0.005",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "catboost_native_shift_m005"
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": null,
+          "variant": -0.005
+        }
+      ]
+    },
+    {
+      "name": "shift_m010",
+      "declared_change": "모든 확률에 -0.010",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "catboost_native_shift_m010"
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": null,
+          "variant": -0.01
+        }
+      ]
+    },
+    {
+      "name": "shift_forward",
+      "declared_change": "2022~2023 과거 fold 편향으로 고정한 -0.0113955",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "catboost_native_shift_forward"
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": null,
+          "variant": -0.011395498281243616
+        }
+      ]
+    },
+    {
+      "name": "shift_m015",
+      "declared_change": "모든 확률에 -0.015",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_native_300",
+          "variant": "catboost_native_shift_m015"
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": null,
+          "variant": -0.015
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "based_on": "EXP_101",
+  "reference_variant": "catshift_m0095",
+  "ablation_summary": "Keep main72 features, GPU CatBoost, ExtraTrees, 45/40/15 weights, count residual correction k=500, scales, and shifts fixed; change only CPU CatBoost subsample from 0.7 to 0.8.",
+  "control": "triple_sub07_control",
+  "variants": [
+    {
+      "name": "triple_sub07_control",
+      "declared_change": "control: EXP_101 corrected triple with CPU subsample=0.7",
+      "is_control": true,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "triple_cpu_sub08",
+      "declared_change": "CPU CatBoost subsample 0.7 -> 0.8 only",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cpu_params.subsample",
+          "control": 0.7,
+          "variant": 0.8
+        },
+        {
+          "field": "model.name",
+          "control": "triple_group_count_k500_catshift_m0095",
+          "variant": "triple_group_count_k500_catshift_m0095_cpu_sub08"
+        }
+      ]
+    }
+  ]
+}

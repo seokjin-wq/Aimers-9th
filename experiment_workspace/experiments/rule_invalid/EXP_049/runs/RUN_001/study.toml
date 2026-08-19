@@ -1,0 +1,43 @@
+[study]
+id = "049_cpu_global_window_upper"
+description = "CPU 전역 rolling 상단 탐색"
+hypothesis = "window200 주변 상단에 더 나은 단일 창이 있다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "global200_control"
+
+[[variants]]
+name = "global200_control"
+model = "catboost_top_d6_i400_lr040"
+features = "main81_add_global200"
+change = "control: window200"
+
+[[variants]]
+name = "global175"
+model = "catboost_top_d6_i400_lr040"
+features = "main81_add_global175"
+change = "window175"
+
+[[variants]]
+name = "global225"
+model = "catboost_top_d6_i400_lr040"
+features = "main81_add_global225"
+change = "window225"
+
+[[variants]]
+name = "global250"
+model = "catboost_top_d6_i400_lr040"
+features = "main81_add_global250"
+change = "window250"
+
+[[variants]]
+name = "global300"
+model = "catboost_top_d6_i400_lr040"
+features = "main81_add_global300"
+change = "window300"
+
+[[variants]]
+name = "global400"
+model = "catboost_top_d6_i400_lr040"
+features = "main81_add_global400"
+change = "window400"

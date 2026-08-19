@@ -1,0 +1,102 @@
+{
+  "experiment_id": "EXP_117",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T12:03:25.321103+00:00",
+  "completed_at_utc": "2026-08-18T12:16:05.363257+00:00",
+  "config_hash": "7eabc346f415",
+  "based_on": "EXP_116",
+  "reference_variant": "triple_history_reliability",
+  "ablation_summary": "Fix main78 reliability features, all component parameters, shifts, count correction, and ExtraTrees weight where applicable; vary only CPU/GPU/Extra blend weights around 45/40/15.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/117_reliability_blend_weights/20260818T120325331805Z_7eabc346f415",
+  "control": "weights_45_40_15_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "weights_50_35_15",
+  "best_mean_brier": 0.2474515794290447,
+  "best_delta_brier_vs_control": -4.505476970395606e-07,
+  "leaderboard": [
+    {
+      "variant": "weights_50_35_15",
+      "change": "move 5% weight GPU -> CPU only",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_count_m0095_sub08_w50_35_15",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474515794,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 942.8671007335,
+      "changed_fields_vs_control": "['model.cpu_weight', 'model.gpu_weight', 'model.name']",
+      "delta_brier_vs_control": -4.505e-07,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "weights_55_30_15",
+      "change": "move 10% weight GPU -> CPU only",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_count_m0095_sub08_w55_30_15",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474517026,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 942.8178034219,
+      "changed_fields_vs_control": "['model.cpu_weight', 'model.gpu_weight', 'model.name']",
+      "delta_brier_vs_control": -3.274e-07,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "weights_45_40_15_control",
+      "change": "control: EXP_116 winner CPU/GPU/Extra=45/40/15",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_group_count_k500_catshift_m0095_cpu_sub08",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.24745203,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 942.6867423652,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "weights_50_40_10",
+      "change": "move 5% weight ExtraTrees -> CPU only",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_count_m0095_sub08_w50_40_10",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474524094,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 942.5348623232,
+      "changed_fields_vs_control": "['model.cpu_weight', 'model.extra_weight', 'model.name']",
+      "delta_brier_vs_control": 3.794e-07,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "c53f78afaff45c5141902edec4b1afc0cd2c1ab7b78c0cbb3343bca078d6e647",
+  "git_commit": "90dd686559946a9d917d8ff38eb9008e107931a7",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 759.8425660133362
+}

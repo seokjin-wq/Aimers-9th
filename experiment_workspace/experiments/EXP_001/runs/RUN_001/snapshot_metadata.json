@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T15:03:10.951255+00:00",
+  "backfilled_after_run": true,
+  "config_hash_verified": "d951333c26e6",
+  "based_on": "BASELINE_001_main55",
+  "reference_variant": "random_forest_raw47",
+  "ablation_summary": "제공 raw47을 고정하고 RandomForest 대비 CatBoost 모델군 변경 효과를 검증"
+}

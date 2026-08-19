@@ -1,0 +1,102 @@
+{
+  "experiment_id": "EXP_070",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T03:51:39.405027+00:00",
+  "completed_at_utc": "2026-08-18T03:58:49.848014+00:00",
+  "config_hash": "da90de56c100",
+  "based_on": "EXP_062",
+  "reference_variant": "extra_w18",
+  "ablation_summary": "main69 고정 후 CPU/GPU/Extra 비중 40/45/15,45/40/15,40/40/20 비교",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/070_cpu_gpu_extra_triple/20260818T035139410969Z_da90de56c100",
+  "control": "cpu_only",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "cpu45_gpu40_extra15",
+  "best_mean_brier": 0.2474965564474581,
+  "best_delta_brier_vs_control": -4.116427895264896e-05,
+  "leaderboard": [
+    {
+      "variant": "cpu45_gpu40_extra15",
+      "change": "CPU45 GPU40 Extra15",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "triple_cpu45_gpu40_extra15",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474965564,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 924.8623884554,
+      "changed_fields_vs_control": "['model.cat_scale', 'model.cat_shift', 'model.cpu_params.allow_writing_files', 'model.cpu_params.depth', 'model.cpu_params.eval_metric', 'model.cpu_params.iterations', 'model.cpu_params.l2_leaf_reg', 'model.cpu_params.learning_rate', 'model.cpu_params.loss_function', 'model.cpu_params.random_seed', 'model.cpu_params.subsample', 'model.cpu_params.task_type', 'model.cpu_params.thread_count', 'model.cpu_params.verbose', 'model.cpu_weight', 'model.extra_params.max_features', 'model.extra_params.min_samples_leaf', 'model.extra_params.n_estimators', 'model.extra_params.n_jobs', 'model.extra_params.random_state', 'model.extra_params.verbose', 'model.extra_shift', 'model.extra_weight', 'model.family', 'model.gpu_params.allow_writing_files', 'model.gpu_params.bagging_temperature', 'model.gpu_params.bootstrap_type', 'model.gpu_params.border_count', 'model.gpu_params.depth', 'model.gpu_params.devices', 'model.gpu_params.eval_metric', 'model.gpu_params.iterations', 'model.gpu_params.l2_leaf_reg', 'model.gpu_params.learning_rate', 'model.gpu_params.loss_function', 'model.gpu_params.random_seed', 'model.gpu_params.task_type', 'model.gpu_params.verbose', 'model.gpu_weight', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.random_seed', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.verbose', 'model.prediction_scale', 'model.prediction_shift']",
+      "delta_brier_vs_control": -4.11643e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "cpu40_gpu45_extra15",
+      "change": "CPU40 GPU45 Extra15",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "triple_cpu40_gpu45_extra15",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474966232,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 924.8356723513,
+      "changed_fields_vs_control": "['model.cat_scale', 'model.cat_shift', 'model.cpu_params.allow_writing_files', 'model.cpu_params.depth', 'model.cpu_params.eval_metric', 'model.cpu_params.iterations', 'model.cpu_params.l2_leaf_reg', 'model.cpu_params.learning_rate', 'model.cpu_params.loss_function', 'model.cpu_params.random_seed', 'model.cpu_params.subsample', 'model.cpu_params.task_type', 'model.cpu_params.thread_count', 'model.cpu_params.verbose', 'model.cpu_weight', 'model.extra_params.max_features', 'model.extra_params.min_samples_leaf', 'model.extra_params.n_estimators', 'model.extra_params.n_jobs', 'model.extra_params.random_state', 'model.extra_params.verbose', 'model.extra_shift', 'model.extra_weight', 'model.family', 'model.gpu_params.allow_writing_files', 'model.gpu_params.bagging_temperature', 'model.gpu_params.bootstrap_type', 'model.gpu_params.border_count', 'model.gpu_params.depth', 'model.gpu_params.devices', 'model.gpu_params.eval_metric', 'model.gpu_params.iterations', 'model.gpu_params.l2_leaf_reg', 'model.gpu_params.learning_rate', 'model.gpu_params.loss_function', 'model.gpu_params.random_seed', 'model.gpu_params.task_type', 'model.gpu_params.verbose', 'model.gpu_weight', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.random_seed', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.verbose', 'model.prediction_scale', 'model.prediction_shift']",
+      "delta_brier_vs_control": -4.10975e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "cpu40_gpu40_extra20",
+      "change": "CPU40 GPU40 Extra20",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "triple_cpu40_gpu40_extra20",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474977279,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 924.3934610254,
+      "changed_fields_vs_control": "['model.cat_scale', 'model.cat_shift', 'model.cpu_params.allow_writing_files', 'model.cpu_params.depth', 'model.cpu_params.eval_metric', 'model.cpu_params.iterations', 'model.cpu_params.l2_leaf_reg', 'model.cpu_params.learning_rate', 'model.cpu_params.loss_function', 'model.cpu_params.random_seed', 'model.cpu_params.subsample', 'model.cpu_params.task_type', 'model.cpu_params.thread_count', 'model.cpu_params.verbose', 'model.cpu_weight', 'model.extra_params.max_features', 'model.extra_params.min_samples_leaf', 'model.extra_params.n_estimators', 'model.extra_params.n_jobs', 'model.extra_params.random_state', 'model.extra_params.verbose', 'model.extra_shift', 'model.extra_weight', 'model.family', 'model.gpu_params.allow_writing_files', 'model.gpu_params.bagging_temperature', 'model.gpu_params.bootstrap_type', 'model.gpu_params.border_count', 'model.gpu_params.depth', 'model.gpu_params.devices', 'model.gpu_params.eval_metric', 'model.gpu_params.iterations', 'model.gpu_params.l2_leaf_reg', 'model.gpu_params.learning_rate', 'model.gpu_params.loss_function', 'model.gpu_params.random_seed', 'model.gpu_params.task_type', 'model.gpu_params.verbose', 'model.gpu_weight', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.random_seed', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.verbose', 'model.prediction_scale', 'model.prediction_shift']",
+      "delta_brier_vs_control": -3.99929e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "cpu_only",
+      "change": "control: CPU depth8 decay85",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475377207,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 908.3839506927,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "1c5f512e3a7c9662e4818a4af89931fc1b38ca1d78b018ca40c1bfa15af274ad",
+  "git_commit": "7bde464991a4052a625a1c8c1d2e222d4b3c6542",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 430.2447464466095
+}

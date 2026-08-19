@@ -1,0 +1,117 @@
+{
+  "experiment_id": "EXP_013",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T16:23:12.540194+00:00",
+  "completed_at_utc": "2026-08-17T16:25:12.916962+00:00",
+  "config_hash": "6e44aa17ddb8",
+  "based_on": "EXP_012",
+  "reference_variant": "default_control",
+  "ablation_summary": "main55+count를 고정하고 CatBoost/LightGBM/XGBoost의 분류 Logloss와 회귀 squared-error 목적을 비교",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/013_direct_brier_objective/20260817T162312542438Z_6e44aa17ddb8",
+  "control": "catboost_logloss_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "catboost_logloss_control",
+  "best_mean_brier": 0.2479681399223257,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "catboost_logloss_control",
+      "change": "control: CatBoost Logloss classifier",
+      "feature_set": "main55_plus_count",
+      "feature_count": 60,
+      "model": "catboost_native_300",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2479681399,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 736.0832056721,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "catboost_rmse_500",
+      "change": "CatBoost RMSE regressor 500 trees",
+      "feature_set": "main55_plus_count",
+      "feature_count": 60,
+      "model": "catboost_rmse_500",
+      "model_family": "catboost_regressor",
+      "fold_count": 1,
+      "mean_brier": 0.2480162623,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 716.8193667268,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.params.eval_metric', 'model.params.iterations', 'model.params.learning_rate', 'model.params.loss_function']",
+      "delta_brier_vs_control": 4.81224e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "catboost_rmse_300",
+      "change": "CatBoost RMSE regressor 300 trees",
+      "feature_set": "main55_plus_count",
+      "feature_count": 60,
+      "model": "catboost_rmse_300",
+      "model_family": "catboost_regressor",
+      "fold_count": 1,
+      "mean_brier": 0.2480431551,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 706.0539286117,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.params.eval_metric', 'model.params.loss_function']",
+      "delta_brier_vs_control": 7.50152e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "lightgbm_rmse",
+      "change": "LightGBM regression_l2",
+      "feature_set": "main55_plus_count",
+      "feature_count": 60,
+      "model": "lightgbm_rmse_l31",
+      "model_family": "lightgbm_regressor",
+      "fold_count": 1,
+      "mean_brier": 0.248117964,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 676.1072447787,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.colsample_bytree', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.min_child_samples', 'model.params.n_estimators', 'model.params.n_jobs', 'model.params.num_leaves', 'model.params.objective', 'model.params.random_seed', 'model.params.random_state', 'model.params.reg_lambda', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.verbose', 'model.params.verbosity']",
+      "delta_brier_vs_control": 0.0001498241,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "xgboost_rmse",
+      "change": "XGBoost squared-error",
+      "feature_set": "main55_plus_count",
+      "feature_count": 60,
+      "model": "xgboost_rmse_d4",
+      "model_family": "xgboost_regressor",
+      "fold_count": 1,
+      "mean_brier": 0.2481816729,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 650.6040152896,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.colsample_bytree', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.max_depth', 'model.params.min_child_weight', 'model.params.n_estimators', 'model.params.n_jobs', 'model.params.objective', 'model.params.random_seed', 'model.params.random_state', 'model.params.reg_lambda', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.tree_method', 'model.params.verbose']",
+      "delta_brier_vs_control": 0.0002135329,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "ca921554d863f2f268b97a10b7ace27dec14474320947d54209ec632a153244d",
+  "git_commit": "80f20ba91e666fa40b7cbdb1647ff163e037bc50",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 120.19664072990417
+}

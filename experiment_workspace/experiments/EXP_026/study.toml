@@ -1,0 +1,73 @@
+[study]
+id = "026_prior_season_group_residual"
+description = "직전 시즌 그룹 잔차 보정"
+hypothesis = "2023에서 반복된 선수·팀·상황별 예측 편향이 2024에도 유지되어 직전 시즌 잔차 보정이 Brier를 개선한다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "catboost_control"
+
+[[variants]]
+name = "catboost_control"
+model = "catboost_top_d6_i400_lr040"
+features = "main60_cat_batter_team"
+change = "control: depth6 400 lr0.04, 그룹 보정 없음"
+
+[[variants]]
+name = "pitcher_k50"
+model = "groupcal_pitcher_k50"
+features = "main60_cat_batter_team"
+change = "pitcher_id 잔차, shrinkage 50"
+
+[[variants]]
+name = "pitcher_k200"
+model = "groupcal_pitcher_k200"
+features = "main60_cat_batter_team"
+change = "pitcher_id 잔차, shrinkage 200"
+
+[[variants]]
+name = "pitcher_k500"
+model = "groupcal_pitcher_k500"
+features = "main60_cat_batter_team"
+change = "pitcher_id 잔차, shrinkage 500"
+
+[[variants]]
+name = "batter_k50"
+model = "groupcal_batter_k50"
+features = "main60_cat_batter_team"
+change = "batter_id 잔차, shrinkage 50"
+
+[[variants]]
+name = "batter_k200"
+model = "groupcal_batter_k200"
+features = "main60_cat_batter_team"
+change = "batter_id 잔차, shrinkage 200"
+
+[[variants]]
+name = "pitcher_team_k200"
+model = "groupcal_pitcher_team_k200"
+features = "main60_cat_batter_team"
+change = "pitcher_team_id 잔차"
+
+[[variants]]
+name = "batter_team_k200"
+model = "groupcal_batter_team_k200"
+features = "main60_cat_batter_team"
+change = "batter_team_id 잔차"
+
+[[variants]]
+name = "count_k500"
+model = "groupcal_count_k500"
+features = "main60_cat_batter_team"
+change = "ball-strike-out 조합 잔차"
+
+[[variants]]
+name = "month_k1000"
+model = "groupcal_month_k1000"
+features = "main60_cat_batter_team"
+change = "game_month 잔차"
+
+[[variants]]
+name = "pitcher_bteam_k200"
+model = "groupcal_pitcher_bteam_k200"
+features = "main60_cat_batter_team"
+change = "pitcher_id × batter_team_id 잔차"

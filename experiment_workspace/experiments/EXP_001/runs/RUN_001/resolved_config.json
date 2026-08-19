@@ -1,0 +1,120 @@
+{
+  "study": {
+    "id": "001_model_family",
+    "description": "동일한 제공 47개 피처에서 모델군만 비교",
+    "hypothesis": "CatBoost가 RandomForest보다 2024 고정 홀드아웃 Brier를 개선한다.",
+    "protocol": "holdout_2024",
+    "change_scope": [
+      "model"
+    ],
+    "control": "random_forest_raw47"
+  },
+  "protocol": {
+    "name": "holdout_2024",
+    "description": "2019~2023 전체로 학습하고 2024를 고정 primary holdout으로 검증",
+    "train_start_season": 2019,
+    "validation_seasons": [
+      2024
+    ],
+    "split_rule": "before_validation_season",
+    "primary_metric": "brier",
+    "secondary_metrics": [
+      "brier_skill_score",
+      "roc_auc"
+    ],
+    "target_column": "control_success",
+    "id_column": "row_id",
+    "season_column": "season",
+    "store_predictions": true,
+    "calibration": "none",
+    "seed": 42
+  },
+  "variants": [
+    {
+      "name": "random_forest_raw47",
+      "change": "control: 제공 RandomForest 계열 기준",
+      "model": {
+        "name": "random_forest_default",
+        "family": "random_forest",
+        "params": {
+          "n_estimators": 100,
+          "max_depth": 10,
+          "min_samples_leaf": 200,
+          "n_jobs": 8,
+          "random_state": 42
+        }
+      },
+      "features": {
+        "name": "raw47",
+        "description": "대회 제공 입력 47개 전체",
+        "include_all_raw": true,
+        "exclude": [],
+        "custom": [],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state"
+        ],
+        "expected_count": 47
+      },
+      "changed_fields_vs_control": []
+    },
+    {
+      "name": "catboost_raw47",
+      "change": "모델군만 RandomForest에서 CatBoost로 변경",
+      "model": {
+        "name": "catboost_default",
+        "family": "catboost",
+        "params": {
+          "iterations": 300,
+          "depth": 6,
+          "learning_rate": 0.05,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.7,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "raw47",
+        "description": "대회 제공 입력 47개 전체",
+        "include_all_raw": true,
+        "exclude": [],
+        "custom": [],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state"
+        ],
+        "expected_count": 47
+      },
+      "changed_fields_vs_control": [
+        "model.family",
+        "model.name",
+        "model.params.allow_writing_files",
+        "model.params.depth",
+        "model.params.eval_metric",
+        "model.params.iterations",
+        "model.params.l2_leaf_reg",
+        "model.params.learning_rate",
+        "model.params.loss_function",
+        "model.params.max_depth",
+        "model.params.min_samples_leaf",
+        "model.params.n_estimators",
+        "model.params.n_jobs",
+        "model.params.random_seed",
+        "model.params.random_state",
+        "model.params.subsample",
+        "model.params.task_type",
+        "model.params.thread_count",
+        "model.params.verbose"
+      ]
+    }
+  ],
+  "config_hash": "d951333c26e6"
+}

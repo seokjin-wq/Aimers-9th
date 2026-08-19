@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_046",
+  "decision": "keep_control",
+  "selected_variant": "cat_control",
+  "reason": "모든 이종 모델 단독이 악화했고 저장 예측 최적 혼합도 BSS 1165.37로 CatBoost 대비 이득이 작아 CPU CatBoost 유지",
+  "based_on": "EXP_045",
+  "reference_variant": "best_three",
+  "ablation_summary": "main80을 고정하고 CPU CatBoost 대비 LightGBM leaves31·63·127, HistGB leaves31·63, Logistic C0.01만 변경",
+  "selected_result": {
+    "variant": "cat_control",
+    "change": "control: CPU CatBoost",
+    "feature_set": "main80_add_best_ewm",
+    "feature_count": 80,
+    "model": "catboost_top_d6_i400_lr040",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2469303451,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 1151.5219637307,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "cat_control",
+    "change": "control: CPU CatBoost",
+    "feature_set": "main80_add_best_ewm",
+    "feature_count": 80,
+    "model": "catboost_top_d6_i400_lr040",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2469303451,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 1151.5219637307,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-17T19:51:49.269181+00:00",
+  "based_on_run_id": "RUN_001"
+}

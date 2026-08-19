@@ -1,0 +1,31 @@
+[study]
+id = "055_official_train_target_effects"
+description = "공식 학습 타깃 효과 피처"
+hypothesis = "공식 학습 행에서만 계산한 leave-one-out 투수·타자·팀 효과가 숫자 ID를 직접 쓰는 CatBoost보다 2024 일반화를 개선한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main60_control"
+
+[[variants]]
+name = "main60_control"
+model = "catboost_native_scale106_shift_m008"
+features = "main60_cat_batter_team"
+change = "control: 합법 main60 CatBoost"
+
+[[variants]]
+name = "pitcher_te50"
+model = "catboost_native_scale106_shift_m008"
+features = "main61_pitcher_te50"
+change = "공식 학습 타깃만 사용한 투수 LOO 효과(k=50) 1개 추가"
+
+[[variants]]
+name = "pitcher_batter_te50"
+model = "catboost_native_scale106_shift_m008"
+features = "main62_pitcher_batter_te50"
+change = "투수와 타자 LOO 효과(k=50) 2개 추가"
+
+[[variants]]
+name = "all_entity_team_te"
+model = "catboost_native_scale106_shift_m008"
+features = "main64_all_te"
+change = "투수·타자 효과(k=50)와 양 팀 효과(k=500) 4개 추가"

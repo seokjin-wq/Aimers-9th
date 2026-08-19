@@ -1,0 +1,43 @@
+[study]
+id = "059_season_state_catboost_capacity"
+description = "시즌 상태 CatBoost 용량 재탐색"
+hypothesis = "새로운 현재 시즌 상태 신호는 기존 main60과 다른 최적 트리 깊이·반복 수를 가질 수 있다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "d6_i300_control"
+
+[[variants]]
+name = "d6_i300_control"
+model = "catboost_native_scale106_shift_m008"
+features = "main69_pitcher_batter_season_all"
+change = "control: depth6 300 lr0.05"
+
+[[variants]]
+name = "d6_i400"
+model = "catboost_top_d6_i400_lr040"
+features = "main69_pitcher_batter_season_all"
+change = "depth6 400 lr0.04"
+
+[[variants]]
+name = "d6_i600"
+model = "catboost_top_d6_i600_lr025"
+features = "main69_pitcher_batter_season_all"
+change = "depth6 600 lr0.025"
+
+[[variants]]
+name = "d5_i600"
+model = "catboost_cpu_d5_i600_lr035"
+features = "main69_pitcher_batter_season_all"
+change = "depth5 600 lr0.035"
+
+[[variants]]
+name = "d7_i400"
+model = "catboost_cpu_d7_i400_lr035"
+features = "main69_pitcher_batter_season_all"
+change = "depth7 400 lr0.035"
+
+[[variants]]
+name = "d8_i300"
+model = "catboost_cpu_d8_i300_lr035"
+features = "main69_pitcher_batter_season_all"
+change = "depth8 300 lr0.035"

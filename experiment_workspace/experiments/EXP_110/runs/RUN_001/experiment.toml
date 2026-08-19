@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_110"
+title = "Latest CatBoost subsample refinement"
+hypothesis = "The local optimum lies near subsample 0.8 and a narrow sweep can improve on EXP_109 without changing features or validation protocol."
+change_scope = "model"
+study_config = "experiments/EXP_110/study.toml"
+based_on = "EXP_109"
+reference_variant = "subsample_08"
+ablation_summary = "Fix the EXP_109 winning model and main72 features; vary only subsample across 0.75, 0.80, 0.85, and 0.90."
+tags = ["compliance", "row-independent", "catboost", "subsample", "refinement"]
+created_at_utc = "2026-08-18T10:46:16.728671+00:00"

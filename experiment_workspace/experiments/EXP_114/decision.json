@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_114",
+  "decision": "keep_control",
+  "selected_variant": "reliability_k100_control",
+  "reason": "Reliability k=100 remained clearly best; both k=50 and k=200 worsened Brier by more than 4e-05, so retain k=100.",
+  "based_on": "EXP_113",
+  "reference_variant": "all_six_control",
+  "ablation_summary": "Fix all main72 features and CPU subsample=0.8; change only the denominator k used in the same six reliability features across 50, 100, and 200.",
+  "selected_result": {
+    "variant": "reliability_k100_control",
+    "change": "control: EXP_112/113 winner reliability k=100",
+    "feature_set": "main78_history_reliability",
+    "feature_count": 78,
+    "model": "catboost_d8_decay085_sub08",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2474879926,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 928.2905828931,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "reliability_k100_control",
+    "change": "control: EXP_112/113 winner reliability k=100",
+    "feature_set": "main78_history_reliability",
+    "feature_count": 78,
+    "model": "catboost_d8_decay085_sub08",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2474879926,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 928.2905828931,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T11:32:24.266918+00:00",
+  "based_on_run_id": "RUN_001"
+}

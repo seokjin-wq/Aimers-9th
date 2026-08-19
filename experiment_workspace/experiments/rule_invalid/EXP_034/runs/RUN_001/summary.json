@@ -1,0 +1,147 @@
+{
+  "experiment_id": "EXP_034",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T18:25:14.533980+00:00",
+  "completed_at_utc": "2026-08-17T18:28:04.322958+00:00",
+  "config_hash": "bc79e003275a",
+  "based_on": "EXP_033",
+  "reference_variant": "global_control",
+  "ablation_summary": "GPU CatBoost와 main60을 고정하고 pitcher/batter의 직전 및 최근 3·5·10투구 성공률 파생만 개별·조합 추가",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/034_asof_pitch_sequence/20260817T182514538345Z_bc79e003275a",
+  "control": "main60_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "entity_recent_all",
+  "best_mean_brier": 0.2472865479632062,
+  "best_delta_brier_vs_control": -0.0005325165129245,
+  "leaderboard": [
+    {
+      "variant": "entity_recent_all",
+      "change": "투수·타자 직전 및 최근 3·5·10투구 모두 추가",
+      "feature_set": "main68_add_entity_recent_pitch",
+      "feature_count": 68,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.247286548,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1008.9307075282,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -0.0005325165,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "pitcher_recent",
+      "change": "투수 직전 및 최근 3·5·10투구 추가",
+      "feature_set": "main64_add_pitcher_recent_pitch",
+      "feature_count": 64,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.247353722,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 982.0403166539,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -0.0004653425,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "batter_recent",
+      "change": "타자 직전 및 최근 3·5·10투구 추가",
+      "feature_set": "main64_add_batter_recent_pitch",
+      "feature_count": 64,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2474935582,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 926.0626224315,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -0.0003255063,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "both_previous",
+      "change": "투수·타자 직전 투구 성공 추가",
+      "feature_set": "main62_add_both_previous_pitch",
+      "feature_count": 62,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2476333718,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 870.0939701276,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -0.0001856927,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "pitcher_previous",
+      "change": "투수 직전 투구 성공만 추가",
+      "feature_set": "main61_add_pitcher_previous_pitch",
+      "feature_count": 61,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2476502407,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 863.3411812255,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -0.0001688238,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "batter_previous",
+      "change": "타자 직전 상대 투구 성공만 추가",
+      "feature_set": "main61_add_batter_previous_pitch",
+      "feature_count": 61,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2476561403,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 860.9795098522,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -0.0001629242,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "main60_control",
+      "change": "control: 기존 main60",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2478190645,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 795.759471711,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "3b6266e33e033059c6d5e7bde8b6e3b54c47dc8bcc07ea5e73c3c7348abd4c2a",
+  "git_commit": "644a786b0a1c3638dccb6a9a611378f816ac506b",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 169.60402822494507
+}

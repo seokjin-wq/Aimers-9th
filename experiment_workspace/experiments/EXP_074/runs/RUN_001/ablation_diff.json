@@ -1,0 +1,89 @@
+{
+  "based_on": "EXP_073",
+  "reference_variant": "success_k50",
+  "ablation_summary": "Diagnose reference-only entity linkage, then compare main69 against linked historical Trackman pitcher aggregates without using any validation-row aggregate.",
+  "control": "success_k50_control",
+  "variants": [
+    {
+      "name": "success_k50_control",
+      "declared_change": "control: EXP_073의 k=50 당해 시즌 성공률",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "track_physics",
+      "declared_change": "control 대비 과거 Trackman 손×카운트 물리 평균 6개 추가",
+      "is_control": false,
+      "feature_count": 75,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "track_context_rel_speed",
+        "track_context_spin_rate",
+        "track_context_induced_vert_break",
+        "track_context_abs_horz_break",
+        "track_context_extension",
+        "track_context_zone_speed"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "track_pitchmix",
+      "declared_change": "control 대비 과거 Trackman 손×카운트 구종군 비율 3개 추가",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "track_context_fastball_share",
+        "track_context_breaking_share",
+        "track_context_offspeed_share"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "track_all",
+      "declared_change": "control 대비 과거 Trackman 물리 6개와 구종군 비율 3개 모두 추가",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "track_context_rel_speed",
+        "track_context_spin_rate",
+        "track_context_induced_vert_break",
+        "track_context_abs_horz_break",
+        "track_context_extension",
+        "track_context_zone_speed",
+        "track_context_fastball_share",
+        "track_context_breaking_share",
+        "track_context_offspeed_share"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

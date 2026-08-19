@@ -1,0 +1,117 @@
+{
+  "experiment_id": "EXP_036",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T18:34:20.746223+00:00",
+  "completed_at_utc": "2026-08-17T18:36:28.189759+00:00",
+  "config_hash": "d9c7f52abef9",
+  "based_on": "EXP_035",
+  "reference_variant": "add_all_extensions",
+  "ablation_summary": "main73과 GPU CatBoost를 고정하고 투수 reverse 직전·3·5·10·20·50투구 창의 포함 조합만 변경",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/036_reverse_sequence/20260817T183420750887Z_d9c7f52abef9",
+  "control": "main73_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "reverse_short",
+  "best_mean_brier": 0.2469380019466868,
+  "best_delta_brier_vs_control": -0.0002318994350859,
+  "leaderboard": [
+    {
+      "variant": "reverse_short",
+      "change": "투수 reverse 직전·3·5·10 추가",
+      "feature_set": "main77_add_pitcher_reverse_short",
+      "feature_count": 77,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2469380019,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1148.4568692102,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -0.0002318994,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "reverse_all",
+      "change": "투수 reverse 직전·3·5·10·20·50 모두 추가",
+      "feature_set": "main79_add_pitcher_reverse_all",
+      "feature_count": 79,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2469609336,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1139.2770998925,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -0.0002089677,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "reverse_long",
+      "change": "투수 reverse 직전·10·20·50 추가",
+      "feature_set": "main77_add_pitcher_reverse_long",
+      "feature_count": 77,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2469839379,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1130.0682681049,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -0.0001859634,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "reverse_previous",
+      "change": "투수 직전 reverse만 추가",
+      "feature_set": "main74_add_pitcher_reverse_previous",
+      "feature_count": 74,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2470465105,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1105.019919561,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -0.0001233909,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "main73_control",
+      "change": "control: 성공 rolling 최고 조합",
+      "feature_set": "main73_add_rolling_extensions",
+      "feature_count": 73,
+      "model": "catboost_gpu_d6_i600_lr025_b128",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2471699014,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1055.6254020861,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "278152dfbc30c25d64b00105241ed3770a98e127636f7597da64c4145b84bdf7",
+  "git_commit": "644a786b0a1c3638dccb6a9a611378f816ac506b",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 127.25353693962097
+}

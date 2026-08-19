@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_074"
+title = "Official Trackman pitcher linkage"
+hypothesis = "Anonymous main-data pitchers can be linked to official Trackman pitchers using only 2019-2023 team, hand, counts, and pitch-mix signatures, enabling row-independent physical-history features."
+change_scope = "features"
+study_config = "experiments/EXP_074/study.toml"
+based_on = "EXP_073"
+reference_variant = "success_k50"
+ablation_summary = "Diagnose reference-only entity linkage, then compare main69 against linked historical Trackman pitcher aggregates without using any validation-row aggregate."
+tags = ["compliance,row-independent,trackman,entity-linkage"]
+created_at_utc = "2026-08-18T04:39:27.187189+00:00"

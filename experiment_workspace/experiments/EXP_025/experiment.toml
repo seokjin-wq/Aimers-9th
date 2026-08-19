@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_025"
+title = "CatBoost 학습률-트리수 경로"
+hypothesis = "총 boosting 강도를 비슷하게 유지하면서 작은 학습률과 많은 tree를 쓰면 기존 300x0.05보다 일반화 Brier가 개선된다"
+change_scope = "model"
+study_config = "experiments/EXP_025/study.toml"
+based_on = "EXP_024"
+reference_variant = "extra_w24"
+ablation_summary = "main60과 categorical/affine을 고정하고 iterations와 learning_rate 조합 및 인접 depth만 변경"
+tags = ["catboost", "learning-rate", "capacity"]
+created_at_utc = "2026-08-17T17:41:02.871008+00:00"

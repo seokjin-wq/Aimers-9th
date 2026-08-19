@@ -1,0 +1,37 @@
+[study]
+id = "084_hand_pitchmix_interactions"
+description = "EDA 기반 손 조합과 사전 구종 구성의 행 단위 상호작용"
+hypothesis = "손 조합별로 과거 구종 구성과 제구 성공의 기울기가 달라 명시적 교호항이 추가 신호를 준다."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "count_hands_control"
+
+[[variants]]
+name = "count_hands_control"
+model = "catboost_d8_decay085"
+features = "main69_cat_count_hands"
+change = "control: EXP_080 CPU count+hands base"
+
+[[variants]]
+name = "hand_matchup_category"
+model = "catboost_d8_decay085"
+features = "main70_cat_count_hands_matchup"
+change = "네 가지 투수손×타자손 조합 categorical 추가"
+
+[[variants]]
+name = "same_hand_pitchmix"
+model = "catboost_d8_decay085"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "동일손 여부×과거 구종군 비율 3개 추가"
+
+[[variants]]
+name = "separate_hands_pitchmix"
+model = "catboost_d8_decay085"
+features = "main75_cat_count_hands_separate_pitchmix"
+change = "투수손·타자손 각각과 과거 구종군 비율 6개 추가"
+
+[[variants]]
+name = "full_matchup_pitchmix"
+model = "catboost_d8_decay085"
+features = "main81_cat_count_hands_full_pitchmix"
+change = "네 손 조합 indicator×세 과거 구종군 비율 12개 추가"

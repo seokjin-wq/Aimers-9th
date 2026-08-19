@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T16:40:28.052001+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "720c21176a5c",
+  "based_on": "EXP_016",
+  "reference_variant": "single_seed_control",
+  "ablation_summary": "shifted native CatBoost와 main55를 고정하고 count_state, full count, 2-strike, 3-ball, 2-out을 각각 단독 추가하고 전체 count_state 범주화 비교"
+}

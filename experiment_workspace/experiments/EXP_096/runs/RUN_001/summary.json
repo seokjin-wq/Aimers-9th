@@ -1,0 +1,162 @@
+{
+  "experiment_id": "EXP_096",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T07:57:20.901558+00:00",
+  "completed_at_utc": "2026-08-18T08:04:50.477727+00:00",
+  "config_hash": "06067ca5ea11",
+  "based_on": "EXP_090",
+  "reference_variant": "late_pitcher_history",
+  "ablation_summary": "Hold the EXP_090 same-hand pitch-mix control and model fixed; compare three late-inning pitcher-history interactions individually, in pairs, and together.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/096_late_history_decomposition/20260818T075720910169Z_06067ca5ea11",
+  "control": "same_hand_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "late_all_three",
+  "best_mean_brier": 0.2475015772625867,
+  "best_delta_brier_vs_control": -1.0289375639016551e-05,
+  "leaderboard": [
+    {
+      "variant": "late_all_three",
+      "change": "EXP_090 reference: add all three late-inning pitcher-history interactions",
+      "feature_set": "main75_same_pitchmix_late_history",
+      "feature_count": 75,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475015773,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 922.8525101891,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -1.02894e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "late_success_reverse",
+      "change": "add late success and reverse interactions",
+      "feature_set": "main74_same_pitchmix_late_success_reverse",
+      "feature_count": 74,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475064191,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 920.914280334,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -5.4475e-06,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "same_hand_control",
+      "change": "control: EXP_090 same-hand pitch-mix base",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475118666,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 918.7335789118,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "late_reverse_middle",
+      "change": "add late reverse and middle interactions",
+      "feature_set": "main74_same_pitchmix_late_reverse_middle",
+      "feature_count": 74,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475291827,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 911.8017836758,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 1.73161e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "late_success_middle",
+      "change": "add late success and middle interactions",
+      "feature_set": "main74_same_pitchmix_late_success_middle",
+      "feature_count": 74,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475364068,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 908.9099187919,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 2.45402e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "late_middle_only",
+      "change": "add late_inning_x_pitcher_middle only",
+      "feature_set": "main73_same_pitchmix_late_middle",
+      "feature_count": 73,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475390422,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 907.85496518,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 2.71755e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "late_success_only",
+      "change": "add late_inning_x_pitcher_success only",
+      "feature_set": "main73_same_pitchmix_late_success",
+      "feature_count": 73,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475442046,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 905.7883783965,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 3.2338e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "late_reverse_only",
+      "change": "add late_inning_x_pitcher_reverse only",
+      "feature_set": "main73_same_pitchmix_late_reverse",
+      "feature_count": 73,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475453353,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 905.3357719819,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 3.34686e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "2c4d295bd1d08847af05845c444f88907f5db76159be69e576718f2301a3b4ab",
+  "git_commit": "c344bb549c1d42f2d893bc877697c4c4869052be",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 449.38567304611206
+}

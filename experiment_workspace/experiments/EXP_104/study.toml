@@ -1,0 +1,43 @@
+[study]
+id = "104_eda_context_residuals"
+description = "EDA context OOT residual calibration"
+hypothesis = "Residual biases by hand matchup, inning, or base state remain after the model and can be corrected using only 2023 official-training OOT residual tables and each row's own context."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "count_control"
+
+[[variants]]
+name = "count_control"
+model = "triple_group_count_k500_shift_m0095_w50_35_15"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: EXP_103 count residual groups"
+
+[[variants]]
+name = "hands_k500"
+model = "triple_group_hands_k500_shift_m0095_w50_35_15"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "2023 OOT residual by pitcher_hand x batter_hand, shrinkage 500"
+
+[[variants]]
+name = "count_hands_k1000"
+model = "triple_group_count_hands_k1000_shift_m0095_w50_35_15"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "2023 OOT residual by count x both hands, shrinkage 1000"
+
+[[variants]]
+name = "inning_k1000"
+model = "triple_group_inning_k1000_shift_m0095_w50_35_15"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "2023 OOT residual by current-row inning, shrinkage 1000"
+
+[[variants]]
+name = "base_k500"
+model = "triple_group_base_k500_shift_m0095_w50_35_15"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "2023 OOT residual by current-row base_state, shrinkage 500"
+
+[[variants]]
+name = "count_base_k1000"
+model = "triple_group_count_base_k1000_shift_m0095_w50_35_15"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "2023 OOT residual by count x base_state, shrinkage 1000"

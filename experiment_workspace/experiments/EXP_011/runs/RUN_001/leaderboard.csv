@@ -1,0 +1,6 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+uniform_control,control: 모든 2019~2023 행 weight 1.0,main55_plus_count,60,catboost_native_300,catboost,1,0.2479681399223257,0.0,736.0832056720667,[],0.0,0/1
+decay_085,과거 한 시즌마다 weight 0.85배,main55_plus_count,60,catboost_native_decay085,catboost,1,0.2480075379822225,0.0,720.3118015687849,"['model.name', 'model.season_decay']",3.939805989680578e-05,0/1
+decay_070,과거 한 시즌마다 weight 0.70배,main55_plus_count,60,catboost_native_decay070,catboost,1,0.2480906932921907,0.0,687.023969622802,"['model.name', 'model.season_decay']",0.000122553369865,0/1
+decay_050,과거 한 시즌마다 weight 0.50배,main55_plus_count,60,catboost_native_decay050,catboost,1,0.248130401896315,0.0,671.1282518219175,"['model.name', 'model.season_decay']",0.0001622619739893,0/1
+decay_025,과거 한 시즌마다 weight 0.25배,main55_plus_count,60,catboost_native_decay025,catboost,1,0.2481354345580472,0.0,669.1136312517609,"['model.name', 'model.season_decay']",0.0001672946357214,0/1

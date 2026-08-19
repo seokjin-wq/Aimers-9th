@@ -1,0 +1,5 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+subsample_08_control,control: EXP_109 winner subsample=0.80,main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay085_sub08,catboost,1,0.2475041715012055,0.0,921.8140127172704,[],0.0,0/1
+subsample_085,subsample 0.80 -> 0.85 only,main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay085_sub085,catboost,1,0.2475301877355118,0.0,911.3994759211708,"['model.name', 'model.params.subsample']",2.601623430628641e-05,0/1
+subsample_09,subsample 0.80 -> 0.90 only,main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay085_sub09,catboost,1,0.247538306192338,0.0,908.1495833214824,"['model.name', 'model.params.subsample']",3.41346911324758e-05,0/1
+subsample_075,subsample 0.80 -> 0.75 only,main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay085_sub075,catboost,1,0.2475391060082544,0.0,907.8294096870663,"['model.name', 'model.params.subsample']",3.493450704888934e-05,0/1

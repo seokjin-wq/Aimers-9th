@@ -1,0 +1,37 @@
+[study]
+id = "065_context_season_oof"
+description = "상황 교차 season-OOF 재검증"
+hypothesis = "학습행의 전체 시즌을 제외한 상황 효과는 자기 정답 지문 없이 안정적 상호작용을 제공한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main69_control"
+
+[[variants]]
+name = "main69_control"
+model = "catboost_d8_decay085"
+features = "main69_pitcher_batter_season_all"
+change = "control: 합법 main69"
+
+[[variants]]
+name = "count_hands_season_oof"
+model = "catboost_d8_decay085"
+features = "main70_count_hands_effect"
+change = "season-OOF 볼카운트×손 조합 효과"
+
+[[variants]]
+name = "count_out_base_season_oof"
+model = "catboost_d8_decay085"
+features = "main70_count_out_base_effect"
+change = "season-OOF 볼카운트×아웃×주자 효과"
+
+[[variants]]
+name = "game_pressure_season_oof"
+model = "catboost_d8_decay085"
+features = "main71_game_pressure_effects"
+change = "season-OOF 경기·압박 효과"
+
+[[variants]]
+name = "all_context_season_oof"
+model = "catboost_d8_decay085"
+features = "main73_all_context_effects"
+change = "season-OOF 네 상황 효과 전체"

@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_122"
+title = "Extended pitcher-history reliability rates"
+hypothesis = "Reliability weighting that helped success/reverse/middle may also stabilize noisy pitcher ball/strike and pitch-mix rates for low-history pitchers."
+change_scope = "features"
+study_config = "experiments/EXP_122/study.toml"
+based_on = "EXP_114"
+reference_variant = "reliability_k100_control"
+ablation_summary = "Fix main78 reliability CPU winner; add only ball/strike reliability-weighted rates, only three pitch-mix reliability-weighted rates, or all five."
+tags = ["compliance", "row-independent", "EDA", "reliability", "pitchmix"]
+created_at_utc = "2026-08-18T12:57:21.979180+00:00"

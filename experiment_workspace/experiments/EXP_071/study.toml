@@ -1,0 +1,37 @@
+[study]
+id = "071_season_state_id_categorical"
+description = "시즌 상태 선수 ID 범주 재검증"
+hypothesis = "현재 시즌 상태로 시간 변화가 분리된 뒤에는 선수 ID의 native categorical 효과가 안정적으로 남은 개인차를 포착한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "batter_team_control"
+
+[[variants]]
+name = "batter_team_control"
+model = "catboost_d8_decay085"
+features = "main69_pitcher_batter_season_all"
+change = "control: batter_team만 범주형"
+
+[[variants]]
+name = "pitcher_cat"
+model = "catboost_d8_decay085"
+features = "main69_cat_pitcher"
+change = "pitcher_id 범주형 추가"
+
+[[variants]]
+name = "batter_cat"
+model = "catboost_d8_decay085"
+features = "main69_cat_batter"
+change = "batter_id 범주형 추가"
+
+[[variants]]
+name = "pitcher_batter_cat"
+model = "catboost_d8_decay085"
+features = "main69_cat_pitcher_batter"
+change = "pitcher_id와 batter_id 범주형 추가"
+
+[[variants]]
+name = "pitcher_teams_cat"
+model = "catboost_d8_decay085"
+features = "main69_cat_pitcher_teams"
+change = "pitcher_id와 양 팀 ID 범주형"

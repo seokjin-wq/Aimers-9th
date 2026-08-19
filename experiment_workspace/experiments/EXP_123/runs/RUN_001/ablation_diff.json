@@ -1,0 +1,124 @@
+{
+  "based_on": "EXP_118",
+  "reference_variant": "d8_i300_control",
+  "ablation_summary": "Fix main78 features and winning CPU parameters; add monotonic constraints only for success rates, only reverse/middle failure rates, or all four directional constraints.",
+  "control": "unconstrained_control",
+  "variants": [
+    {
+      "name": "unconstrained_control",
+      "declared_change": "control: latest CPU without monotonic constraints",
+      "is_control": true,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "monotone_success",
+      "declared_change": "force pitcher and batter career success rates monotone positive only",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085_sub08",
+          "variant": "catboost_d8_sub08_monotone_success"
+        },
+        {
+          "field": "model.params.monotone_constraints",
+          "control": null,
+          "variant": {
+            "asof_pitcher_success_rate": 1,
+            "asof_batter_success_rate": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "monotone_failure",
+      "declared_change": "force pitcher reverse and middle rates monotone negative only",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085_sub08",
+          "variant": "catboost_d8_sub08_monotone_failure"
+        },
+        {
+          "field": "model.params.monotone_constraints",
+          "control": null,
+          "variant": {
+            "asof_pitcher_reverse_rate": -1,
+            "asof_pitcher_middle_rate": -1
+          }
+        }
+      ]
+    },
+    {
+      "name": "monotone_all",
+      "declared_change": "apply all four success/failure directional constraints",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085_sub08",
+          "variant": "catboost_d8_sub08_monotone_all"
+        },
+        {
+          "field": "model.params.monotone_constraints",
+          "control": null,
+          "variant": {
+            "asof_pitcher_success_rate": 1,
+            "asof_batter_success_rate": 1,
+            "asof_pitcher_reverse_rate": -1,
+            "asof_pitcher_middle_rate": -1
+          }
+        }
+      ]
+    }
+  ]
+}

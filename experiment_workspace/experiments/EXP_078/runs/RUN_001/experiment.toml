@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_078"
+title = "Low-cardinality categorical treatment"
+hypothesis = "Treating one semantically discrete block at a time as native CatBoost categorical may capture exact conditional probabilities better than numeric thresholds without the overreach of prior all-discrete tests."
+change_scope = "features"
+study_config = "experiments/EXP_078/study.toml"
+based_on = "EXP_072"
+reference_variant = "main69_control"
+ablation_summary = "Fix main69 and d8 decay0.85; separately add count_state, hands, calendar, pitcher_team, or count plus hands to the native categorical list."
+tags = ["compliance,row-independent,categorical,low-cardinality"]
+created_at_utc = "2026-08-18T05:05:33.435779+00:00"

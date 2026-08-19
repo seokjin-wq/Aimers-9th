@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_056",
+  "decision": "adopt",
+  "selected_variant": "pitcher_batter_season_all",
+  "reason": "공식 학습 종료 스냅샷+현재 한 행만으로 계산한 투수·타자 시즌 상태가 Brier를 0.000221053 개선해 BSS 883.746으로 새 CatBoost 최고를 기록",
+  "based_on": "EXP_054",
+  "reference_variant": "extra_w24_safe",
+  "ablation_summary": "main60 CatBoost 대비 투수 시즌 성공+n, 투수 시즌 전체 상태, 투수+타자 시즌 전체 상태를 단계적으로 추가",
+  "selected_result": {
+    "variant": "pitcher_batter_season_all",
+    "change": "투수 시즌 전체 상태에 타자 시즌 n·성공·middle 추가",
+    "feature_set": "main69_pitcher_batter_season_all",
+    "feature_count": 69,
+    "model": "catboost_native_scale106_shift_m008",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475992681,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 883.7459693801,
+    "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+    "delta_brier_vs_control": -0.0002210528,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "main60_control",
+    "change": "control: 합법 main60 CatBoost",
+    "feature_set": "main60_cat_batter_team",
+    "feature_count": 60,
+    "model": "catboost_native_scale106_shift_m008",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2478203209,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 795.2564988937,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T02:37:00.068239+00:00",
+  "based_on_run_id": "RUN_001"
+}

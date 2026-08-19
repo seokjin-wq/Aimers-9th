@@ -1,0 +1,102 @@
+{
+  "experiment_id": "EXP_112",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T11:18:20.282391+00:00",
+  "completed_at_utc": "2026-08-18T11:22:53.478182+00:00",
+  "config_hash": "5e2601454495",
+  "based_on": "EXP_109",
+  "reference_variant": "subsample_08",
+  "ablation_summary": "Fix CPU CatBoost subsample=0.8 and main72; add only two categorical history-size buckets, only six numeric reliability features, or both blocks.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/112_history_reliability/20260818T111820292645Z_5e2601454495",
+  "control": "main72_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "history_reliability",
+  "best_mean_brier": 0.2474879925802901,
+  "best_delta_brier_vs_control": -1.617892091540507e-05,
+  "leaderboard": [
+    {
+      "variant": "history_reliability",
+      "change": "add six row-local reliability and reliability-weighted rate features only",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "catboost_d8_decay085_sub08",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2474879926,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 928.2905828931,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -1.61789e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "main72_control",
+      "change": "control: EXP_109 CPU winner",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay085_sub08",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475041715,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 921.8140127173,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "history_buckets",
+      "change": "add pitcher/batter as-of history-size categorical buckets only",
+      "feature_set": "main74_history_buckets",
+      "feature_count": 74,
+      "model": "catboost_d8_decay085_sub08",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.247562787,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 898.3497026703,
+      "changed_fields_vs_control": "['features.categorical', 'features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 5.86155e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "buckets_plus_reliability",
+      "change": "add both history-size buckets and reliability features",
+      "feature_set": "main80_history_buckets_reliability",
+      "feature_count": 80,
+      "model": "catboost_d8_decay085_sub08",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475649744,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 897.4740520783,
+      "changed_fields_vs_control": "['features.categorical', 'features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 6.08029e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "542ef9fc2b22410b16800bbe4451a47a72ca5e7fc23f59d3832e579bdabc7dec",
+  "git_commit": "90dd686559946a9d917d8ff38eb9008e107931a7",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 273.0019519329071
+}

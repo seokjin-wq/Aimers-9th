@@ -1,0 +1,568 @@
+{
+  "based_on": "EXP_056",
+  "reference_variant": "pitcher_batter_season_all",
+  "ablation_summary": "main69 피처를 고정하고 CatBoost 단독 대비 ExtraTrees 가중치 15,20,24,28,32%만 변경",
+  "control": "catboost_control",
+  "variants": [
+    {
+      "name": "catboost_control",
+      "declared_change": "control: EXP_056 최고 CatBoost",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "extra_w15",
+      "declared_change": "ExtraTrees 15% 혼합",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 300,
+            "depth": 6,
+            "learning_rate": 0.05,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.cat_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.cat_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.extra_params",
+          "control": null,
+          "variant": {
+            "n_estimators": 300,
+            "min_samples_leaf": 20,
+            "max_features": 0.7,
+            "n_jobs": 8,
+            "random_state": 42,
+            "verbose": 0
+          }
+        },
+        {
+          "field": "model.extra_shift",
+          "control": null,
+          "variant": -0.01
+        },
+        {
+          "field": "model.extra_weight",
+          "control": null,
+          "variant": 0.15
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "cat_extra_blend"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_native_scale106_shift_m008",
+          "variant": "cat_extra_blend_w15"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 300,
+            "depth": 6,
+            "learning_rate": 0.05,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "extra_w20",
+      "declared_change": "ExtraTrees 20% 혼합",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 300,
+            "depth": 6,
+            "learning_rate": 0.05,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.cat_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.cat_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.extra_params",
+          "control": null,
+          "variant": {
+            "n_estimators": 300,
+            "min_samples_leaf": 20,
+            "max_features": 0.7,
+            "n_jobs": 8,
+            "random_state": 42,
+            "verbose": 0
+          }
+        },
+        {
+          "field": "model.extra_shift",
+          "control": null,
+          "variant": -0.01
+        },
+        {
+          "field": "model.extra_weight",
+          "control": null,
+          "variant": 0.2
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "cat_extra_blend"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_native_scale106_shift_m008",
+          "variant": "cat_extra_blend_w20"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 300,
+            "depth": 6,
+            "learning_rate": 0.05,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "extra_w24",
+      "declared_change": "ExtraTrees 24% 혼합",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 300,
+            "depth": 6,
+            "learning_rate": 0.05,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.cat_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.cat_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.extra_params",
+          "control": null,
+          "variant": {
+            "n_estimators": 300,
+            "min_samples_leaf": 20,
+            "max_features": 0.7,
+            "n_jobs": 8,
+            "random_state": 42,
+            "verbose": 0
+          }
+        },
+        {
+          "field": "model.extra_shift",
+          "control": null,
+          "variant": -0.01
+        },
+        {
+          "field": "model.extra_weight",
+          "control": null,
+          "variant": 0.24
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "cat_extra_blend"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_native_scale106_shift_m008",
+          "variant": "cat_extra_blend_w24"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 300,
+            "depth": 6,
+            "learning_rate": 0.05,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "extra_w28",
+      "declared_change": "ExtraTrees 28% 혼합",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 300,
+            "depth": 6,
+            "learning_rate": 0.05,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.cat_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.cat_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.extra_params",
+          "control": null,
+          "variant": {
+            "n_estimators": 300,
+            "min_samples_leaf": 20,
+            "max_features": 0.7,
+            "n_jobs": 8,
+            "random_state": 42,
+            "verbose": 0
+          }
+        },
+        {
+          "field": "model.extra_shift",
+          "control": null,
+          "variant": -0.01
+        },
+        {
+          "field": "model.extra_weight",
+          "control": null,
+          "variant": 0.28
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "cat_extra_blend"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_native_scale106_shift_m008",
+          "variant": "cat_extra_blend_w28"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 300,
+            "depth": 6,
+            "learning_rate": 0.05,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "extra_w32",
+      "declared_change": "ExtraTrees 32% 혼합",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 300,
+            "depth": 6,
+            "learning_rate": 0.05,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.cat_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.cat_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.extra_params",
+          "control": null,
+          "variant": {
+            "n_estimators": 300,
+            "min_samples_leaf": 20,
+            "max_features": 0.7,
+            "n_jobs": 8,
+            "random_state": 42,
+            "verbose": 0
+          }
+        },
+        {
+          "field": "model.extra_shift",
+          "control": null,
+          "variant": -0.01
+        },
+        {
+          "field": "model.extra_weight",
+          "control": null,
+          "variant": 0.32
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "cat_extra_blend"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_native_scale106_shift_m008",
+          "variant": "cat_extra_blend_w32"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 300,
+            "depth": 6,
+            "learning_rate": 0.05,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    }
+  ]
+}

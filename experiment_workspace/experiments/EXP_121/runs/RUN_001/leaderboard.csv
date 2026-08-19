@@ -1,0 +1,4 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+hist_weight_0_control,control: train HistGB but assign weight 0; CPU/GPU/Extra=50/35/15,main78_history_reliability,78,quad_hist0_count_m0095_sub08_w50_35_15,cat_cpu_gpu_extra_blend,1,0.2474514942152704,0.0,942.901212587599,[],0.0,0/1
+hist_weight_025,replace 2.5% ExtraTrees weight with HistGB only,main78_history_reliability,78,quad_hist025_count_m0095_sub08,cat_cpu_gpu_extra_blend,1,0.2474538017825296,0.0,941.97747228576,"['model.extra_weight', 'model.hist_weight', 'model.name']",2.3075672592465235e-06,0/1
+hist_weight_05,replace 5% ExtraTrees weight with HistGB only,main78_history_reliability,78,quad_hist05_count_m0095_sub08,cat_cpu_gpu_extra_blend,1,0.247456949404547,0.0,940.7174503727522,"['model.extra_weight', 'model.hist_weight', 'model.name']",5.455189276581951e-06,0/1

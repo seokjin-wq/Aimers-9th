@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_044"
+title = "CPU 투수 장기·타자 단기 창 정리"
+hypothesis = "GPU에서 단독 악화된 타자 recent2·8을 제거하고 투수 recent20·30·50만 유지하면 main77을 개선한다"
+change_scope = "features"
+study_config = "experiments/EXP_044/study.toml"
+based_on = "EXP_043"
+reference_variant = "main77_reverse"
+ablation_summary = "CPU depth6 400 lr0.04와 reverse short를 고정하고 투수 recent20·30·50 및 타자 recent2·8 포함 여부만 변경"
+tags = ["cpu", "window", "pruning"]
+created_at_utc = "2026-08-17T19:28:41.939810+00:00"

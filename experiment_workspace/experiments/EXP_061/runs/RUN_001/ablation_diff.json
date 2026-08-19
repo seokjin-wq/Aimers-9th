@@ -1,0 +1,103 @@
+{
+  "based_on": "EXP_060",
+  "reference_variant": "decay085",
+  "ablation_summary": "main69 k20 공통 기준 대비 ball k500, strike k200, batter-middle k200을 개별 및 동시 교체",
+  "control": "common_k20",
+  "variants": [
+    {
+      "name": "common_k20",
+      "declared_change": "control: 모든 현재 시즌 비율 k20",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "ball_k500",
+      "declared_change": "투수 ball만 k20에서 k500으로 변경",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_season_ball_rate_k500"
+      ],
+      "removed_features_vs_control": [
+        "pitcher_season_ball_rate_k20"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "strike_k200",
+      "declared_change": "투수 strike만 k20에서 k200으로 변경",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_season_strike_rate_k200"
+      ],
+      "removed_features_vs_control": [
+        "pitcher_season_strike_rate_k20"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "batter_middle_k200",
+      "declared_change": "타자 middle만 k20에서 k200으로 변경",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "batter_season_middle_rate_k200"
+      ],
+      "removed_features_vs_control": [
+        "batter_season_middle_rate_k20"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "metric_specific_all",
+      "declared_change": "ball500·strike200·batter-middle200을 동시에 적용",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_season_ball_rate_k500",
+        "pitcher_season_strike_rate_k200",
+        "batter_season_middle_rate_k200"
+      ],
+      "removed_features_vs_control": [
+        "pitcher_season_ball_rate_k20",
+        "pitcher_season_strike_rate_k20",
+        "batter_season_middle_rate_k20"
+      ],
+      "model_changes_vs_control": []
+    }
+  ]
+}

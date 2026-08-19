@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_088",
+  "decision": "adopt",
+  "selected_variant": "count_k500",
+  "reason": "2019-2022→2023 잔차의 ball×strike 보정 k500이 2024 Brier 0.2474717782→0.2474647761, BSS 934.78→937.58로 개선했다. count-out·month·team은 불안정해 단순 count 보정만 채택한다.",
+  "based_on": "EXP_087",
+  "reference_variant": "same_hand_pitchmix_triple",
+  "ablation_summary": "Fix EXP_087 features and triple components; fit group residual offsets only from 2019-2022→2023 predictions and vary group columns and shrinkage before applying to 2024.",
+  "selected_result": {
+    "variant": "count_k500",
+    "change": "2023 ball×strike residual, shrinkage 500",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "triple_group_count_k500",
+    "model_family": "cat_cpu_gpu_extra_blend",
+    "fold_count": 1,
+    "mean_brier": 0.2474647761,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 937.5843556071,
+    "changed_fields_vs_control": "['model.center_residual', 'model.group_columns', 'model.group_shrinkage', 'model.name', 'model.residual_scale']",
+    "delta_brier_vs_control": -7.0021e-06,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "triple_control",
+    "change": "control: EXP_087 same-hand pitchmix triple",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "triple_cpu45_gpu40_extra15",
+    "model_family": "cat_cpu_gpu_extra_blend",
+    "fold_count": 1,
+    "mean_brier": 0.2474717782,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 934.7813655279,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T06:52:17.138163+00:00",
+  "based_on_run_id": "RUN_001"
+}

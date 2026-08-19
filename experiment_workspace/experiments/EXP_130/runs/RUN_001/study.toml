@@ -1,0 +1,25 @@
+[study]
+id = "130_count_trend_estimator"
+description = "Count trend estimator final ablation"
+hypothesis = "OLS or endpoint count-relative slopes from all official 2019-2023 seasons will improve the EXP_129 WLS trend without using evaluation-row information."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "wls_control"
+
+[[variants]]
+name = "wls_control"
+model = "triple_count_trend_k0"
+features = "main78_history_reliability"
+change = "control: EXP_129 count-weighted linear slope"
+
+[[variants]]
+name = "ols_slope"
+model = "triple_count_trend_ols"
+features = "main78_history_reliability"
+change = "change only trend estimator from count-weighted WLS to equal-season OLS"
+
+[[variants]]
+name = "endpoint_slope"
+model = "triple_count_trend_endpoint"
+features = "main78_history_reliability"
+change = "change only trend estimator to 2019-to-2023 endpoint slope"

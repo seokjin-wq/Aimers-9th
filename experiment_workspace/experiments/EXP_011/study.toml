@@ -1,0 +1,37 @@
+[study]
+id = "011_season_recency_weight"
+description = "시즌 최근성 학습 가중치"
+hypothesis = "오래된 시즌의 가중치를 낮추면 2023과 유사한 2024 분포에 적응해 Brier가 개선된다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "uniform_control"
+
+[[variants]]
+name = "uniform_control"
+model = "catboost_native_300"
+features = "main55_plus_count"
+change = "control: 모든 2019~2023 행 weight 1.0"
+
+[[variants]]
+name = "decay_085"
+model = "catboost_native_decay085"
+features = "main55_plus_count"
+change = "과거 한 시즌마다 weight 0.85배"
+
+[[variants]]
+name = "decay_070"
+model = "catboost_native_decay070"
+features = "main55_plus_count"
+change = "과거 한 시즌마다 weight 0.70배"
+
+[[variants]]
+name = "decay_050"
+model = "catboost_native_decay050"
+features = "main55_plus_count"
+change = "과거 한 시즌마다 weight 0.50배"
+
+[[variants]]
+name = "decay_025"
+model = "catboost_native_decay025"
+features = "main55_plus_count"
+change = "과거 한 시즌마다 weight 0.25배"

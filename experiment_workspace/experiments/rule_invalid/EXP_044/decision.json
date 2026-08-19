@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_044",
+  "decision": "keep_control",
+  "selected_variant": "main77_control",
+  "reason": "타자 2·8 또는 투수 20·30·50 일부를 제거한 모든 CPU 후보가 악화되어 main77 전체 창 유지",
+  "based_on": "EXP_043",
+  "reference_variant": "main77_reverse",
+  "ablation_summary": "CPU depth6 400 lr0.04와 reverse short를 고정하고 투수 recent20·30·50 및 타자 recent2·8 포함 여부만 변경",
+  "selected_result": {
+    "variant": "main77_control",
+    "change": "control: 투수 20·30·50 + 타자 2·8 포함",
+    "feature_set": "main77_add_pitcher_reverse_short",
+    "feature_count": 77,
+    "model": "catboost_top_d6_i400_lr040",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2469381307,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 1148.405347731,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "main77_control",
+    "change": "control: 투수 20·30·50 + 타자 2·8 포함",
+    "feature_set": "main77_add_pitcher_reverse_short",
+    "feature_count": 77,
+    "model": "catboost_top_d6_i400_lr040",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2469381307,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 1148.405347731,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-17T19:34:40.137915+00:00",
+  "based_on_run_id": "RUN_001"
+}

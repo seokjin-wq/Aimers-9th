@@ -1,0 +1,10 @@
+{
+  "id": "EXP_071",
+  "status": "decided",
+  "created_at_utc": "2026-08-18T03:59:58.855192+00:00",
+  "updated_at_utc": "2026-08-18T04:05:41.011885+00:00",
+  "run_count": 1,
+  "latest_run_id": "RUN_001",
+  "decision": "keep_control",
+  "selected_variant": "batter_team_control"
+}

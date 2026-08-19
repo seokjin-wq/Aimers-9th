@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_092"
+title = "Count-pressure by pitcher-history interactions"
+hypothesis = "The transferred count residual in EXP_088 indicates that count-specific slopes remain; explicit two-strike, three-ball, and full-count interactions with pitcher career control history may let the base model learn them directly."
+change_scope = "features"
+study_config = "experiments/EXP_092/study.toml"
+based_on = "EXP_090"
+reference_variant = "late_pitcher_history"
+ablation_summary = "Fix EXP_084 CPU features; add exactly one pressure state by pitcher success/reverse/middle block, then all three blocks."
+tags = ["compliance", "row-independent", "count", "interaction", "pitcher-history"]
+created_at_utc = "2026-08-18T07:21:33.459205+00:00"

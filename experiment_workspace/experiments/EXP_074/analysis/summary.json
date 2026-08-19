@@ -1,0 +1,29 @@
+{
+  "reference_seasons": [
+    2019,
+    2020,
+    2021,
+    2022,
+    2023
+  ],
+  "team_mapping_max_rmse": 0.07094851575507806,
+  "candidate_rows": 1821,
+  "eligible_rows_main_n_ge_50": 1579,
+  "median_count_error": 0.2831886837759301,
+  "median_mix_error": 0.09960655122995377,
+  "median_top2_margin": 0.23417737243782266,
+  "fraction_count_error_below_005": 0.13362887903736542,
+  "repeat_pitchers": 419,
+  "fraction_repeat_pitchers_consistency_100pct": 0.031026252983293555,
+  "fraction_repeat_pitchers_consistency_ge_80pct": 0.03341288782816229,
+  "median_repeat_pitcher_consistency": 0.5,
+  "global_mapping_rows_2019_2022": 237,
+  "global_mapping_rows_2019_2023": 262,
+  "global_mapping_stability_fraction": 0.627906976744186,
+  "heldout_2023": {
+    "pairs": 89,
+    "team_match_fraction": 0.5955056179775281,
+    "median_count_error": 0.7852265923585042,
+    "median_mix_error": 0.12840348512862412
+  }
+}

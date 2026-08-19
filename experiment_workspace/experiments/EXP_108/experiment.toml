@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_108"
+title = "Latest-feature excluded raw column restoration"
+hypothesis = "Some raw columns excluded for redundancy on earlier models, especially prev5 form and pitcher strike/fastball rates, regain incremental value after season-state and interaction features changed the representation."
+change_scope = "features"
+study_config = "experiments/EXP_108/study.toml"
+based_on = "EXP_095"
+reference_variant = "all_three"
+ablation_summary = "Keep latest CPU CatBoost and all main72 custom features fixed; restore exactly one excluded official raw column at a time."
+tags = ["compliance", "row-independent", "raw-features", "restoration", "EDA"]
+created_at_utc = "2026-08-18T10:28:12.206846+00:00"

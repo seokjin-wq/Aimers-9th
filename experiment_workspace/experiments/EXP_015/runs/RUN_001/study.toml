@@ -1,0 +1,37 @@
+[study]
+id = "015_forward_probability_shift"
+description = "과거 fold 기반 확률 shift"
+hypothesis = "2022~2023의 과거 예측 편향으로 정한 음의 확률 shift가 2024 Brier를 개선한다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "no_shift_control"
+
+[[variants]]
+name = "no_shift_control"
+model = "catboost_native_300"
+features = "main55_plus_count"
+change = "control: shift 0"
+
+[[variants]]
+name = "shift_m005"
+model = "catboost_native_shift_m005"
+features = "main55_plus_count"
+change = "모든 확률에 -0.005"
+
+[[variants]]
+name = "shift_m010"
+model = "catboost_native_shift_m010"
+features = "main55_plus_count"
+change = "모든 확률에 -0.010"
+
+[[variants]]
+name = "shift_forward"
+model = "catboost_native_shift_forward"
+features = "main55_plus_count"
+change = "2022~2023 과거 fold 편향으로 고정한 -0.0113955"
+
+[[variants]]
+name = "shift_m015"
+model = "catboost_native_shift_m015"
+features = "main55_plus_count"
+change = "모든 확률에 -0.015"

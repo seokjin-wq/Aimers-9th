@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_120",
+  "decision": "keep_control",
+  "selected_variant": "categorical_control",
+  "reason": "Default CatBoost categorical processing remained best; richer CTR combinations and larger one-hot thresholds all worsened 2024 holdout Brier.",
+  "based_on": "EXP_118",
+  "reference_variant": "d8_i300_control",
+  "ablation_summary": "Fix main78 features and all winning CPU parameters; change exactly one categorical-processing parameter per candidate: max_ctr_complexity=2, one_hot_max_size=5, or one_hot_max_size=16.",
+  "selected_result": {
+    "variant": "categorical_control",
+    "change": "control: latest CPU default categorical processing",
+    "feature_set": "main78_history_reliability",
+    "feature_count": 78,
+    "model": "catboost_d8_decay085_sub08",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2474879926,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 928.2905828931,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "categorical_control",
+    "change": "control: latest CPU default categorical processing",
+    "feature_set": "main78_history_reliability",
+    "feature_count": 78,
+    "model": "catboost_d8_decay085_sub08",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2474879926,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 928.2905828931,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T12:41:29.196288+00:00",
+  "based_on_run_id": "RUN_001"
+}

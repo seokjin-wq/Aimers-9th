@@ -1,0 +1,5 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+both_k50,control 대비 투수·타자 성공률 모두 k50,main69_season_success_k50,69,catboost_d8_decay085,catboost,1,0.2475295876440522,0.0,911.6396980268338,"['features.custom', 'features.description', 'features.name']",-8.133082358474653e-06,1/1
+k20_k20_control,"control: 투수 k20, 타자 k20",main69_pitcher_batter_season_all,69,catboost_d8_decay085,catboost,1,0.2475377207264107,0.0,908.3839506926596,[],0.0,0/1
+batter_k50,control 대비 타자 성공률만 k50,main69_batter_success_k50,69,catboost_d8_decay085,catboost,1,0.2475619922315816,0.0,898.6678449441232,"['features.custom', 'features.description', 'features.name']",2.4271505170841975e-05,0/1
+pitcher_k50,control 대비 투수 성공률만 k50,main69_pitcher_success_k50,69,catboost_d8_decay085,catboost,1,0.2475667008266568,0.0,896.7829512238401,"['features.custom', 'features.description', 'features.name']",2.8980100246128737e-05,0/1

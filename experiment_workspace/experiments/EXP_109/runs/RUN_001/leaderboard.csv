@@ -1,0 +1,9 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+subsample_08,subsample 0.7 -> 0.8 only,main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay085_sub08,catboost,1,0.2475041715012055,0.0,921.8140127172704,"['model.name', 'model.params.subsample']",-7.695137020202747e-06,1/1
+regularization_control,"control: l2=3, random_strength=1, subsample=0.7, rsm=1",main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay085,catboost,1,0.2475118666382257,0.0,918.7335789118011,[],0.0,0/1
+l2_8,l2_leaf_reg 3 -> 8 only,main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay085_l2_8,catboost,1,0.2475141320662046,0.0,917.8267073497336,"['model.name', 'model.params.l2_leaf_reg']",2.2654279788481e-06,0/1
+l2_1,l2_leaf_reg 3 -> 1 only,main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay085_l2_1,catboost,1,0.2475466821163681,0.0,904.7966242426764,"['model.name', 'model.params.l2_leaf_reg']",3.481547814243591e-05,0/1
+random_strength_05,random_strength 1 -> 0.5 only,main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay085_rs05,catboost,1,0.2475591482367663,0.0,899.806322108132,"['model.name', 'model.params.random_strength']",4.728159854061609e-05,0/1
+random_strength_15,random_strength 1 -> 1.5 only,main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay085_rs15,catboost,1,0.2475600641687855,0.0,899.4396661346493,"['model.name', 'model.params.random_strength']",4.819753055976261e-05,0/1
+l2_5,l2_leaf_reg 3 -> 5 only,main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay085_l2_5,catboost,1,0.2475613381856024,0.0,898.9296655380175,"['model.name', 'model.params.l2_leaf_reg']",4.947154737663939e-05,0/1
+rsm_09,rsm 1.0 -> 0.9 only,main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay085_rsm09,catboost,1,0.2475828133075437,0.0,890.3329775997726,"['model.name', 'model.params.rsm']",7.094666931803384e-05,0/1

@@ -1,0 +1,95 @@
+{
+  "based_on": "EXP_114",
+  "reference_variant": "reliability_k100_control",
+  "ablation_summary": "Fix the EXP_114 CPU model and six reliability features; add only late-inning history, only full-count history, or both three-feature blocks.",
+  "control": "reliability_control",
+  "variants": [
+    {
+      "name": "reliability_control",
+      "declared_change": "control: EXP_112-114 six-feature reliability winner",
+      "is_control": true,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_late_history",
+      "declared_change": "add late-inning x pitcher success/reverse/middle only",
+      "is_control": false,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "late_inning_x_pitcher_success",
+        "late_inning_x_pitcher_reverse",
+        "late_inning_x_pitcher_middle"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_full_count_history",
+      "declared_change": "add full-count x pitcher success/reverse/middle only",
+      "is_control": false,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "full_count_x_pitcher_success",
+        "full_count_x_pitcher_reverse",
+        "full_count_x_pitcher_middle"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_both_blocks",
+      "declared_change": "add both late-inning and full-count history blocks",
+      "is_control": false,
+      "feature_count": 84,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "late_inning_x_pitcher_success",
+        "late_inning_x_pitcher_reverse",
+        "late_inning_x_pitcher_middle",
+        "full_count_x_pitcher_success",
+        "full_count_x_pitcher_reverse",
+        "full_count_x_pitcher_middle"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

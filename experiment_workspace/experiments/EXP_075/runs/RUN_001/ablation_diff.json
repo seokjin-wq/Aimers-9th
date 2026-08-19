@@ -1,0 +1,82 @@
+{
+  "based_on": "EXP_073",
+  "reference_variant": "success_k50",
+  "ablation_summary": "Fix all else and compare k20/k20, pitcher50/batter20, pitcher20/batter50, and k50/k50.",
+  "control": "k20_k20_control",
+  "variants": [
+    {
+      "name": "k20_k20_control",
+      "declared_change": "control: 투수 k20, 타자 k20",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pitcher_k50",
+      "declared_change": "control 대비 투수 성공률만 k50",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_season_success_rate_k50"
+      ],
+      "removed_features_vs_control": [
+        "pitcher_season_success_rate_k20"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "batter_k50",
+      "declared_change": "control 대비 타자 성공률만 k50",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "batter_season_success_rate_k50"
+      ],
+      "removed_features_vs_control": [
+        "batter_season_success_rate_k20"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "both_k50",
+      "declared_change": "control 대비 투수·타자 성공률 모두 k50",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_season_success_rate_k50",
+        "batter_season_success_rate_k50"
+      ],
+      "removed_features_vs_control": [
+        "pitcher_season_success_rate_k20",
+        "batter_season_success_rate_k20"
+      ],
+      "model_changes_vs_control": []
+    }
+  ]
+}

@@ -1,0 +1,367 @@
+{
+  "study": {
+    "id": "124_extratrees_season_decay_screen",
+    "description": "ExtraTrees season-decay screening",
+    "hypothesis": "The ExtraTrees diversity component may improve by emphasizing recent official training seasons instead of fitting all 2019-2023 rows uniformly.",
+    "protocol": "holdout_2024",
+    "change_scope": [
+      "model"
+    ],
+    "control": "uniform_control"
+  },
+  "protocol": {
+    "name": "holdout_2024",
+    "description": "2019~2023 전체로 학습하고 2024를 고정 primary holdout으로 검증",
+    "train_start_season": 2019,
+    "validation_seasons": [
+      2024
+    ],
+    "split_rule": "before_validation_season",
+    "primary_metric": "brier",
+    "secondary_metrics": [
+      "brier_skill_score",
+      "roc_auc"
+    ],
+    "target_column": "control_success",
+    "id_column": "row_id",
+    "season_column": "season",
+    "store_predictions": true,
+    "calibration": "none",
+    "seed": 42
+  },
+  "variants": [
+    {
+      "name": "uniform_control",
+      "change": "control: 100-tree ExtraTrees with uniform season weights",
+      "model": {
+        "name": "extratrees_leaf20_screen",
+        "family": "extra_trees",
+        "prediction_shift": -0.01,
+        "params": {
+          "n_estimators": 100,
+          "min_samples_leaf": 20,
+          "max_features": 0.7,
+          "n_jobs": 8,
+          "random_state": 42,
+          "verbose": 0
+        }
+      },
+      "features": {
+        "name": "main78_history_reliability",
+        "description": "main72 plus six row-local as-of sample reliability features",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs",
+          "pitcher_season_n",
+          "pitcher_season_success_rate_k20",
+          "pitcher_season_reverse_rate_k20",
+          "pitcher_season_middle_rate_k20",
+          "pitcher_season_ball_rate_k20",
+          "pitcher_season_strike_rate_k20",
+          "batter_season_n",
+          "batter_season_success_rate_k20",
+          "batter_season_middle_rate_k20",
+          "same_hand_x_fastball",
+          "same_hand_x_breaking",
+          "same_hand_x_offspeed",
+          "pitcher_history_reliability_k100",
+          "batter_history_reliability_k100",
+          "pitcher_success_x_reliability",
+          "batter_success_x_reliability",
+          "pitcher_reverse_x_reliability",
+          "pitcher_middle_x_reliability"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state",
+          "batter_team_id",
+          "count_state",
+          "pitcher_hand",
+          "batter_hand"
+        ],
+        "expected_count": 78
+      },
+      "changed_fields_vs_control": []
+    },
+    {
+      "name": "decay_050",
+      "change": "season sample-weight decay none -> 0.50 only",
+      "model": {
+        "name": "extratrees_leaf20_screen_decay05",
+        "family": "extra_trees",
+        "season_decay": 0.5,
+        "prediction_shift": -0.01,
+        "params": {
+          "n_estimators": 100,
+          "min_samples_leaf": 20,
+          "max_features": 0.7,
+          "n_jobs": 8,
+          "random_state": 42,
+          "verbose": 0
+        }
+      },
+      "features": {
+        "name": "main78_history_reliability",
+        "description": "main72 plus six row-local as-of sample reliability features",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs",
+          "pitcher_season_n",
+          "pitcher_season_success_rate_k20",
+          "pitcher_season_reverse_rate_k20",
+          "pitcher_season_middle_rate_k20",
+          "pitcher_season_ball_rate_k20",
+          "pitcher_season_strike_rate_k20",
+          "batter_season_n",
+          "batter_season_success_rate_k20",
+          "batter_season_middle_rate_k20",
+          "same_hand_x_fastball",
+          "same_hand_x_breaking",
+          "same_hand_x_offspeed",
+          "pitcher_history_reliability_k100",
+          "batter_history_reliability_k100",
+          "pitcher_success_x_reliability",
+          "batter_success_x_reliability",
+          "pitcher_reverse_x_reliability",
+          "pitcher_middle_x_reliability"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state",
+          "batter_team_id",
+          "count_state",
+          "pitcher_hand",
+          "batter_hand"
+        ],
+        "expected_count": 78
+      },
+      "changed_fields_vs_control": [
+        "model.name",
+        "model.season_decay"
+      ]
+    },
+    {
+      "name": "decay_070",
+      "change": "season sample-weight decay none -> 0.70 only",
+      "model": {
+        "name": "extratrees_leaf20_screen_decay07",
+        "family": "extra_trees",
+        "season_decay": 0.7,
+        "prediction_shift": -0.01,
+        "params": {
+          "n_estimators": 100,
+          "min_samples_leaf": 20,
+          "max_features": 0.7,
+          "n_jobs": 8,
+          "random_state": 42,
+          "verbose": 0
+        }
+      },
+      "features": {
+        "name": "main78_history_reliability",
+        "description": "main72 plus six row-local as-of sample reliability features",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs",
+          "pitcher_season_n",
+          "pitcher_season_success_rate_k20",
+          "pitcher_season_reverse_rate_k20",
+          "pitcher_season_middle_rate_k20",
+          "pitcher_season_ball_rate_k20",
+          "pitcher_season_strike_rate_k20",
+          "batter_season_n",
+          "batter_season_success_rate_k20",
+          "batter_season_middle_rate_k20",
+          "same_hand_x_fastball",
+          "same_hand_x_breaking",
+          "same_hand_x_offspeed",
+          "pitcher_history_reliability_k100",
+          "batter_history_reliability_k100",
+          "pitcher_success_x_reliability",
+          "batter_success_x_reliability",
+          "pitcher_reverse_x_reliability",
+          "pitcher_middle_x_reliability"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state",
+          "batter_team_id",
+          "count_state",
+          "pitcher_hand",
+          "batter_hand"
+        ],
+        "expected_count": 78
+      },
+      "changed_fields_vs_control": [
+        "model.name",
+        "model.season_decay"
+      ]
+    },
+    {
+      "name": "decay_085",
+      "change": "season sample-weight decay none -> 0.85 only",
+      "model": {
+        "name": "extratrees_leaf20_screen_decay085",
+        "family": "extra_trees",
+        "season_decay": 0.85,
+        "prediction_shift": -0.01,
+        "params": {
+          "n_estimators": 100,
+          "min_samples_leaf": 20,
+          "max_features": 0.7,
+          "n_jobs": 8,
+          "random_state": 42,
+          "verbose": 0
+        }
+      },
+      "features": {
+        "name": "main78_history_reliability",
+        "description": "main72 plus six row-local as-of sample reliability features",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs",
+          "pitcher_season_n",
+          "pitcher_season_success_rate_k20",
+          "pitcher_season_reverse_rate_k20",
+          "pitcher_season_middle_rate_k20",
+          "pitcher_season_ball_rate_k20",
+          "pitcher_season_strike_rate_k20",
+          "batter_season_n",
+          "batter_season_success_rate_k20",
+          "batter_season_middle_rate_k20",
+          "same_hand_x_fastball",
+          "same_hand_x_breaking",
+          "same_hand_x_offspeed",
+          "pitcher_history_reliability_k100",
+          "batter_history_reliability_k100",
+          "pitcher_success_x_reliability",
+          "batter_success_x_reliability",
+          "pitcher_reverse_x_reliability",
+          "pitcher_middle_x_reliability"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state",
+          "batter_team_id",
+          "count_state",
+          "pitcher_hand",
+          "batter_hand"
+        ],
+        "expected_count": 78
+      },
+      "changed_fields_vs_control": [
+        "model.name",
+        "model.season_decay"
+      ]
+    }
+  ],
+  "config_hash": "0af427c4235a"
+}

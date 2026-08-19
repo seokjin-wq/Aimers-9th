@@ -1,0 +1,4 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+catshift_m0095,lower CatBoost component shift to -0.0095,main72_cat_count_hands_same_pitchmix,72,triple_group_count_k500_catshift_m0095,cat_cpu_gpu_extra_blend,1,0.2474629932513661,0.0,938.2980431538956,"['model.cat_shift', 'model.name']",-2.1351995057039552e-06,1/1
+catshift_m010,lower CatBoost component shift to -0.010,main72_cat_count_hands_same_pitchmix,72,triple_group_count_k500_catshift_m010,cat_cpu_gpu_extra_blend,1,0.2474630040181975,0.0,938.29373309271,"['model.cat_shift', 'model.name']",-2.124432674305288e-06,1/1
+catshift_m008_control,control: EXP_094 count-k500 triple with CatBoost shift -0.008,main72_cat_count_hands_same_pitchmix,72,triple_group_count_k500,cat_cpu_gpu_extra_blend,1,0.2474651284508718,0.0,937.4433032419915,[],0.0,0/1

@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_069"
+title = "시즌 상태 GPU 고용량 CatBoost"
+hypothesis = "GPU의 더 많은 border와 450~900 trees가 현재 시즌 상태의 세밀한 비선형 잔차를 CPU depth8보다 잘 포착한다"
+change_scope = "model"
+study_config = "experiments/EXP_069/study.toml"
+based_on = "EXP_062"
+reference_variant = "extra_w18"
+ablation_summary = "main69와 decay0.85 고정, CPU d8-300 대비 GPU d6-900, d7-600, d8-450 비교"
+tags = ["rule_compliant", "gpu", "capacity"]
+created_at_utc = "2026-08-18T03:46:48.071976+00:00"

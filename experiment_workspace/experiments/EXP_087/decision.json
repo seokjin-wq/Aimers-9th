@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_087",
+  "decision": "adopt",
+  "selected_variant": "same_hand_pitchmix_triple",
+  "reason": "동일손×과거 구종군 3개가 triple Brier 0.2474937256→0.2474714314, BSS 925.996→934.920으로 명확히 개선했다. exact batter 추가는 930.04로 덜 좋아 same-hand pitchmix만 채택한다.",
+  "based_on": "EXP_086",
+  "reference_variant": "batter_exact",
+  "ablation_summary": "Fix EXP_080 triple model; compare original count+hands, same-hand pitchmix, and same-hand pitchmix plus exact batter snapshot feature sets.",
+  "selected_result": {
+    "variant": "same_hand_pitchmix_triple",
+    "change": "EXP_084 동일손×과거 구종군 피처 3개 승격",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "triple_cpu45_gpu40_extra15",
+    "model_family": "cat_cpu_gpu_extra_blend",
+    "fold_count": 1,
+    "mean_brier": 0.2474714314,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 934.9201608984,
+    "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+    "delta_brier_vs_control": -2.22942e-05,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "original_triple",
+    "change": "control: EXP_080 count+hands triple",
+    "feature_set": "main69_cat_count_hands",
+    "feature_count": 69,
+    "model": "triple_cpu45_gpu40_extra15",
+    "model_family": "cat_cpu_gpu_extra_blend",
+    "fold_count": 1,
+    "mean_brier": 0.2474937256,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 925.9955885547,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T06:36:18.312164+00:00",
+  "based_on_run_id": "RUN_001"
+}

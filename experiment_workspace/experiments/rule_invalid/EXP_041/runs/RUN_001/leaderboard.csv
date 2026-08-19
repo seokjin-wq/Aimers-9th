@@ -1,0 +1,7 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+bag0,bagging_temperature 0,main85_add_plate_context,85,catboost_gpu_d6_i900_bag0,catboost,1,0.2468662525959044,0.0,1177.1787912617017,"['model.name', 'model.params.bagging_temperature']",-3.451397980236415e-05,1/1
+default_control,control: 기본 랜덤성,main85_add_plate_context,85,catboost_gpu_d6_i900_lr020_b128,catboost,1,0.2469007665757067,0.0,1163.3625291386118,[],0.0,0/1
+random2,random_strength 2,main85_add_plate_context,85,catboost_gpu_d6_i900_random2,catboost,1,0.2469289675189934,0.0,1152.0734333345997,"['model.name', 'model.params.random_strength']",2.8200943286621483e-05,0/1
+random02,random_strength 0.2,main85_add_plate_context,85,catboost_gpu_d6_i900_random02,catboost,1,0.2469295224605401,0.0,1151.8512851524054,"['model.name', 'model.params.random_strength']",2.875588483339242e-05,0/1
+random0,random_strength 0,main85_add_plate_context,85,catboost_gpu_d6_i900_random0,catboost,1,0.2469314421608605,0.0,1151.082811537485,"['model.name', 'model.params.random_strength']",3.067558515376656e-05,0/1
+has_time,입력 시간 순서 보존,main85_add_plate_context,85,catboost_gpu_d6_i900_has_time,catboost,1,0.2469398396779719,0.0,1147.7212085505785,"['model.name', 'model.params.has_time']",3.907310226514138e-05,0/1

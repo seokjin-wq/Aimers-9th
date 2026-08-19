@@ -1,0 +1,21 @@
+[model]
+name = "groupcal_batter_k50"
+family = "catboost_group_calibrated"
+cat_scale = 1.06
+cat_shift = -0.008
+group_columns = ["batter_id"]
+group_shrinkage = 50.0
+
+[model.cat_params]
+iterations = 400
+depth = 6
+learning_rate = 0.04
+l2_leaf_reg = 3.0
+subsample = 0.7
+random_seed = 42
+thread_count = 8
+task_type = "CPU"
+loss_function = "Logloss"
+eval_metric = "BrierScore"
+allow_writing_files = false
+verbose = false

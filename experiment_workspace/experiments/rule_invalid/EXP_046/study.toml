@@ -1,0 +1,49 @@
+[study]
+id = "046_sequence_diverse_boosting"
+description = "순차 피처 이종 부스팅 재검증"
+hypothesis = "main80의 이종 모델 오차가 CatBoost를 보완한다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "cat_control"
+
+[[variants]]
+name = "cat_control"
+model = "catboost_top_d6_i400_lr040"
+features = "main80_add_best_ewm"
+change = "control: CPU CatBoost"
+
+[[variants]]
+name = "lgb31"
+model = "lightgbm_l31"
+features = "main80_add_best_ewm"
+change = "LightGBM leaves31"
+
+[[variants]]
+name = "lgb63"
+model = "lightgbm_l63"
+features = "main80_add_best_ewm"
+change = "LightGBM leaves63"
+
+[[variants]]
+name = "lgb127"
+model = "lightgbm_l127"
+features = "main80_add_best_ewm"
+change = "LightGBM leaves127"
+
+[[variants]]
+name = "hist31"
+model = "histgb_leaf31"
+features = "main80_add_best_ewm"
+change = "HistGradientBoosting leaves31"
+
+[[variants]]
+name = "hist63"
+model = "histgb_leaf63"
+features = "main80_add_best_ewm"
+change = "HistGradientBoosting leaves63"
+
+[[variants]]
+name = "logistic"
+model = "logistic_c01"
+features = "main80_add_best_ewm"
+change = "LogisticRegression C0.01"

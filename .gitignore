@@ -7,3 +7,12 @@ __pycache__/
 data/
 submission_허원준/output*/
 submission_허원준/.cache/
+
+# Experiment workspace local and generated artifacts
+/experiment_workspace/data/
+/experiment_workspace/runs/
+/experiment_workspace/output/
+/experiment_workspace/.pytest_cache/
+/experiment_workspace/.venv/
+/experiment_workspace/**/*.joblib
+/experiment_workspace/**/*.zip

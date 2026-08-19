@@ -1,0 +1,31 @@
+[study]
+id = "113_reliability_decomposition"
+description = "History reliability block decomposition"
+hypothesis = "The EXP_112 gain is concentrated in one of reliability level, success-rate weighting, or reverse/middle weighting; removing non-contributing blocks can reduce noise."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "all_six_control"
+
+[[variants]]
+name = "all_six_control"
+model = "catboost_d8_decay085_sub08"
+features = "main78_history_reliability"
+change = "control: EXP_112 six-feature reliability winner"
+
+[[variants]]
+name = "remove_levels"
+model = "catboost_d8_decay085_sub08"
+features = "main76_reliability_no_levels"
+change = "remove standalone pitcher/batter reliability levels only"
+
+[[variants]]
+name = "remove_success_weighted"
+model = "catboost_d8_decay085_sub08"
+features = "main76_reliability_no_success"
+change = "remove pitcher/batter success-rate weighted features only"
+
+[[variants]]
+name = "remove_failure_weighted"
+model = "catboost_d8_decay085_sub08"
+features = "main76_reliability_no_failure"
+change = "remove pitcher reverse/middle weighted features only"

@@ -1,0 +1,43 @@
+[study]
+id = "033_probability_calibration"
+description = "직전 시즌 확률 보정"
+hypothesis = "직전 시즌 out-of-time 예측으로 학습한 보정 함수가 다음 시즌 calibration을 개선한다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "global_control"
+
+[[variants]]
+name = "global_control"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main60_cat_batter_team"
+change = "control: 직접 고른 affine 보정 GPU CatBoost"
+
+[[variants]]
+name = "mean_shift"
+model = "catcal_mean_shift"
+features = "main60_cat_batter_team"
+change = "2023 평균 예측 오차만 보정"
+
+[[variants]]
+name = "affine"
+model = "catcal_affine"
+features = "main60_cat_batter_team"
+change = "2023 선형 최소제곱 보정"
+
+[[variants]]
+name = "platt"
+model = "catcal_platt"
+features = "main60_cat_batter_team"
+change = "2023 logit Platt 보정"
+
+[[variants]]
+name = "beta"
+model = "catcal_beta"
+features = "main60_cat_batter_team"
+change = "2023 beta calibration"
+
+[[variants]]
+name = "isotonic"
+model = "catcal_isotonic"
+features = "main60_cat_batter_team"
+change = "2023 isotonic 비모수 보정"

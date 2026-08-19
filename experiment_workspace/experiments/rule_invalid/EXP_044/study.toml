@@ -1,0 +1,37 @@
+[study]
+id = "044_cpu_window_pruning"
+description = "CPU 투수 장기·타자 단기 창 정리"
+hypothesis = "타자 2·8 창 제거와 투수 장기 창 선별이 main77을 개선한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main77_control"
+
+[[variants]]
+name = "main77_control"
+model = "catboost_top_d6_i400_lr040"
+features = "main77_add_pitcher_reverse_short"
+change = "control: 투수 20·30·50 + 타자 2·8 포함"
+
+[[variants]]
+name = "pitcher20_30_50"
+model = "catboost_top_d6_i400_lr040"
+features = "main75_pitcher_long_reverse"
+change = "타자 2·8 제거"
+
+[[variants]]
+name = "pitcher20_50"
+model = "catboost_top_d6_i400_lr040"
+features = "main74_pitcher20_50_reverse"
+change = "타자 2·8 및 투수 30 제거"
+
+[[variants]]
+name = "pitcher20"
+model = "catboost_top_d6_i400_lr040"
+features = "main73_pitcher20_reverse"
+change = "투수 20만 유지"
+
+[[variants]]
+name = "pitcher50"
+model = "catboost_top_d6_i400_lr040"
+features = "main73_pitcher50_reverse"
+change = "투수 50만 유지"

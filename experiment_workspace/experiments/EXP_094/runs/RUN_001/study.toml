@@ -1,0 +1,25 @@
+[study]
+id = "094_count_calibration_repro"
+description = "현재 최고 count OOT 보정의 fresh-run 재현성 감사"
+hypothesis = "count k500 개선이 GPU 변동보다 커 새 실행에서도 control을 이긴다."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "triple_control"
+
+[[variants]]
+name = "triple_control"
+model = "triple_cpu45_gpu40_extra15"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: EXP_087 same-hand triple fresh run"
+
+[[variants]]
+name = "count_k500_repro"
+model = "triple_group_count_k500"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "EXP_088 count residual k500 동일 설정 재현"
+
+[[variants]]
+name = "count_k2000_repro"
+model = "triple_group_count_k2000"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "EXP_088 count residual k2000 동일 설정 재현"

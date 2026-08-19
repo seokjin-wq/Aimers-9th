@@ -1,0 +1,8 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+d6_i300_control,"control: depth6, 300 trees",main55,55,catboost_native_300,catboost,1,0.2480092675427688,0.0,719.6194426463354,[],0.0,0/1
+d5_i600,"depth5, 600 trees",main55,55,catboost_d5_i600,catboost,1,0.2480594573921884,0.0,699.5279863880266,"['model.name', 'model.params.depth', 'model.params.iterations']",5.01898494195685e-05,0/1
+d6_i600,"depth6, 600 trees",main55,55,catboost_d6_i600,catboost,1,0.2480808922209055,0.0,690.9474281963645,"['model.name', 'model.params.iterations']",7.162467813673357e-05,0/1
+d7_i1000_lr03,"depth7, 1000 trees, learning_rate 0.03",main55,55,catboost_d7_i1000_lr03,catboost,1,0.2481159299248188,0.0,676.9215145164931,"['model.name', 'model.params.depth', 'model.params.iterations', 'model.params.learning_rate']",0.0001066623820499,0/1
+d6_i1000,"depth6, 1000 trees",main55,55,catboost_d6_i1000,catboost,1,0.248198476128461,0.0,643.8775134097518,"['model.name', 'model.params.iterations']",0.0001892085856922,0/1
+d7_i600,"depth7, 600 trees",main55,55,catboost_d7_i600,catboost,1,0.2482237022674446,0.0,633.779259005407,"['model.name', 'model.params.depth', 'model.params.iterations']",0.0002144347246758,0/1
+d8_i600,"depth8, 600 trees",main55,55,catboost_d8_i600,catboost,1,0.2482512964632464,0.0,622.7330497749261,"['model.name', 'model.params.depth', 'model.params.iterations']",0.0002420289204775,0/1

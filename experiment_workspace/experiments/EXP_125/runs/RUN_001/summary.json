@@ -1,0 +1,72 @@
+{
+  "experiment_id": "EXP_125",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T13:17:40.670629+00:00",
+  "completed_at_utc": "2026-08-18T13:29:19.916020+00:00",
+  "config_hash": "e97f695804f5",
+  "based_on": "EXP_124",
+  "reference_variant": "decay_085",
+  "ablation_summary": "Fix main78 features and full ExtraTrees leaf20/300-tree parameters; compare uniform season weights against decay=0.85 only.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/125_extratrees_decay_full/20260818T131740682094Z_e97f695804f5",
+  "control": "uniform_300_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "uniform_300_control",
+  "best_mean_brier": 0.2479186108902047,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "uniform_300_control",
+      "change": "control: full 300-tree ExtraTrees with uniform season weights",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "extratrees_leaf20",
+      "model_family": "extra_trees",
+      "fold_count": 1,
+      "mean_brier": 0.2479186109,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 755.9101307153,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "decay085_300",
+      "change": "season sample-weight decay none -> 0.85 only",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "extratrees_leaf20_decay085",
+      "model_family": "extra_trees",
+      "fold_count": 1,
+      "mean_brier": 0.2479238099,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 753.8289057596,
+      "changed_fields_vs_control": "['model.name', 'model.season_decay']",
+      "delta_brier_vs_control": 5.199e-06,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "7d93b5e01cacbbcbc5bcbd7ce1ce41c24c5d9391c9d7bc387e93ea628fb8f706",
+  "git_commit": "ddc1e213fd3d42ca68ef6fc372a04d9c81f15fbc",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 699.0489609241486
+}

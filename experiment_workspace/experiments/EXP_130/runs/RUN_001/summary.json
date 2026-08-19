@@ -1,0 +1,87 @@
+{
+  "experiment_id": "EXP_130",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T14:34:19.082185+00:00",
+  "completed_at_utc": "2026-08-18T14:47:30.268043+00:00",
+  "config_hash": "032b2992ab80",
+  "based_on": "EXP_129",
+  "reference_variant": "shrinkage_0",
+  "ablation_summary": "Fix EXP_129 shrinkage 0, trend strength 1.0, features, models, weights, and calibration; vary only count trend estimator among WLS, OLS, and first-to-last endpoint slope.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/130_count_trend_estimator/20260818T143419094274Z_032b2992ab80",
+  "control": "wls_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "ols_slope",
+  "best_mean_brier": 0.2474451493073287,
+  "best_delta_brier_vs_control": -5.0281715791022925e-08,
+  "leaderboard": [
+    {
+      "variant": "ols_slope",
+      "change": "change only trend estimator from count-weighted WLS to equal-season OLS",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_count_trend_ols",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474451493,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 945.4411373303,
+      "changed_fields_vs_control": "['model.name', 'model.trend_method']",
+      "delta_brier_vs_control": -5.03e-08,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "wls_control",
+      "change": "control: EXP_129 count-weighted linear slope",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_count_trend_k0",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474451996,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 945.4210090991,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "endpoint_slope",
+      "change": "change only trend estimator to 2019-to-2023 endpoint slope",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_count_trend_endpoint",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474454734,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 945.3113965203,
+      "changed_fields_vs_control": "['model.name', 'model.trend_method']",
+      "delta_brier_vs_control": 2.738e-07,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "c7eb5df0822d8163d3ecef402ff082ade90a9f3055d71a458987961d73185c86",
+  "git_commit": "0e343b171fba8a8cc0face6a6adf99c9be1c6040",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 790.9826629161835
+}

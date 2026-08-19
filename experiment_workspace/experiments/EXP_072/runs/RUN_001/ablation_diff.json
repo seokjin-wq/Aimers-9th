@@ -1,0 +1,87 @@
+{
+  "based_on": "EXP_070",
+  "reference_variant": "cpu45_gpu40_extra15",
+  "ablation_summary": "Keep EXP_070 model family fixed conceptually and compare main69 against dropping pitcher career, batter career, or both career state blocks.",
+  "control": "main69_control",
+  "variants": [
+    {
+      "name": "main69_control",
+      "declared_change": "control: EXP_070 최고 조합과 동일",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "drop_pitcher_career",
+      "declared_change": "control 대비 투수 통산 n/success/reverse/middle/ball 상태 5개 제거",
+      "is_control": false,
+      "feature_count": 64,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [
+        "asof_pitcher_n",
+        "asof_pitcher_success_rate",
+        "asof_pitcher_reverse_rate",
+        "asof_pitcher_middle_rate",
+        "asof_pitcher_ball_rate"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "drop_batter_career",
+      "declared_change": "control 대비 타자 통산 n/success/middle 상태 3개 제거",
+      "is_control": false,
+      "feature_count": 66,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [
+        "asof_batter_n",
+        "asof_batter_success_rate",
+        "asof_batter_middle_rate"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "drop_all_career",
+      "declared_change": "control 대비 투수 5개와 타자 3개 통산 상태를 모두 제거",
+      "is_control": false,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [
+        "asof_pitcher_n",
+        "asof_pitcher_success_rate",
+        "asof_pitcher_reverse_rate",
+        "asof_pitcher_middle_rate",
+        "asof_pitcher_ball_rate",
+        "asof_batter_n",
+        "asof_batter_success_rate",
+        "asof_batter_middle_rate"
+      ],
+      "model_changes_vs_control": []
+    }
+  ]
+}

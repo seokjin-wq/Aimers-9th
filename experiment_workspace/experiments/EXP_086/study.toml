@@ -1,0 +1,37 @@
+[study]
+id = "086_exact_season_snapshots"
+description = "직전 시즌 마지막 공식 타깃까지 닫은 정확한 시즌 상태"
+hypothesis = "기존 시즌 상태의 선수별 한 투구 off-by-one을 제거하면 특히 시즌 초 확률이 정확해진다."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "approximate_control"
+
+[[variants]]
+name = "approximate_control"
+model = "catboost_d8_decay085"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: EXP_084 approximate season snapshot"
+
+[[variants]]
+name = "pitcher_exact"
+model = "catboost_d8_decay085"
+features = "main72_same_pitchmix_pitcher_exact"
+change = "투수 시즌 n·success만 공식 마지막 타깃으로 정확히 닫음"
+
+[[variants]]
+name = "batter_exact"
+model = "catboost_d8_decay085"
+features = "main72_same_pitchmix_batter_exact"
+change = "타자 시즌 n·success만 공식 마지막 타깃으로 정확히 닫음"
+
+[[variants]]
+name = "both_exact_k20"
+model = "catboost_d8_decay085"
+features = "main72_same_pitchmix_both_exact"
+change = "투수·타자 모두 exact snapshot, success k20"
+
+[[variants]]
+name = "both_exact_k50"
+model = "catboost_d8_decay085"
+features = "main72_same_pitchmix_both_exact_k50"
+change = "투수·타자 모두 exact snapshot, success k50"

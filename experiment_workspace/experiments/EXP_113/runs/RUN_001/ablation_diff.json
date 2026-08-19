@@ -1,0 +1,89 @@
+{
+  "based_on": "EXP_112",
+  "reference_variant": "history_reliability",
+  "ablation_summary": "Use the six-feature EXP_112 winner as control; remove exactly one two-feature block at a time: reliability levels, success-weighted rates, or reverse/middle-weighted rates.",
+  "control": "all_six_control",
+  "variants": [
+    {
+      "name": "all_six_control",
+      "declared_change": "control: EXP_112 six-feature reliability winner",
+      "is_control": true,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "remove_levels",
+      "declared_change": "remove standalone pitcher/batter reliability levels only",
+      "is_control": false,
+      "feature_count": 76,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [
+        "pitcher_history_reliability_k100",
+        "batter_history_reliability_k100"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "remove_success_weighted",
+      "declared_change": "remove pitcher/batter success-rate weighted features only",
+      "is_control": false,
+      "feature_count": 76,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [
+        "pitcher_success_x_reliability",
+        "batter_success_x_reliability"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "remove_failure_weighted",
+      "declared_change": "remove pitcher reverse/middle weighted features only",
+      "is_control": false,
+      "feature_count": 76,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [
+        "pitcher_reverse_x_reliability",
+        "pitcher_middle_x_reliability"
+      ],
+      "model_changes_vs_control": []
+    }
+  ]
+}

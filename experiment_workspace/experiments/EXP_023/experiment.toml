@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_023"
+title = "선형·히스토그램·랜덤트리 후보"
+hypothesis = "확률 이력의 매끄러운 선형 효과 또는 다른 tree 구조가 CatBoost와 다른 오차를 만들어 독립 성능이나 앙상블을 개선한다"
+change_scope = "model"
+study_config = "experiments/EXP_023/study.toml"
+based_on = "EXP_022"
+reference_variant = "default_control"
+ablation_summary = "같은 main60 정보에서 logistic C, HistGradientBoosting leaf 수, ExtraTrees leaf 크기만 비교"
+tags = ["model-family", "diversity", "stacking"]
+created_at_utc = "2026-08-17T17:20:50.514938+00:00"

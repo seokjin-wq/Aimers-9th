@@ -1,0 +1,3 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+triple_cpu_sub08,CPU CatBoost subsample 0.7 -> 0.8 only,main72_cat_count_hands_same_pitchmix,72,triple_group_count_k500_catshift_m0095_cpu_sub08,cat_cpu_gpu_extra_blend,1,0.2474586791794039,0.0,940.0250056597948,"['model.cpu_params.subsample', 'model.name']",-4.023649948586838e-06,1/1
+triple_sub07_control,control: EXP_101 corrected triple with CPU subsample=0.7,main72_cat_count_hands_same_pitchmix,72,triple_group_count_k500_catshift_m0095,cat_cpu_gpu_extra_blend,1,0.2474627028293525,0.0,938.4143017450496,[],0.0,0/1

@@ -1,0 +1,6 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+decay085,과거 1년당 가중치 0.85배,main69_pitcher_batter_season_all,69,catboost_d8_decay085,catboost,1,0.2475377207264107,0.0,908.3839506926596,"['model.name', 'model.season_decay']",-3.002738246543624e-05,1/1
+decay095,과거 1년당 가중치 0.95배,main69_pitcher_batter_season_all,69,catboost_d8_decay095,catboost,1,0.2475630852089956,0.0,898.2303160780302,"['model.name', 'model.season_decay']",-4.662899880519822e-06,1/1
+decay090,과거 1년당 가중치 0.90배,main69_pitcher_batter_season_all,69,catboost_d8_decay090,catboost,1,0.2475677306608254,0.0,896.3706991770737,"['model.name', 'model.season_decay']",-1.7448050781965208e-08,1/1
+uniform,control: 모든 2019~2023 행 동일 가중,main69_pitcher_batter_season_all,69,catboost_cpu_d8_i300_lr035,catboost,1,0.2475677481088762,0.0,896.3637145625869,[],0.0,0/1
+decay075,과거 1년당 가중치 0.75배,main69_pitcher_batter_season_all,69,catboost_d8_decay075,catboost,1,0.2475777260576965,0.0,892.3694502922075,"['model.name', 'model.season_decay']",9.977948820377724e-06,0/1

@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T05:49:25.529361+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "4dffdaaab882",
+  "based_on": "EXP_080",
+  "reference_variant": "count_hands_promoted",
+  "ablation_summary": "Fix the EXP_080 count+hands CPU base; add only row-local weighted recent success, middle, quality, or horizon-spread features."
+}

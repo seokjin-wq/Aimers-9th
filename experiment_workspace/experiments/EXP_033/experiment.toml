@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_033"
+title = "직전 시즌 확률 보정"
+hypothesis = "직전 시즌의 out-of-time 예측으로 학습한 보정 함수가 다음 시즌 확률 calibration을 개선한다"
+change_scope = "model"
+study_config = "experiments/EXP_033/study.toml"
+based_on = "EXP_032"
+reference_variant = "global_control"
+ablation_summary = "CatBoost와 main60을 고정하고 2019~2022→2023 예측에서 학습한 mean-shift, affine, Platt, beta, isotonic 보정만 변경"
+tags = ["calibration", "out-of-time"]
+created_at_utc = "2026-08-17T18:20:03.284795+00:00"

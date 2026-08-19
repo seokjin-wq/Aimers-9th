@@ -1,0 +1,84 @@
+{
+  "based_on": "EXP_094",
+  "reference_variant": "count_k500_repro",
+  "ablation_summary": "Keep features, triple weights, component training, and train-only count calibration fixed; compare CatBoost component shifts -0.008, -0.0095, and -0.010.",
+  "control": "catshift_m008_control",
+  "variants": [
+    {
+      "name": "catshift_m008_control",
+      "declared_change": "control: EXP_094 count-k500 triple with CatBoost shift -0.008",
+      "is_control": true,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "catshift_m0095",
+      "declared_change": "lower CatBoost component shift to -0.0095",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_shift",
+          "control": -0.008,
+          "variant": -0.0095
+        },
+        {
+          "field": "model.name",
+          "control": "triple_group_count_k500",
+          "variant": "triple_group_count_k500_catshift_m0095"
+        }
+      ]
+    },
+    {
+      "name": "catshift_m010",
+      "declared_change": "lower CatBoost component shift to -0.010",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_shift",
+          "control": -0.008,
+          "variant": -0.01
+        },
+        {
+          "field": "model.name",
+          "control": "triple_group_count_k500",
+          "variant": "triple_group_count_k500_catshift_m010"
+        }
+      ]
+    }
+  ]
+}

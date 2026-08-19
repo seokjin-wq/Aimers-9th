@@ -1,0 +1,43 @@
+[study]
+id = "078_low_card_categorical"
+description = "저카디널리티 블록별 CatBoost 범주 처리"
+hypothesis = "의미상 이산적인 블록을 한 번에 하나씩 native categorical로 처리하면 숫자 임계값보다 정확한 조건부 확률을 학습할 수 있다."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main69_control"
+
+[[variants]]
+name = "main69_control"
+model = "catboost_d8_decay085"
+features = "main69_pitcher_batter_season_all"
+change = "control: 문자열 3개와 batter_team만 categorical"
+
+[[variants]]
+name = "count_state_cat"
+model = "catboost_d8_decay085"
+features = "main69_cat_count_state"
+change = "control 대비 count_state만 categorical 추가"
+
+[[variants]]
+name = "hands_cat"
+model = "catboost_d8_decay085"
+features = "main69_cat_hands"
+change = "control 대비 pitcher_hand·batter_hand만 categorical 추가"
+
+[[variants]]
+name = "calendar_cat"
+model = "catboost_d8_decay085"
+features = "main69_cat_calendar"
+change = "control 대비 game_month·game_dayofweek만 categorical 추가"
+
+[[variants]]
+name = "pitcher_team_cat"
+model = "catboost_d8_decay085"
+features = "main69_cat_pitcher_team"
+change = "control 대비 pitcher_team_id만 categorical 추가"
+
+[[variants]]
+name = "count_hands_cat"
+model = "catboost_d8_decay085"
+features = "main69_cat_count_hands"
+change = "control 대비 count_state와 양손 코드를 categorical 추가"

@@ -1,0 +1,87 @@
+{
+  "experiment_id": "EXP_016",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T16:34:56.323516+00:00",
+  "completed_at_utc": "2026-08-17T16:39:36.495280+00:00",
+  "config_hash": "ff8e8b7b4da5",
+  "based_on": "EXP_015",
+  "reference_variant": "shift_m010",
+  "ablation_summary": "main55+count와 -0.010 shift를 고정하고 단일 seed 대비 3-seed, 5-seed 확률 평균만 비교",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/016_seed_ensemble/20260817T163456326052Z_ff8e8b7b4da5",
+  "control": "single_seed_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "single_seed_control",
+  "best_mean_brier": 0.2478754922836092,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "single_seed_control",
+      "change": "control: seed42 단일 모델 + shift",
+      "feature_set": "main55_plus_count",
+      "feature_count": 60,
+      "model": "catboost_native_shift_m010",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2478754923,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 773.1709037273,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "ensemble_3seed",
+      "change": "seed 17·42·73 확률 평균 + shift",
+      "feature_set": "main55_plus_count",
+      "feature_count": 60,
+      "model": "catboost_ensemble3_shift",
+      "model_family": "catboost_ensemble",
+      "fold_count": 1,
+      "mean_brier": 0.2479017127,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 762.6746410121,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.params.random_seed', 'model.seeds']",
+      "delta_brier_vs_control": 2.62204e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "ensemble_5seed",
+      "change": "seed 7·17·42·73·101 확률 평균 + shift",
+      "feature_set": "main55_plus_count",
+      "feature_count": 60,
+      "model": "catboost_ensemble5_shift",
+      "model_family": "catboost_ensemble",
+      "fold_count": 1,
+      "mean_brier": 0.247906397,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 760.7994538415,
+      "changed_fields_vs_control": "['model.family', 'model.name', 'model.params.random_seed', 'model.seeds']",
+      "delta_brier_vs_control": 3.09047e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "39d2accbb175a376c92d024c6c311d6661f5dc65fdf07b460c40e44164c9b1a3",
+  "git_commit": "80f20ba91e666fa40b7cbdb1647ff163e037bc50",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 279.9909825325012
+}

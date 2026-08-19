@@ -1,0 +1,19 @@
+[study]
+id = "097_late_history_triple_repro"
+description = "Late-history triple promotion reproducibility"
+hypothesis = "The complete late-inning pitcher-history block reproduces its small EXP_091 gain in a fresh three-model ensemble run."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "current_triple"
+
+[[variants]]
+name = "current_triple"
+model = "triple_cpu45_gpu40_extra15"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: current same-hand pitch-mix triple without count calibration"
+
+[[variants]]
+name = "late_history_triple"
+model = "triple_cpu45_gpu40_extra15"
+features = "main75_same_pitchmix_late_history"
+change = "add EXP_096 complete late-history feature block"

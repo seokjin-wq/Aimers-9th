@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_103"
+title = "Count residual correction strength sweep"
+hypothesis = "The 2023 count residual pattern transfers to 2024, but its optimal amplitude differs from the current scale 1.0 after weight and mean refinement."
+change_scope = "model"
+study_config = "experiments/EXP_103/study.toml"
+based_on = "EXP_102"
+reference_variant = "w50_35_15"
+ablation_summary = "Keep features, component models, CPU50/GPU35/Extra15 weights, CatBoost shift -0.0095, count groups, and shrinkage 500 fixed; vary only residual_scale from 0.5 to 2.0."
+tags = ["compliance", "row-independent", "calibration", "residual-scale"]
+created_at_utc = "2026-08-18T09:22:49.140342+00:00"

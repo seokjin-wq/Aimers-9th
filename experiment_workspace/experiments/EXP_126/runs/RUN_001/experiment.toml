@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_126"
+title = "OOT-learned simplex blend weights"
+hypothesis = "Nonnegative ensemble weights learned only from 2019-2022 to 2023 OOT predictions will better combine CPU/GPU/Extra errors for 2024 than fixed manual weights."
+change_scope = "model"
+study_config = "experiments/EXP_126/study.toml"
+based_on = "EXP_117"
+reference_variant = "weights_50_35_15"
+ablation_summary = "Fix main78 features, all component models, shifts, and count correction; blend manual 50/35/15 weights toward 2023 OOT simplex-optimal weights by 25%, 50%, or 100%."
+tags = ["compliance", "row-independent", "ensemble", "OOT", "weights", "optimization"]
+created_at_utc = "2026-08-18T13:31:12.528703+00:00"

@@ -1,0 +1,61 @@
+[study]
+id = "020_affine_calibration"
+description = "확률 affine 미세 보정"
+hypothesis = "새 최고 모델은 평균 보정 외에도 예측 확률의 분산이 약간 작아, 중심 0.5 기준 3~9% sharpening이 Brier를 개선한다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "scale100_shift010_control"
+
+[[variants]]
+name = "scale100_shift010_control"
+model = "catboost_native_shift_m010"
+features = "main60_cat_batter_team"
+change = "control: scale 1.00, shift -0.010"
+
+[[variants]]
+name = "scale103_shift008"
+model = "catboost_native_scale103_shift_m008"
+features = "main60_cat_batter_team"
+change = "scale 1.03, shift -0.008"
+
+[[variants]]
+name = "scale103_shift010"
+model = "catboost_native_scale103_shift_m010"
+features = "main60_cat_batter_team"
+change = "scale 1.03, shift -0.010"
+
+[[variants]]
+name = "scale103_shift012"
+model = "catboost_native_scale103_shift_m012"
+features = "main60_cat_batter_team"
+change = "scale 1.03, shift -0.012"
+
+[[variants]]
+name = "scale106_shift008"
+model = "catboost_native_scale106_shift_m008"
+features = "main60_cat_batter_team"
+change = "scale 1.06, shift -0.008"
+
+[[variants]]
+name = "scale106_shift010"
+model = "catboost_native_scale106_shift_m010"
+features = "main60_cat_batter_team"
+change = "scale 1.06, shift -0.010"
+
+[[variants]]
+name = "scale106_shift012"
+model = "catboost_native_scale106_shift_m012"
+features = "main60_cat_batter_team"
+change = "scale 1.06, shift -0.012"
+
+[[variants]]
+name = "scale109_shift010"
+model = "catboost_native_scale109_shift_m010"
+features = "main60_cat_batter_team"
+change = "scale 1.09, shift -0.010"
+
+[[variants]]
+name = "scale112_shift010"
+model = "catboost_native_scale112_shift_m010"
+features = "main60_cat_batter_team"
+change = "scale 1.12, shift -0.010"

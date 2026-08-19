@@ -1,0 +1,25 @@
+[study]
+id = "087_promote_safe_feature_gains"
+description = "EXP_084·086 피처 개선을 현재 최고 3모델 앙상블에 승격"
+hypothesis = "CPU에서 개선된 합법 피처가 GPU와 ExtraTrees에도 유용해 전체 최고를 높인다."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "original_triple"
+
+[[variants]]
+name = "original_triple"
+model = "triple_cpu45_gpu40_extra15"
+features = "main69_cat_count_hands"
+change = "control: EXP_080 count+hands triple"
+
+[[variants]]
+name = "same_hand_pitchmix_triple"
+model = "triple_cpu45_gpu40_extra15"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "EXP_084 동일손×과거 구종군 피처 3개 승격"
+
+[[variants]]
+name = "batter_exact_triple"
+model = "triple_cpu45_gpu40_extra15"
+features = "main72_same_pitchmix_batter_exact"
+change = "동일손×구종군과 EXP_086 정확 타자 시즌 상태 동시 승격"

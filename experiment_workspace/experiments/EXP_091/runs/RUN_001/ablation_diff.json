@@ -1,0 +1,48 @@
+{
+  "based_on": "EXP_090",
+  "reference_variant": "late_pitcher_history",
+  "ablation_summary": "Fix the EXP_087 triple model and compare only the original same-hand features against the EXP_090 late-history feature addition.",
+  "control": "current_triple_control",
+  "variants": [
+    {
+      "name": "current_triple_control",
+      "declared_change": "control: EXP_087 same-hand pitchmix triple",
+      "is_control": true,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "late_history_triple",
+      "declared_change": "EXP_090 후반×투수이력 3개를 triple에 승격",
+      "is_control": false,
+      "feature_count": 75,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "late_inning_x_pitcher_success",
+        "late_inning_x_pitcher_reverse",
+        "late_inning_x_pitcher_middle"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

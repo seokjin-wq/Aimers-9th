@@ -1,0 +1,37 @@
+[study]
+id = "090_inning_interactions"
+description = "EDA 기반 이닝 구간 조건부 상호작용"
+hypothesis = "후반 이닝 하락은 LI와 투수 과거 상태에 따라 다른 기울기로 나타난다."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "same_hand_control"
+
+[[variants]]
+name = "same_hand_control"
+model = "catboost_d8_decay085"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: EXP_084 CPU same-hand pitchmix"
+
+[[variants]]
+name = "inning_phase_cat"
+model = "catboost_d8_decay085"
+features = "main73_same_pitchmix_inning_phase"
+change = "1-3·4-6·7-9·연장 inning phase categorical 추가"
+
+[[variants]]
+name = "phase_li_slopes"
+model = "catboost_d8_decay085"
+features = "main76_same_pitchmix_phase_li"
+change = "네 이닝 구간별 LI 상호작용 추가"
+
+[[variants]]
+name = "late_pitcher_history"
+model = "catboost_d8_decay085"
+features = "main75_same_pitchmix_late_history"
+change = "후반 이닝×투수 성공·반대·가운데 이력 추가"
+
+[[variants]]
+name = "inning_all"
+model = "catboost_d8_decay085"
+features = "main80_same_pitchmix_inning_all"
+change = "이닝 phase·LI·투수이력 블록 동시 추가"

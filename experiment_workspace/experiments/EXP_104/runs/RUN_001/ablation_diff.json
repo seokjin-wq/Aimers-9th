@@ -1,0 +1,217 @@
+{
+  "based_on": "EXP_103",
+  "reference_variant": "residual_scale_1_control",
+  "ablation_summary": "Keep the corrected triple, weights, features, and calibration mechanics fixed; compare count control against train-only residual groups for hands, count+hands, inning, base_state, and count+base_state.",
+  "control": "count_control",
+  "variants": [
+    {
+      "name": "count_control",
+      "declared_change": "control: EXP_103 count residual groups",
+      "is_control": true,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "hands_k500",
+      "declared_change": "2023 OOT residual by pitcher_hand x batter_hand, shrinkage 500",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.group_columns",
+          "control": [
+            "balls_before",
+            "strikes_before"
+          ],
+          "variant": [
+            "pitcher_hand",
+            "batter_hand"
+          ]
+        },
+        {
+          "field": "model.name",
+          "control": "triple_group_count_k500_shift_m0095_w50_35_15",
+          "variant": "triple_group_hands_k500_shift_m0095_w50_35_15"
+        }
+      ]
+    },
+    {
+      "name": "count_hands_k1000",
+      "declared_change": "2023 OOT residual by count x both hands, shrinkage 1000",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.group_columns",
+          "control": [
+            "balls_before",
+            "strikes_before"
+          ],
+          "variant": [
+            "balls_before",
+            "strikes_before",
+            "pitcher_hand",
+            "batter_hand"
+          ]
+        },
+        {
+          "field": "model.group_shrinkage",
+          "control": 500.0,
+          "variant": 1000.0
+        },
+        {
+          "field": "model.name",
+          "control": "triple_group_count_k500_shift_m0095_w50_35_15",
+          "variant": "triple_group_count_hands_k1000_shift_m0095_w50_35_15"
+        }
+      ]
+    },
+    {
+      "name": "inning_k1000",
+      "declared_change": "2023 OOT residual by current-row inning, shrinkage 1000",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.group_columns",
+          "control": [
+            "balls_before",
+            "strikes_before"
+          ],
+          "variant": [
+            "inning"
+          ]
+        },
+        {
+          "field": "model.group_shrinkage",
+          "control": 500.0,
+          "variant": 1000.0
+        },
+        {
+          "field": "model.name",
+          "control": "triple_group_count_k500_shift_m0095_w50_35_15",
+          "variant": "triple_group_inning_k1000_shift_m0095_w50_35_15"
+        }
+      ]
+    },
+    {
+      "name": "base_k500",
+      "declared_change": "2023 OOT residual by current-row base_state, shrinkage 500",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.group_columns",
+          "control": [
+            "balls_before",
+            "strikes_before"
+          ],
+          "variant": [
+            "base_state"
+          ]
+        },
+        {
+          "field": "model.name",
+          "control": "triple_group_count_k500_shift_m0095_w50_35_15",
+          "variant": "triple_group_base_k500_shift_m0095_w50_35_15"
+        }
+      ]
+    },
+    {
+      "name": "count_base_k1000",
+      "declared_change": "2023 OOT residual by count x base_state, shrinkage 1000",
+      "is_control": false,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.group_columns",
+          "control": [
+            "balls_before",
+            "strikes_before"
+          ],
+          "variant": [
+            "balls_before",
+            "strikes_before",
+            "base_state"
+          ]
+        },
+        {
+          "field": "model.group_shrinkage",
+          "control": 500.0,
+          "variant": 1000.0
+        },
+        {
+          "field": "model.name",
+          "control": "triple_group_count_k500_shift_m0095_w50_35_15",
+          "variant": "triple_group_count_base_k1000_shift_m0095_w50_35_15"
+        }
+      ]
+    }
+  ]
+}

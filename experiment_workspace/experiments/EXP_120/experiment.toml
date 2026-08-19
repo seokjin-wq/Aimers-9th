@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_120"
+title = "Reliability CatBoost categorical processing"
+hypothesis = "The expanded categorical and reliability representation may benefit from richer CatBoost CTR combinations or different one-hot thresholds even though tree-capacity changes failed."
+change_scope = "model"
+study_config = "experiments/EXP_120/study.toml"
+based_on = "EXP_118"
+reference_variant = "d8_i300_control"
+ablation_summary = "Fix main78 features and all winning CPU parameters; change exactly one categorical-processing parameter per candidate: max_ctr_complexity=2, one_hot_max_size=5, or one_hot_max_size=16."
+tags = ["compliance", "row-independent", "catboost", "categorical", "ctr"]
+created_at_utc = "2026-08-18T12:37:32.869482+00:00"

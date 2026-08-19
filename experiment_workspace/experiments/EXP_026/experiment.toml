@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_026"
+title = "직전 시즌 그룹 잔차 보정"
+hypothesis = "2023에서 반복된 선수·팀·상황별 예측 편향이 2024에도 유지되어 직전 시즌 잔차 보정이 Brier를 개선한다"
+change_scope = "model"
+study_config = "experiments/EXP_026/study.toml"
+based_on = "EXP_025"
+reference_variant = "d6_i400_lr040"
+ablation_summary = "2019~2022→2023 OOF 잔차만 사용해 pitcher, batter, team, count별 shrinkage offset을 학습하고 2019~2023→2024 예측에 적용"
+tags = ["temporal", "residual-calibration", "leakage-safe"]
+created_at_utc = "2026-08-17T17:48:18.519459+00:00"

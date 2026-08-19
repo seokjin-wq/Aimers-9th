@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_020"
+title = "확률 affine 미세 보정"
+hypothesis = "새 최고 모델은 평균 보정 외에도 예측 확률의 분산이 약간 작아, 중심 0.5 기준 3~9% sharpening이 Brier를 개선한다"
+change_scope = "model"
+study_config = "experiments/EXP_020/study.toml"
+based_on = "EXP_019"
+reference_variant = "batter_team_cat"
+ablation_summary = "batter-team categorical CatBoost와 피처를 고정하고 prediction_scale 및 prediction_shift만 변경"
+tags = ["calibration", "affine"]
+created_at_utc = "2026-08-17T16:57:54.171591+00:00"

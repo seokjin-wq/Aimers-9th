@@ -1,0 +1,125 @@
+{
+  "based_on": "EXP_050",
+  "reference_variant": "d6_i600",
+  "ablation_summary": "EXP050 최고 설정을 고정하고 game·pitcher_team·batter_team 기준 recent200 success 또는 middle 한 개만 추가",
+  "control": "control",
+  "variants": [
+    {
+      "name": "control",
+      "declared_change": "control: EXP050 best",
+      "is_control": true,
+      "feature_count": 81,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "game_success200",
+      "declared_change": "game recent200 success 한 개 추가",
+      "is_control": false,
+      "feature_count": 82,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "game_recent200_success"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pitcher_team_success200",
+      "declared_change": "pitcher team recent200 success 한 개 추가",
+      "is_control": false,
+      "feature_count": 82,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_team_recent200_success"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "batter_team_success200",
+      "declared_change": "batter team recent200 success 한 개 추가",
+      "is_control": false,
+      "feature_count": 82,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "batter_team_recent200_success"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "game_middle200",
+      "declared_change": "game recent200 middle 한 개 추가",
+      "is_control": false,
+      "feature_count": 82,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "game_recent200_middle"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pitcher_team_middle200",
+      "declared_change": "pitcher team recent200 middle 한 개 추가",
+      "is_control": false,
+      "feature_count": 82,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_team_recent200_middle"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "batter_team_middle200",
+      "declared_change": "batter team recent200 middle 한 개 추가",
+      "is_control": false,
+      "feature_count": 82,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "batter_team_recent200_middle"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "based_on": "EXP_116",
+  "reference_variant": "triple_history_reliability",
+  "ablation_summary": "Fix main78 reliability features, all component parameters, shifts, count correction, and ExtraTrees weight where applicable; vary only CPU/GPU/Extra blend weights around 45/40/15.",
+  "control": "weights_45_40_15_control",
+  "variants": [
+    {
+      "name": "weights_45_40_15_control",
+      "declared_change": "control: EXP_116 winner CPU/GPU/Extra=45/40/15",
+      "is_control": true,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "weights_50_35_15",
+      "declared_change": "move 5% weight GPU -> CPU only",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cpu_weight",
+          "control": 0.45,
+          "variant": 0.5
+        },
+        {
+          "field": "model.gpu_weight",
+          "control": 0.4,
+          "variant": 0.35
+        },
+        {
+          "field": "model.name",
+          "control": "triple_group_count_k500_catshift_m0095_cpu_sub08",
+          "variant": "triple_count_m0095_sub08_w50_35_15"
+        }
+      ]
+    },
+    {
+      "name": "weights_55_30_15",
+      "declared_change": "move 10% weight GPU -> CPU only",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cpu_weight",
+          "control": 0.45,
+          "variant": 0.55
+        },
+        {
+          "field": "model.gpu_weight",
+          "control": 0.4,
+          "variant": 0.3
+        },
+        {
+          "field": "model.name",
+          "control": "triple_group_count_k500_catshift_m0095_cpu_sub08",
+          "variant": "triple_count_m0095_sub08_w55_30_15"
+        }
+      ]
+    },
+    {
+      "name": "weights_50_40_10",
+      "declared_change": "move 5% weight ExtraTrees -> CPU only",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cpu_weight",
+          "control": 0.45,
+          "variant": 0.5
+        },
+        {
+          "field": "model.extra_weight",
+          "control": 0.15,
+          "variant": 0.1
+        },
+        {
+          "field": "model.name",
+          "control": "triple_group_count_k500_catshift_m0095_cpu_sub08",
+          "variant": "triple_count_m0095_sub08_w50_40_10"
+        }
+      ]
+    }
+  ]
+}

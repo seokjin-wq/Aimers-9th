@@ -1,0 +1,31 @@
+[study]
+id = "129_count_trend_shrinkage"
+description = "Count trend shrinkage refinement"
+hypothesis = "The 12 count groups have enough official-train support that reducing trend shrinkage below 10000 will preserve useful relative season slopes and improve Brier."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "shrinkage_10000_control"
+
+[[variants]]
+name = "shrinkage_10000_control"
+model = "triple_count_trend_s100"
+features = "main78_history_reliability"
+change = "control: EXP_127 adopted trend shrinkage 10000"
+
+[[variants]]
+name = "shrinkage_0"
+model = "triple_count_trend_k0"
+features = "main78_history_reliability"
+change = "change only trend shrinkage from 10000 to 0"
+
+[[variants]]
+name = "shrinkage_2500"
+model = "triple_count_trend_k2500"
+features = "main78_history_reliability"
+change = "change only trend shrinkage from 10000 to 2500"
+
+[[variants]]
+name = "shrinkage_5000"
+model = "triple_count_trend_k5000"
+features = "main78_history_reliability"
+change = "change only trend shrinkage from 10000 to 5000"

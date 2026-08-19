@@ -1,0 +1,102 @@
+{
+  "experiment_id": "EXP_129",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T14:19:52.503450+00:00",
+  "completed_at_utc": "2026-08-18T14:32:34.903554+00:00",
+  "config_hash": "a36def870636",
+  "based_on": "EXP_127",
+  "reference_variant": "count_trend_strength_100",
+  "ablation_summary": "Fix EXP_127 trend strength 1.00 and every model/calibration setting; vary only count-trend shrinkage across 0, 2500, 5000, and control 10000.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/129_count_trend_shrinkage/20260818T141952515243Z_a36def870636",
+  "control": "shrinkage_10000_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "shrinkage_0",
+  "best_mean_brier": 0.2474451306986526,
+  "best_delta_brier_vs_control": -1.7843545030427066e-08,
+  "leaderboard": [
+    {
+      "variant": "shrinkage_0",
+      "change": "change only trend shrinkage from 10000 to 0",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_count_trend_k0",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474451307,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 945.4485865537,
+      "changed_fields_vs_control": "['model.name', 'model.trend_shrinkage']",
+      "delta_brier_vs_control": -1.78e-08,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "shrinkage_2500",
+      "change": "change only trend shrinkage from 10000 to 2500",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_count_trend_k2500",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474451335,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 945.4474841103,
+      "changed_fields_vs_control": "['model.name', 'model.trend_shrinkage']",
+      "delta_brier_vs_control": -1.51e-08,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "shrinkage_5000",
+      "change": "change only trend shrinkage from 10000 to 5000",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_count_trend_k5000",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474451359,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 945.4465099708,
+      "changed_fields_vs_control": "['model.name', 'model.trend_shrinkage']",
+      "delta_brier_vs_control": -1.27e-08,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "shrinkage_10000_control",
+      "change": "control: EXP_127 adopted trend shrinkage 10000",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "triple_count_trend_s100",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474451485,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 945.4414436193,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "1f8a2695fdfb3423eb655833a94a742280bdf506e9997f383252676934fceb9f",
+  "git_commit": "7cee654e94970232aef817403e75048826d94d52",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 762.2034828662872
+}

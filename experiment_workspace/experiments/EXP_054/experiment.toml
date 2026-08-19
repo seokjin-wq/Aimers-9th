@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_054"
+title = "규칙 준수 베이스라인 재현"
+hypothesis = "평가 행간 연산을 차단한 안전 피처 경로에서도 EXP_024 ExtraTrees 24% 혼합 점수가 동일하게 재현된다"
+change_scope = "model"
+study_config = "experiments/EXP_054/study.toml"
+based_on = "EXP_024"
+reference_variant = "extra_w24"
+ablation_summary = "EXP_024 extra_w24를 규칙 준수 엔진에서 재실행하고 CatBoost 단독과 설정 차이를 보존"
+tags = ["rule_compliant", "baseline_replay"]
+created_at_utc = "2026-08-18T02:11:59.780293+00:00"

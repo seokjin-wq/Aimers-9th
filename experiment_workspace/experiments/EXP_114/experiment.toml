@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_114"
+title = "History reliability shrinkage refinement"
+hypothesis = "The amount of history needed to trust as-of rates can be tuned around k=100; k=50 or k=200 may better generalize to the 2024 new-player mix."
+change_scope = "features"
+study_config = "experiments/EXP_114/study.toml"
+based_on = "EXP_113"
+reference_variant = "all_six_control"
+ablation_summary = "Fix all main72 features and CPU subsample=0.8; change only the denominator k used in the same six reliability features across 50, 100, and 200."
+tags = ["compliance", "row-independent", "reliability", "shrinkage", "refinement"]
+created_at_utc = "2026-08-18T11:28:25.400436+00:00"

@@ -1,0 +1,31 @@
+[study]
+id = "123_eda_monotonic_constraints"
+description = "EDA-guided monotonic constraints"
+hypothesis = "Enforcing known directional relationships for prior success, reverse, and middle rates may reduce temporal overfitting and improve 2024 Brier."
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "unconstrained_control"
+
+[[variants]]
+name = "unconstrained_control"
+model = "catboost_d8_decay085_sub08"
+features = "main78_history_reliability"
+change = "control: latest CPU without monotonic constraints"
+
+[[variants]]
+name = "monotone_success"
+model = "catboost_d8_sub08_monotone_success"
+features = "main78_history_reliability"
+change = "force pitcher and batter career success rates monotone positive only"
+
+[[variants]]
+name = "monotone_failure"
+model = "catboost_d8_sub08_monotone_failure"
+features = "main78_history_reliability"
+change = "force pitcher reverse and middle rates monotone negative only"
+
+[[variants]]
+name = "monotone_all"
+model = "catboost_d8_sub08_monotone_all"
+features = "main78_history_reliability"
+change = "apply all four success/failure directional constraints"

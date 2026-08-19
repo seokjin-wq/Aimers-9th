@@ -1,0 +1,21 @@
+[model]
+name = "catboost_d8_sub08_monotone_all"
+family = "catboost"
+native_categorical = true
+season_decay = 0.85
+prediction_scale = 1.06
+prediction_shift = -0.008
+[model.params]
+iterations = 300
+depth = 8
+learning_rate = 0.035
+l2_leaf_reg = 3.0
+subsample = 0.8
+monotone_constraints = { asof_pitcher_success_rate = 1, asof_batter_success_rate = 1, asof_pitcher_reverse_rate = -1, asof_pitcher_middle_rate = -1 }
+random_seed = 42
+thread_count = 8
+task_type = "CPU"
+loss_function = "Logloss"
+eval_metric = "BrierScore"
+allow_writing_files = false
+verbose = false

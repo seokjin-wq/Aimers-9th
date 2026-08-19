@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T17:04:58.287328+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "cd9a0b31cd0c",
+  "based_on": "EXP_020",
+  "reference_variant": "scale106_shift008",
+  "ablation_summary": "최고 모델을 고정하고 row_id 숫자부로 계산한 시즌 내 투구 순번, 정규화 진행도, 구간 피처만 추가"
+}

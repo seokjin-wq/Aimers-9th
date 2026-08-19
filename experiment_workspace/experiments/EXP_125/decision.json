@@ -1,0 +1,27 @@
+{
+  "experiment_id": "EXP_125",
+  "decision": "reject",
+  "selected_variant": null,
+  "reason": "The 100-tree decay=0.85 screening gain did not reproduce at the ensemble-matching 300-tree capacity; uniform weighting was better by 5.199e-06, so reject ExtraTrees decay promotion.",
+  "based_on": "EXP_124",
+  "reference_variant": "decay_085",
+  "ablation_summary": "Fix main78 features and full ExtraTrees leaf20/300-tree parameters; compare uniform season weights against decay=0.85 only.",
+  "selected_result": null,
+  "control_result": {
+    "variant": "uniform_300_control",
+    "change": "control: full 300-tree ExtraTrees with uniform season weights",
+    "feature_set": "main78_history_reliability",
+    "feature_count": 78,
+    "model": "extratrees_leaf20",
+    "model_family": "extra_trees",
+    "fold_count": 1,
+    "mean_brier": 0.2479186109,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 755.9101307153,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T13:29:38.494739+00:00",
+  "based_on_run_id": "RUN_001"
+}

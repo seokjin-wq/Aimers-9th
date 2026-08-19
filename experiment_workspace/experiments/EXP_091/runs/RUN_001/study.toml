@@ -1,0 +1,19 @@
+[study]
+id = "091_promote_late_history"
+description = "후반 투수이력 피처의 앙상블 승격"
+hypothesis = "EXP_090 피처 개선이 현재 3모델 앙상블에서도 유지된다."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "current_triple_control"
+
+[[variants]]
+name = "current_triple_control"
+model = "triple_cpu45_gpu40_extra15"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: EXP_087 same-hand pitchmix triple"
+
+[[variants]]
+name = "late_history_triple"
+model = "triple_cpu45_gpu40_extra15"
+features = "main75_same_pitchmix_late_history"
+change = "EXP_090 후반×투수이력 3개를 triple에 승격"

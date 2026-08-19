@@ -1,0 +1,117 @@
+{
+  "experiment_id": "EXP_073",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T04:34:47.170873+00:00",
+  "completed_at_utc": "2026-08-18T04:38:58.328133+00:00",
+  "config_hash": "1b873ea689bb",
+  "based_on": "EXP_072",
+  "reference_variant": "main69_control",
+  "ablation_summary": "Fix main69 and CPU CatBoost d8 decay0.85; replace only pitcher/batter current-season success smoothing k among 5,10,20,50,100.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/073_season_success_shrinkage/20260818T043447177095Z_1b873ea689bb",
+  "control": "success_k20_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "success_k50",
+  "best_mean_brier": 0.2475295876440522,
+  "best_delta_brier_vs_control": -8.133082358474653e-06,
+  "leaderboard": [
+    {
+      "variant": "success_k50",
+      "change": "control 대비 투수·타자 당해 시즌 성공률 k=50",
+      "feature_set": "main69_season_success_k50",
+      "feature_count": 69,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475295876,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 911.6396980268,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.name']",
+      "delta_brier_vs_control": -8.1331e-06,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "success_k20_control",
+      "change": "control: 투수·타자 당해 시즌 성공률 k=20",
+      "feature_set": "main69_pitcher_batter_season_all",
+      "feature_count": 69,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475377207,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 908.3839506927,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "success_k100",
+      "change": "control 대비 투수·타자 당해 시즌 성공률 k=100",
+      "feature_set": "main69_season_success_k100",
+      "feature_count": 69,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475426314,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 906.4181776284,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.name']",
+      "delta_brier_vs_control": 4.9106e-06,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "success_k10",
+      "change": "control 대비 투수·타자 당해 시즌 성공률 k=10",
+      "feature_set": "main69_season_success_k10",
+      "feature_count": 69,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475565977,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 900.8273251177,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.name']",
+      "delta_brier_vs_control": 1.8877e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "success_k5",
+      "change": "control 대비 투수·타자 당해 시즌 성공률 k=5",
+      "feature_set": "main69_season_success_k5",
+      "feature_count": 69,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475822747,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 890.5486022036,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.name']",
+      "delta_brier_vs_control": 4.45539e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "a5815ad4b3428907f5f308115b5f3c6d54346c7ab732024d323219b4a8e6b738",
+  "git_commit": "7bde464991a4052a625a1c8c1d2e222d4b3c6542",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 250.9679434299469
+}

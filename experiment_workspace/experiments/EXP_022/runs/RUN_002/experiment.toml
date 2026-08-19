@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_022"
+title = "CatBoost 부스팅 구조와 bootstrap"
+hypothesis = "현재 symmetric tree와 기본 bootstrap보다 다른 샘플링 또는 tree grow 정책이 일반화 Brier를 개선한다"
+change_scope = "model"
+study_config = "experiments/EXP_022/study.toml"
+based_on = "EXP_021"
+reference_variant = "main60_control"
+ablation_summary = "최고 피처와 affine 보정을 고정하고 bootstrap_type, boosting_type, grow_policy, leaf estimation만 한 종류씩 변경"
+tags = ["catboost", "bootstrap", "grow-policy"]
+created_at_utc = "2026-08-17T17:08:39.416250+00:00"

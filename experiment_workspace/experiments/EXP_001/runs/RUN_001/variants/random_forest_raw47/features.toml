@@ -1,0 +1,8 @@
+[features]
+name = "raw47"
+description = "대회 제공 입력 47개 전체"
+include_all_raw = true
+exclude = []
+custom = []
+categorical = ["top_bottom", "game_type", "base_state"]
+expected_count = 47

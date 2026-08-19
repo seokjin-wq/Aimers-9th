@@ -1,0 +1,37 @@
+[study]
+id = "064_stable_context_target_effects"
+description = "안정 상황 교차 타깃 효과"
+hypothesis = "선수 ID 대신 표본이 큰 count·hand·base·inning 교차의 시즌 중심화 학습 효과가 CatBoost의 상호작용 추정을 보완한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main69_control"
+
+[[variants]]
+name = "main69_control"
+model = "catboost_d8_decay085"
+features = "main69_pitcher_batter_season_all"
+change = "control: EXP_060 최고 CatBoost"
+
+[[variants]]
+name = "count_hands"
+model = "catboost_d8_decay085"
+features = "main70_count_hands_effect"
+change = "볼카운트×투수손×타자손 학습 효과 추가"
+
+[[variants]]
+name = "count_out_base"
+model = "catboost_d8_decay085"
+features = "main70_count_out_base_effect"
+change = "볼카운트×아웃×주자상태 학습 효과 추가"
+
+[[variants]]
+name = "game_pressure"
+model = "catboost_d8_decay085"
+features = "main71_game_pressure_effects"
+change = "이닝×공수×경기유형과 압박상태 효과 추가"
+
+[[variants]]
+name = "all_context"
+model = "catboost_d8_decay085"
+features = "main73_all_context_effects"
+change = "네 가지 시즌 중심화 상황 교차 효과를 모두 추가"

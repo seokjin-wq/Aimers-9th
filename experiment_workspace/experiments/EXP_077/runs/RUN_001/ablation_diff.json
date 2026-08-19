@@ -1,0 +1,222 @@
+{
+  "based_on": "EXP_072",
+  "reference_variant": "main69_control",
+  "ablation_summary": "Fix main69; compare Logloss d8 against RMSE d7/d8 and affine-scaled RMSE d8, all with season decay 0.85.",
+  "control": "logloss_d8_control",
+  "variants": [
+    {
+      "name": "logloss_d8_control",
+      "declared_change": "control: Logloss depth8 300",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "rmse_d7_i500",
+      "declared_change": "RMSE 회귀 depth7 500",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_regressor"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "catreg_d7_i500_decay85"
+        },
+        {
+          "field": "model.params.depth",
+          "control": 8,
+          "variant": 7
+        },
+        {
+          "field": "model.params.eval_metric",
+          "control": "BrierScore",
+          "variant": "RMSE"
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 500
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.035,
+          "variant": 0.03
+        },
+        {
+          "field": "model.params.loss_function",
+          "control": "Logloss",
+          "variant": "RMSE"
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "rmse_d8_i300",
+      "declared_change": "RMSE 회귀 depth8 300",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_regressor"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "catreg_d8_i300_decay85"
+        },
+        {
+          "field": "model.params.eval_metric",
+          "control": "BrierScore",
+          "variant": "RMSE"
+        },
+        {
+          "field": "model.params.loss_function",
+          "control": "Logloss",
+          "variant": "RMSE"
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "rmse_d8_scaled",
+      "declared_change": "RMSE depth8에 classifier와 동일한 scale1.06 shift-0.008",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_regressor"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "catreg_d8_i300_decay85_scaled"
+        },
+        {
+          "field": "model.params.eval_metric",
+          "control": "BrierScore",
+          "variant": "RMSE"
+        },
+        {
+          "field": "model.params.loss_function",
+          "control": "Logloss",
+          "variant": "RMSE"
+        }
+      ]
+    },
+    {
+      "name": "rmse_d9_i200",
+      "declared_change": "RMSE 회귀 depth9 200",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_regressor"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "catreg_d9_i200_decay85"
+        },
+        {
+          "field": "model.params.depth",
+          "control": 8,
+          "variant": 9
+        },
+        {
+          "field": "model.params.eval_metric",
+          "control": "BrierScore",
+          "variant": "RMSE"
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 300,
+          "variant": 200
+        },
+        {
+          "field": "model.params.loss_function",
+          "control": "Logloss",
+          "variant": "RMSE"
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    }
+  ]
+}

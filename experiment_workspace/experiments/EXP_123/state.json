@@ -1,0 +1,10 @@
+{
+  "id": "EXP_123",
+  "status": "decided",
+  "created_at_utc": "2026-08-18T13:02:38.042826+00:00",
+  "updated_at_utc": "2026-08-18T13:07:42.674755+00:00",
+  "run_count": 1,
+  "latest_run_id": "RUN_001",
+  "decision": "keep_control",
+  "selected_variant": "unconstrained_control"
+}

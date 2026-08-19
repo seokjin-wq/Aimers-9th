@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_118",
+  "decision": "keep_control",
+  "selected_variant": "d8_i300_control",
+  "reason": "The original depth8/300/lr0.035 schedule remained best on main78 reliability features; all longer, shallower, or deeper schedules worsened Brier.",
+  "based_on": "EXP_117",
+  "reference_variant": "weights_50_35_15",
+  "ablation_summary": "Use main78 reliability features and CPU screening with season decay, subsample, affine postprocess, seed, and all other parameters fixed; compare depth8/300 to depth7/450, depth8/450 low-lr, and depth9/220.",
+  "selected_result": {
+    "variant": "d8_i300_control",
+    "change": "control: reliability CPU depth8, 300 trees, lr0.035",
+    "feature_set": "main78_history_reliability",
+    "feature_count": 78,
+    "model": "catboost_d8_decay085_sub08",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2474879926,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 928.2905828931,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "d8_i300_control",
+    "change": "control: reliability CPU depth8, 300 trees, lr0.035",
+    "feature_set": "main78_history_reliability",
+    "feature_count": 78,
+    "model": "catboost_d8_decay085_sub08",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2474879926,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 928.2905828931,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T12:22:24.226012+00:00",
+  "based_on_run_id": "RUN_001"
+}

@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T08:36:37.960331+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "23fd5b1c1eb9",
+  "based_on": "EXP_099",
+  "reference_variant": "decay085_control",
+  "ablation_summary": "Keep model training fixed at depth8/300 and decay0.85; vary only post-prediction scale around 1.06 or shift around -0.008, one coordinate at a time."
+}

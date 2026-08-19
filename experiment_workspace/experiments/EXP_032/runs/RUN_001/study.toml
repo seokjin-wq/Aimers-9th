@@ -1,0 +1,43 @@
+[study]
+id = "032_segmented_catboost"
+description = "상황별 분리 CatBoost"
+hypothesis = "game_type 또는 투타 상황별 별도 모델이 전역 트리보다 조건부 상호작용을 더 잘 학습한다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "global_control"
+
+[[variants]]
+name = "global_control"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main60_cat_batter_team"
+change = "control: 전역 GPU CatBoost"
+
+[[variants]]
+name = "game_i300"
+model = "seg_gpu_game_i300"
+features = "main60_cat_batter_team"
+change = "game_type별 300-tree"
+
+[[variants]]
+name = "game_i600"
+model = "seg_gpu_game_i600"
+features = "main60_cat_batter_team"
+change = "game_type별 600-tree"
+
+[[variants]]
+name = "top_bottom_i600"
+model = "seg_gpu_topbottom_i600"
+features = "main60_cat_batter_team"
+change = "top_bottom별 600-tree"
+
+[[variants]]
+name = "pitcher_hand_i600"
+model = "seg_gpu_pitcherhand_i600"
+features = "main60_cat_batter_team"
+change = "pitcher_hand별 600-tree"
+
+[[variants]]
+name = "game_pitcher_hand_i400"
+model = "seg_gpu_game_pitcherhand_i400"
+features = "main60_cat_batter_team"
+change = "game_type × pitcher_hand별 400-tree"

@@ -1,0 +1,43 @@
+[study]
+id = "014_custom_feature_pruning"
+description = "파생 피처 묶음 pruning"
+hypothesis = "main55+count에서 중복·저중요도 파생 피처를 제거하면 일반화 Brier가 개선된다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main60_control"
+
+[[variants]]
+name = "main60_control"
+model = "catboost_native_300"
+features = "main55_plus_count"
+change = "control: main55 + count 5개"
+
+[[variants]]
+name = "drop_low_context_custom"
+model = "catboost_native_300"
+features = "main60_no_low_context"
+change = "저중요도 context 상호작용 5개 제거"
+
+[[variants]]
+name = "drop_recent_gaps"
+model = "catboost_native_300"
+features = "main60_no_gaps"
+change = "최근 성공률과 커리어 차이 3개 제거"
+
+[[variants]]
+name = "keep_count_only"
+model = "catboost_native_300"
+features = "selected41_plus_count"
+change = "기존 custom14를 모두 제거하고 count 5개만 유지"
+
+[[variants]]
+name = "keep_core_custom"
+model = "catboost_native_300"
+features = "main60_core_custom"
+change = "상대적으로 중요한 custom 7개와 count 5개만 유지"
+
+[[variants]]
+name = "drop_count_redundancy"
+model = "catboost_native_300"
+features = "main60_no_count_redundancy"
+change = "count_state와 중복되는 count_diff·count_total 제거"

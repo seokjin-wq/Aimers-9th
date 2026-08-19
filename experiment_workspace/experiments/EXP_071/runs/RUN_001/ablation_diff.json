@@ -1,0 +1,89 @@
+{
+  "based_on": "EXP_070",
+  "reference_variant": "cpu45_gpu40_extra15",
+  "ablation_summary": "main69 decay85에서 pitcher, batter, 둘 다, pitcher+양팀 categorical만 변경",
+  "control": "batter_team_control",
+  "variants": [
+    {
+      "name": "batter_team_control",
+      "declared_change": "control: batter_team만 범주형",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pitcher_cat",
+      "declared_change": "pitcher_id 범주형 추가",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "pitcher_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "batter_cat",
+      "declared_change": "batter_id 범주형 추가",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "batter_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pitcher_batter_cat",
+      "declared_change": "pitcher_id와 batter_id 범주형 추가",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "pitcher_id",
+        "batter_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pitcher_teams_cat",
+      "declared_change": "pitcher_id와 양 팀 ID 범주형",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "pitcher_team_id",
+        "pitcher_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

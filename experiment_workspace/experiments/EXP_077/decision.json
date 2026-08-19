@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_077",
+  "decision": "keep_control",
+  "selected_variant": "logloss_d8_control",
+  "reason": "RMSE 회귀는 affine 보정한 depth8도 BSS 897.45로 Logloss 908.38보다 낮았고, 나머지 RMSE 후보는 857~864로 더 악화됐다.",
+  "based_on": "EXP_072",
+  "reference_variant": "main69_control",
+  "ablation_summary": "Fix main69; compare Logloss d8 against RMSE d7/d8 and affine-scaled RMSE d8, all with season decay 0.85.",
+  "selected_result": {
+    "variant": "logloss_d8_control",
+    "change": "control: Logloss depth8 300",
+    "feature_set": "main69_pitcher_batter_season_all",
+    "feature_count": 69,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475377207,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 908.3839506927,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "logloss_d8_control",
+    "change": "control: Logloss depth8 300",
+    "feature_set": "main69_pitcher_batter_season_all",
+    "feature_count": 69,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475377207,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 908.3839506927,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T05:05:32.701692+00:00",
+  "based_on_run_id": "RUN_001"
+}

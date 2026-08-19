@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_087"
+title = "Promote EDA and exact-state gains to triple ensemble"
+hypothesis = "The row-local same-hand pitch-mix and exact batter snapshot gains survive CPU/GPU/ExtraTrees diversity and improve the overall compliant best."
+change_scope = "features"
+study_config = "experiments/EXP_087/study.toml"
+based_on = "EXP_086"
+reference_variant = "batter_exact"
+ablation_summary = "Fix EXP_080 triple model; compare original count+hands, same-hand pitchmix, and same-hand pitchmix plus exact batter snapshot feature sets."
+tags = ["compliance", "row-independent", "promotion", "ensemble"]
+created_at_utc = "2026-08-18T06:15:46.350444+00:00"

@@ -1,0 +1,37 @@
+[study]
+id = "060_season_state_recency_weight"
+description = "시즌 상태 최근성 가중 재검증"
+hypothesis = "현재 시즌 상태 피처가 연도별 구조 변화를 설명하므로 완만한 최근성 가중이 과거 시즌 잡음을 줄일 수 있다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "uniform"
+
+[[variants]]
+name = "uniform"
+model = "catboost_cpu_d8_i300_lr035"
+features = "main69_pitcher_batter_season_all"
+change = "control: 모든 2019~2023 행 동일 가중"
+
+[[variants]]
+name = "decay095"
+model = "catboost_d8_decay095"
+features = "main69_pitcher_batter_season_all"
+change = "과거 1년당 가중치 0.95배"
+
+[[variants]]
+name = "decay090"
+model = "catboost_d8_decay090"
+features = "main69_pitcher_batter_season_all"
+change = "과거 1년당 가중치 0.90배"
+
+[[variants]]
+name = "decay085"
+model = "catboost_d8_decay085"
+features = "main69_pitcher_batter_season_all"
+change = "과거 1년당 가중치 0.85배"
+
+[[variants]]
+name = "decay075"
+model = "catboost_d8_decay075"
+features = "main69_pitcher_batter_season_all"
+change = "과거 1년당 가중치 0.75배"

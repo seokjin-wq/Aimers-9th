@@ -1,0 +1,117 @@
+{
+  "experiment_id": "EXP_047",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T19:53:08.494451+00:00",
+  "completed_at_utc": "2026-08-17T19:58:08.342870+00:00",
+  "config_hash": "50636193b185",
+  "based_on": "EXP_046",
+  "reference_variant": "cat_control",
+  "ablation_summary": "CPU main80을 고정하고 복원 가능한 과거 전역 성공의 recent5·10·20·50·100 rolling만 개별·조합 추가",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/047_cpu_global_rolling/20260817T195308500101Z_50636193b185",
+  "control": "main80_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "global100",
+  "best_mean_brier": 0.2467254968172914,
+  "best_delta_brier_vs_control": -0.0002048483109715,
+  "leaderboard": [
+    {
+      "variant": "global100",
+      "change": "전역 recent100 추가",
+      "feature_set": "main81_add_global100",
+      "feature_count": 81,
+      "model": "catboost_top_d6_i400_lr040",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2467254968,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1233.5246181931,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -0.0002048483,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "global_all",
+      "change": "전역 recent5·10·20·50·100 모두 추가",
+      "feature_set": "main85_add_global_all",
+      "feature_count": 85,
+      "model": "catboost_top_d6_i400_lr040",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2467725869,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1214.6740320373,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -0.0001577582,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "global50",
+      "change": "전역 recent50 추가",
+      "feature_set": "main81_add_global50",
+      "feature_count": 81,
+      "model": "catboost_top_d6_i400_lr040",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2468469831,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1184.8925593053,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -8.33621e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "global20",
+      "change": "전역 recent20 추가",
+      "feature_set": "main81_add_global20",
+      "feature_count": 81,
+      "model": "catboost_top_d6_i400_lr040",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2469193535,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1155.9220157566,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -1.09916e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "main80_control",
+      "change": "control: entity sequence only",
+      "feature_set": "main80_add_best_ewm",
+      "feature_count": 80,
+      "model": "catboost_top_d6_i400_lr040",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2469303451,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1151.5219637307,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "f8dcbab86588f67da4227c8ce8d3859f56e1bf2bff9005c42f4acae1905854ea",
+  "git_commit": "68edbf84e3f92e8376713a6b9b1d069e053f4d85",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 299.6611304283142
+}

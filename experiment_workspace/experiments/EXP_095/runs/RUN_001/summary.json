@@ -1,0 +1,162 @@
+{
+  "experiment_id": "EXP_095",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T07:48:23.760938+00:00",
+  "completed_at_utc": "2026-08-18T07:55:48.087370+00:00",
+  "config_hash": "0f0433cd7fd9",
+  "based_on": "EXP_084",
+  "reference_variant": "same_hand_pitchmix",
+  "ablation_summary": "Keep the EXP_084 count+hands control fixed and compare each same-hand pitch-mix interaction alone, all three pairs, and the existing all-three variant.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/095_same_hand_pitchmix_decomposition/20260818T074823769450Z_0f0433cd7fd9",
+  "control": "count_hands_base",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "all_three",
+  "best_mean_brier": 0.2475118666382257,
+  "best_delta_brier_vs_control": -3.991890335508508e-06,
+  "leaderboard": [
+    {
+      "variant": "all_three",
+      "change": "EXP_084 reference: add all three same-hand pitch-mix interactions",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475118666,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 918.7335789118,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -3.9919e-06,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "count_hands_base",
+      "change": "control: EXP_084 count+hands base without same-hand pitch-mix interactions",
+      "feature_set": "main69_cat_count_hands",
+      "feature_count": 69,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475158585,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 917.135588661,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "fastball_offspeed",
+      "change": "add same_hand_x_fastball and same_hand_x_offspeed",
+      "feature_set": "main71_cat_count_hands_same_fast_off",
+      "feature_count": 71,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475314602,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 910.8901112929,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 1.56016e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "offspeed_only",
+      "change": "add same_hand_x_offspeed only",
+      "feature_set": "main70_cat_count_hands_same_offspeed",
+      "feature_count": 70,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475474858,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 904.4748922409,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 3.16273e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "fastball_only",
+      "change": "add same_hand_x_fastball only",
+      "feature_set": "main70_cat_count_hands_same_fastball",
+      "feature_count": 70,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475482945,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 904.1511646579,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 3.2436e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "breaking_offspeed",
+      "change": "add same_hand_x_breaking and same_hand_x_offspeed",
+      "feature_set": "main71_cat_count_hands_same_break_off",
+      "feature_count": 71,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475550777,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 901.435779834,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 3.92192e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "fastball_breaking",
+      "change": "add same_hand_x_fastball and same_hand_x_breaking",
+      "feature_set": "main71_cat_count_hands_same_fast_break",
+      "feature_count": 71,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475616344,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 898.8110943894,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 4.57759e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "breaking_only",
+      "change": "add same_hand_x_breaking only",
+      "feature_set": "main70_cat_count_hands_same_breaking",
+      "feature_count": 70,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475620573,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 898.6418154173,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 4.61987e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "56f33d35b63c9b39cf411878f0cc7f7910e9c1e23c693863fb56b7b0b0c0237f",
+  "git_commit": "c344bb549c1d42f2d893bc877697c4c4869052be",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 444.13401436805725
+}

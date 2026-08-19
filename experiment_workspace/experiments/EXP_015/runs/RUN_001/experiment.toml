@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_015"
+title = "과거 fold 기반 확률 shift"
+hypothesis = "2022~2023의 과거 예측 편향으로 정한 음의 확률 shift가 2024 Brier를 개선한다"
+change_scope = "model"
+study_config = "experiments/EXP_015/study.toml"
+based_on = "EXP_014"
+reference_variant = "main60_control"
+ablation_summary = "main55+count CatBoost를 고정하고 prediction shift만 0, -0.005, -0.010, 과거-fold -0.0113955, -0.015로 변경"
+tags = ["calibration", "forward-validation"]
+created_at_utc = "2026-08-17T16:30:50.337581+00:00"

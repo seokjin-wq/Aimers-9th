@@ -1,0 +1,37 @@
+[study]
+id = "043_cpu_sequence_verification"
+description = "순차 피처 CPU 결정론 재검증"
+hypothesis = "GPU의 순차 피처 개선이 CPU 고정 모델에서도 재현된다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main60_control"
+
+[[variants]]
+name = "main60_control"
+model = "catboost_top_d6_i400_lr040"
+features = "main60_cat_batter_team"
+change = "control: 순차 피처 없음"
+
+[[variants]]
+name = "main73_success"
+model = "catboost_top_d6_i400_lr040"
+features = "main73_add_rolling_extensions"
+change = "success rolling 전체 추가"
+
+[[variants]]
+name = "main77_reverse"
+model = "catboost_top_d6_i400_lr040"
+features = "main77_add_pitcher_reverse_short"
+change = "success rolling + reverse short"
+
+[[variants]]
+name = "main85_plate"
+model = "catboost_top_d6_i400_lr040"
+features = "main85_add_plate_context"
+change = "타자 middle + 동일 타석 문맥까지 추가"
+
+[[variants]]
+name = "main87_batter_lags"
+model = "catboost_top_d6_i400_lr040"
+features = "main87_add_batter_lags"
+change = "main85 + 타자 lag2·3 추가"

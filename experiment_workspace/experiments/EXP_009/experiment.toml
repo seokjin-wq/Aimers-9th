@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_009"
+title = "EDA 개선 피처 조합"
+hypothesis = "개별 개선된 카운트·스무딩·결측 피처를 조합하면 개선 폭이 누적된다"
+change_scope = "features"
+study_config = "experiments/EXP_009/study.toml"
+based_on = "EXP_008"
+reference_variant = "add_count_state"
+ablation_summary = "main55+count를 기준으로 스무딩과 결측 플래그의 pairwise 및 전체 조합 효과를 비교"
+tags = ["eda", "combination"]
+created_at_utc = "2026-08-17T16:01:36.769297+00:00"

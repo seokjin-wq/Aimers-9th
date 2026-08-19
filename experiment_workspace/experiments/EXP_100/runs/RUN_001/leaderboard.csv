@@ -1,0 +1,6 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+scale106_shift010,"scale fixed 1.06, shift -0.010",main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay085_scale106_shift010,catboost,1,0.247510335143952,0.0,919.346650091879,"['model.name', 'model.prediction_shift']",-1.5314942737598702e-06,1/1
+scale106_shift008_control,"control: current scale 1.06, shift -0.008",main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay085,catboost,1,0.2475118666382257,0.0,918.7335789118011,[],0.0,0/1
+scale104_shift008,"scale 1.04, shift fixed -0.008",main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay085_scale104_shift008,catboost,1,0.2475125714574536,0.0,918.4514333215876,"['model.name', 'model.prediction_scale']",7.048192278980014e-07,0/1
+scale108_shift008,"scale 1.08, shift fixed -0.008",main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay085_scale108_shift008,catboost,1,0.2475128254305112,0.0,918.34976558125,"['model.name', 'model.prediction_scale']",9.587922855380793e-07,0/1
+scale106_shift006,"scale fixed 1.06, shift -0.006",main72_cat_count_hands_same_pitchmix,72,catboost_d8_decay085_scale106_shift006,catboost,1,0.2475213981324994,0.0,914.918034484169,"['model.name', 'model.prediction_shift']",9.53149427371236e-06,0/1

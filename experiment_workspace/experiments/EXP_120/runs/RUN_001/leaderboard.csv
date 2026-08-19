@@ -1,0 +1,5 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+categorical_control,control: latest CPU default categorical processing,main78_history_reliability,78,catboost_d8_decay085_sub08,catboost,1,0.2474879925802901,0.0,928.2905828930654,[],0.0,0/1
+one_hot_max_size_5,one_hot_max_size default 2 -> 5 only,main78_history_reliability,78,catboost_d8_decay085_sub08_onehot5,catboost,1,0.2474879925802901,0.0,928.2905828930654,"['model.name', 'model.params.one_hot_max_size']",0.0,0/1
+one_hot_max_size_16,one_hot_max_size default 2 -> 16 only,main78_history_reliability,78,catboost_d8_decay085_sub08_onehot16,catboost,1,0.2475180136060785,0.0,916.2728913989948,"['model.name', 'model.params.one_hot_max_size']",3.00210257884459e-05,0/1
+max_ctr_complexity_2,max_ctr_complexity default 1 -> 2 only,main78_history_reliability,78,catboost_d8_decay085_sub08_ctr2,catboost,1,0.2475322526366615,0.0,910.5728770848252,"['model.name', 'model.params.max_ctr_complexity']",4.426005637137021e-05,0/1

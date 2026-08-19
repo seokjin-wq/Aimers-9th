@@ -1,0 +1,4 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+reliability_k100_control,control: EXP_112/113 winner reliability k=100,main78_history_reliability,78,catboost_d8_decay085_sub08,catboost,1,0.2474879925802901,0.0,928.2905828930654,[],0.0,0/1
+reliability_k200,change all six reliability denominators k=100 -> 200 only,main78_history_reliability_k200,78,catboost_d8_decay085_sub08,catboost,1,0.2475285093046585,0.0,912.0713671593504,"['features.custom', 'features.description', 'features.name']",4.051672436844456e-05,0/1
+reliability_k50,change all six reliability denominators k=100 -> 50 only,main78_history_reliability_k50,78,catboost_d8_decay085_sub08,catboost,1,0.2475339107799793,0.0,909.9091071328336,"['features.custom', 'features.description', 'features.name']",4.591819968918776e-05,0/1

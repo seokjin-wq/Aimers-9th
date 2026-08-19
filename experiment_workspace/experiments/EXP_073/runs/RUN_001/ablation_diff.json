@@ -1,0 +1,107 @@
+{
+  "based_on": "EXP_072",
+  "reference_variant": "main69_control",
+  "ablation_summary": "Fix main69 and CPU CatBoost d8 decay0.85; replace only pitcher/batter current-season success smoothing k among 5,10,20,50,100.",
+  "control": "success_k20_control",
+  "variants": [
+    {
+      "name": "success_k20_control",
+      "declared_change": "control: 투수·타자 당해 시즌 성공률 k=20",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "success_k5",
+      "declared_change": "control 대비 투수·타자 당해 시즌 성공률 k=5",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_season_success_rate_k5",
+        "batter_season_success_rate_k5"
+      ],
+      "removed_features_vs_control": [
+        "pitcher_season_success_rate_k20",
+        "batter_season_success_rate_k20"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "success_k10",
+      "declared_change": "control 대비 투수·타자 당해 시즌 성공률 k=10",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_season_success_rate_k10",
+        "batter_season_success_rate_k10"
+      ],
+      "removed_features_vs_control": [
+        "pitcher_season_success_rate_k20",
+        "batter_season_success_rate_k20"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "success_k50",
+      "declared_change": "control 대비 투수·타자 당해 시즌 성공률 k=50",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_season_success_rate_k50",
+        "batter_season_success_rate_k50"
+      ],
+      "removed_features_vs_control": [
+        "pitcher_season_success_rate_k20",
+        "batter_season_success_rate_k20"
+      ],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "success_k100",
+      "declared_change": "control 대비 투수·타자 당해 시즌 성공률 k=100",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_season_success_rate_k100",
+        "batter_season_success_rate_k100"
+      ],
+      "removed_features_vs_control": [
+        "pitcher_season_success_rate_k20",
+        "batter_season_success_rate_k20"
+      ],
+      "model_changes_vs_control": []
+    }
+  ]
+}

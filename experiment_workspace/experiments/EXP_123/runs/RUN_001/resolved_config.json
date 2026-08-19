@@ -1,0 +1,419 @@
+{
+  "study": {
+    "id": "123_eda_monotonic_constraints",
+    "description": "EDA-guided monotonic constraints",
+    "hypothesis": "Enforcing known directional relationships for prior success, reverse, and middle rates may reduce temporal overfitting and improve 2024 Brier.",
+    "protocol": "holdout_2024",
+    "change_scope": [
+      "model"
+    ],
+    "control": "unconstrained_control"
+  },
+  "protocol": {
+    "name": "holdout_2024",
+    "description": "2019~2023 전체로 학습하고 2024를 고정 primary holdout으로 검증",
+    "train_start_season": 2019,
+    "validation_seasons": [
+      2024
+    ],
+    "split_rule": "before_validation_season",
+    "primary_metric": "brier",
+    "secondary_metrics": [
+      "brier_skill_score",
+      "roc_auc"
+    ],
+    "target_column": "control_success",
+    "id_column": "row_id",
+    "season_column": "season",
+    "store_predictions": true,
+    "calibration": "none",
+    "seed": 42
+  },
+  "variants": [
+    {
+      "name": "unconstrained_control",
+      "change": "control: latest CPU without monotonic constraints",
+      "model": {
+        "name": "catboost_d8_decay085_sub08",
+        "family": "catboost",
+        "native_categorical": true,
+        "season_decay": 0.85,
+        "prediction_scale": 1.06,
+        "prediction_shift": -0.008,
+        "params": {
+          "iterations": 300,
+          "depth": 8,
+          "learning_rate": 0.035,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.8,
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main78_history_reliability",
+        "description": "main72 plus six row-local as-of sample reliability features",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs",
+          "pitcher_season_n",
+          "pitcher_season_success_rate_k20",
+          "pitcher_season_reverse_rate_k20",
+          "pitcher_season_middle_rate_k20",
+          "pitcher_season_ball_rate_k20",
+          "pitcher_season_strike_rate_k20",
+          "batter_season_n",
+          "batter_season_success_rate_k20",
+          "batter_season_middle_rate_k20",
+          "same_hand_x_fastball",
+          "same_hand_x_breaking",
+          "same_hand_x_offspeed",
+          "pitcher_history_reliability_k100",
+          "batter_history_reliability_k100",
+          "pitcher_success_x_reliability",
+          "batter_success_x_reliability",
+          "pitcher_reverse_x_reliability",
+          "pitcher_middle_x_reliability"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state",
+          "batter_team_id",
+          "count_state",
+          "pitcher_hand",
+          "batter_hand"
+        ],
+        "expected_count": 78
+      },
+      "changed_fields_vs_control": []
+    },
+    {
+      "name": "monotone_success",
+      "change": "force pitcher and batter career success rates monotone positive only",
+      "model": {
+        "name": "catboost_d8_sub08_monotone_success",
+        "family": "catboost",
+        "native_categorical": true,
+        "season_decay": 0.85,
+        "prediction_scale": 1.06,
+        "prediction_shift": -0.008,
+        "params": {
+          "iterations": 300,
+          "depth": 8,
+          "learning_rate": 0.035,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.8,
+          "monotone_constraints": {
+            "asof_pitcher_success_rate": 1,
+            "asof_batter_success_rate": 1
+          },
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main78_history_reliability",
+        "description": "main72 plus six row-local as-of sample reliability features",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs",
+          "pitcher_season_n",
+          "pitcher_season_success_rate_k20",
+          "pitcher_season_reverse_rate_k20",
+          "pitcher_season_middle_rate_k20",
+          "pitcher_season_ball_rate_k20",
+          "pitcher_season_strike_rate_k20",
+          "batter_season_n",
+          "batter_season_success_rate_k20",
+          "batter_season_middle_rate_k20",
+          "same_hand_x_fastball",
+          "same_hand_x_breaking",
+          "same_hand_x_offspeed",
+          "pitcher_history_reliability_k100",
+          "batter_history_reliability_k100",
+          "pitcher_success_x_reliability",
+          "batter_success_x_reliability",
+          "pitcher_reverse_x_reliability",
+          "pitcher_middle_x_reliability"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state",
+          "batter_team_id",
+          "count_state",
+          "pitcher_hand",
+          "batter_hand"
+        ],
+        "expected_count": 78
+      },
+      "changed_fields_vs_control": [
+        "model.name",
+        "model.params.monotone_constraints.asof_batter_success_rate",
+        "model.params.monotone_constraints.asof_pitcher_success_rate"
+      ]
+    },
+    {
+      "name": "monotone_failure",
+      "change": "force pitcher reverse and middle rates monotone negative only",
+      "model": {
+        "name": "catboost_d8_sub08_monotone_failure",
+        "family": "catboost",
+        "native_categorical": true,
+        "season_decay": 0.85,
+        "prediction_scale": 1.06,
+        "prediction_shift": -0.008,
+        "params": {
+          "iterations": 300,
+          "depth": 8,
+          "learning_rate": 0.035,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.8,
+          "monotone_constraints": {
+            "asof_pitcher_reverse_rate": -1,
+            "asof_pitcher_middle_rate": -1
+          },
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main78_history_reliability",
+        "description": "main72 plus six row-local as-of sample reliability features",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs",
+          "pitcher_season_n",
+          "pitcher_season_success_rate_k20",
+          "pitcher_season_reverse_rate_k20",
+          "pitcher_season_middle_rate_k20",
+          "pitcher_season_ball_rate_k20",
+          "pitcher_season_strike_rate_k20",
+          "batter_season_n",
+          "batter_season_success_rate_k20",
+          "batter_season_middle_rate_k20",
+          "same_hand_x_fastball",
+          "same_hand_x_breaking",
+          "same_hand_x_offspeed",
+          "pitcher_history_reliability_k100",
+          "batter_history_reliability_k100",
+          "pitcher_success_x_reliability",
+          "batter_success_x_reliability",
+          "pitcher_reverse_x_reliability",
+          "pitcher_middle_x_reliability"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state",
+          "batter_team_id",
+          "count_state",
+          "pitcher_hand",
+          "batter_hand"
+        ],
+        "expected_count": 78
+      },
+      "changed_fields_vs_control": [
+        "model.name",
+        "model.params.monotone_constraints.asof_pitcher_middle_rate",
+        "model.params.monotone_constraints.asof_pitcher_reverse_rate"
+      ]
+    },
+    {
+      "name": "monotone_all",
+      "change": "apply all four success/failure directional constraints",
+      "model": {
+        "name": "catboost_d8_sub08_monotone_all",
+        "family": "catboost",
+        "native_categorical": true,
+        "season_decay": 0.85,
+        "prediction_scale": 1.06,
+        "prediction_shift": -0.008,
+        "params": {
+          "iterations": 300,
+          "depth": 8,
+          "learning_rate": 0.035,
+          "l2_leaf_reg": 3.0,
+          "subsample": 0.8,
+          "monotone_constraints": {
+            "asof_pitcher_success_rate": 1,
+            "asof_batter_success_rate": 1,
+            "asof_pitcher_reverse_rate": -1,
+            "asof_pitcher_middle_rate": -1
+          },
+          "random_seed": 42,
+          "thread_count": 8,
+          "task_type": "CPU",
+          "loss_function": "Logloss",
+          "eval_metric": "BrierScore",
+          "allow_writing_files": false,
+          "verbose": false
+        }
+      },
+      "features": {
+        "name": "main78_history_reliability",
+        "description": "main72 plus six row-local as-of sample reliability features",
+        "include_all_raw": true,
+        "exclude": [
+          "run_total_before",
+          "score_diff_home",
+          "asof_pitcher_pitchmix_n",
+          "asof_pitcher_strike_rate",
+          "asof_pitcher_fastball_rate",
+          "asof_pitcher_prev5_game_success_rate"
+        ],
+        "custom": [
+          "pitcher_gap_prev1_career",
+          "pitcher_gap_prev3_career",
+          "pitcher_gap_prev5_career",
+          "win_expectancy_dist50",
+          "count_diff",
+          "count_total",
+          "same_hand_matchup",
+          "pressure_x_recent_form",
+          "runners_x_li",
+          "batter_success_rate_shrunk",
+          "reverse_rate_x_li",
+          "middle_rate_x_count_diff",
+          "late_inning_x_recent_form",
+          "offspeed_x_li",
+          "count_state",
+          "is_full_count",
+          "has_two_strikes",
+          "has_three_balls",
+          "has_two_outs",
+          "pitcher_season_n",
+          "pitcher_season_success_rate_k20",
+          "pitcher_season_reverse_rate_k20",
+          "pitcher_season_middle_rate_k20",
+          "pitcher_season_ball_rate_k20",
+          "pitcher_season_strike_rate_k20",
+          "batter_season_n",
+          "batter_season_success_rate_k20",
+          "batter_season_middle_rate_k20",
+          "same_hand_x_fastball",
+          "same_hand_x_breaking",
+          "same_hand_x_offspeed",
+          "pitcher_history_reliability_k100",
+          "batter_history_reliability_k100",
+          "pitcher_success_x_reliability",
+          "batter_success_x_reliability",
+          "pitcher_reverse_x_reliability",
+          "pitcher_middle_x_reliability"
+        ],
+        "categorical": [
+          "top_bottom",
+          "game_type",
+          "base_state",
+          "batter_team_id",
+          "count_state",
+          "pitcher_hand",
+          "batter_hand"
+        ],
+        "expected_count": 78
+      },
+      "changed_fields_vs_control": [
+        "model.name",
+        "model.params.monotone_constraints.asof_batter_success_rate",
+        "model.params.monotone_constraints.asof_pitcher_middle_rate",
+        "model.params.monotone_constraints.asof_pitcher_reverse_rate",
+        "model.params.monotone_constraints.asof_pitcher_success_rate"
+      ]
+    }
+  ],
+  "config_hash": "cf3e83d3f0d5"
+}

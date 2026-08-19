@@ -1,0 +1,43 @@
+[study]
+id = "050_global200_cpu_capacity"
+description = "global200 CPU CatBoost 용량 탐색"
+hypothesis = "global200은 기존과 다른 트리 용량에서 잔여 신호를 더 학습한다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "d6_i400_control"
+
+[[variants]]
+name = "d6_i400_control"
+model = "catboost_top_d6_i400_lr040"
+features = "main81_add_global200"
+change = "control: depth6 400 lr0.04"
+
+[[variants]]
+name = "d5_i600"
+model = "catboost_cpu_d5_i600_lr035"
+features = "main81_add_global200"
+change = "depth5 600 lr0.035"
+
+[[variants]]
+name = "d6_i600"
+model = "catboost_cpu_d6_i600_lr030"
+features = "main81_add_global200"
+change = "depth6 600 lr0.03"
+
+[[variants]]
+name = "d6_i800"
+model = "catboost_cpu_d6_i800_lr020"
+features = "main81_add_global200"
+change = "depth6 800 lr0.02"
+
+[[variants]]
+name = "d7_i400"
+model = "catboost_cpu_d7_i400_lr035"
+features = "main81_add_global200"
+change = "depth7 400 lr0.035"
+
+[[variants]]
+name = "d8_i300"
+model = "catboost_cpu_d8_i300_lr035"
+features = "main81_add_global200"
+change = "depth8 300 lr0.035"

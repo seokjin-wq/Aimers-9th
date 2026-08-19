@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_069",
+  "decision": "keep_control",
+  "selected_variant": "cpu_d8",
+  "reason": "GPU 후보 단독은 모두 CPU depth8보다 악화; 다만 GPU d7은 CPU와 오차 다양성이 있어 후속 3모델 앙상블 후보로 보존",
+  "based_on": "EXP_062",
+  "reference_variant": "extra_w18",
+  "ablation_summary": "main69와 decay0.85 고정, CPU d8-300 대비 GPU d6-900, d7-600, d8-450 비교",
+  "selected_result": {
+    "variant": "cpu_d8",
+    "change": "control: CPU depth8 300",
+    "feature_set": "main69_pitcher_batter_season_all",
+    "feature_count": 69,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475377207,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 908.3839506927,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "cpu_d8",
+    "change": "control: CPU depth8 300",
+    "feature_set": "main69_pitcher_batter_season_all",
+    "feature_count": 69,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475377207,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 908.3839506927,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T03:50:08.063879+00:00",
+  "based_on_run_id": "RUN_001"
+}

@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_095"
+title = "Same-hand pitch-mix contribution decomposition"
+hypothesis = "The three same-hand pitch-mix interactions contain unequal signal, so a smaller subset can improve Brier score by removing noisy interactions."
+change_scope = "features"
+study_config = "experiments/EXP_095/study.toml"
+based_on = "EXP_084"
+reference_variant = "same_hand_pitchmix"
+ablation_summary = "Keep the EXP_084 count+hands control fixed and compare each same-hand pitch-mix interaction alone, all three pairs, and the existing all-three variant."
+tags = ["compliance", "row-independent", "decomposition", "pitchmix"]
+created_at_utc = "2026-08-18T07:47:13.665132+00:00"

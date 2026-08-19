@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T08:06:43.770391+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "19766e0787fd",
+  "based_on": "EXP_096",
+  "reference_variant": "late_all_three",
+  "ablation_summary": "Rerun the fixed triple ensemble with current versus complete late-history features only; defer count calibration to a separate experiment."
+}

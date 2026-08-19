@@ -1,0 +1,95 @@
+{
+  "based_on": "EXP_092",
+  "reference_variant": "full_count_history",
+  "ablation_summary": "Fix same-hand CPU base; compare late-inning block, full-count block, and their six-feature union.",
+  "control": "same_hand_control",
+  "variants": [
+    {
+      "name": "same_hand_control",
+      "declared_change": "control: EXP_084 CPU same-hand pitchmix",
+      "is_control": true,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "late_history",
+      "declared_change": "EXP_090 후반 이닝×투수이력 3개",
+      "is_control": false,
+      "feature_count": 75,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "late_inning_x_pitcher_success",
+        "late_inning_x_pitcher_reverse",
+        "late_inning_x_pitcher_middle"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "full_count_history",
+      "declared_change": "EXP_092 풀카운트×투수이력 3개",
+      "is_control": false,
+      "feature_count": 75,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "full_count_x_pitcher_success",
+        "full_count_x_pitcher_reverse",
+        "full_count_x_pitcher_middle"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "late_plus_full",
+      "declared_change": "후반 이닝과 풀카운트 교호항 6개 결합",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "late_inning_x_pitcher_success",
+        "late_inning_x_pitcher_reverse",
+        "late_inning_x_pitcher_middle",
+        "full_count_x_pitcher_success",
+        "full_count_x_pitcher_reverse",
+        "full_count_x_pitcher_middle"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

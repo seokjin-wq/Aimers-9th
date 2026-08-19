@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_048"
+title = "CPU 전역 rolling 100 주변 탐색"
+hypothesis = "전역 rolling의 최적 기억 길이가 100 부근에 있으며 75·125·150·200 중 더 좋은 단일 창이 존재한다"
+change_scope = "features"
+study_config = "experiments/EXP_048/study.toml"
+based_on = "EXP_047"
+reference_variant = "global100"
+ablation_summary = "CPU main80과 전역 단일 rolling 구조를 고정하고 window 75·100·125·150·200만 변경"
+tags = ["cpu", "global-window", "fine-search"]
+created_at_utc = "2026-08-17T19:58:20.276662+00:00"

@@ -1,0 +1,20 @@
+[model]
+name = "catboost_d7_i450_lr03_decay085_sub08"
+family = "catboost"
+native_categorical = true
+season_decay = 0.85
+prediction_scale = 1.06
+prediction_shift = -0.008
+[model.params]
+iterations = 450
+depth = 7
+learning_rate = 0.03
+l2_leaf_reg = 3.0
+subsample = 0.8
+random_seed = 42
+thread_count = 8
+task_type = "CPU"
+loss_function = "Logloss"
+eval_metric = "BrierScore"
+allow_writing_files = false
+verbose = false

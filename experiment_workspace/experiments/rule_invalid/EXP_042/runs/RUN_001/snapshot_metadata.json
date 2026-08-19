@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T19:18:07.781969+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "c811c618fe78",
+  "based_on": "EXP_041",
+  "reference_variant": "bag0",
+  "ablation_summary": "main85와 bag0 CatBoost를 고정하고 투수 lag2·3·5, 타자 lag2·3 및 최근 3개 이진 패턴만 개별·조합 추가"
+}

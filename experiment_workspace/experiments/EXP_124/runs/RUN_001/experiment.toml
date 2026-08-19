@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_124"
+title = "ExtraTrees season-decay screening"
+hypothesis = "The ExtraTrees diversity component may improve by emphasizing recent official training seasons instead of fitting all 2019-2023 rows uniformly."
+change_scope = "model"
+study_config = "experiments/EXP_124/study.toml"
+based_on = "EXP_121"
+reference_variant = "hist_weight_0_control"
+ablation_summary = "Fix main78 features and a 100-tree ExtraTrees screen model; vary only per-season sample-weight decay among none, 0.50, 0.70, and 0.85."
+tags = ["compliance", "row-independent", "extratrees", "season-drift", "screening"]
+created_at_utc = "2026-08-18T13:08:23.583871+00:00"

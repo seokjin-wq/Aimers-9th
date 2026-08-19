@@ -1,0 +1,33 @@
+[features]
+name = "main61_add_pitcher_success_rate_shrunk"
+description = "현재 최고 main60 + pitcher_success_rate_shrunk 단독"
+include_all_raw = true
+exclude = [
+  "run_total_before", "score_diff_home", "asof_pitcher_pitchmix_n",
+  "asof_pitcher_strike_rate", "asof_pitcher_fastball_rate",
+  "asof_pitcher_prev5_game_success_rate",
+]
+custom = [
+  "pitcher_gap_prev1_career",
+  "pitcher_gap_prev3_career",
+  "pitcher_gap_prev5_career",
+  "win_expectancy_dist50",
+  "count_diff",
+  "count_total",
+  "same_hand_matchup",
+  "pressure_x_recent_form",
+  "runners_x_li",
+  "batter_success_rate_shrunk",
+  "reverse_rate_x_li",
+  "middle_rate_x_count_diff",
+  "late_inning_x_recent_form",
+  "offspeed_x_li",
+  "count_state",
+  "is_full_count",
+  "has_two_strikes",
+  "has_three_balls",
+  "has_two_outs",
+  "pitcher_success_rate_shrunk",
+]
+categorical = ["top_bottom", "game_type", "base_state", "batter_team_id"]
+expected_count = 61

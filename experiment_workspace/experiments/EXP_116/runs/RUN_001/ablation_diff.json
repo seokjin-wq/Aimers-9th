@@ -1,0 +1,51 @@
+{
+  "based_on": "EXP_111",
+  "reference_variant": "triple_cpu_sub08",
+  "ablation_summary": "Keep the full EXP_111 triple model, CPU subsample=0.8, weights, calibration, and count residual correction fixed; change only main72 versus main78 reliability features.",
+  "control": "triple_main72_control",
+  "variants": [
+    {
+      "name": "triple_main72_control",
+      "declared_change": "control: EXP_111 new-best triple on main72",
+      "is_control": true,
+      "feature_count": 72,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "triple_history_reliability",
+      "declared_change": "add six EXP_112 row-local history reliability features only",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [
+        "pitcher_history_reliability_k100",
+        "batter_history_reliability_k100",
+        "pitcher_success_x_reliability",
+        "batter_success_x_reliability",
+        "pitcher_reverse_x_reliability",
+        "pitcher_middle_x_reliability"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

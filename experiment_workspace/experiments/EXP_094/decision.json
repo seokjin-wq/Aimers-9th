@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_094",
+  "decision": "adopt",
+  "selected_variant": "count_k500_repro",
+  "reason": "fresh GPU run에서도 count k500이 Brier 0.2474720965→0.2474650303, BSS 934.65→937.48로 개선해 EXP_088의 +2.80 BSS를 재현했다. k500을 안정적인 현재 최고 보정으로 확정한다.",
+  "based_on": "EXP_088",
+  "reference_variant": "count_k500",
+  "ablation_summary": "Freshly rerun the identical triple control, count k500, and count k2000 settings; no feature or parameter search.",
+  "selected_result": {
+    "variant": "count_k500_repro",
+    "change": "EXP_088 count residual k500 동일 설정 재현",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "triple_group_count_k500",
+    "model_family": "cat_cpu_gpu_extra_blend",
+    "fold_count": 1,
+    "mean_brier": 0.2474650303,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 937.482591475,
+    "changed_fields_vs_control": "['model.center_residual', 'model.group_columns', 'model.group_shrinkage', 'model.name', 'model.residual_scale']",
+    "delta_brier_vs_control": -7.0662e-06,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "triple_control",
+    "change": "control: EXP_087 same-hand triple fresh run",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "triple_cpu45_gpu40_extra15",
+    "model_family": "cat_cpu_gpu_extra_blend",
+    "fold_count": 1,
+    "mean_brier": 0.2474720965,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 934.6539136577,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T07:45:43.363878+00:00",
+  "based_on_run_id": "RUN_001"
+}

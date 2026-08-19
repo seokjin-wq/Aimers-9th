@@ -1,0 +1,19 @@
+[study]
+id = "003_custom_features"
+description = "선택 제공 41개에 파생 14개를 추가하는 2024 holdout 효과"
+hypothesis = "행 단위 파생 14개가 2024 홀드아웃 Brier를 개선한다."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "selected41_control"
+
+[[variants]]
+name = "selected41_control"
+model = "catboost_default"
+features = "selected41"
+change = "control: 선택 제공 피처 41개"
+
+[[variants]]
+name = "add_custom14"
+model = "catboost_default"
+features = "main55"
+change = "행 단위 파생 피처 14개 추가"

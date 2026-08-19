@@ -1,0 +1,31 @@
+[study]
+id = "002_feature_ablation"
+description = "CatBoost 설정을 고정한 main55 피처 출처의 2024 holdout ablation"
+hypothesis = "달력·상태·context 피처 묶음이 2024 홀드아웃 Brier를 개선한다."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main55_control"
+
+[[variants]]
+name = "main55_control"
+model = "catboost_default"
+features = "main55"
+change = "control: 선택 제공 41개 + 파생 14개"
+
+[[variants]]
+name = "drop_calendar"
+model = "catboost_default"
+features = "main55_without_calendar"
+change = "달력 파생 season, month, dayofweek 제거"
+
+[[variants]]
+name = "drop_state"
+model = "catboost_default"
+features = "main55_without_state"
+change = "상태 재조합 3개와 의존 파생 제거"
+
+[[variants]]
+name = "drop_context"
+model = "catboost_default"
+features = "main55_without_context"
+change = "기대 승률·LI와 의존 파생 제거"

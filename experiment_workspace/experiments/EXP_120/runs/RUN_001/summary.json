@@ -1,0 +1,102 @@
+{
+  "experiment_id": "EXP_120",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T12:38:02.587295+00:00",
+  "completed_at_utc": "2026-08-18T12:41:22.680711+00:00",
+  "config_hash": "df6d062dddb9",
+  "based_on": "EXP_118",
+  "reference_variant": "d8_i300_control",
+  "ablation_summary": "Fix main78 features and all winning CPU parameters; change exactly one categorical-processing parameter per candidate: max_ctr_complexity=2, one_hot_max_size=5, or one_hot_max_size=16.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/120_reliability_categorical_processing/20260818T123802598273Z_df6d062dddb9",
+  "control": "categorical_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "categorical_control",
+  "best_mean_brier": 0.2474879925802901,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "categorical_control",
+      "change": "control: latest CPU default categorical processing",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "catboost_d8_decay085_sub08",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2474879926,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 928.2905828931,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "one_hot_max_size_5",
+      "change": "one_hot_max_size default 2 -> 5 only",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "catboost_d8_decay085_sub08_onehot5",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2474879926,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 928.2905828931,
+      "changed_fields_vs_control": "['model.name', 'model.params.one_hot_max_size']",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "one_hot_max_size_16",
+      "change": "one_hot_max_size default 2 -> 16 only",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "catboost_d8_decay085_sub08_onehot16",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475180136,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 916.272891399,
+      "changed_fields_vs_control": "['model.name', 'model.params.one_hot_max_size']",
+      "delta_brier_vs_control": 3.0021e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "max_ctr_complexity_2",
+      "change": "max_ctr_complexity default 1 -> 2 only",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "catboost_d8_decay085_sub08_ctr2",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475322526,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 910.5728770848,
+      "changed_fields_vs_control": "['model.name', 'model.params.max_ctr_complexity']",
+      "delta_brier_vs_control": 4.42601e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "430a2fc7a439ca2dc61aa5238b5eb06997d954d6e7f6b9ea64a21a5b4ab9580c",
+  "git_commit": "9803aa73a180f0337c36d1fb77c2bf9a38381120",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 199.89898586273193
+}

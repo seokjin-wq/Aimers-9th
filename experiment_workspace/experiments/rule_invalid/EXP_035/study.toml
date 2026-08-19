@@ -1,0 +1,43 @@
+[study]
+id = "035_recent_window_search"
+description = "최근 투구 rolling 창 탐색"
+hypothesis = "투수 장기 창과 타자 단기 창이 main68을 보완한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main68_control"
+
+[[variants]]
+name = "main68_control"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main68_add_entity_recent_pitch"
+change = "control: 직전 및 3·5·10투구"
+
+[[variants]]
+name = "add_pitcher20"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main69_add_pitcher_recent20"
+change = "투수 최근 20투구 추가"
+
+[[variants]]
+name = "add_pitcher50"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main69_add_pitcher_recent50"
+change = "투수 최근 50투구 추가"
+
+[[variants]]
+name = "add_pitcher20_50"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main70_add_pitcher_recent20_50"
+change = "투수 최근 20·50투구 추가"
+
+[[variants]]
+name = "add_batter2_8"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main70_add_batter_recent2_8"
+change = "타자 최근 2·8투구 추가"
+
+[[variants]]
+name = "add_all_extensions"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main73_add_rolling_extensions"
+change = "투수 20·30·50 및 타자 2·8투구 모두 추가"

@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T06:54:22.582351+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "a03bd5c4b34f",
+  "based_on": "EXP_087",
+  "reference_variant": "same_hand_pitchmix_triple",
+  "ablation_summary": "Fix EXP_084 CPU base; add safe numeric season pitch index, coarse phase, or both. Training starts come from official train; validation start comes from the last official reference row; TEST suffix is used row-locally."
+}

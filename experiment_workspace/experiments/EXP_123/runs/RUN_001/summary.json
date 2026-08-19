@@ -1,0 +1,102 @@
+{
+  "experiment_id": "EXP_123",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T13:03:16.424754+00:00",
+  "completed_at_utc": "2026-08-18T13:07:33.160664+00:00",
+  "config_hash": "cf3e83d3f0d5",
+  "based_on": "EXP_118",
+  "reference_variant": "d8_i300_control",
+  "ablation_summary": "Fix main78 features and winning CPU parameters; add monotonic constraints only for success rates, only reverse/middle failure rates, or all four directional constraints.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/123_eda_monotonic_constraints/20260818T130316436094Z_cf3e83d3f0d5",
+  "control": "unconstrained_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "unconstrained_control",
+  "best_mean_brier": 0.2474879925802901,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "unconstrained_control",
+      "change": "control: latest CPU without monotonic constraints",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "catboost_d8_decay085_sub08",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2474879926,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 928.2905828931,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "monotone_success",
+      "change": "force pitcher and batter career success rates monotone positive only",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "catboost_d8_sub08_monotone_success",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475537395,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 901.9714724956,
+      "changed_fields_vs_control": "['model.name', 'model.params.monotone_constraints.asof_batter_success_rate', 'model.params.monotone_constraints.asof_pitcher_success_rate']",
+      "delta_brier_vs_control": 6.5747e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "monotone_all",
+      "change": "apply all four success/failure directional constraints",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "catboost_d8_sub08_monotone_all",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475548135,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 901.5415665738,
+      "changed_fields_vs_control": "['model.name', 'model.params.monotone_constraints.asof_batter_success_rate', 'model.params.monotone_constraints.asof_pitcher_middle_rate', 'model.params.monotone_constraints.asof_pitcher_reverse_rate', 'model.params.monotone_constraints.asof_pitcher_success_rate']",
+      "delta_brier_vs_control": 6.68209e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "monotone_failure",
+      "change": "force pitcher reverse and middle rates monotone negative only",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "catboost_d8_sub08_monotone_failure",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475750988,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 893.4211748523,
+      "changed_fields_vs_control": "['model.name', 'model.params.monotone_constraints.asof_pitcher_middle_rate', 'model.params.monotone_constraints.asof_pitcher_reverse_rate']",
+      "delta_brier_vs_control": 8.71062e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "b525f22856a41901c93db2551a328ec886d6ae67910d37a0710aa9959b187ffe",
+  "git_commit": "ddc1e213fd3d42ca68ef6fc372a04d9c81f15fbc",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 256.54136848449707
+}

@@ -1,0 +1,76 @@
+{
+  "experiment_id": "EXP_045",
+  "run_id": "RUN_002",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T19:43:57.077764+00:00",
+  "completed_at_utc": "2026-08-17T19:46:30.930094+00:00",
+  "config_hash": "f5fea1770c9b",
+  "based_on": "EXP_044",
+  "reference_variant": "main77_control",
+  "ablation_summary": "CPU main77을 고정하고 투수 success EWMA 0.05·0.10, 타자 success EWMA 0.10·0.20, 투수 reverse EWMA 0.05·0.10만 개별·조합 추가",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/045_cpu_ewma/20260817T194357083254Z_f5fea1770c9b",
+  "control": "main77_control",
+  "only": [
+    "best_three"
+  ],
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": [
+      "best_three"
+    ],
+    "store_predictions": null
+  },
+  "best_variant": "best_three",
+  "best_mean_brier": 0.2469303451282629,
+  "best_delta_brier_vs_control": -7.785522647740795e-06,
+  "leaderboard": [
+    {
+      "variant": "best_three",
+      "change": "상관 최상 EWMA 세 개 추가",
+      "feature_set": "main80_add_best_ewm",
+      "feature_count": 80,
+      "model": "catboost_top_d6_i400_lr040",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2469303451,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1151.5219637307,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -7.7855e-06,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "main77_control",
+      "change": "control: 고정 rolling",
+      "feature_set": "main77_add_pitcher_reverse_short",
+      "feature_count": 77,
+      "model": "catboost_top_d6_i400_lr040",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2469381307,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1148.405347731,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "df03cd21e3b6c5648a71980ac1ce74d288b125b2985c1bbeb7a787605c801d73",
+  "git_commit": "b48450084b95bd09404af024e3e1faf7ee26ac91",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 153.66488075256348
+}

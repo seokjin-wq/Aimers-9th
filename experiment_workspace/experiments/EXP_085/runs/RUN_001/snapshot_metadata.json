@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T06:03:55.920972+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "522f6d7353fa",
+  "based_on": "EXP_080",
+  "reference_variant": "count_hands_promoted",
+  "ablation_summary": "Fix EXP_080 CPU base; add recent, pitcher, batter, or all three history-missing flags one block at a time."
+}

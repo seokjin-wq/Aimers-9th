@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_127"
+title = "Count-relative season trend correction"
+hypothesis = "A row-local balls/strikes correction learned from 2019-2023 centered target-rate trends will improve 2024 Brier beyond the existing global shift and 2023 OOT count residual."
+change_scope = "model"
+study_config = "experiments/EXP_127/study.toml"
+based_on = "EXP_117"
+reference_variant = "weights_50_35_15"
+ablation_summary = "Fix main78, all three component models, 50/35/15 weights, affine shifts, and OOT count residual; add only an official-train-only centered count trend offset at strengths 0.25, 0.50, or 1.00."
+tags = ["compliance", "row-independent", "season-drift", "count", "postprocess"]
+created_at_utc = "2026-08-18T13:50:15.017943+00:00"

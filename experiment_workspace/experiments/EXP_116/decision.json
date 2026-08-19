@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_116",
+  "decision": "adopt",
+  "selected_variant": "triple_history_reliability",
+  "reason": "Reliability features improved same-run triple Brier by 1.064e-06 and were independently supported by a 1.618e-05 CPU gain; adopt as a cautious new compliant best BSS 940.585.",
+  "based_on": "EXP_111",
+  "reference_variant": "triple_cpu_sub08",
+  "ablation_summary": "Keep the full EXP_111 triple model, CPU subsample=0.8, weights, calibration, and count residual correction fixed; change only main72 versus main78 reliability features.",
+  "selected_result": {
+    "variant": "triple_history_reliability",
+    "change": "add six EXP_112 row-local history reliability features only",
+    "feature_set": "main78_history_reliability",
+    "feature_count": 78,
+    "model": "triple_group_count_k500_catshift_m0095_cpu_sub08",
+    "model_family": "cat_cpu_gpu_extra_blend",
+    "fold_count": 1,
+    "mean_brier": 0.2474572802,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 940.5850213257,
+    "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+    "delta_brier_vs_control": -1.0636e-06,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "triple_main72_control",
+    "change": "control: EXP_111 new-best triple on main72",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "triple_group_count_k500_catshift_m0095_cpu_sub08",
+    "model_family": "cat_cpu_gpu_extra_blend",
+    "fold_count": 1,
+    "mean_brier": 0.2474583438,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 940.1592587371,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T12:02:41.899080+00:00",
+  "based_on_run_id": "RUN_001"
+}

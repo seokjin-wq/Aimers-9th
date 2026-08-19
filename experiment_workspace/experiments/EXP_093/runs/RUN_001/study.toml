@@ -1,0 +1,31 @@
+[study]
+id = "093_late_full_factorial"
+description = "후반 이닝과 풀카운트 투수이력 교호항 factorial"
+hypothesis = "두 개선 블록이 서로 다른 행을 겨냥해 결합 시 추가 개선된다."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "same_hand_control"
+
+[[variants]]
+name = "same_hand_control"
+model = "catboost_d8_decay085"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: EXP_084 CPU same-hand pitchmix"
+
+[[variants]]
+name = "late_history"
+model = "catboost_d8_decay085"
+features = "main75_same_pitchmix_late_history"
+change = "EXP_090 후반 이닝×투수이력 3개"
+
+[[variants]]
+name = "full_count_history"
+model = "catboost_d8_decay085"
+features = "main75_same_pitchmix_full_count_history"
+change = "EXP_092 풀카운트×투수이력 3개"
+
+[[variants]]
+name = "late_plus_full"
+model = "catboost_d8_decay085"
+features = "main78_same_pitchmix_late_full_history"
+change = "후반 이닝과 풀카운트 교호항 6개 결합"

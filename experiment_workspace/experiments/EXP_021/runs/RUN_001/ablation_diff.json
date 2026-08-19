@@ -1,0 +1,92 @@
+{
+  "based_on": "EXP_020",
+  "reference_variant": "scale106_shift008",
+  "ablation_summary": "최고 모델을 고정하고 row_id 숫자부로 계산한 시즌 내 투구 순번, 정규화 진행도, 구간 피처만 추가",
+  "control": "main60_control",
+  "variants": [
+    {
+      "name": "main60_control",
+      "declared_change": "control: 현재 최고 main60",
+      "is_control": true,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pitch_index",
+      "declared_change": "시즌 내 투구 순번 추가",
+      "is_control": false,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "season_pitch_index"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "progress_proxy",
+      "declared_change": "시즌 진행도 proxy 추가",
+      "is_control": false,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "season_progress_proxy"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "phase_numeric",
+      "declared_change": "시즌 20단계 구간을 numeric 추가",
+      "is_control": false,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "season_phase_20"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "phase_categorical",
+      "declared_change": "시즌 20단계 구간을 categorical 추가",
+      "is_control": false,
+      "feature_count": 61,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "season_phase_20"
+      ],
+      "added_features_vs_control": [
+        "season_phase_20"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

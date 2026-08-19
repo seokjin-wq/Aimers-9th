@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T19:11:42.146562+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "2cf4b79b6e47",
+  "based_on": "EXP_040",
+  "reference_variant": "cat_single_control",
+  "ablation_summary": "main85와 depth6 900 lr0.020을 고정하고 has_time, random_strength 0·0.2·2, bagging_temperature 0만 개별 변경"
+}

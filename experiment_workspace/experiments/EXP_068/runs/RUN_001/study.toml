@@ -1,0 +1,31 @@
+[study]
+id = "068_official_trackman_context"
+description = "공식 Trackman 상황 통계"
+hypothesis = "공식 Trackman의 볼카운트×투타 손잡이별 물리 특성과 구종 선택 비율이 main69의 상황 신호를 보완한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main69_control"
+
+[[variants]]
+name = "main69_control"
+model = "catboost_d8_decay085"
+features = "main69_pitcher_batter_season_all"
+change = "control: Trackman 미사용"
+
+[[variants]]
+name = "track_physics"
+model = "catboost_d8_decay085"
+features = "main75_track_physics"
+change = "공식 Trackman 물리 상황 평균 6개 추가"
+
+[[variants]]
+name = "track_pitchmix"
+model = "catboost_d8_decay085"
+features = "main72_track_pitchmix"
+change = "공식 Trackman 구종 선택 비율 3개 추가"
+
+[[variants]]
+name = "track_all"
+model = "catboost_d8_decay085"
+features = "main78_track_all"
+change = "Trackman 물리 6개와 구종 비율 3개 전체 추가"

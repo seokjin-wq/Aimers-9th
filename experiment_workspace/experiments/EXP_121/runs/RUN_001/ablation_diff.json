@@ -1,0 +1,94 @@
+{
+  "based_on": "EXP_117",
+  "reference_variant": "weights_50_35_15",
+  "ablation_summary": "Fix main78 features, CPU/GPU weights 50/35, all component parameters and calibration; replace only 0%, 2.5%, or 5% of the ExtraTrees weight with a fixed HistGB component trained on official pre-validation data.",
+  "control": "hist_weight_0_control",
+  "variants": [
+    {
+      "name": "hist_weight_0_control",
+      "declared_change": "control: train HistGB but assign weight 0; CPU/GPU/Extra=50/35/15",
+      "is_control": true,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "hist_weight_025",
+      "declared_change": "replace 2.5% ExtraTrees weight with HistGB only",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.extra_weight",
+          "control": 0.15,
+          "variant": 0.125
+        },
+        {
+          "field": "model.hist_weight",
+          "control": 0.0,
+          "variant": 0.025
+        },
+        {
+          "field": "model.name",
+          "control": "quad_hist0_count_m0095_sub08_w50_35_15",
+          "variant": "quad_hist025_count_m0095_sub08"
+        }
+      ]
+    },
+    {
+      "name": "hist_weight_05",
+      "declared_change": "replace 5% ExtraTrees weight with HistGB only",
+      "is_control": false,
+      "feature_count": 78,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id",
+        "count_state",
+        "pitcher_hand",
+        "batter_hand"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.extra_weight",
+          "control": 0.15,
+          "variant": 0.1
+        },
+        {
+          "field": "model.hist_weight",
+          "control": 0.0,
+          "variant": 0.05
+        },
+        {
+          "field": "model.name",
+          "control": "quad_hist0_count_m0095_sub08_w50_35_15",
+          "variant": "quad_hist05_count_m0095_sub08"
+        }
+      ]
+    }
+  ]
+}

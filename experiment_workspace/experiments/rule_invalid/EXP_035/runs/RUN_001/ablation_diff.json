@@ -1,0 +1,114 @@
+{
+  "based_on": "EXP_034",
+  "reference_variant": "entity_recent_all",
+  "ablation_summary": "main68과 GPU CatBoost를 고정하고 투수 recent20·30·50 및 타자 recent2·8 rolling 피처만 개별·조합 추가",
+  "control": "main68_control",
+  "variants": [
+    {
+      "name": "main68_control",
+      "declared_change": "control: 직전 및 3·5·10투구",
+      "is_control": true,
+      "feature_count": 68,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_pitcher20",
+      "declared_change": "투수 최근 20투구 추가",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_recent20_pitch_success"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_pitcher50",
+      "declared_change": "투수 최근 50투구 추가",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_recent50_pitch_success"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_pitcher20_50",
+      "declared_change": "투수 최근 20·50투구 추가",
+      "is_control": false,
+      "feature_count": 70,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_recent20_pitch_success",
+        "pitcher_recent50_pitch_success"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_batter2_8",
+      "declared_change": "타자 최근 2·8투구 추가",
+      "is_control": false,
+      "feature_count": 70,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "batter_recent2_pitch_success",
+        "batter_recent8_pitch_success"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "add_all_extensions",
+      "declared_change": "투수 20·30·50 및 타자 2·8투구 모두 추가",
+      "is_control": false,
+      "feature_count": 73,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [
+        "pitcher_recent20_pitch_success",
+        "pitcher_recent30_pitch_success",
+        "pitcher_recent50_pitch_success",
+        "batter_recent2_pitch_success",
+        "batter_recent8_pitch_success"
+      ],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    }
+  ]
+}

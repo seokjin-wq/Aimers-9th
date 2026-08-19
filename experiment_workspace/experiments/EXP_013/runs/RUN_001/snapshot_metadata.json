@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T16:23:12.540048+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "6e44aa17ddb8",
+  "based_on": "EXP_012",
+  "reference_variant": "default_control",
+  "ablation_summary": "main55+count를 고정하고 CatBoost/LightGBM/XGBoost의 분류 Logloss와 회귀 squared-error 목적을 비교"
+}

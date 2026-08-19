@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_100",
+  "decision": "adopt",
+  "selected_variant": "scale106_shift010",
+  "reason": "With training fixed, shift -0.010 reduced Brier by 0.000001531 and raised CPU BSS 918.734 to 919.347; adopt as the latest CPU post-processing candidate, pending ensemble-level validation.",
+  "based_on": "EXP_099",
+  "reference_variant": "decay085_control",
+  "ablation_summary": "Keep model training fixed at depth8/300 and decay0.85; vary only post-prediction scale around 1.06 or shift around -0.008, one coordinate at a time.",
+  "selected_result": {
+    "variant": "scale106_shift010",
+    "change": "scale fixed 1.06, shift -0.010",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "catboost_d8_decay085_scale106_shift010",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475103351,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 919.3466500919,
+    "changed_fields_vs_control": "['model.name', 'model.prediction_shift']",
+    "delta_brier_vs_control": -1.5315e-06,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "scale106_shift008_control",
+    "change": "control: current scale 1.06, shift -0.008",
+    "feature_set": "main72_cat_count_hands_same_pitchmix",
+    "feature_count": 72,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475118666,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 918.7335789118,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T08:41:34.735146+00:00",
+  "based_on_run_id": "RUN_001"
+}

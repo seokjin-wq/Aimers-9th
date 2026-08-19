@@ -1,0 +1,15 @@
+[features]
+name = "selected41"
+description = "중복·비효율 제공 피처 6개를 제외한 제공 피처"
+include_all_raw = true
+exclude = [
+  "run_total_before",
+  "score_diff_home",
+  "asof_pitcher_pitchmix_n",
+  "asof_pitcher_strike_rate",
+  "asof_pitcher_fastball_rate",
+  "asof_pitcher_prev5_game_success_rate",
+]
+custom = []
+categorical = ["top_bottom", "game_type", "base_state"]
+expected_count = 41

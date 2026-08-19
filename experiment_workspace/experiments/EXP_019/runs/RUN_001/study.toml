@@ -1,0 +1,49 @@
+[study]
+id = "019_identifier_categorical"
+description = "식별자 범주형 개별 기여"
+hypothesis = "팀 또는 선수 ID를 한꺼번에 범주화한 이전 실험의 악화는 일부 ID 때문이며, 개별 범주화는 잔차 편향을 줄인다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "numeric_control"
+
+[[variants]]
+name = "numeric_control"
+model = "catboost_native_shift_m010"
+features = "main55_plus_count"
+change = "control: 기본 3개만 범주형"
+
+[[variants]]
+name = "pitcher_id_cat"
+model = "catboost_native_shift_m010"
+features = "main60_cat_pitcher"
+change = "pitcher_id만 범주형 추가"
+
+[[variants]]
+name = "batter_id_cat"
+model = "catboost_native_shift_m010"
+features = "main60_cat_batter"
+change = "batter_id만 범주형 추가"
+
+[[variants]]
+name = "pitcher_team_cat"
+model = "catboost_native_shift_m010"
+features = "main60_cat_pitcher_team"
+change = "pitcher_team_id만 범주형 추가"
+
+[[variants]]
+name = "batter_team_cat"
+model = "catboost_native_shift_m010"
+features = "main60_cat_batter_team"
+change = "batter_team_id만 범주형 추가"
+
+[[variants]]
+name = "both_teams_cat"
+model = "catboost_native_shift_m010"
+features = "main60_cat_teams"
+change = "양 팀 ID를 범주형 추가"
+
+[[variants]]
+name = "hands_cat"
+model = "catboost_native_shift_m010"
+features = "main60_cat_hands"
+change = "투타 손 유형을 범주형 추가"

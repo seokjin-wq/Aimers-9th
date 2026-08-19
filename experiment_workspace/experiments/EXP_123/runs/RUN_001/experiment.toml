@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_123"
+title = "EDA-guided monotonic constraints"
+hypothesis = "Enforcing known directional relationships for prior success, reverse, and middle rates may reduce temporal overfitting and improve 2024 Brier."
+change_scope = "model"
+study_config = "experiments/EXP_123/study.toml"
+based_on = "EXP_118"
+reference_variant = "d8_i300_control"
+ablation_summary = "Fix main78 features and winning CPU parameters; add monotonic constraints only for success rates, only reverse/middle failure rates, or all four directional constraints."
+tags = ["compliance", "row-independent", "EDA", "monotonic", "catboost"]
+created_at_utc = "2026-08-18T13:02:38.042826+00:00"

@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_081",
+  "decision": "keep_control",
+  "selected_variant": "separate_count_hands_control",
+  "reason": "모든 직접 복합 범주는 BSS 884~904로 separate count_state·pitcher_hand·batter_hand control 917.14보다 악화되어 원래 세 범주 표현을 유지한다.",
+  "based_on": "EXP_080",
+  "reference_variant": "count_hands_promoted",
+  "ablation_summary": "Screen composite count×hands, count×same-hand, count×outs, and count×hands×outs categories, alone or alongside the EXP_078 separate categories.",
+  "selected_result": {
+    "variant": "separate_count_hands_control",
+    "change": "control: count_state와 양손을 separate categorical",
+    "feature_set": "main69_cat_count_hands",
+    "feature_count": 69,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475158585,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 917.135588661,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "control_result": {
+    "variant": "separate_count_hands_control",
+    "change": "control: count_state와 양손을 separate categorical",
+    "feature_set": "main69_cat_count_hands",
+    "feature_count": 69,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475158585,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 917.135588661,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T05:38:55.710692+00:00",
+  "based_on_run_id": "RUN_001"
+}

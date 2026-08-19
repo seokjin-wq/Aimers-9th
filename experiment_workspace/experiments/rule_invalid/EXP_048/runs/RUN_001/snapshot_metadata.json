@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T19:59:17.319333+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "446dccc82008",
+  "based_on": "EXP_047",
+  "reference_variant": "global100",
+  "ablation_summary": "CPU main80과 전역 단일 rolling 구조를 고정하고 window 75·100·125·150·200만 변경"
+}

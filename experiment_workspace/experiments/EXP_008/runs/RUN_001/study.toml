@@ -1,0 +1,37 @@
+[study]
+id = "008_eda_feature_groups"
+description = "EDA 제안 피처 묶음 비교"
+hypothesis = "EDA에서 확인한 결측·스무딩·경기 맥락·카운트 피처 중 일부가 main55의 2024 Brier를 개선한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main55_control"
+
+[[variants]]
+name = "main55_control"
+model = "catboost_native_300"
+features = "main55"
+change = "control: main55"
+
+[[variants]]
+name = "add_missing_flags"
+model = "catboost_native_300"
+features = "main55_plus_missing"
+change = "최근·누적 이력 결측 플래그 3개 추가"
+
+[[variants]]
+name = "add_smoothing"
+model = "catboost_native_300"
+features = "main55_plus_smoothing"
+change = "누적 성공·reverse 스무딩과 log 표본 수 5개 추가"
+
+[[variants]]
+name = "add_context"
+model = "catboost_native_300"
+features = "main55_plus_context"
+change = "투수팀 기대승률·log LI·득점권 상호작용 4개 추가"
+
+[[variants]]
+name = "add_count_state"
+model = "catboost_native_300"
+features = "main55_plus_count"
+change = "카운트·아웃 상태 파생 5개 추가"

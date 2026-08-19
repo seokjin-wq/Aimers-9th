@@ -1,0 +1,15 @@
+[features]
+name = "selected41_plus_count"
+description = "main55+count pruning variant selected41_plus_count"
+include_all_raw = true
+exclude = ["run_total_before", "score_diff_home", "asof_pitcher_pitchmix_n", "asof_pitcher_strike_rate", "asof_pitcher_fastball_rate", "asof_pitcher_prev5_game_success_rate"]
+custom = [
+  "count_state",
+  "is_full_count",
+  "has_two_strikes",
+  "has_three_balls",
+  "has_two_outs",
+]
+categorical = ["top_bottom", "game_type", "base_state"]
+expected_count = 46
+

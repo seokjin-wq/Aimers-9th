@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-18T12:17:25.653234+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "29b3fc0f7105",
+  "based_on": "EXP_117",
+  "reference_variant": "weights_50_35_15",
+  "ablation_summary": "Use main78 reliability features and CPU screening with season decay, subsample, affine postprocess, seed, and all other parameters fixed; compare depth8/300 to depth7/450, depth8/450 low-lr, and depth9/220."
+}

@@ -1,0 +1,72 @@
+{
+  "experiment_id": "EXP_107",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T10:03:04.881862+00:00",
+  "completed_at_utc": "2026-08-18T10:27:00.657186+00:00",
+  "config_hash": "04234e24d9c3",
+  "based_on": "EXP_106",
+  "reference_variant": "track_velocity",
+  "ablation_summary": "Keep EXP_103 corrected count-calibrated triple fixed; compare current main72 against main72 plus only Trackman relative-speed and zone-speed context.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/107_track_velocity_triple_promotion/20260818T100304891715Z_04234e24d9c3",
+  "control": "current_corrected_triple",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "current_corrected_triple",
+  "best_mean_brier": 0.247463438215773,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "current_corrected_triple",
+      "change": "control: EXP_103 corrected count-calibrated triple",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "triple_group_count_k500_shift_m0095_w50_35_15",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474634382,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 938.1199198277,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "track_velocity_corrected_triple",
+      "change": "add EXP_106 official Trackman relative-speed and zone-speed context",
+      "feature_set": "main74_same_pitchmix_track_velocity",
+      "feature_count": 74,
+      "model": "triple_group_count_k500_shift_m0095_w50_35_15",
+      "model_family": "cat_cpu_gpu_extra_blend",
+      "fold_count": 1,
+      "mean_brier": 0.2474642881,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 937.779700914,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 8.499e-07,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "981f272f2cfbe85e3c59aaf5b64e212f6a186fcaa71176352adf828d554047b3",
+  "git_commit": "a108cbe6a48503bc68fb979395aa0e5fb70ef6cf",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 1435.5749633312225
+}

@@ -1,0 +1,209 @@
+{
+  "based_on": "EXP_031",
+  "reference_variant": "ensemble_3seed",
+  "ablation_summary": "GPU CatBoost와 main60을 고정하고 game_type, top_bottom, pitcher_hand 및 game_type×pitcher_hand로 학습 데이터를 분리",
+  "control": "global_control",
+  "variants": [
+    {
+      "name": "global_control",
+      "declared_change": "control: 전역 GPU CatBoost",
+      "is_control": true,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "game_i300",
+      "declared_change": "game_type별 300-tree",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_segmented"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_gpu_d6_i600_lr025_b128",
+          "variant": "seg_gpu_game_i300"
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 600,
+          "variant": 300
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.025,
+          "variant": 0.05
+        },
+        {
+          "field": "model.segment_columns",
+          "control": null,
+          "variant": [
+            "game_type"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "game_i600",
+      "declared_change": "game_type별 600-tree",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_segmented"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_gpu_d6_i600_lr025_b128",
+          "variant": "seg_gpu_game_i600"
+        },
+        {
+          "field": "model.segment_columns",
+          "control": null,
+          "variant": [
+            "game_type"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "top_bottom_i600",
+      "declared_change": "top_bottom별 600-tree",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_segmented"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_gpu_d6_i600_lr025_b128",
+          "variant": "seg_gpu_topbottom_i600"
+        },
+        {
+          "field": "model.segment_columns",
+          "control": null,
+          "variant": [
+            "top_bottom"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pitcher_hand_i600",
+      "declared_change": "pitcher_hand별 600-tree",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_segmented"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_gpu_d6_i600_lr025_b128",
+          "variant": "seg_gpu_pitcherhand_i600"
+        },
+        {
+          "field": "model.segment_columns",
+          "control": null,
+          "variant": [
+            "pitcher_hand"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "game_pitcher_hand_i400",
+      "declared_change": "game_type × pitcher_hand별 400-tree",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_segmented"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_gpu_d6_i600_lr025_b128",
+          "variant": "seg_gpu_game_pitcherhand_i400"
+        },
+        {
+          "field": "model.params.iterations",
+          "control": 600,
+          "variant": 400
+        },
+        {
+          "field": "model.params.learning_rate",
+          "control": 0.025,
+          "variant": 0.04
+        },
+        {
+          "field": "model.segment_columns",
+          "control": null,
+          "variant": [
+            "game_type",
+            "pitcher_hand"
+          ]
+        }
+      ]
+    }
+  ]
+}

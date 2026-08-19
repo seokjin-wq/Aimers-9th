@@ -1,0 +1,380 @@
+{
+  "based_on": "EXP_060",
+  "reference_variant": "decay085",
+  "ablation_summary": "main69 고정, depth8 decay0.85 CatBoost 단독 대비 ExtraTrees 18,24,30% 혼합",
+  "control": "cat_d8_decay85",
+  "variants": [
+    {
+      "name": "cat_d8_decay85",
+      "declared_change": "control: EXP_060 최고 CatBoost",
+      "is_control": true,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "extra_w18",
+      "declared_change": "ExtraTrees 18% 혼합",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 300,
+            "depth": 8,
+            "learning_rate": 0.035,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.cat_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.cat_season_decay",
+          "control": null,
+          "variant": 0.85
+        },
+        {
+          "field": "model.cat_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.extra_params",
+          "control": null,
+          "variant": {
+            "n_estimators": 300,
+            "min_samples_leaf": 20,
+            "max_features": 0.7,
+            "n_jobs": 8,
+            "random_state": 42,
+            "verbose": 0
+          }
+        },
+        {
+          "field": "model.extra_shift",
+          "control": null,
+          "variant": -0.01
+        },
+        {
+          "field": "model.extra_weight",
+          "control": null,
+          "variant": 0.18
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "cat_extra_blend"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "cat_extra_d8_decay85_w18"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 300,
+            "depth": 8,
+            "learning_rate": 0.035,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        },
+        {
+          "field": "model.season_decay",
+          "control": 0.85,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "extra_w24",
+      "declared_change": "ExtraTrees 24% 혼합",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 300,
+            "depth": 8,
+            "learning_rate": 0.035,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.cat_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.cat_season_decay",
+          "control": null,
+          "variant": 0.85
+        },
+        {
+          "field": "model.cat_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.extra_params",
+          "control": null,
+          "variant": {
+            "n_estimators": 300,
+            "min_samples_leaf": 20,
+            "max_features": 0.7,
+            "n_jobs": 8,
+            "random_state": 42,
+            "verbose": 0
+          }
+        },
+        {
+          "field": "model.extra_shift",
+          "control": null,
+          "variant": -0.01
+        },
+        {
+          "field": "model.extra_weight",
+          "control": null,
+          "variant": 0.24
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "cat_extra_blend"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "cat_extra_d8_decay85_w24"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 300,
+            "depth": 8,
+            "learning_rate": 0.035,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        },
+        {
+          "field": "model.season_decay",
+          "control": 0.85,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "extra_w30",
+      "declared_change": "ExtraTrees 30% 혼합",
+      "is_control": false,
+      "feature_count": 69,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 300,
+            "depth": 8,
+            "learning_rate": 0.035,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.cat_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.cat_season_decay",
+          "control": null,
+          "variant": 0.85
+        },
+        {
+          "field": "model.cat_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.extra_params",
+          "control": null,
+          "variant": {
+            "n_estimators": 300,
+            "min_samples_leaf": 20,
+            "max_features": 0.7,
+            "n_jobs": 8,
+            "random_state": 42,
+            "verbose": 0
+          }
+        },
+        {
+          "field": "model.extra_shift",
+          "control": null,
+          "variant": -0.01
+        },
+        {
+          "field": "model.extra_weight",
+          "control": null,
+          "variant": 0.3
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "cat_extra_blend"
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_d8_decay085",
+          "variant": "cat_extra_d8_decay85_w30"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 300,
+            "depth": 8,
+            "learning_rate": 0.035,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        },
+        {
+          "field": "model.season_decay",
+          "control": 0.85,
+          "variant": null
+        }
+      ]
+    }
+  ]
+}

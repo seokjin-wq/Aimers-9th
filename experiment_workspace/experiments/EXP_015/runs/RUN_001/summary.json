@@ -1,0 +1,117 @@
+{
+  "experiment_id": "EXP_015",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T16:31:16.469907+00:00",
+  "completed_at_utc": "2026-08-17T16:33:57.945282+00:00",
+  "config_hash": "3f45b96c6df1",
+  "based_on": "EXP_014",
+  "reference_variant": "main60_control",
+  "ablation_summary": "main55+count CatBoost를 고정하고 prediction shift만 0, -0.005, -0.010, 과거-fold -0.0113955, -0.015로 변경",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/015_forward_probability_shift/20260817T163116472270Z_3f45b96c6df1",
+  "control": "no_shift_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "shift_m010",
+  "best_mean_brier": 0.2478754922836092,
+  "best_delta_brier_vs_control": -9.264763871655313e-05,
+  "leaderboard": [
+    {
+      "variant": "shift_m010",
+      "change": "모든 확률에 -0.010",
+      "feature_set": "main55_plus_count",
+      "feature_count": 60,
+      "model": "catboost_native_shift_m010",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2478754923,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 773.1709037273,
+      "changed_fields_vs_control": "['model.name', 'model.prediction_shift']",
+      "delta_brier_vs_control": -9.26476e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "shift_forward",
+      "change": "2022~2023 과거 fold 편향으로 고정한 -0.0113955",
+      "feature_set": "main55_plus_count",
+      "feature_count": 60,
+      "model": "catboost_native_shift_forward",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2478784657,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 771.9806099892,
+      "changed_fields_vs_control": "['model.name', 'model.prediction_shift']",
+      "delta_brier_vs_control": -8.96742e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "shift_m005",
+      "change": "모든 확률에 -0.005",
+      "feature_set": "main55_plus_count",
+      "feature_count": 60,
+      "model": "catboost_native_shift_m005",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2478968161,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 764.6347835984,
+      "changed_fields_vs_control": "['model.name', 'model.prediction_shift']",
+      "delta_brier_vs_control": -7.13238e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "shift_m015",
+      "change": "모든 확률에 -0.015",
+      "feature_set": "main55_plus_count",
+      "feature_count": 60,
+      "model": "catboost_native_shift_m015",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2479041685,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 761.6915660588,
+      "changed_fields_vs_control": "['model.name', 'model.prediction_shift']",
+      "delta_brier_vs_control": -6.39715e-05,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "no_shift_control",
+      "change": "control: shift 0",
+      "feature_set": "main55_plus_count",
+      "feature_count": 60,
+      "model": "catboost_native_300",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2479681399,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 736.0832056721,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "b96eeb470313ebb5f7b9f9b7ecd9d546e61be77a1e6ca48cade52717901d1fc5",
+  "git_commit": "80f20ba91e666fa40b7cbdb1647ff163e037bc50",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 161.29408621788025
+}

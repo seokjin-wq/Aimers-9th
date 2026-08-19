@@ -1,0 +1,102 @@
+{
+  "experiment_id": "EXP_055",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T02:28:51.319544+00:00",
+  "completed_at_utc": "2026-08-18T02:31:13.840895+00:00",
+  "config_hash": "04f9e23432c8",
+  "based_on": "EXP_054",
+  "reference_variant": "extra_w24_safe",
+  "ablation_summary": "main60 CatBoost를 고정하고 official-train-only 투수 TE, 투수+타자 TE, 투수+타자+팀 TE만 단계적으로 추가",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/055_official_train_target_effects/20260818T022851324150Z_04f9e23432c8",
+  "control": "main60_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": null
+  },
+  "best_variant": "main60_control",
+  "best_mean_brier": 0.2478203209370681,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "main60_control",
+      "change": "control: 합법 main60 CatBoost",
+      "feature_set": "main60_cat_batter_team",
+      "feature_count": 60,
+      "model": "catboost_native_scale106_shift_m008",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2478203209,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 795.2564988937,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "pitcher_te50",
+      "change": "공식 학습 타깃만 사용한 투수 LOO 효과(k=50) 1개 추가",
+      "feature_set": "main61_pitcher_te50",
+      "feature_count": 61,
+      "model": "catboost_native_scale106_shift_m008",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.290860151,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 0.0,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 0.0430398301,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "pitcher_batter_te50",
+      "change": "투수와 타자 LOO 효과(k=50) 2개 추가",
+      "feature_set": "main62_pitcher_batter_te50",
+      "feature_count": 62,
+      "model": "catboost_native_scale106_shift_m008",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.3130310736,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 0.0,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 0.0652107527,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "all_entity_team_te",
+      "change": "투수·타자 효과(k=50)와 양 팀 효과(k=500) 4개 추가",
+      "feature_set": "main64_all_te",
+      "feature_count": 64,
+      "model": "catboost_native_scale106_shift_m008",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.5134712644,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 0.0,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 0.2656509434,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "1cfd1c82f16743484d58c12b432fce7f3c7ea825b820dd0492727bd0ee32de01",
+  "git_commit": "7bde464991a4052a625a1c8c1d2e222d4b3c6542",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 142.33493900299072
+}

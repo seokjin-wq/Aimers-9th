@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_075",
+  "decision": "adopt",
+  "selected_variant": "both_k50",
+  "reason": "투수 또는 타자 단독 k50은 악화됐지만 두 성공률을 함께 k50으로 바꾸면 Brier가 0.00000813 개선됐다. 효과가 작으므로 앙상블 승격에서 재검증하는 조건부 후보로 채택한다.",
+  "based_on": "EXP_073",
+  "reference_variant": "success_k50",
+  "ablation_summary": "Fix all else and compare k20/k20, pitcher50/batter20, pitcher20/batter50, and k50/k50.",
+  "selected_result": {
+    "variant": "both_k50",
+    "change": "control 대비 투수·타자 성공률 모두 k50",
+    "feature_set": "main69_season_success_k50",
+    "feature_count": 69,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475295876,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 911.6396980268,
+    "changed_fields_vs_control": "['features.custom', 'features.description', 'features.name']",
+    "delta_brier_vs_control": -8.1331e-06,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "k20_k20_control",
+    "change": "control: 투수 k20, 타자 k20",
+    "feature_set": "main69_pitcher_batter_season_all",
+    "feature_count": 69,
+    "model": "catboost_d8_decay085",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2475377207,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 908.3839506927,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-18T04:53:44.148299+00:00",
+  "based_on_run_id": "RUN_001"
+}

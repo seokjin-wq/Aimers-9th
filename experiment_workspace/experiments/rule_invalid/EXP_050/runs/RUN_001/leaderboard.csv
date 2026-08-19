@@ -1,0 +1,7 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+d6_i600,depth6 600 lr0.03,main81_add_global200,81,catboost_cpu_d6_i600_lr030,catboost,1,0.246647685817556,0.0,1264.6730738206436,"['model.name', 'model.params.iterations', 'model.params.learning_rate']",-4.9560290910577454e-05,1/1
+d7_i400,depth7 400 lr0.035,main81_add_global200,81,catboost_cpu_d7_i400_lr035,catboost,1,0.2466779817825774,0.0,1252.5453216342908,"['model.name', 'model.params.depth', 'model.params.learning_rate']",-1.926432588916782e-05,1/1
+d8_i300,depth8 300 lr0.035,main81_add_global200,81,catboost_cpu_d8_i300_lr035,catboost,1,0.2466919235123678,0.0,1246.964319549426,"['model.name', 'model.params.depth', 'model.params.iterations', 'model.params.learning_rate']",-5.322596098755739e-06,1/1
+d6_i400_control,control: depth6 400 lr0.04,main81_add_global200,81,catboost_top_d6_i400_lr040,catboost,1,0.2466972461084666,0.0,1244.8336355976862,[],0.0,0/1
+d5_i600,depth5 600 lr0.035,main81_add_global200,81,catboost_cpu_d5_i600_lr035,catboost,1,0.2467051825341721,0.0,1241.6566117222417,"['model.name', 'model.params.depth', 'model.params.iterations', 'model.params.learning_rate']",7.936425705568073e-06,0/1
+d6_i800,depth6 800 lr0.02,main81_add_global200,81,catboost_cpu_d6_i800_lr020,catboost,1,0.2467090065066122,0.0,1240.1258405423944,"['model.name', 'model.params.iterations', 'model.params.learning_rate']",1.1760398145627128e-05,0/1

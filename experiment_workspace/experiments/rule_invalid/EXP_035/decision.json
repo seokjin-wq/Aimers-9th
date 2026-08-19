@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_035",
+  "decision": "adopt",
+  "selected_variant": "add_all_extensions",
+  "reason": "투수 20·30·50 및 타자 2·8 창 전체 추가가 Brier 0.2471691, BSS 1055.95로 최선",
+  "based_on": "EXP_034",
+  "reference_variant": "entity_recent_all",
+  "ablation_summary": "main68과 GPU CatBoost를 고정하고 투수 recent20·30·50 및 타자 recent2·8 rolling 피처만 개별·조합 추가",
+  "selected_result": {
+    "variant": "add_all_extensions",
+    "change": "투수 20·30·50 및 타자 2·8투구 모두 추가",
+    "feature_set": "main73_add_rolling_extensions",
+    "feature_count": 73,
+    "model": "catboost_gpu_d6_i600_lr025_b128",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2471690782,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 1055.954910941,
+    "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+    "delta_brier_vs_control": -0.000117191,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "main68_control",
+    "change": "control: 직전 및 3·5·10투구",
+    "feature_set": "main68_add_entity_recent_pitch",
+    "feature_count": 68,
+    "model": "catboost_gpu_d6_i600_lr025_b128",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2472862692,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 1009.042283162,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-17T18:32:46.727219+00:00",
+  "based_on_run_id": "RUN_001"
+}

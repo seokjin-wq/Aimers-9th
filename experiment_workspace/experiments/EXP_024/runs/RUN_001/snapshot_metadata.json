@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T17:34:52.239978+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "a3e1bad91fef",
+  "based_on": "EXP_023",
+  "reference_variant": "catboost_control",
+  "ablation_summary": "동일 main60에서 CatBoost와 ExtraTrees leaf20을 함께 학습하고 ExtraTrees 가중치 0.15~0.35만 변경"
+}

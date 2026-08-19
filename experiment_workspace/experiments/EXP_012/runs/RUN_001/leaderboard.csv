@@ -1,0 +1,11 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+default_control,control: 기본 규제,main55_plus_count,60,catboost_native_300,catboost,1,0.2479681399223257,0.0,736.0832056720667,[],0.0,0/1
+random_strength_0,random_strength 기본 1→0,main55_plus_count,60,catboost_native_random0,catboost,1,0.2480045278554662,0.0,721.5167828698909,"['model.name', 'model.params.random_strength']",3.6387933140508144e-05,0/1
+l2_30,l2_leaf_reg 3→30,main55_plus_count,60,catboost_native_l2_30,catboost,1,0.2480074246148899,0.0,720.3571835500355,"['model.name', 'model.params.l2_leaf_reg']",3.928469256414546e-05,0/1
+rsm_08,tree별 feature 비율 rsm 0.8,main55_plus_count,60,catboost_native_rsm08,catboost,1,0.2480103480653962,0.0,719.1868995453655,"['model.name', 'model.params.rsm']",4.220814307051568e-05,0/1
+subsample_09,row subsample 0.7→0.9,main55_plus_count,60,catboost_native_sub09,catboost,1,0.248014765403809,0.0,717.4185985338144,"['model.name', 'model.params.subsample']",4.662548148329226e-05,0/1
+l2_10,l2_leaf_reg 3→10,main55_plus_count,60,catboost_native_l2_10,catboost,1,0.2480178478613568,0.0,716.1846625546086,"['model.name', 'model.params.l2_leaf_reg']",4.970793903108506e-05,0/1
+subsample_05,row subsample 0.7→0.5,main55_plus_count,60,catboost_native_sub05,catboost,1,0.2480240127352136,0.0,713.7168071044475,"['model.name', 'model.params.subsample']",5.5872812887936e-05,0/1
+border_count_64,numeric border_count를 64로 제한,main55_plus_count,60,catboost_native_border64,catboost,1,0.2480313863824049,0.0,710.7650686210553,"['model.name', 'model.params.border_count']",6.3246460079186e-05,0/1
+rsm_06,tree별 feature 비율 rsm 0.6,main55_plus_count,60,catboost_native_rsm06,catboost,1,0.2480379133044788,0.0,708.1522819546992,"['model.name', 'model.params.rsm']",6.977338215313766e-05,0/1
+random_strength_3,random_strength 기본 1→3,main55_plus_count,60,catboost_native_random3,catboost,1,0.2480710178260189,0.0,694.9002388789371,"['model.name', 'model.params.random_strength']",0.0001028779036931,0/1

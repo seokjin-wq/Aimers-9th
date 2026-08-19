@@ -1,0 +1,37 @@
+[study]
+id = "009_positive_feature_combinations"
+description = "EDA 개선 피처 조합"
+hypothesis = "개별 개선된 카운트·스무딩·결측 피처를 조합하면 개선 폭이 누적된다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "count_control"
+
+[[variants]]
+name = "count_control"
+model = "catboost_native_300"
+features = "main55_plus_count"
+change = "control: EXP_008 최선 카운트 피처"
+
+[[variants]]
+name = "count_plus_smoothing"
+model = "catboost_native_300"
+features = "main55_plus_count_smoothing"
+change = "카운트 기준에 스무딩 묶음 추가"
+
+[[variants]]
+name = "count_plus_missing"
+model = "catboost_native_300"
+features = "main55_plus_count_missing"
+change = "카운트 기준에 결측 플래그 추가"
+
+[[variants]]
+name = "smoothing_plus_missing"
+model = "catboost_native_300"
+features = "main55_plus_smoothing_missing"
+change = "스무딩과 결측 플래그 조합"
+
+[[variants]]
+name = "all_positive_groups"
+model = "catboost_native_300"
+features = "main55_plus_all_positive"
+change = "카운트·스무딩·결측 세 묶음 전체 조합"

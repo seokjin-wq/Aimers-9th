@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T16:12:26.007644+00:00",
+  "backfilled_after_run": false,
+  "config_hash_verified": "808434d403de",
+  "based_on": "EXP_009",
+  "reference_variant": "count_control",
+  "ablation_summary": "main55+count와 CatBoost 구조를 고정하고 시즌이 한 해 과거로 갈 때의 sample weight decay만 1.0, 0.85, 0.70, 0.50, 0.25로 변경"
+}

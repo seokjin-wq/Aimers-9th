@@ -1,0 +1,37 @@
+[study]
+id = "013_direct_brier_objective"
+description = "Brier 직접 최적화 회귀 부스팅"
+hypothesis = "0/1 타깃을 제곱오차로 직접 학습하는 회귀 부스팅이 Logloss 분류보다 2024 Brier를 개선한다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "catboost_logloss_control"
+
+[[variants]]
+name = "catboost_logloss_control"
+model = "catboost_native_300"
+features = "main55_plus_count"
+change = "control: CatBoost Logloss classifier"
+
+[[variants]]
+name = "catboost_rmse_300"
+model = "catboost_rmse_300"
+features = "main55_plus_count"
+change = "CatBoost RMSE regressor 300 trees"
+
+[[variants]]
+name = "catboost_rmse_500"
+model = "catboost_rmse_500"
+features = "main55_plus_count"
+change = "CatBoost RMSE regressor 500 trees"
+
+[[variants]]
+name = "lightgbm_rmse"
+model = "lightgbm_rmse_l31"
+features = "main55_plus_count"
+change = "LightGBM regression_l2"
+
+[[variants]]
+name = "xgboost_rmse"
+model = "xgboost_rmse_d4"
+features = "main55_plus_count"
+change = "XGBoost squared-error"

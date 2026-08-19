@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_112"
+title = "Row-local history reliability representation"
+hypothesis = "Explicit sample-size buckets and reliability-weighted as-of rates will make the latest CatBoost robust to the 2024 new-player and small-history population identified in EDA."
+change_scope = "features"
+study_config = "experiments/EXP_112/study.toml"
+based_on = "EXP_109"
+reference_variant = "subsample_08"
+ablation_summary = "Fix CPU CatBoost subsample=0.8 and main72; add only two categorical history-size buckets, only six numeric reliability features, or both blocks."
+tags = ["compliance", "row-independent", "EDA", "history", "reliability"]
+created_at_utc = "2026-08-18T11:17:00.255186+00:00"

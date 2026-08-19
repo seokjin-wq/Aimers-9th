@@ -1,0 +1,1016 @@
+{
+  "based_on": "EXP_025",
+  "reference_variant": "d6_i400_lr040",
+  "ablation_summary": "2019~2022→2023 OOF 잔차만 사용해 pitcher, batter, team, count별 shrinkage offset을 학습하고 2019~2023→2024 예측에 적용",
+  "control": "catboost_control",
+  "variants": [
+    {
+      "name": "catboost_control",
+      "declared_change": "control: depth6 400 lr0.04, 그룹 보정 없음",
+      "is_control": true,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": []
+    },
+    {
+      "name": "pitcher_k50",
+      "declared_change": "pitcher_id 잔차, shrinkage 50",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 400,
+            "depth": 6,
+            "learning_rate": 0.04,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.cat_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.cat_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_group_calibrated"
+        },
+        {
+          "field": "model.group_columns",
+          "control": null,
+          "variant": [
+            "pitcher_id"
+          ]
+        },
+        {
+          "field": "model.group_shrinkage",
+          "control": null,
+          "variant": 50.0
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_top_d6_i400_lr040",
+          "variant": "groupcal_pitcher_k50"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 400,
+            "depth": 6,
+            "learning_rate": 0.04,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "pitcher_k200",
+      "declared_change": "pitcher_id 잔차, shrinkage 200",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 400,
+            "depth": 6,
+            "learning_rate": 0.04,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.cat_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.cat_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_group_calibrated"
+        },
+        {
+          "field": "model.group_columns",
+          "control": null,
+          "variant": [
+            "pitcher_id"
+          ]
+        },
+        {
+          "field": "model.group_shrinkage",
+          "control": null,
+          "variant": 200.0
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_top_d6_i400_lr040",
+          "variant": "groupcal_pitcher_k200"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 400,
+            "depth": 6,
+            "learning_rate": 0.04,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "pitcher_k500",
+      "declared_change": "pitcher_id 잔차, shrinkage 500",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 400,
+            "depth": 6,
+            "learning_rate": 0.04,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.cat_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.cat_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_group_calibrated"
+        },
+        {
+          "field": "model.group_columns",
+          "control": null,
+          "variant": [
+            "pitcher_id"
+          ]
+        },
+        {
+          "field": "model.group_shrinkage",
+          "control": null,
+          "variant": 500.0
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_top_d6_i400_lr040",
+          "variant": "groupcal_pitcher_k500"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 400,
+            "depth": 6,
+            "learning_rate": 0.04,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "batter_k50",
+      "declared_change": "batter_id 잔차, shrinkage 50",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 400,
+            "depth": 6,
+            "learning_rate": 0.04,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.cat_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.cat_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_group_calibrated"
+        },
+        {
+          "field": "model.group_columns",
+          "control": null,
+          "variant": [
+            "batter_id"
+          ]
+        },
+        {
+          "field": "model.group_shrinkage",
+          "control": null,
+          "variant": 50.0
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_top_d6_i400_lr040",
+          "variant": "groupcal_batter_k50"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 400,
+            "depth": 6,
+            "learning_rate": 0.04,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "batter_k200",
+      "declared_change": "batter_id 잔차, shrinkage 200",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 400,
+            "depth": 6,
+            "learning_rate": 0.04,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.cat_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.cat_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_group_calibrated"
+        },
+        {
+          "field": "model.group_columns",
+          "control": null,
+          "variant": [
+            "batter_id"
+          ]
+        },
+        {
+          "field": "model.group_shrinkage",
+          "control": null,
+          "variant": 200.0
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_top_d6_i400_lr040",
+          "variant": "groupcal_batter_k200"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 400,
+            "depth": 6,
+            "learning_rate": 0.04,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "pitcher_team_k200",
+      "declared_change": "pitcher_team_id 잔차",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 400,
+            "depth": 6,
+            "learning_rate": 0.04,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.cat_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.cat_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_group_calibrated"
+        },
+        {
+          "field": "model.group_columns",
+          "control": null,
+          "variant": [
+            "pitcher_team_id"
+          ]
+        },
+        {
+          "field": "model.group_shrinkage",
+          "control": null,
+          "variant": 200.0
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_top_d6_i400_lr040",
+          "variant": "groupcal_pitcher_team_k200"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 400,
+            "depth": 6,
+            "learning_rate": 0.04,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "batter_team_k200",
+      "declared_change": "batter_team_id 잔차",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 400,
+            "depth": 6,
+            "learning_rate": 0.04,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.cat_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.cat_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_group_calibrated"
+        },
+        {
+          "field": "model.group_columns",
+          "control": null,
+          "variant": [
+            "batter_team_id"
+          ]
+        },
+        {
+          "field": "model.group_shrinkage",
+          "control": null,
+          "variant": 200.0
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_top_d6_i400_lr040",
+          "variant": "groupcal_batter_team_k200"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 400,
+            "depth": 6,
+            "learning_rate": 0.04,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "count_k500",
+      "declared_change": "ball-strike-out 조합 잔차",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 400,
+            "depth": 6,
+            "learning_rate": 0.04,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.cat_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.cat_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_group_calibrated"
+        },
+        {
+          "field": "model.group_columns",
+          "control": null,
+          "variant": [
+            "balls_before",
+            "strikes_before",
+            "outs_before"
+          ]
+        },
+        {
+          "field": "model.group_shrinkage",
+          "control": null,
+          "variant": 500.0
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_top_d6_i400_lr040",
+          "variant": "groupcal_count_k500"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 400,
+            "depth": 6,
+            "learning_rate": 0.04,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "month_k1000",
+      "declared_change": "game_month 잔차",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 400,
+            "depth": 6,
+            "learning_rate": 0.04,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.cat_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.cat_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_group_calibrated"
+        },
+        {
+          "field": "model.group_columns",
+          "control": null,
+          "variant": [
+            "game_month"
+          ]
+        },
+        {
+          "field": "model.group_shrinkage",
+          "control": null,
+          "variant": 1000.0
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_top_d6_i400_lr040",
+          "variant": "groupcal_month_k1000"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 400,
+            "depth": 6,
+            "learning_rate": 0.04,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "name": "pitcher_bteam_k200",
+      "declared_change": "pitcher_id × batter_team_id 잔차",
+      "is_control": false,
+      "feature_count": 60,
+      "categorical_features": [
+        "top_bottom",
+        "game_type",
+        "base_state",
+        "batter_team_id"
+      ],
+      "added_features_vs_control": [],
+      "removed_features_vs_control": [],
+      "model_changes_vs_control": [
+        {
+          "field": "model.cat_params",
+          "control": null,
+          "variant": {
+            "iterations": 400,
+            "depth": 6,
+            "learning_rate": 0.04,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          }
+        },
+        {
+          "field": "model.cat_scale",
+          "control": null,
+          "variant": 1.06
+        },
+        {
+          "field": "model.cat_shift",
+          "control": null,
+          "variant": -0.008
+        },
+        {
+          "field": "model.family",
+          "control": "catboost",
+          "variant": "catboost_group_calibrated"
+        },
+        {
+          "field": "model.group_columns",
+          "control": null,
+          "variant": [
+            "pitcher_id",
+            "batter_team_id"
+          ]
+        },
+        {
+          "field": "model.group_shrinkage",
+          "control": null,
+          "variant": 200.0
+        },
+        {
+          "field": "model.name",
+          "control": "catboost_top_d6_i400_lr040",
+          "variant": "groupcal_pitcher_bteam_k200"
+        },
+        {
+          "field": "model.native_categorical",
+          "control": true,
+          "variant": null
+        },
+        {
+          "field": "model.params",
+          "control": {
+            "iterations": 400,
+            "depth": 6,
+            "learning_rate": 0.04,
+            "l2_leaf_reg": 3.0,
+            "subsample": 0.7,
+            "random_seed": 42,
+            "thread_count": 8,
+            "task_type": "CPU",
+            "loss_function": "Logloss",
+            "eval_metric": "BrierScore",
+            "allow_writing_files": false,
+            "verbose": false
+          },
+          "variant": null
+        },
+        {
+          "field": "model.prediction_scale",
+          "control": 1.06,
+          "variant": null
+        },
+        {
+          "field": "model.prediction_shift",
+          "control": -0.008,
+          "variant": null
+        }
+      ]
+    }
+  ]
+}

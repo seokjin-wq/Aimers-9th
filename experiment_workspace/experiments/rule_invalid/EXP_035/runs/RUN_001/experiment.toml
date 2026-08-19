@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_035"
+title = "최근 투구 rolling 창 탐색"
+hypothesis = "투수는 더 긴 20~50투구 창이, 타자는 짧은 2~8투구 창이 main68의 단기 흐름 표현을 보완한다"
+change_scope = "features"
+study_config = "experiments/EXP_035/study.toml"
+based_on = "EXP_034"
+reference_variant = "entity_recent_all"
+ablation_summary = "main68과 GPU CatBoost를 고정하고 투수 recent20·30·50 및 타자 recent2·8 rolling 피처만 개별·조합 추가"
+tags = ["asof", "rolling", "window"]
+created_at_utc = "2026-08-17T18:28:53.506538+00:00"

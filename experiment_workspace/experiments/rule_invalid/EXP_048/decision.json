@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_048",
+  "decision": "adopt",
+  "selected_variant": "global200",
+  "reason": "window가 100→150→200으로 갈수록 CPU Brier가 개선되어 window200, BSS 1244.83 채택",
+  "based_on": "EXP_047",
+  "reference_variant": "global100",
+  "ablation_summary": "CPU main80과 전역 단일 rolling 구조를 고정하고 window 75·100·125·150·200만 변경",
+  "selected_result": {
+    "variant": "global200",
+    "change": "window200",
+    "feature_set": "main81_add_global200",
+    "feature_count": 81,
+    "model": "catboost_top_d6_i400_lr040",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2466972461,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 1244.8336355977,
+    "changed_fields_vs_control": "['features.custom', 'features.description', 'features.name']",
+    "delta_brier_vs_control": -2.82507e-05,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "global100_control",
+    "change": "control: window100",
+    "feature_set": "main81_add_global100",
+    "feature_count": 81,
+    "model": "catboost_top_d6_i400_lr040",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2467254968,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 1233.5246181931,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-17T20:04:30.257703+00:00",
+  "based_on_run_id": "RUN_001"
+}

@@ -1,0 +1,31 @@
+[study]
+id = "056_current_season_state"
+description = "현재 시즌 누적 상태 복원"
+hypothesis = "공식 학습 종료 스냅샷과 현재 한 행의 asof 누적값 차이로 계산한 현재 시즌 투수 상태가 커리어 누적값보다 2024 제구 확률을 잘 설명한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main60_control"
+
+[[variants]]
+name = "main60_control"
+model = "catboost_native_scale106_shift_m008"
+features = "main60_cat_batter_team"
+change = "control: 합법 main60 CatBoost"
+
+[[variants]]
+name = "pitcher_season_success"
+model = "catboost_native_scale106_shift_m008"
+features = "main62_pitcher_season_success"
+change = "공식 학습 스냅샷 대비 현재 시즌 투수 n와 성공률(k=20) 추가"
+
+[[variants]]
+name = "pitcher_season_all"
+model = "catboost_native_scale106_shift_m008"
+features = "main66_pitcher_season_all"
+change = "현재 시즌 투수 성공·reverse·middle·ball·strike와 n 추가"
+
+[[variants]]
+name = "pitcher_batter_season_all"
+model = "catboost_native_scale106_shift_m008"
+features = "main69_pitcher_batter_season_all"
+change = "투수 시즌 전체 상태에 타자 시즌 n·성공·middle 추가"

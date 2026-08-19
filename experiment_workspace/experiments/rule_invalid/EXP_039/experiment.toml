@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_039"
+title = "순차 피처 CatBoost 용량 재탐색"
+hypothesis = "직전·rolling 피처가 추가된 main85는 기존 main60보다 깊거나 긴 트리가 상호작용을 더 잘 학습한다"
+change_scope = "model"
+study_config = "experiments/EXP_039/study.toml"
+based_on = "EXP_038"
+reference_variant = "plate_context"
+ablation_summary = "main85와 affine 보정을 고정하고 GPU CatBoost depth 5~8, iterations 450~900, learning_rate 경로만 변경"
+tags = ["catboost", "capacity", "sequential"]
+created_at_utc = "2026-08-17T18:46:08.063375+00:00"

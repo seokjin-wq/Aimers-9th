@@ -1,0 +1,19 @@
+[study]
+id = "107_track_velocity_triple_promotion"
+description = "Trackman velocity promotion to corrected triple"
+hypothesis = "The official Trackman velocity pair retains its CPU gain in the corrected CPU50/GPU35/Extra15 ensemble with train-only count calibration."
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "current_corrected_triple"
+
+[[variants]]
+name = "current_corrected_triple"
+model = "triple_group_count_k500_shift_m0095_w50_35_15"
+features = "main72_cat_count_hands_same_pitchmix"
+change = "control: EXP_103 corrected count-calibrated triple"
+
+[[variants]]
+name = "track_velocity_corrected_triple"
+model = "triple_group_count_k500_shift_m0095_w50_35_15"
+features = "main74_same_pitchmix_track_velocity"
+change = "add EXP_106 official Trackman relative-speed and zone-speed context"

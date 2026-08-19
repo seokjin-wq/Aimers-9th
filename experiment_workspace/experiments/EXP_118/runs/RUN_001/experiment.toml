@@ -1,0 +1,11 @@
+[experiment]
+id = "EXP_118"
+title = "Reliability-feature CatBoost capacity refresh"
+hypothesis = "Adding six reliability features changes model complexity needs; a deeper or longer schedule may capture the new interactions better than the old depth8/300 setting."
+change_scope = "model"
+study_config = "experiments/EXP_118/study.toml"
+based_on = "EXP_117"
+reference_variant = "weights_50_35_15"
+ablation_summary = "Use main78 reliability features and CPU screening with season decay, subsample, affine postprocess, seed, and all other parameters fixed; compare depth8/300 to depth7/450, depth8/450 low-lr, and depth9/220."
+tags = ["compliance", "row-independent", "catboost", "capacity", "reliability"]
+created_at_utc = "2026-08-18T12:16:56.158249+00:00"

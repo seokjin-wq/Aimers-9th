@@ -1,0 +1,37 @@
+[study]
+id = "010_previous_season_target_features"
+description = "직전 시즌 타깃 이력 피처"
+hypothesis = "이전 시즌만으로 만든 투수·타자·팀 제구율이 커리어 누적률보다 최근 실력을 잘 반영해 2024 Brier를 개선한다"
+protocol = "holdout_2024"
+change_scope = ["features"]
+control = "main55_control"
+
+[[variants]]
+name = "main55_control"
+model = "catboost_native_300"
+features = "main55"
+change = "control: main55"
+
+[[variants]]
+name = "add_season_priors"
+model = "catboost_native_300"
+features = "main55_plus_season_priors"
+change = "직전 시즌 전체 제구율과 선형 추세 prior 추가"
+
+[[variants]]
+name = "add_pitcher_prev_season"
+model = "catboost_native_300"
+features = "main55_plus_pitcher_prev_season"
+change = "시즌 prior와 직전 시즌 투수 스무딩 이력 추가"
+
+[[variants]]
+name = "add_player_prev_season"
+model = "catboost_native_300"
+features = "main55_plus_player_prev_season"
+change = "시즌 prior와 직전 시즌 투수·타자 스무딩 이력 추가"
+
+[[variants]]
+name = "add_full_prev_season"
+model = "catboost_native_300"
+features = "main55_plus_full_prev_season"
+change = "시즌 prior와 직전 시즌 선수·팀 스무딩 이력 추가"

@@ -1,0 +1,6 @@
+variant,change,feature_set,feature_count,model,model_family,fold_count,mean_brier,std_brier,mean_brier_skill_score,changed_fields_vs_control,delta_brier_vs_control,seasons_improved
+count_control,control: EXP_008 최선 카운트 피처,main55_plus_count,60,catboost_native_300,catboost,1,0.2479681399223257,0.0,736.0832056720667,[],0.0,0/1
+count_plus_smoothing,카운트 기준에 스무딩 묶음 추가,main55_plus_count_smoothing,65,catboost_native_300,catboost,1,0.247987123311698,0.0,728.4839810953958,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",1.8983389372312365e-05,0/1
+all_positive_groups,카운트·스무딩·결측 세 묶음 전체 조합,main55_plus_all_positive,68,catboost_native_300,catboost,1,0.2480079182164328,0.0,720.1595903330027,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",3.9778294107090106e-05,0/1
+count_plus_missing,카운트 기준에 결측 플래그 추가,main55_plus_count_missing,63,catboost_native_300,catboost,1,0.2480111447198612,0.0,718.867991468919,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",4.300479753546749e-05,0/1
+smoothing_plus_missing,스무딩과 결측 플래그 조합,main55_plus_smoothing_missing,63,catboost_native_300,catboost,1,0.2480262360628095,0.0,712.8267887111517,"['features.custom', 'features.description', 'features.expected_count', 'features.name']",5.809614048379874e-05,0/1

@@ -1,0 +1,8 @@
+{
+  "snapshot_created_at_utc": "2026-08-17T15:03:10.957109+00:00",
+  "backfilled_after_run": true,
+  "config_hash_verified": "b35c50f2f176",
+  "based_on": "EXP_002",
+  "reference_variant": "selected41_control",
+  "ablation_summary": "EXP_002의 main55를 선택 제공 41개와 custom14로 분해해 custom14의 순수 추가 효과를 검증"
+}

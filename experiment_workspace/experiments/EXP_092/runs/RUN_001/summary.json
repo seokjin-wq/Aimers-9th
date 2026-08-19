@@ -1,0 +1,117 @@
+{
+  "experiment_id": "EXP_092",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T07:22:40.960819+00:00",
+  "completed_at_utc": "2026-08-18T07:27:26.120080+00:00",
+  "config_hash": "206feb626d5e",
+  "based_on": "EXP_090",
+  "reference_variant": "late_pitcher_history",
+  "ablation_summary": "Fix EXP_084 CPU features; add exactly one pressure state by pitcher success/reverse/middle block, then all three blocks.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/092_count_pressure_history/20260818T072240969039Z_206feb626d5e",
+  "control": "same_hand_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "full_count_history",
+  "best_mean_brier": 0.247507849974981,
+  "best_delta_brier_vs_control": -4.016663244760244e-06,
+  "leaderboard": [
+    {
+      "variant": "full_count_history",
+      "change": "풀카운트×투수 성공·반대·가운데 이력 3개",
+      "feature_set": "main75_same_pitchmix_full_count_history",
+      "feature_count": 75,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.24750785,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 920.341485985,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": -4.0167e-06,
+      "seasons_improved": "1/1"
+    },
+    {
+      "variant": "same_hand_control",
+      "change": "control: EXP_084 CPU same-hand pitchmix",
+      "feature_set": "main72_cat_count_hands_same_pitchmix",
+      "feature_count": 72,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475118666,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 918.7335789118,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "two_strike_history",
+      "change": "2스트라이크×투수 성공·반대·가운데 이력 3개",
+      "feature_set": "main75_same_pitchmix_two_strike_history",
+      "feature_count": 75,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475119267,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 918.7095409631,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 6e-08,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "all_pressure_history",
+      "change": "세 압박 상태의 9개 교호항 모두 추가",
+      "feature_set": "main81_same_pitchmix_count_pressure_history",
+      "feature_count": 81,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475300384,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 911.4592595977,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 1.81718e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "three_ball_history",
+      "change": "3볼×투수 성공·반대·가운데 이력 3개",
+      "feature_set": "main75_same_pitchmix_three_ball_history",
+      "feature_count": 75,
+      "model": "catboost_d8_decay085",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475421358,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 906.6165527633,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 3.02692e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "4eace8420083c72b284090299366bfb9735e5e89dd2a5578f18d575c0bdaca64",
+  "git_commit": "1cc09d6b1bddb26fa400b2c568886e934b9b4858",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 284.96786284446716
+}

@@ -1,0 +1,132 @@
+{
+  "experiment_id": "EXP_051",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-17T20:22:28.806831+00:00",
+  "completed_at_utc": "2026-08-17T20:30:43.785583+00:00",
+  "config_hash": "6d6b8ce12132",
+  "based_on": "EXP_050",
+  "reference_variant": "d6_i600",
+  "ablation_summary": "EXP050의 main81·CPU d6 i600을 고정하고 global reverse rolling window 50·100·150·200·300만 하나씩 추가",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/exp_051/20260817T202228812876Z_6d6b8ce12132",
+  "control": "control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "control",
+  "best_mean_brier": 0.246647685817556,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "control",
+      "change": "control: EXP050 d6 i600 + global200 success",
+      "feature_set": "main81_add_global200",
+      "feature_count": 81,
+      "model": "catboost_cpu_d6_i600_lr030",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2466476858,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1264.6730738206,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "reverse200",
+      "change": "global recent200 reverse 추가",
+      "feature_set": "main82_add_global200_reverse",
+      "feature_count": 82,
+      "model": "catboost_cpu_d6_i600_lr030",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2466692254,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1256.0506003288,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 2.15395e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "reverse300",
+      "change": "global recent300 reverse 추가",
+      "feature_set": "main82_add_global300_reverse",
+      "feature_count": 82,
+      "model": "catboost_cpu_d6_i600_lr030",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2466721303,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1254.8877288309,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 2.44445e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "reverse150",
+      "change": "global recent150 reverse 추가",
+      "feature_set": "main82_add_global150_reverse",
+      "feature_count": 82,
+      "model": "catboost_cpu_d6_i600_lr030",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2466724749,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1254.7497738638,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 2.47891e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "reverse50",
+      "change": "global recent50 reverse 추가",
+      "feature_set": "main82_add_global50_reverse",
+      "feature_count": 82,
+      "model": "catboost_cpu_d6_i600_lr030",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2466751969,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1253.6601395506,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 2.75111e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "reverse100",
+      "change": "global recent100 reverse 추가",
+      "feature_set": "main82_add_global100_reverse",
+      "feature_count": 82,
+      "model": "catboost_cpu_d6_i600_lr030",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.246675221,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 1253.6504936715,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 2.75352e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "88790b69ad03b2553ac07b1add8e21e822e1e7a6f7b100b5f83cfe4c93c0e6c5",
+  "git_commit": "68edbf84e3f92e8376713a6b9b1d069e053f4d85",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 494.7914822101593
+}

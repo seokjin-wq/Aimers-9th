@@ -1,0 +1,49 @@
+[study]
+id = "027_catboost_gpu"
+description = "CatBoost GPU 학습 후보"
+hypothesis = "GPU CatBoost의 다른 histogram과 categorical 계산이 CPU 모델보다 낮은 Brier 또는 유용한 앙상블 다양성을 만든다"
+protocol = "holdout_2024"
+change_scope = ["model"]
+control = "cpu_control"
+
+[[variants]]
+name = "cpu_control"
+model = "catboost_top_d6_i400_lr040"
+features = "main60_cat_batter_team"
+change = "control: CPU depth6 400 lr0.04"
+
+[[variants]]
+name = "gpu_d6_i300"
+model = "catboost_gpu_d6_i300_lr050_b128"
+features = "main60_cat_batter_team"
+change = "GPU depth6 300 lr0.05 border128"
+
+[[variants]]
+name = "gpu_d6_i500"
+model = "catboost_gpu_d6_i500_lr030_b128"
+features = "main60_cat_batter_team"
+change = "GPU depth6 500 lr0.03 border128"
+
+[[variants]]
+name = "gpu_d6_i600"
+model = "catboost_gpu_d6_i600_lr025_b128"
+features = "main60_cat_batter_team"
+change = "GPU depth6 600 lr0.025 border128"
+
+[[variants]]
+name = "gpu_d7_i300"
+model = "catboost_gpu_d7_i300_lr040_b128"
+features = "main60_cat_batter_team"
+change = "GPU depth7 300 lr0.04 border128"
+
+[[variants]]
+name = "gpu_d8_i250"
+model = "catboost_gpu_d8_i250_lr040_b128"
+features = "main60_cat_batter_team"
+change = "GPU depth8 250 lr0.04 border128"
+
+[[variants]]
+name = "gpu_d6_i400_b64"
+model = "catboost_gpu_d6_i400_lr040_b64"
+features = "main60_cat_batter_team"
+change = "GPU depth6 400 lr0.04 border64"

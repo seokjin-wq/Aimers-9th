@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_019",
+  "decision": "adopt",
+  "selected_variant": "batter_team_cat",
+  "reason": "batter_team_id만 범주형으로 추가한 후보가 Brier 0.2478308423, BSS 791.045로 control보다 0.000044650 개선해 새 최고였다. 양 팀 범주형보다도 근소하게 우수했다.",
+  "based_on": "EXP_018",
+  "reference_variant": "d6_i300_control",
+  "ablation_summary": "main55+count와 CatBoost 설정을 고정하고 pitcher/batter/team/hand ID를 한 종류씩만 native categorical로 추가",
+  "selected_result": {
+    "variant": "batter_team_cat",
+    "change": "batter_team_id만 범주형 추가",
+    "feature_set": "main60_cat_batter_team",
+    "feature_count": 60,
+    "model": "catboost_native_shift_m010",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2478308423,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 791.0447010075,
+    "changed_fields_vs_control": "['features.categorical', 'features.description', 'features.name']",
+    "delta_brier_vs_control": -4.465e-05,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "numeric_control",
+    "change": "control: 기본 3개만 범주형",
+    "feature_set": "main55_plus_count",
+    "feature_count": 60,
+    "model": "catboost_native_shift_m010",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2478754923,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 773.1709037273,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-17T16:57:53.453003+00:00",
+  "based_on_run_id": "RUN_001"
+}

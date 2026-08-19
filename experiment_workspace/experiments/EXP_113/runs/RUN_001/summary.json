@@ -1,0 +1,102 @@
+{
+  "experiment_id": "EXP_113",
+  "run_id": "RUN_001",
+  "status": "complete",
+  "started_at_utc": "2026-08-18T11:23:52.262603+00:00",
+  "completed_at_utc": "2026-08-18T11:27:52.290051+00:00",
+  "config_hash": "c3865b5e52b3",
+  "based_on": "EXP_112",
+  "reference_variant": "history_reliability",
+  "ablation_summary": "Use the six-feature EXP_112 winner as control; remove exactly one two-feature block at a time: reliability levels, success-weighted rates, or reverse/middle-weighted rates.",
+  "raw_run_dir": "/home/chanheo/lgaimers/experiment_workspace/runs/113_reliability_decomposition/20260818T112352272963Z_c3865b5e52b3",
+  "control": "all_six_control",
+  "only": null,
+  "invocation": {
+    "data_dir": "/home/chanheo/lgaimers/open/data",
+    "raw_runs_root": "/home/chanheo/lgaimers/experiment_workspace/runs",
+    "only": null,
+    "store_predictions": false
+  },
+  "best_variant": "all_six_control",
+  "best_mean_brier": 0.2474879925802901,
+  "best_delta_brier_vs_control": 0.0,
+  "leaderboard": [
+    {
+      "variant": "all_six_control",
+      "change": "control: EXP_112 six-feature reliability winner",
+      "feature_set": "main78_history_reliability",
+      "feature_count": 78,
+      "model": "catboost_d8_decay085_sub08",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2474879926,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 928.2905828931,
+      "changed_fields_vs_control": "[]",
+      "delta_brier_vs_control": 0.0,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "remove_levels",
+      "change": "remove standalone pitcher/batter reliability levels only",
+      "feature_set": "main76_reliability_no_levels",
+      "feature_count": 76,
+      "model": "catboost_d8_decay085_sub08",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2474916354,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 926.8323284233,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 3.6428e-06,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "remove_success_weighted",
+      "change": "remove pitcher/batter success-rate weighted features only",
+      "feature_set": "main76_reliability_no_success",
+      "feature_count": 76,
+      "model": "catboost_d8_decay085_sub08",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475196789,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 915.6062673386,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 3.16863e-05,
+      "seasons_improved": "0/1"
+    },
+    {
+      "variant": "remove_failure_weighted",
+      "change": "remove pitcher reverse/middle weighted features only",
+      "feature_set": "main76_reliability_no_failure",
+      "feature_count": 76,
+      "model": "catboost_d8_decay085_sub08",
+      "model_family": "catboost",
+      "fold_count": 1,
+      "mean_brier": 0.2475505529,
+      "std_brier": 0.0,
+      "mean_brier_skill_score": 903.2470956254,
+      "changed_fields_vs_control": "['features.custom', 'features.description', 'features.expected_count', 'features.name']",
+      "delta_brier_vs_control": 6.25604e-05,
+      "seasons_improved": "0/1"
+    }
+  ],
+  "source_tree_sha256": "f2d2ac91f50286192e70ce0fb3da8940ce93ebf3100622c74c61c596f7a073e8",
+  "git_commit": "90dd686559946a9d917d8ff38eb9008e107931a7",
+  "data_files": {
+    "train.csv": {
+      "bytes": 368527723,
+      "sha256": "d2081186b458b49f60b082be480c273135833e15ba59a76d033af28bcf8763ff"
+    },
+    "test.csv": {
+      "bytes": 1894,
+      "sha256": "478d10b20c00443f6fe8270ab7348de49d14395526130f0b2d915da496821a19"
+    },
+    "sample_submission.csv": {
+      "bytes": 112,
+      "sha256": "b2cf6ba6745c74c46db23e620d74705f9b327efb8c8a14dc0dd2afab0e898775"
+    }
+  },
+  "elapsed_seconds": 239.83373641967773
+}

@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP_024",
+  "decision": "adopt",
+  "selected_variant": "extra_w24",
+  "reason": "CatBoost 76% + ExtraTrees leaf20 24%가 Brier 0.2477775942, BSS 812.360으로 control보다 0.000042727 개선해 새 최고였다.",
+  "based_on": "EXP_023",
+  "reference_variant": "catboost_control",
+  "ablation_summary": "동일 main60에서 CatBoost와 ExtraTrees leaf20을 함께 학습하고 ExtraTrees 가중치 0.15~0.35만 변경",
+  "selected_result": {
+    "variant": "extra_w24",
+    "change": "ExtraTrees 24% 혼합",
+    "feature_set": "main60_cat_batter_team",
+    "feature_count": 60,
+    "model": "cat_extra_blend_w24",
+    "model_family": "cat_extra_blend",
+    "fold_count": 1,
+    "mean_brier": 0.2477775942,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 812.3603933826,
+    "changed_fields_vs_control": "['model.cat_params.allow_writing_files', 'model.cat_params.depth', 'model.cat_params.eval_metric', 'model.cat_params.iterations', 'model.cat_params.l2_leaf_reg', 'model.cat_params.learning_rate', 'model.cat_params.loss_function', 'model.cat_params.random_seed', 'model.cat_params.subsample', 'model.cat_params.task_type', 'model.cat_params.thread_count', 'model.cat_params.verbose', 'model.cat_scale', 'model.cat_shift', 'model.extra_params.max_features', 'model.extra_params.min_samples_leaf', 'model.extra_params.n_estimators', 'model.extra_params.n_jobs', 'model.extra_params.random_state', 'model.extra_params.verbose', 'model.extra_shift', 'model.extra_weight', 'model.family', 'model.name', 'model.native_categorical', 'model.params.allow_writing_files', 'model.params.depth', 'model.params.eval_metric', 'model.params.iterations', 'model.params.l2_leaf_reg', 'model.params.learning_rate', 'model.params.loss_function', 'model.params.random_seed', 'model.params.subsample', 'model.params.task_type', 'model.params.thread_count', 'model.params.verbose', 'model.prediction_scale', 'model.prediction_shift']",
+    "delta_brier_vs_control": -4.27267e-05,
+    "seasons_improved": "1/1"
+  },
+  "control_result": {
+    "variant": "catboost_control",
+    "change": "control: 현재 최고 CatBoost",
+    "feature_set": "main60_cat_batter_team",
+    "feature_count": 60,
+    "model": "catboost_native_scale106_shift_m008",
+    "model_family": "catboost",
+    "fold_count": 1,
+    "mean_brier": 0.2478203209,
+    "std_brier": 0.0,
+    "mean_brier_skill_score": 795.2564988937,
+    "changed_fields_vs_control": "[]",
+    "delta_brier_vs_control": 0.0,
+    "seasons_improved": "0/1"
+  },
+  "decided_at_utc": "2026-08-17T17:40:37.520132+00:00",
+  "based_on_run_id": "RUN_001"
+}
