@@ -1,0 +1,88 @@
+train: (1475092, 78) | 모델 입력 피처: 80 (원본 39/47(제외 8), 파생 30, shrinkage 10, post-shrinkage 1)
+모델 입력에서 제외된 원본 컬럼: ['asof_pitcher_pitchmix_n', 'run_total_before', 'score_diff_home', 'num_runners_on', 'away_win_expectancy', 'top_bottom', 'runner_on_1b', 'runner_on_2b']
+시즌: 2019 ~ 2024
+제구 성공률: 0.5238
+
+val_priors 계산에 쓴 시즌: [2022, 2023]
+train: 1221585 | val: 253507
+
+================================================================================
+CatBoost + exp_004 피처셋 (제거 8개 + 신규 5개) + season-aware shrinkage
+================================================================================
+0:	learn: 0.6926181	test: 0.6930342	best: 0.6930342 (0)	total: 1.18s	remaining: 39m 26s
+200:	learn: 0.6818927	test: 0.6893447	best: 0.6893447 (200)	total: 2m 3s	remaining: 18m 25s
+400:	learn: 0.6810052	test: 0.6892405	best: 0.6892191 (361)	total: 3m 8s	remaining: 12m 30s
+600:	learn: 0.6801588	test: 0.6891744	best: 0.6891737 (599)	total: 3m 58s	remaining: 9m 14s
+Stopped by overfitting detector  (100 iterations wait)
+
+bestTest = 0.6891699864
+bestIteration = 615
+
+Shrink model to first 616 iterations.
+학습 완료 :: 268.8s | best_iteration=615
+[CatBoost] Brier: 0.248019 | Validation Score: 715.71
+pred mean/min/max: 0.4961 / 0.3296 / 0.6682
+
+================================================================================
+비교 요약
+================================================================================
+exp_003 (참고용 기록값): local score 723.17
+exp_004: local score 715.71 (Brier 0.248019), 268.8s
+차이: -7.46
+판정: 기각 후보 (exp_003보다 낮음 — 개별 변경 분리 필요)
+
+오류 분석 (구간별 Brier, n, 실제 성공률 vs 평균 예측):
+  two_strike=1: n=72965, brier=0.248609, 실제 성공률=0.4880, 평균예측=0.4936
+  two_strike=0: n=180542, brier=0.247781, 실제 성공률=0.4853, 평균예측=0.4971
+  is_close_game=1: n=113660, brier=0.248117, 실제 성공률=0.4921, 평균예측=0.5021
+  is_close_game=0: n=139847, brier=0.247940, 실제 성공률=0.4812, 평균예측=0.4912
+  cold_start(n<50): n=3980, brier=0.246535, 실제 성공률=0.4560, 평균예측=0.4755
+  warm(n>=50): n=249527, brier=0.248043, 실제 성공률=0.4866, 평균예측=0.4964
+
+Top 20 feature importance:
+    22.250  game_type
+    16.239  season
+     8.724  shrunk_pitcher_x_batter_success
+     2.361  asof_pitcher_prev5_game_success_rate
+     2.136  shrunk_pitcher_success_rate
+     2.132  pitcher_team_id
+     1.957  game_month
+     1.843  shrunk_pitcher_reverse_rate
+     1.804  asof_pitcher_reverse_rate
+     1.759  batter_team_id
+     1.751  asof_pitcher_prev1_game_success_rate
+     1.571  asof_pitcher_prev3_game_success_rate
+     1.507  shrunk_pitcher_ball_rate
+     1.502  pitcher_id
+     1.493  same_hand_x_breaking_rate
+     1.416  asof_pitcher_ball_rate
+     1.391  same_hand_matchup
+     1.272  asof_pitcher_n
+     1.212  pitcher_experience_log
+     1.135  batter_hand
+
+Bottom 10 feature importance:
+     0.145  score_margin_abs
+     0.124  pitcher_success_x_risp
+     0.039  runners_scoring_position
+     0.038  bases_loaded
+     0.035  full_count
+     0.030  is_close_game
+     0.017  runner_on_3b
+     0.008  late_inning
+     0.000  pitcher_cold_start
+     0.000  batter_cold_start
+
+================================================================================
+전체 데이터(2019-2024) 최종 재학습
+================================================================================
+final_priors 계산에 쓴 시즌: [2023, 2024]
+0:	learn: 0.6926749	total: 306ms	remaining: 3m 8s
+200:	learn: 0.6831897	total: 56.6s	remaining: 1m 56s
+400:	learn: 0.6823752	total: 2m 28s	remaining: 1m 19s
+600:	learn: 0.6816368	total: 4m 5s	remaining: 6.14s
+615:	learn: 0.6815766	total: 4m 10s	remaining: 0us
+최종 재학습 완료 :: 583.7s
+저장 완료: ./model/catboost_model.cbm, ./model/model_meta.pkl
+
+완료.

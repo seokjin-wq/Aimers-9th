@@ -1,0 +1,82 @@
+C:\Users\yeob0\lgAimers9_pitch-control\lg-aimers-9-pitch-control\.venv\Lib\site-packages\lightgbm\sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+train: (1475092, 74) | 피처: 84 (범주형 3, 파생 26, shrinkage 10, post-shrinkage 1)
+시즌: 2019 ~ 2024
+제구 성공률: 0.5238
+
+val_priors 계산에 쓴 시즌: [2022, 2023] (train split=[2019, 2020, 2021, 2022, 2023])
+prior 비교 (전체 학습기간 평균 vs 최근 시즌 평균), 대표 3개 컬럼:
+  asof_pitcher_success_rate: full=0.5402 -> recent=0.5296
+  asof_pitcher_reverse_rate: full=0.2106 -> recent=0.2282
+  asof_pitcher_middle_rate: full=0.1390 -> recent=0.1456
+train: 1221585 | val: 253507
+
+================================================================================
+1) LightGBM + exp_003 피처셋 + season-aware shrinkage
+================================================================================
+[LightGBM] 학습 실패 (환경 레벨 네이티브 크래시, 이 실험과 무관한 환경 문제로 판단): exception: access violation reading 0x0000000000000000
+[LightGBM] 이 비교에서는 건너뛰고 CatBoost 결과로만 진행한다.
+
+================================================================================
+2) CatBoost + exp_003 피처셋 + season-aware shrinkage (동일 피처)
+================================================================================
+0:	learn: 0.6926321	test: 0.6930438	best: 0.6930438 (0)	total: 591ms	remaining: 19m 42s
+200:	learn: 0.6818933	test: 0.6893543	best: 0.6893543 (200)	total: 54.9s	remaining: 8m 11s
+400:	learn: 0.6810037	test: 0.6891964	best: 0.6891864 (386)	total: 2m 20s	remaining: 9m 24s
+600:	learn: 0.6801650	test: 0.6891884	best: 0.6891328 (510)	total: 4m	remaining: 9m 21s
+Stopped by overfitting detector  (100 iterations wait)
+
+bestTest = 0.6891328164
+bestIteration = 510
+
+Shrink model to first 511 iterations.
+학습 완료 :: 55425.2s | best_iteration=510
+[CatBoost] Brier: 0.248000 | Validation Score: 723.17
+pred mean/min/max: 0.4950 / 0.3237 / 0.6514
+
+================================================================================
+3) 모델 비교 요약
+================================================================================
+exp_002 (LightGBM, 구 피처셋, 참고용 기록값): local score 706.28 (Brier 0.248043)
+exp_003 LightGBM: 이 환경에서 학습 실패(네이티브 크래시) — 비교 불가
+exp_003 CatBoost (신규 피처셋 + season-aware shrinkage): local score 723.17 (Brier 0.248000), 55425.2s
+
+선택된 모델: catboost (LightGBM 학습 실패로 인한 자동 선택)
+
+오류 분석 (catboost 기준, 구간별 Brier, n, 실제 성공률 vs 평균 예측):
+  two_strike=1: n=72965, brier=0.248521, 실제 성공률=0.4880, 평균예측=0.4923
+  two_strike=0: n=180542, brier=0.247790, 실제 성공률=0.4853, 평균예측=0.4961
+  is_close_game=1: n=113660, brier=0.248068, 실제 성공률=0.4921, 평균예측=0.5007
+  is_close_game=0: n=139847, brier=0.247945, 실제 성공률=0.4812, 평균예측=0.4903
+  cold_start(n<50): n=3980, brier=0.246327, 실제 성공률=0.4560, 평균예측=0.4734
+  warm(n>=50): n=249527, brier=0.248027, 실제 성공률=0.4866, 평균예측=0.4953
+
+Top 15 feature importance (catboost):
+  game_type: 24.3
+  season: 17.5
+  shrunk_pitcher_x_batter_success: 8.5
+  asof_pitcher_prev5_game_success_rate: 2.5
+  asof_pitcher_reverse_rate: 2.2
+  pitcher_team_id: 1.9
+  shrunk_pitcher_success_rate: 1.9
+  asof_pitcher_prev1_game_success_rate: 1.8
+  game_month: 1.8
+  shrunk_pitcher_ball_rate: 1.8
+  batter_team_id: 1.7
+  shrunk_pitcher_reverse_rate: 1.6
+  same_hand_matchup: 1.5
+  pitcher_id: 1.5
+  asof_pitcher_success_rate: 1.5
+
+================================================================================
+4) 전체 데이터(2019-2024) 최종 재학습
+================================================================================
+final_priors 계산에 쓴 시즌: [2023, 2024]
+0:	learn: 0.6926840	total: 922ms	remaining: 7m 50s
+200:	learn: 0.6831620	total: 1m 9s	remaining: 1m 47s
+400:	learn: 0.6823472	total: 3m 9s	remaining: 52s
+510:	learn: 0.6819578	total: 3m 43s	remaining: 0us
+최종 재학습 완료(CatBoost) :: 225.2s
+저장 완료: ./model/catboost_model.cbm, ./model/model_meta.pkl
+
+완료.

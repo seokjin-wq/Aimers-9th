@@ -1,0 +1,32 @@
+모드: trend_only | 사용하는 trackman 피처: ['trackman_league_breaking_rate_asof', 'trackman_same_hand_breaking_rate_asof']
+train: 1221585 | val: 253507 | 피처 수: 87
+0:	learn: 0.6926188	test: 0.6930008	best: 0.6930008 (0)	total: 720ms	remaining: 23m 58s
+200:	learn: 0.6818709	test: 0.6893028	best: 0.6893028 (200)	total: 1m 37s	remaining: 14m 29s
+400:	learn: 0.6809549	test: 0.6892363	best: 0.6891850 (333)	total: 2m 44s	remaining: 10m 57s
+Stopped by overfitting detector  (100 iterations wait)
+
+bestTest = 0.6891849539
+bestIteration = 333
+
+Shrink model to first 334 iterations.
+학습 완료 :: 175.5s | best_iteration=333
+[trend_only] Brier: 0.248026 | Validation Score: 712.78
+exp_003 기준(723.17) 대비: -10.39
+
+Top 10:
+  game_type: 28.15
+  season: 14.56
+  shrunk_pitcher_x_batter_success: 10.12
+  trackman_league_breaking_rate_asof: 5.74
+  trackman_same_hand_breaking_rate_asof: 3.09
+  asof_pitcher_reverse_rate: 2.40
+  shrunk_pitcher_success_rate: 2.35
+  asof_pitcher_prev5_game_success_rate: 2.03
+  asof_pitcher_prev1_game_success_rate: 1.74
+  shrunk_pitcher_ball_rate: 1.74
+
+trackman 피처:
+  trackman_league_breaking_rate_asof: importance=5.74, 랭킹=4/87
+  trackman_same_hand_breaking_rate_asof: importance=3.09, 랭킹=5/87
+
+완료.

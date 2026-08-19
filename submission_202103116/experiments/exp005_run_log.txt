@@ -1,0 +1,76 @@
+================================================================================
+0) 데이터 로드 + 트랙맨 as-of 테이블 빌드
+================================================================================
+trackman_history.csv 로드: (1793078, 30), 5.1s
+as-of 테이블 빌드: 2.2s
+  trackman_same_hand_breaking_rate_asof: 테이블 94행, fallback={0: 0.21586054616768743, 1: 0.35376531055260513}
+  trackman_three_ball_fastball_rate_asof: 테이블 94행, fallback={0: 0.5074570981317159, 1: 0.6459832564943122}
+  trackman_three_ball_rel_speed_asof: 테이블 94행, fallback={0: 135.7412714918665, 1: 138.36261395735033}
+  trackman_league_breaking_rate_asof: 테이블 47행, fallback=0.28601474304524144
+
+train: (1475092, 79) | 피처: 89 (범주형 3, 파생 27, shrinkage 10, post-shrinkage 1, trackman 4)
+시즌: 2019 ~ 2024
+제구 성공률: 0.5238
+  trackman_same_hand_breaking_rate_asof: mean=0.2626, nan=0
+  trackman_three_ball_fastball_rate_asof: mean=0.5606, nan=0
+  trackman_three_ball_rel_speed_asof: mean=135.6214, nan=0
+  trackman_league_breaking_rate_asof: mean=0.2649, nan=0
+
+val_priors 계산에 쓴 시즌: [2022, 2023]
+train: 1221585 | val: 253507
+
+================================================================================
+1) CatBoost + exp_003 피처셋 + trackman as-of 피처 5개
+================================================================================
+0:	learn: 0.6926298	test: 0.6930518	best: 0.6930518 (0)	total: 699ms	remaining: 23m 17s
+200:	learn: 0.6818812	test: 0.6893425	best: 0.6893425 (200)	total: 1m 32s	remaining: 13m 52s
+400:	learn: 0.6809602	test: 0.6892421	best: 0.6892330 (374)	total: 3m 17s	remaining: 13m 9s
+Stopped by overfitting detector  (100 iterations wait)
+
+bestTest = 0.6892329542
+bestIteration = 374
+
+Shrink model to first 375 iterations.
+학습 완료 :: 238.0s | best_iteration=374
+[CatBoost] Brier: 0.248050 | Validation Score: 703.21
+pred mean/min/max: 0.4970 / 0.3307 / 0.6416
+
+================================================================================
+2) exp_003 대비 비교
+================================================================================
+exp_003 (기준, 기록값): local score 723.17
+exp_005 (트랙맨 5개 피처 추가): local score 703.21 (Brier 0.248050), 238.0s
+차이: -19.96
+채택 여부: 기각 (기준: exp_003 이상)
+
+Top 20 feature importance:
+  game_type: 26.97
+  season: 12.73
+  shrunk_pitcher_x_batter_success: 10.54
+  trackman_league_breaking_rate_asof: 5.93
+  trackman_same_hand_breaking_rate_asof: 2.66
+  shrunk_pitcher_success_rate: 2.23
+  shrunk_pitcher_reverse_rate: 2.03
+  shrunk_pitcher_ball_rate: 1.94
+  asof_pitcher_reverse_rate: 1.92
+  asof_pitcher_prev5_game_success_rate: 1.89
+  asof_pitcher_prev1_game_success_rate: 1.81
+  batter_team_id: 1.68
+  pitcher_team_id: 1.60
+  asof_pitcher_prev3_game_success_rate: 1.53
+  asof_pitcher_ball_rate: 1.17
+  trackman_three_ball_rel_speed_asof: 1.07
+  same_hand_x_breaking_rate: 1.03
+  pitcher_id: 0.98
+  trackman_three_ball_fastball_rate_asof: 0.97
+  asof_pitcher_success_rate: 0.95
+
+trackman 피처 importance (전체 랭킹 중 순위 포함):
+  trackman_league_breaking_rate_asof: importance=5.93, 랭킹=4/89
+  trackman_same_hand_breaking_rate_asof: importance=2.66, 랭킹=5/89
+  trackman_three_ball_rel_speed_asof: importance=1.07, 랭킹=16/89
+  trackman_three_ball_fastball_rate_asof: importance=0.97, 랭킹=19/89
+  is_postseason: importance=0.00, 랭킹=89/89
+
+exp_003 미만이라 이번 실행에서는 모델/제출물을 저장하지 않는다.
+완료.

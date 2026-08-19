@@ -1,0 +1,15 @@
+mode=addition_only | n_features=88 | base=47 derived=30
+0:	learn: 0.6926180	test: 0.6930332	best: 0.6930332 (0)	total: 579ms	remaining: 19m 18s
+200:	learn: 0.6819263	test: 0.6893262	best: 0.6893262 (200)	total: 1m 19s	remaining: 11m 52s
+400:	learn: 0.6810052	test: 0.6891599	best: 0.6891560 (396)	total: 2m 7s	remaining: 8m 29s
+600:	learn: 0.6801666	test: 0.6891505	best: 0.6891420 (535)	total: 2m 57s	remaining: 6m 54s
+Stopped by overfitting detector  (100 iterations wait)
+
+bestTest = 0.6891420327
+bestIteration = 535
+
+Shrink model to first 536 iterations.
+
+[addition_only] Brier: 0.248005 | Validation Score: 721.32 | 190.8s
+참고: exp_003=723.17, exp_004(전체 번들)=715.71
+이 실행(addition_only)의 exp_003 대비 차이: -1.85

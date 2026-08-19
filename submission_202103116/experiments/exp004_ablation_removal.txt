@@ -1,0 +1,15 @@
+mode=removal_only | n_features=75 | base=39 derived=25
+0:	learn: 0.6926094	test: 0.6929983	best: 0.6929983 (0)	total: 462ms	remaining: 15m 24s
+200:	learn: 0.6819123	test: 0.6893520	best: 0.6893520 (200)	total: 2m 1s	remaining: 18m 8s
+400:	learn: 0.6810229	test: 0.6891813	best: 0.6891789 (392)	total: 3m 13s	remaining: 12m 52s
+600:	learn: 0.6802036	test: 0.6891652	best: 0.6891650 (599)	total: 4m 4s	remaining: 9m 29s
+Stopped by overfitting detector  (100 iterations wait)
+
+bestTest = 0.6891624542
+bestIteration = 602
+
+Shrink model to first 603 iterations.
+
+[removal_only] Brier: 0.248015 | Validation Score: 717.24 | 272.5s
+참고: exp_003=723.17, exp_004(전체 번들)=715.71
+이 실행(removal_only)의 exp_003 대비 차이: -5.93

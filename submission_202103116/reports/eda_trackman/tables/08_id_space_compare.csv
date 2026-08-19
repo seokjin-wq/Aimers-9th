@@ -1,0 +1,5 @@
+dataset,column,n_unique,min,max
+train,pitcher_id,792,20700,24633
+train,batter_id,830,20889,24632
+trackman,pitcher_trackman_id,906,50008,71775155
+trackman,batter_trackman_id,913,50007,93595155
