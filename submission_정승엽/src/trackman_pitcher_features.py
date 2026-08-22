@@ -151,6 +151,114 @@ def attach_pitcher_physical_features(df, tables, pitcher_mapping, shrink_k=100):
     return df
 
 
+# exp_035: pitch_type_group-conditioned physical profiles. The original
+# functions above pool all pitch types together when averaging
+# PHYSICAL_COLS; trackman_history.csv already ships a clean, validated
+# `pitch_type_group` column (fastball/breaking/offspeed/other, 91.63%
+# agreement between two independently-computed official classification
+# methods -- reports/eda_trackman/README.md), and the three main groups
+# have meaningfully different physical centers (README §6), flagged
+# there as the concrete untried next hypothesis. These are NEW sibling
+# functions (not a parameter added to the ones above) so the existing
+# exp_030 production path is untouched.
+GROUP_VALUES = ["fastball", "breaking", "offspeed"]  # "other" excluded (small/heterogeneous bucket)
+GROUP_TRACKMAN_COLS = [f"trackman_{col}_{g}_asof" for col in PHYSICAL_COLS for g in GROUP_VALUES]
+
+
+def build_pitcher_physical_asof_tables_by_group(trackman_clean, group_col="pitch_type_group", group_values=GROUP_VALUES):
+    """Same cumulative-as-of construction as build_pitcher_physical_asof_tables,
+    but one table per (PHYSICAL_COLS entry, group_col value) instead of
+    pooling all pitch types. Returns {(col, group_value): {"table":..., "league_fallback":...}},
+    where league_fallback is that GROUP's own league mean (not the
+    pooled one -- a pooled fallback would bias a cold-start row toward
+    the wrong group's center given how different the group means are)."""
+    tm = trackman_clean.loc[~trackman_clean["is_illegal_count"]].copy()
+    tm["ym"] = tm["season"] * 100 + tm["game_month"]
+
+    tables = {}
+    for col in PHYSICAL_COLS:
+        frame_col = tm.dropna(subset=[col, group_col])
+        for group_value in group_values:
+            frame = frame_col.loc[frame_col[group_col] == group_value]
+            g = (
+                frame.groupby(["pitcher_trackman_id", "ym"])[col]
+                .agg(n="size", s="sum")
+                .reset_index()
+                .sort_values(["pitcher_trackman_id", "ym"])
+            )
+            g["cum_n"] = g.groupby("pitcher_trackman_id")["n"].cumsum() - g["n"]
+            g["cum_s"] = g.groupby("pitcher_trackman_id")["s"].cumsum() - g["s"]
+            g["asof_mean"] = g["cum_s"] / g["cum_n"]
+            cum_table = g[["pitcher_trackman_id", "ym", "cum_n", "asof_mean"]]
+
+            totals = frame.groupby("pitcher_trackman_id")[col].agg(n="size", asof_mean="mean").reset_index()
+            totals = totals.rename(columns={"n": "cum_n"})
+            totals["ym"] = SEASON_2025_SENTINEL_YM
+
+            full_table = pd.concat([cum_table, totals[["pitcher_trackman_id", "ym", "cum_n", "asof_mean"]]], ignore_index=True)
+            full_table = full_table.sort_values(["pitcher_trackman_id", "ym"]).reset_index(drop=True)
+
+            tables[(col, group_value)] = {"table": full_table, "league_fallback": float(frame[col].mean())}
+    return tables
+
+
+def attach_pitcher_physical_features_by_group(df, tables, pitcher_mapping, group_values=GROUP_VALUES, shrink_k=100):
+    """df must have pitcher_id, season, game_month. Adds
+    trackman_{col}_{group}_asof for every (PHYSICAL_COLS, group_values)
+    pair -- these are always-present per-pitcher profile facets (e.g.
+    "how hard is this pitcher's fastball generally"), NOT conditioned on
+    what pitch the current row is about to throw (test rows never carry
+    that -- same framing as the pooled trackman_{col}_asof columns)."""
+    df = df.copy()
+    df["ym"] = df["season"] * 100 + df["game_month"]
+    pid_to_tmid = pitcher_mapping.set_index("pitcher_id")["matched_pitcher_trackman_id"]
+    df["_tmid"] = df["pitcher_id"].map(pid_to_tmid)
+
+    df["_orig_order"] = np.arange(len(df))
+    left = df[["_orig_order", "ym", "_tmid"]].copy()
+    left["_tmid"] = left["_tmid"].fillna(-1).astype("int64")
+    left_sorted = left.sort_values("ym")
+
+    for col in PHYSICAL_COLS:
+        for group_value in group_values:
+            key = (col, group_value)
+            out_col = f"trackman_{col}_{group_value}_asof"
+            if key not in tables:
+                df[out_col] = 0.0
+                continue
+            table = tables[key]["table"].copy()
+            table = table.rename(columns={"pitcher_trackman_id": "_tmid"}).sort_values("ym")
+            league_fb = tables[key]["league_fallback"]
+
+            merged = pd.merge_asof(left_sorted, table, on="ym", by="_tmid", direction="backward")
+            merged = merged.sort_values("_orig_order")
+
+            n = merged["cum_n"].fillna(0.0).to_numpy()
+            raw = merged["asof_mean"].fillna(0.0).to_numpy()
+            shrunk = (n * raw + shrink_k * league_fb) / (n + shrink_k)
+            df[out_col] = shrunk
+
+    df = df.drop(columns=["ym", "_tmid", "_orig_order"])
+    return df
+
+
+def build_test_time_pitcher_lookup_by_group(tables, pitcher_mapping, shrink_k, group_values=GROUP_VALUES):
+    """Flat submission-time lookup, group-conditioned version of
+    build_test_time_pitcher_lookup -- same "every 2025 row resolves to
+    the sentinel" property (no real trackman ym is ever >= 202501)."""
+    probe = pitcher_mapping[["pitcher_id"]].copy()
+    probe["season"] = 2025
+    probe["game_month"] = 1
+    lookup = attach_pitcher_physical_features_by_group(probe, tables, pitcher_mapping, group_values=group_values, shrink_k=shrink_k)
+    cols = [f"trackman_{col}_{g}_asof" for col in PHYSICAL_COLS for g in group_values]
+    lookup = lookup[["pitcher_id"] + cols].reset_index(drop=True)
+    league_fallback = {
+        f"trackman_{col}_{g}_asof": tables[(col, g)]["league_fallback"]
+        for col in PHYSICAL_COLS for g in group_values if (col, g) in tables
+    }
+    return lookup, league_fallback
+
+
 def build_test_time_pitcher_lookup(tables, pitcher_mapping, shrink_k):
     """Flat `pitcher_id -> trackman_*_asof` lookup for submission-time
     inference, where every row is season 2025 by construction. Every

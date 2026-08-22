@@ -168,13 +168,15 @@ def fit_logistic_regression(
 # ---------------------------------------------------------------- A2/A3 --
 
 def _fit_sklearn_tree_ensemble(cls, name, X_train_enc, y_train, X_val_enc, y_val,
-                                seed, n_estimators, max_depth, min_samples_leaf):
+                                seed, n_estimators, max_depth, min_samples_leaf,
+                                max_features="sqrt", n_jobs=-1):
     imputer = SimpleImputer(strategy="median")
 
     t = time.time()
     X_train_imp = imputer.fit_transform(X_train_enc)
     clf = cls(n_estimators=n_estimators, max_depth=max_depth,
-              min_samples_leaf=min_samples_leaf, n_jobs=-1, random_state=seed)
+              min_samples_leaf=min_samples_leaf, max_features=max_features,
+              n_jobs=n_jobs, random_state=seed)
     clf.fit(X_train_imp, y_train)
     train_seconds = time.time() - t
 
@@ -197,28 +199,44 @@ def _fit_sklearn_tree_ensemble(cls, name, X_train_enc, y_train, X_val_enc, y_val
 
 
 def fit_random_forest(X_train_enc, y_train, X_val_enc, y_val, seed=42,
-                       n_estimators=100, max_depth=10, min_samples_leaf=200):
+                       n_estimators=100, max_depth=10, min_samples_leaf=200,
+                       max_features="sqrt", n_jobs=-1):
     return _fit_sklearn_tree_ensemble(RandomForestClassifier, "RandomForest",
                                        X_train_enc, y_train, X_val_enc, y_val,
-                                       seed, n_estimators, max_depth, min_samples_leaf)
+                                       seed, n_estimators, max_depth, min_samples_leaf,
+                                       max_features=max_features, n_jobs=n_jobs)
 
 
 def fit_extra_trees(X_train_enc, y_train, X_val_enc, y_val, seed=42,
-                     n_estimators=100, max_depth=10, min_samples_leaf=200):
+                     n_estimators=100, max_depth=10, min_samples_leaf=200,
+                     max_features="sqrt", n_jobs=-1):
+    # exp_031: max_depth=None (unconstrained, matching the teammate
+    # pipeline's ExtraTrees spec -- only min_samples_leaf bounds growth)
+    # and max_features are now exposed; defaults unchanged so exp_006's
+    # original callers (train_model_selection.py) behave identically.
     return _fit_sklearn_tree_ensemble(ExtraTreesClassifier, "ExtraTrees",
                                        X_train_enc, y_train, X_val_enc, y_val,
-                                       seed, n_estimators, max_depth, min_samples_leaf)
+                                       seed, n_estimators, max_depth, min_samples_leaf,
+                                       max_features=max_features, n_jobs=n_jobs)
 
 
 # ---------------------------------------------------------------- A4 ----
 
-def fit_catboost(X_train, y_train, X_val, y_val, cat_cols, seed=42):
+def fit_catboost(X_train, y_train, X_val, y_val, cat_cols, seed=42,
+                  params=None, sample_weight=None, name="CatBoost"):
+    """exp_031: `params` overrides the default hyperparameters (for a
+    second, differently-tuned CatBoost ensemble member); `sample_weight`
+    (exp_033: per-row season-decay weights) is passed straight through
+    to cb.Pool if given. Both default to the original exp_006 behavior
+    (fixed depth=6/lr=0.03 params, unweighted) for existing callers."""
     cb_params = dict(
         iterations=2000, learning_rate=0.03, depth=6, l2_leaf_reg=3.0,
         loss_function="Logloss", eval_metric="Logloss",
         random_seed=seed, thread_count=-1, verbose=False,
     )
-    train_pool = cb.Pool(X_train, y_train, cat_features=cat_cols)
+    if params:
+        cb_params.update(params)
+    train_pool = cb.Pool(X_train, y_train, cat_features=cat_cols, weight=sample_weight)
     val_pool = cb.Pool(X_val, y_val, cat_features=cat_cols)
 
     t = time.time()
@@ -231,13 +249,13 @@ def fit_catboost(X_train, y_train, X_val, y_val, cat_cols, seed=42):
     infer_seconds = time.time() - t
 
     return ModelResult(
-        name="CatBoost",
+        name=name,
         model=clf,
         val_pred=val_pred,
         train_seconds=train_seconds,
         infer_seconds=infer_seconds,
         model_mb=_native_model_mb(clf.save_model),
-        extra={"best_iteration": clf.get_best_iteration()},
+        extra={"best_iteration": clf.get_best_iteration(), "params": cb_params},
     )
 
 
