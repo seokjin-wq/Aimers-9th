@@ -1,0 +1,47 @@
+0:	learn: 0.6926217	test: 0.6930389	best: 0.6930389 (0)	total: 643ms	remaining: 21m 25s
+200:	learn: 0.6819328	test: 0.6893543	best: 0.6893543 (200)	total: 56.9s	remaining: 8m 29s
+400:	learn: 0.6809848	test: 0.6891561	best: 0.6891561 (400)	total: 2m 25s	remaining: 9m 40s
+600:	learn: 0.6801077	test: 0.6890768	best: 0.6890759 (593)	total: 4m 18s	remaining: 10m 2s
+Stopped by overfitting detector  (100 iterations wait)
+
+bestTest = 0.6890434324
+bestIteration = 695
+
+Shrink model to first 696 iterations.
+학습 완료 :: 357.4s | best_iter=695
+[k=50] Brier=0.247956 | score=740.86
+
+--- feature importance (top 20 / 89) ---
+  # 1 game_type: 20.75
+  # 2 season: 14.87
+  # 3 shrunk_pitcher_x_batter_success: 7.49
+  # 4 shrunk_pitcher_success_rate: 2.28
+  # 5 pitcher_team_id: 2.09
+  # 6 batter_team_id: 2.06
+  # 7 asof_pitcher_prev5_game_success_rate: 2.05
+  # 8 asof_pitcher_prev3_game_success_rate: 1.77
+  # 9 same_hand_x_breaking_rate: 1.77
+  #10 asof_pitcher_reverse_rate: 1.75
+  #11 game_month: 1.73
+  #12 asof_pitcher_prev1_game_success_rate: 1.64
+  #13 shrunk_pitcher_reverse_rate: 1.58
+  #14 trackman_induced_vert_break_asof: 1.52 <== trackman
+  #15 shrunk_pitcher_ball_rate: 1.49
+  #16 trackman_extension_asof: 1.35 <== trackman
+  #17 pitcher_id: 1.29
+  #18 asof_pitcher_ball_rate: 1.21
+  #19 same_hand_matchup: 1.19
+  #20 trackman_horz_break_asof: 1.16 <== trackman
+
+trackman 피처 5개의 89개 중 순위: [14, 16, 20, 22, 27]
+
+--- 오류 분석 (구간별 Brier) ---
+  two_strike=1: n=72965, brier=0.248547, 실제 성공률=0.4880, 평균예측=0.4938
+  two_strike=0: n=180542, brier=0.247717, 실제 성공률=0.4853, 평균예측=0.4981
+  is_close_game=1: n=113660, brier=0.248028, 실제 성공률=0.4921, 평균예측=0.5025
+  cold_start(n<50): n=3980, brier=0.246782, 실제 성공률=0.4560, 평균예측=0.4746
+  warm(n>=50): n=249527, brier=0.247975, 실제 성공률=0.4866, 평균예측=0.4972
+  trackman 매핑된 투수: n=252979, brier=0.247968, 실제 성공률=0.4863, 평균예측=0.4969
+  trackman 매핑 안 된 투수: n=528, brier=0.242093, 실제 성공률=0.4015, 평균예측=0.4605
+
+완료.

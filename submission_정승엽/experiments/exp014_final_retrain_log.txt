@@ -1,0 +1,22 @@
+FINAL_ITERATIONS=589
+================================================================================
+1. 전체 2019-2024 데이터 + 피처 구축 (mean+std asof 10개, 94피처)
+================================================================================
+
+================================================================================
+2. CatBoost 전체 재학습
+================================================================================
+0:	learn: 0.6926784	total: 589ms	remaining: 5m 46s
+200:	learn: 0.6831469	total: 1m 15s	remaining: 2m 25s
+400:	learn: 0.6822943	total: 2m 28s	remaining: 1m 9s
+588:	learn: 0.6815639	total: 3m 38s	remaining: 0us
+최종 재학습 완료 :: 219.4s
+
+================================================================================
+3. 저장 (mean+std 결합 lookup)
+================================================================================
+저장: ./model\trackman_pitcher_lookup.csv ((778, 11), 컬럼=['pitcher_id', 'trackman_rel_speed_asof', 'trackman_spin_rate_asof', 'trackman_induced_vert_break_asof', 'trackman_horz_break_asof', 'trackman_extension_asof', 'trackman_rel_speed_std_asof', 'trackman_spin_rate_std_asof', 'trackman_induced_vert_break_std_asof', 'trackman_horz_break_std_asof', 'trackman_extension_std_asof'])
+제거: ./model\lgbm_booster.txt (이전 실험 아티팩트 정리)
+저장: ./model/catboost_model.cbm, ./model/model_meta.pkl
+
+완료.

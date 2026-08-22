@@ -1,0 +1,121 @@
+================================================================================
+0. 데이터 로드 + row-local 피처(features.build_features)
+================================================================================
+train: (1475092, 74) | exp_003 피처 84개 + trackman 피처 5개
+
+================================================================================
+1. trackman 투수 단위 as-of 테이블 구축 (Phase 2 v3 매핑)
+================================================================================
+매핑된 투수: 778 / train 고유 투수 792
+  rel_speed: league_fallback=135.9641, table rows=14113
+  spin_rate: league_fallback=2169.9683, table rows=14113
+  induced_vert_break: league_fallback=25.7838, table rows=14110
+  horz_break: league_fallback=9.4542, table rows=14110
+  extension: league_fallback=1.7591, table rows=14113
+
+================================================================================
+2. season-aware shrinkage prior (exp_003과 동일)
+================================================================================
+
+================================================================================
+3. shrink_k 그리드로 trackman 피처 부착 + CatBoost 학습/검증
+================================================================================
+
+--- shrink_k=50 ---
+0:	learn: 0.6926217	test: 0.6930389	best: 0.6930389 (0)	total: 469ms	remaining: 15m 37s
+200:	learn: 0.6819328	test: 0.6893543	best: 0.6893543 (200)	total: 53.7s	remaining: 8m 1s
+400:	learn: 0.6809848	test: 0.6891561	best: 0.6891561 (400)	total: 1m 47s	remaining: 7m 8s
+600:	learn: 0.6801077	test: 0.6890768	best: 0.6890759 (593)	total: 2m 41s	remaining: 6m 16s
+Stopped by overfitting detector  (100 iterations wait)
+
+bestTest = 0.6890434324
+bestIteration = 695
+
+Shrink model to first 696 iterations.
+[k=50] Brier=0.247956 | score=740.86 | best_iter=695 | 216.7s
+pred mean/min/max: 0.4968 / 0.3282 / 0.6670
+
+--- shrink_k=100 ---
+0:	learn: 0.6926217	test: 0.6930389	best: 0.6930389 (0)	total: 274ms	remaining: 9m 7s
+200:	learn: 0.6818869	test: 0.6893724	best: 0.6893724 (200)	total: 56.3s	remaining: 8m 23s
+400:	learn: 0.6809869	test: 0.6892279	best: 0.6892279 (400)	total: 1m 53s	remaining: 7m 30s
+600:	learn: 0.6800955	test: 0.6891528	best: 0.6891495 (596)	total: 2m 49s	remaining: 6m 35s
+Stopped by overfitting detector  (100 iterations wait)
+
+bestTest = 0.689122307
+bestIteration = 663
+
+Shrink model to first 664 iterations.
+[k=100] Brier=0.247995 | score=725.34 | best_iter=663 | 219.0s
+pred mean/min/max: 0.4971 / 0.3453 / 0.6752
+
+--- shrink_k=300 ---
+0:	learn: 0.6926217	test: 0.6930389	best: 0.6930389 (0)	total: 365ms	remaining: 12m 10s
+200:	learn: 0.6818818	test: 0.6893577	best: 0.6893577 (200)	total: 1m 42s	remaining: 15m 13s
+400:	learn: 0.6809170	test: 0.6891710	best: 0.6891699 (396)	total: 2m 46s	remaining: 11m 6s
+600:	learn: 0.6800349	test: 0.6890880	best: 0.6890739 (548)	total: 3m 46s	remaining: 8m 47s
+Stopped by overfitting detector  (100 iterations wait)
+
+bestTest = 0.6890739451
+bestIteration = 548
+
+Shrink model to first 549 iterations.
+[k=300] Brier=0.247971 | score=734.90 | best_iter=548 | 592.4s
+pred mean/min/max: 0.4959 / 0.3334 / 0.6700
+
+================================================================================
+4. exp_003 베이스라인(트랙맨 피처 없음) 재현 — 동일 시드/파라미터로 공정 비교
+================================================================================
+0:	learn: 0.6926321	test: 0.6930438	best: 0.6930438 (0)	total: 298ms	remaining: 9m 55s
+200:	learn: 0.6818933	test: 0.6893543	best: 0.6893543 (200)	total: 1m 1s	remaining: 9m 14s
+400:	learn: 0.6810037	test: 0.6891964	best: 0.6891864 (386)	total: 1m 59s	remaining: 7m 55s
+600:	learn: 0.6801650	test: 0.6891884	best: 0.6891328 (510)	total: 2m 53s	remaining: 6m 44s
+Stopped by overfitting detector  (100 iterations wait)
+
+bestTest = 0.6891328164
+bestIteration = 510
+
+Shrink model to first 511 iterations.
+[baseline, 이 실행 재현] Brier=0.248000 | score=723.17 | best_iter=510 | 177.9s
+
+================================================================================
+5. 요약
+================================================================================
+exp_003 기록값(참고): local score 723.17 (Brier 0.248000)
+exp_003 이 실행 재현: local score 723.17 (Brier 0.248000)
+exp_007 (+5 trackman 피처, shrink_k=50): local score 740.86 (Brier 0.247956), Δ vs 이 실행 baseline = +17.69
+exp_007 (+5 trackman 피처, shrink_k=100): local score 725.34 (Brier 0.247995), Δ vs 이 실행 baseline = +2.17
+exp_007 (+5 trackman 피처, shrink_k=300): local score 734.90 (Brier 0.247971), Δ vs 이 실행 baseline = +11.74
+
+최선 shrink_k: 50 (score 740.86)
+
+--- feature importance (최선 k, top 15) ---
+Traceback (most recent call last):
+  File "C:\Users\yeob0\lgAimers9_pitch-control\lg-aimers-9-pitch-control\src\train_exp007.py", line 175, in <module>
+    main()
+  File "C:\Users\yeob0\lgAimers9_pitch-control\lg-aimers-9-pitch-control\src\train_exp007.py", line 164, in main
+    train_shrunk.loc[~is_val, ALL_FEATURES], train_shrunk.loc[~is_val, TARGET], cat_features=CAT_COLS
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yeob0\lgAimers9_pitch-control\lg-aimers-9-pitch-control\.venv\Lib\site-packages\pandas\core\indexing.py", line 1097, in __getitem__
+    return self._getitem_tuple(key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yeob0\lgAimers9_pitch-control\lg-aimers-9-pitch-control\.venv\Lib\site-packages\pandas\core\indexing.py", line 1289, in _getitem_tuple
+    return self._getitem_tuple_same_dim(tup)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yeob0\lgAimers9_pitch-control\lg-aimers-9-pitch-control\.venv\Lib\site-packages\pandas\core\indexing.py", line 955, in _getitem_tuple_same_dim
+    retval = getattr(retval, self.name)._getitem_axis(key, axis=i)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yeob0\lgAimers9_pitch-control\lg-aimers-9-pitch-control\.venv\Lib\site-packages\pandas\core\indexing.py", line 1332, in _getitem_axis
+    return self._getitem_iterable(key, axis=axis)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yeob0\lgAimers9_pitch-control\lg-aimers-9-pitch-control\.venv\Lib\site-packages\pandas\core\indexing.py", line 1272, in _getitem_iterable
+    keyarr, indexer = self._get_listlike_indexer(key, axis)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yeob0\lgAimers9_pitch-control\lg-aimers-9-pitch-control\.venv\Lib\site-packages\pandas\core\indexing.py", line 1462, in _get_listlike_indexer
+    keyarr, indexer = ax._get_indexer_strict(key, axis_name)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yeob0\lgAimers9_pitch-control\lg-aimers-9-pitch-control\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 5877, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "C:\Users\yeob0\lgAimers9_pitch-control\lg-aimers-9-pitch-control\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 5941, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['trackman_rel_speed_asof', 'trackman_spin_rate_asof', 'trackman_induced_vert_break_asof', 'trackman_horz_break_asof', 'trackman_extension_asof'] not in index"

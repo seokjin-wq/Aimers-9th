@@ -1,0 +1,112 @@
+C:\Users\yeob0\lgAimers9_pitch-control\_teammate_repo\experiment_workspace\src\aimers_exp\features.py:688: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  out[f"{pressure_name}_x_pitcher_{metric}"] = (
+C:\Users\yeob0\lgAimers9_pitch-control\_teammate_repo\experiment_workspace\src\aimers_exp\features.py:688: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  out[f"{pressure_name}_x_pitcher_{metric}"] = (
+C:\Users\yeob0\lgAimers9_pitch-control\_teammate_repo\experiment_workspace\src\aimers_exp\features.py:688: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  out[f"{pressure_name}_x_pitcher_{metric}"] = (
+C:\Users\yeob0\lgAimers9_pitch-control\_teammate_repo\experiment_workspace\src\aimers_exp\features.py:688: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  out[f"{pressure_name}_x_pitcher_{metric}"] = (
+C:\Users\yeob0\lgAimers9_pitch-control\_teammate_repo\experiment_workspace\src\aimers_exp\features.py:688: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  out[f"{pressure_name}_x_pitcher_{metric}"] = (
+C:\Users\yeob0\lgAimers9_pitch-control\_teammate_repo\experiment_workspace\src\aimers_exp\features.py:688: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  out[f"{pressure_name}_x_pitcher_{metric}"] = (
+C:\Users\yeob0\lgAimers9_pitch-control\_teammate_repo\experiment_workspace\src\aimers_exp\features.py:688: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  out[f"{pressure_name}_x_pitcher_{metric}"] = (
+{
+  "status": "complete",
+  "name": "exp130_compliant_triple_count_trend_ols_full_2019_2024_cpuonly_repro",
+  "config_hash": "c042e65c7353",
+  "source_tree_sha256": "0664562b962c5adec7166f59a0e1db7f9d3ebc2851465d25f2a490ed90df5412",
+  "provenance_repository": "Aimers-9th",
+  "provenance_commit": "349498b",
+  "rows": 1475092,
+  "training_seasons": [
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "target_rate": 0.5237659752747625,
+  "feature_count": 78,
+  "categorical_count": 7,
+  "model": {
+    "name": "triple_count_trend_ols_cpuonly",
+    "family": "cat_cpu_gpu_extra_blend",
+    "cpu_weight": 0.5,
+    "gpu_weight": 0.35,
+    "extra_weight": 0.15,
+    "season_decay": 0.85,
+    "cat_scale": 1.06,
+    "cat_shift": -0.0095,
+    "extra_shift": -0.01,
+    "group_columns": [
+      "balls_before",
+      "strikes_before"
+    ],
+    "group_shrinkage": 500.0,
+    "center_residual": true,
+    "residual_scale": 1.0,
+    "trend_group_columns": [
+      "balls_before",
+      "strikes_before"
+    ],
+    "trend_strength": 1.0,
+    "trend_shrinkage": 0.0,
+    "trend_method": "ols",
+    "cpu_params": {
+      "iterations": 300,
+      "depth": 8,
+      "learning_rate": 0.035,
+      "l2_leaf_reg": 3.0,
+      "subsample": 0.8,
+      "random_seed": 42,
+      "thread_count": 8,
+      "task_type": "CPU",
+      "loss_function": "Logloss",
+      "eval_metric": "BrierScore",
+      "allow_writing_files": false,
+      "verbose": false
+    },
+    "gpu_params": {
+      "iterations": 600,
+      "depth": 7,
+      "learning_rate": 0.025,
+      "l2_leaf_reg": 3.0,
+      "bootstrap_type": "Bayesian",
+      "bagging_temperature": 1.0,
+      "border_count": 128,
+      "random_seed": 42,
+      "task_type": "CPU",
+      "thread_count": 8,
+      "loss_function": "Logloss",
+      "eval_metric": "BrierScore",
+      "allow_writing_files": false,
+      "verbose": false
+    },
+    "extra_params": {
+      "n_estimators": 300,
+      "min_samples_leaf": 20,
+      "max_features": 0.7,
+      "n_jobs": 8,
+      "random_state": 42,
+      "verbose": 0
+    }
+  },
+  "calibration": {
+    "method": "official_train_oot_group_residual_plus_centered_season_trend",
+    "source_season": 2024,
+    "uses_test_distribution": false,
+    "row_independent_inference": true
+  },
+  "fit_seconds": 3396.3246936798096,
+  "model_bytes": 733471692,
+  "model_sha256": "40fc0d6a1b422d2ea894af351e827739321e6d5bdf3d4d8fc4af741497696d71",
+  "zip_bytes": 725046722,
+  "zip_sha256": "a7d89ae5dd6e5d2e3b94e01c97f12537ce17568ca4f6b0c38ded5204d47a091a",
+  "requirements": [
+    "catboost==1.2.10"
+  ],
+  "zip_path": "C:\\Users\\yeob0\\lgAimers9_pitch-control\\_teammate_repo\\experiment_workspace\\output\\final\\submit.zip"
+}

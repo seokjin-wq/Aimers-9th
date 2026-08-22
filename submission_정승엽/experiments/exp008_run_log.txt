@@ -1,0 +1,89 @@
+================================================================================
+0. 데이터 로드 + row-local 피처
+================================================================================
+train: (1475092, 74)
+
+================================================================================
+1. trackman 투수 단위 as-of 테이블 구축 (8개 physical 컬럼)
+================================================================================
+매핑된 투수: 778 / train 고유 투수 792
+  rel_speed: league_fallback=135.9641, table rows=14113
+  spin_rate: league_fallback=2169.9683, table rows=14113
+  induced_vert_break: league_fallback=25.7838, table rows=14110
+  horz_break: league_fallback=9.4542, table rows=14110
+  extension: league_fallback=1.7591, table rows=14113
+  rel_height: league_fallback=1.7032, table rows=14113
+  rel_side: league_fallback=0.2637, table rows=14113
+  zone_speed: league_fallback=124.5903, table rows=14113
+
+================================================================================
+2. season-aware shrinkage prior (exp_003과 동일)
+================================================================================
+
+================================================================================
+A. exp_003 베이스라인(트랙맨 없음) 재현
+================================================================================
+0:	learn: 0.6926321	test: 0.6930438	best: 0.6930438 (0)	total: 448ms	remaining: 14m 54s
+200:	learn: 0.6818933	test: 0.6893543	best: 0.6893543 (200)	total: 52.3s	remaining: 7m 47s
+400:	learn: 0.6810037	test: 0.6891964	best: 0.6891864 (386)	total: 1m 45s	remaining: 7m 2s
+600:	learn: 0.6801650	test: 0.6891884	best: 0.6891328 (510)	total: 2m 41s	remaining: 6m 15s
+Stopped by overfitting detector  (100 iterations wait)
+
+bestTest = 0.6891328164
+bestIteration = 510
+
+Shrink model to first 511 iterations.
+[A: exp_003 baseline] Brier=0.248000 | score=723.17 | best_iter=510 | 165.5s
+
+================================================================================
+B. exp_007 5개 trackman 컬럼(k=50) 재현
+================================================================================
+0:	learn: 0.6926217	test: 0.6930389	best: 0.6930389 (0)	total: 253ms	remaining: 8m 25s
+200:	learn: 0.6819328	test: 0.6893543	best: 0.6893543 (200)	total: 58.4s	remaining: 8m 42s
+400:	learn: 0.6809848	test: 0.6891561	best: 0.6891561 (400)	total: 1m 55s	remaining: 7m 41s
+600:	learn: 0.6801077	test: 0.6890768	best: 0.6890759 (593)	total: 2m 52s	remaining: 6m 41s
+Stopped by overfitting detector  (100 iterations wait)
+
+bestTest = 0.6890434324
+bestIteration = 695
+
+Shrink model to first 696 iterations.
+[B: exp_007 5col k=50] Brier=0.247956 | score=740.86 | best_iter=695 | 229.2s
+
+================================================================================
+C. exp_008 8개 trackman 컬럼, shrink_k 그리드
+================================================================================
+0:	learn: 0.6926187	test: 0.6930206	best: 0.6930206 (0)	total: 315ms	remaining: 10m 30s
+200:	learn: 0.6818793	test: 0.6893797	best: 0.6893797 (200)	total: 59.7s	remaining: 8m 54s
+400:	learn: 0.6809320	test: 0.6891791	best: 0.6891728 (346)	total: 2m 36s	remaining: 10m 22s
+600:	learn: 0.6800771	test: 0.6891631	best: 0.6891565 (574)	total: 4m	remaining: 9m 19s
+800:	learn: 0.6792213	test: 0.6891381	best: 0.6891274 (767)	total: 4m 50s	remaining: 7m 14s
+Stopped by overfitting detector  (100 iterations wait)
+
+bestTest = 0.6891273957
+bestIteration = 767
+
+Shrink model to first 768 iterations.
+[C: exp_008 8col k=50] Brier=0.247998 | score=724.19 | best_iter=767 | 308.5s
+0:	learn: 0.6926187	test: 0.6930206	best: 0.6930206 (0)	total: 257ms	remaining: 8m 34s
+200:	learn: 0.6818969	test: 0.6893800	best: 0.6893800 (200)	total: 52.2s	remaining: 7m 47s
+400:	learn: 0.6809769	test: 0.6892489	best: 0.6892440 (380)	total: 1m 45s	remaining: 7m
+Stopped by overfitting detector  (100 iterations wait)
+
+bestTest = 0.6892356345
+bestIteration = 485
+
+Shrink model to first 486 iterations.
+[C: exp_008 8col k=100] Brier=0.248052 | score=702.65 | best_iter=485 | 156.4s
+
+================================================================================
+요약
+================================================================================
+A. exp_003 baseline:      score=723.17 (Brier 0.248000)
+B. exp_007 5col k=50:     score=740.86 (Brier 0.247956), Δ vs A = +17.69
+C. exp_008 8col k=50:    score=724.19 (Brier 0.247998), Δ vs A = +1.02, Δ vs B = -16.67
+C. exp_008 8col k=100:    score=702.65 (Brier 0.248052), Δ vs A = -20.51, Δ vs B = -38.21
+
+exp_008(8col)이 exp_007(5col)보다 개선 없음 — 최선 k=50, score=724.19 <= 740.86
+
+완료. (모델 저장은 개선이 확인된 뒤 별도 스크립트로 진행)

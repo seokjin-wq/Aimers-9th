@@ -1,0 +1,13 @@
+================================================================================
+0. 데이터 로드 + 피처 구축 (기존 champion 피처 + 이번 시즌 상태 피처)
+================================================================================
+train=(1221585, 106), val=(253507, 106)
+새 피처 16개: ['pitcher_season_n', 'pitcher_season_success_rate_k20', 'pitcher_season_success_delta_career', 'pitcher_season_reverse_rate_k20', 'pitcher_season_reverse_delta_career', 'pitcher_season_middle_rate_k20', 'pitcher_season_middle_delta_career', 'pitcher_season_ball_rate_k20', 'pitcher_season_ball_delta_career', 'pitcher_season_strike_rate_k20', 'pitcher_season_strike_delta_career', 'batter_season_n', 'batter_season_success_rate_k20', 'batter_season_success_delta_career', 'batter_season_middle_rate_k20', 'batter_season_middle_delta_career']
+
+================================================================================
+1. A/B 비교: 기존 챔피언 피처 vs +이번시즌 상태 피처
+================================================================================
+[A: 챔피언(기존) 피처만] Brier=0.247956 | score=740.86 | best_iter=695 | n_features=89 | 960.0s
+[B: +이번시즌 상태 피처(exp_027)] Brier=0.247762 | score=818.79 | best_iter=571 | n_features=105 | 603.5s
+
+완료.

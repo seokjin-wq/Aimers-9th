@@ -1,0 +1,32 @@
+C:\Users\yeob0\lgAimers9_pitch-control\_teammate_repo\experiment_workspace\src\aimers_exp\features.py:688: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  out[f"{pressure_name}_x_pitcher_{metric}"] = (
+C:\Users\yeob0\lgAimers9_pitch-control\_teammate_repo\experiment_workspace\src\aimers_exp\features.py:688: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  out[f"{pressure_name}_x_pitcher_{metric}"] = (
+C:\Users\yeob0\lgAimers9_pitch-control\_teammate_repo\experiment_workspace\src\aimers_exp\features.py:688: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  out[f"{pressure_name}_x_pitcher_{metric}"] = (
+C:\Users\yeob0\lgAimers9_pitch-control\_teammate_repo\experiment_workspace\src\aimers_exp\features.py:688: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  out[f"{pressure_name}_x_pitcher_{metric}"] = (
+C:\Users\yeob0\lgAimers9_pitch-control\_teammate_repo\experiment_workspace\src\aimers_exp\features.py:688: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  out[f"{pressure_name}_x_pitcher_{metric}"] = (
+C:\Users\yeob0\lgAimers9_pitch-control\_teammate_repo\experiment_workspace\src\aimers_exp\features.py:688: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  out[f"{pressure_name}_x_pitcher_{metric}"] = (
+C:\Users\yeob0\lgAimers9_pitch-control\_teammate_repo\experiment_workspace\src\aimers_exp\features.py:688: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  out[f"{pressure_name}_x_pitcher_{metric}"] = (
+[2024] wls_control
+Traceback (most recent call last):
+  File "C:\Users\yeob0\lgAimers9_pitch-control\_teammate_repo\experiment_workspace\run.py", line 13, in <module>
+    main()
+  File "C:\Users\yeob0\lgAimers9_pitch-control\_teammate_repo\experiment_workspace\src\aimers_exp\cli.py", line 223, in main
+    run_dir = run_study(
+              ^^^^^^^^^^
+  File "C:\Users\yeob0\lgAimers9_pitch-control\_teammate_repo\experiment_workspace\src\aimers_exp\runner.py", line 1016, in run_study
+    gpu_model.fit(
+  File "C:\Users\yeob0\lgAimers9_pitch-control\lg-aimers-9-pitch-control\.venv\Lib\site-packages\catboost\core.py", line 5547, in fit
+    self._fit(X, y, cat_features, text_features, embedding_features, None, graph, sample_weight, None, None, None, None, baseline, use_best_model,
+  File "C:\Users\yeob0\lgAimers9_pitch-control\lg-aimers-9-pitch-control\.venv\Lib\site-packages\catboost\core.py", line 2716, in _fit
+    self._train(
+  File "C:\Users\yeob0\lgAimers9_pitch-control\lg-aimers-9-pitch-control\.venv\Lib\site-packages\catboost\core.py", line 1824, in _train
+    self._object._train(train_pool, test_pool, params, allow_clear_pool, init_model._object if init_model else None)
+  File "_catboost.pyx", line 5430, in _catboost._CatBoost._train
+  File "_catboost.pyx", line 5479, in _catboost._CatBoost._train
+_catboost.CatBoostError: catboost/cuda/cuda_lib/cuda_base.h:265: CUDA error 35: CUDA driver version is insufficient for CUDA runtime version

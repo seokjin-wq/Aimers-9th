@@ -1,0 +1,124 @@
+======================================================================
+1. 원본 로드
+======================================================================
+trackman_history.csv: (1793078, 30)
+train.csv: (1475092, 49)
+
+======================================================================
+2. trackman 정제 (clean_trackman)
+======================================================================
+--- tagged_pitch_type: 정제 전/후 unique 값 개수 ---
+전: 17  후: 13
+병합된 값 -> canonical:
+                   raw_count  canonical
+tagged_pitch_type                      
+Changeup                 225   ChangeUp
+SInker                    38     Sinker
+Undefined#                 1  Undefined
+Undefind                   1  Undefined
+
+--- auto_pitch_type: 정제 전/후 unique 값 개수 ---
+전: 11  후: 10
+                 raw_count canonical
+auto_pitch_type                     
+ChangeUp             90324  Changeup
+
+--- pitcher_team_tier 분포 (trackman) ---
+pitcher_team_tier
+major    1189400
+minor     576848
+other      26830
+Name: count, dtype: int64
+
+--- pitcher_team -> pitcher_team_franchise 매핑 (26개 코드 -> 프랜차이즈) ---
+pitcher_team pitcher_team_tier pitcher_team_franchise
+     ACE_MEX             other                ACE_MEX
+     DOO_BEA             major                DOO_BEA
+     MIN_DOO             minor                DOO_BEA
+     HAN_EAG             major                HAN_EAG
+     MIN_HAN             minor                HAN_EAG
+     KBO_ARM             other                KBO_ARM
+     KBO_POL             other                KBO_POL
+     KIA_TIG             major                KIA_TIG
+     MIN_KIA             minor                KIA_TIG
+     KIW_HER             major                KIW_HER
+     MIN_HER             minor                KIW_HER
+      KT_WIZ             major                 KT_WIZ
+     MIN_KTW             minor                 KT_WIZ
+      LG_TWI             major                 LG_TWI
+     MIN_LGT             minor                 LG_TWI
+     LOT_GIA             major                LOT_GIA
+     MIN_LOT             minor                LOT_GIA
+     MIN_HAW             minor                MIN_HAW
+      NC_DIN             major                 NC_DIN
+     MIN_NCD             minor                 NC_DIN
+     SAM_LIO             major                SAM_LIO
+     MIN_SAM             minor                SAM_LIO
+      SK_WYV             major                SSG_LAN
+     SSG_LAN             major                SSG_LAN
+     MIN_SKW             minor                SSG_LAN
+     MIN_SSG             minor                SSG_LAN
+
+--- is_illegal_count 플래그 (trackman) ---
+플래그된 행: 97 / 1793078 (0.0054%)
+season/game_month 분포:
+season  game_month
+2022    4             73
+        5             11
+        7              1
+        8              1
+2023    4              3
+        5              2
+        6              4
+        7              1
+        8              1
+Name: count, dtype: int64
+관련 pitcher_trackman_id 고유 수: 27
+
+--- game_date_parsed: 파싱 실패(NaT) 건수 ---
+NaT: 0 / 1793078
+game_date_parsed 월 vs game_month 일치율: 100.0000%
+
+--- situational_key 유일성(참고): 전체 행 중 situational_key 중복 비율 ---
+(situational_key, pitcher_trackman_id) 중복 행 비율: 25.6637%
+
+======================================================================
+3. train 매칭 키 생성 (build_train_match_keys)
+======================================================================
+train_match_keys shape: (1475092, 22)
+
+--- team_tier(=game_type 기반) 분포 (train) ---
+team_tier
+major    1314088
+minor     161004
+Name: count, dtype: int64
+
+--- pitcher_team_id x team_tier 교차표 (train) ---
+team_tier         major  minor
+pitcher_team_id               
+12               132735  13191
+13               129079  79583
+14               128206  13747
+15               133007   4411
+16               131847   4346
+17               134864  13302
+18               132697   4303
+19               132401   4600
+20               126066   4508
+21               133186  13608
+22                    0    676
+23                    0   4437
+25                    0    292
+
+--- is_illegal_count 플래그 (train) ---
+플래그된 행: 0 / 1475092 (0.0000%)
+
+======================================================================
+4. 저장
+======================================================================
+저장: C:\Users\yeob0\lgAimers9_pitch-control\lg-aimers-9-pitch-control\reports\trackman_clean\..\..\data\processed\trackman_clean.csv  ((1793078, 45))
+저장: C:\Users\yeob0\lgAimers9_pitch-control\lg-aimers-9-pitch-control\reports\trackman_clean\..\..\data\processed\train_match_keys.csv  ((1475092, 22))
+
+--- 원본 파일 미변경 확인 ---
+trackman_history.csv 재로드 shape 일치: True
+train.csv 재로드 shape 일치: True

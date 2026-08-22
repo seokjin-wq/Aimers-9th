@@ -1,0 +1,6 @@
+model,weight
+CatBoost,1.0
+RandomForest,0.0
+ExtraTrees,0.0
+_summary_brier,0.248000408541228
+_summary_official_score,723.1657820756853

@@ -99,7 +99,24 @@ DERIVED_COLS = [
     "same_hand_x_breaking_rate",
     "same_hand_x_offspeed_rate",
     "three_ball_x_risp",
+    # --- exp_028 addition (팀원 EXP_084 이식, 빠져있던 세 번째 구종) ---
+    "same_hand_x_fastball_rate",
+    # --- exp_028 addition (팀원 EXP_112 이식, reliability) ---
+    "pitcher_history_reliability_k100",
+    "pitcher_success_x_reliability",
+    "pitcher_reverse_x_reliability",
+    "pitcher_middle_x_reliability",
+    "batter_history_reliability_k100",
+    "batter_success_x_reliability",
 ]
+
+# 팀원(윤석진) 저장소 EXP_112 이식: 표본크기(n)를 shrink-toward-prior가
+# 아니라 "얼마나 신뢰할 만한 값인가"를 나타내는 별도의 0~1 confidence
+# 스칼라로 변환(n/(n+k))해서, RAW(미보정) rate에 곱한 별도 피처를 준다.
+# 기존 SHRINKAGE_SPECS(EB로 rate 자체를 prior 쪽으로 당김)와는 다른
+# 신호 — 이건 "이 raw 값을 얼마나 믿어도 되는지"를 트리에 명시적으로
+# 알려주는 쪽. 팀원 보고: Brier -1.62e-5.
+RELIABILITY_K = 100
 
 # (raw rate col, sample-size col, shrinkage strength k, output col name).
 # shrunk = (n*rate + k*prior) / (n+k) — prior must come from
@@ -235,6 +252,12 @@ def build_features(df):
     df["same_hand_x_breaking_rate"] = df["same_hand_matchup"] * df["asof_pitcher_breaking_rate"]
     df["same_hand_x_offspeed_rate"] = df["same_hand_matchup"] * df["asof_pitcher_offspeed_rate"]
 
+    # exp_028: 팀원(윤석진) 저장소 EXP_084/087에서 이식 -- 우리는
+    # breaking/offspeed 두 구종만 same_hand와 곱했었는데, 팀원은
+    # fastball까지 세 구종 다 곱해서(reported: solo Brier -3.99e-6,
+    # triple ensemble -2.23e-5) 채택했음. 빠져있던 세 번째만 추가.
+    df["same_hand_x_fastball_rate"] = df["same_hand_matchup"] * df["asof_pitcher_fastball_rate"]
+
     # F. 3볼 x 득점권 주자: reports/eda_final §D — 3볼 상황에서는 득점권
     # 주자 유무가 outs=0/1에서는 있을 때 성공률이 더 높고 outs=2에서는
     # 반대로 뒤집히는 비단조 패턴이 나타났다("가설" 수준, outs_before는
@@ -242,6 +265,17 @@ def build_features(df):
     # three_ball x runners_scoring_position 신호만 명시적으로 받으면
     # outs_before와 알아서 추가 분할할 수 있다).
     df["three_ball_x_risp"] = df["three_ball"] * df["runners_scoring_position"]
+
+    # exp_028: reliability (n/(n+k)) x raw rate -- 팀원 EXP_112 이식.
+    pitcher_reliability = df["asof_pitcher_n"].fillna(0) / (df["asof_pitcher_n"].fillna(0) + RELIABILITY_K)
+    df["pitcher_history_reliability_k100"] = pitcher_reliability
+    df["pitcher_success_x_reliability"] = df["asof_pitcher_success_rate"].fillna(0) * pitcher_reliability
+    df["pitcher_reverse_x_reliability"] = df["asof_pitcher_reverse_rate"].fillna(0) * pitcher_reliability
+    df["pitcher_middle_x_reliability"] = df["asof_pitcher_middle_rate"].fillna(0) * pitcher_reliability
+
+    batter_reliability = df["asof_batter_n"].fillna(0) / (df["asof_batter_n"].fillna(0) + RELIABILITY_K)
+    df["batter_history_reliability_k100"] = batter_reliability
+    df["batter_success_x_reliability"] = df["asof_batter_success_rate"].fillna(0) * batter_reliability
 
     return df
 

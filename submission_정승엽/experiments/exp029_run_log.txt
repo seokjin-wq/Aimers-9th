@@ -1,0 +1,31 @@
+================================================================================
+0. OOF + 2024 ¿¹ÃøÀ» exp_027 calibrator·Î º¸Á¤, ÀÜÂ÷ °è»ê
+================================================================================
+baseline(exp_027 calibrated, count-trend Àû¿ë Àü, 2024 held-out): score=820.78
+
+================================================================================
+1. 2019-2023¸¸À¸·Î count-state trend ÀûÇÕ -> 2024 ¿¹Ãø(ÁøÂ¥ held-out °ËÁõ)
+================================================================================
+  strength=0.5: score=825.53  ¥Ä=+4.75
+  strength=1.0: score=828.01  ¥Ä=+7.23
+  strength=1.5: score=828.23  ¥Ä=+7.44
+  strength=2.0: score=826.17  ¥Ä=+5.39
+
+================================================================================
+2. ÇÁ·Î´ö¼Ç¿ë: 2019-2024 ÀüÃ¼(OOF+2024 held-out ÀÜÂ÷)·Î count-state trend ÀûÇÕ -> 2025 ¿Ü»ğ (strength=1.0)
+================================================================================
+  ['balls_before', 'strikes_before']=(0, 0): 2025 ¿Ü»ğ centered_residual=-0.00236
+  ['balls_before', 'strikes_before']=(0, 1): 2025 ¿Ü»ğ centered_residual=+0.00669
+  ['balls_before', 'strikes_before']=(0, 2): 2025 ¿Ü»ğ centered_residual=+0.00299
+  ['balls_before', 'strikes_before']=(1, 0): 2025 ¿Ü»ğ centered_residual=-0.00800
+  ['balls_before', 'strikes_before']=(1, 1): 2025 ¿Ü»ğ centered_residual=-0.00193
+  ['balls_before', 'strikes_before']=(1, 2): 2025 ¿Ü»ğ centered_residual=+0.00674
+  ['balls_before', 'strikes_before']=(2, 0): 2025 ¿Ü»ğ centered_residual=-0.00284
+  ['balls_before', 'strikes_before']=(2, 1): 2025 ¿Ü»ğ centered_residual=-0.00771
+  ['balls_before', 'strikes_before']=(2, 2): 2025 ¿Ü»ğ centered_residual=+0.00681
+  ['balls_before', 'strikes_before']=(3, 0): 2025 ¿Ü»ğ centered_residual=+0.02410
+  ['balls_before', 'strikes_before']=(3, 1): 2025 ¿Ü»ğ centered_residual=-0.00257
+  ['balls_before', 'strikes_before']=(3, 2): 2025 ¿Ü»ğ centered_residual=-0.00642
+ÀúÀå: ./output/exp029_count_trend_2025.pkl (Á¦Ãâ ÆÄÀÌÇÁ¶óÀÎ¿¡¼­ »ç¿ë)
+
+¿Ï·á.

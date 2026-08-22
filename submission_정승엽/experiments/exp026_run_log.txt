@@ -1,0 +1,6 @@
+1x shift(exp_023와 동일)=-0.04571, ALPHA=1.5 -> 최종 배율 shift=-0.06857
+exp_023 calibrator: coef=[[4.35642918]], intercept=[-2.26210112]
+추가로 더할 shift(=(1.5-1)*1x shift)=-0.02286
+exp_026 calibrator(x1.5 증폭): coef=[[4.35642918]], intercept=[-2.28495831]
+2024 예측에 적용 시 평균: exp_023=0.4751 -> exp_026=0.4695
+저장: ./model\model_meta.pkl (calibrator=exp_023 shift x1.5 증폭, 모델 파일은 이전과 동일)

@@ -1,0 +1,83 @@
+================================================================================
+0. 데이터 로드 + row-local 피처 + trackman as-of 피처(exp_007 5col 챔피언)
+================================================================================
+train_shrunk: (1475092, 90)
+
+================================================================================
+1. row-level privileged 피처 부착 (Phase 2 row_mapping, train-only)
+================================================================================
+privileged 컬럼 커버리지(행 기준): 0.8703
+
+================================================================================
+2. 5-fold cross-fit teacher (2019-2023만, privileged 피처 포함) -> OOF soft label
+================================================================================
+  fold 1/5 완료 (446.8s 누적)
+  fold 2/5 완료 (917.5s 누적)
+  fold 3/5 완료 (1390.8s 누적)
+  fold 4/5 완료 (1861.7s 누적)
+  fold 5/5 완료 (2332.8s 누적)
+저장(캐시): ./output/exp011_teacher_oof_cache.npy
+teacher OOF (2019-2023 자체, 참고용): Brier=0.242862, score=2466.12
+
+================================================================================
+3. student 학습: student 피처(privileged 없음) + blended target, alpha 그리드
+================================================================================
+
+--- control: 표준 Logloss + 실제 라벨 (exp_008 재현) ---
+0:	learn: 0.6926217	test: 0.6930389	best: 0.6930389 (0)	total: 260ms	remaining: 8m 40s
+200:	learn: 0.6819328	test: 0.6893543	best: 0.6893543 (200)	total: 55.6s	remaining: 8m 17s
+400:	learn: 0.6809848	test: 0.6891561	best: 0.6891561 (400)	total: 1m 51s	remaining: 7m 23s
+600:	learn: 0.6801077	test: 0.6890768	best: 0.6890759 (593)	total: 2m 47s	remaining: 6m 30s
+Stopped by overfitting detector  (100 iterations wait)
+
+bestTest = 0.6890434324
+bestIteration = 695
+
+Shrink model to first 696 iterations.
+[control] Brier=0.247956 | score=740.86 | best_iter=695 | 223.9s
+0:	learn: 0.6926241	test: 0.6930281	best: 0.6930281 (0)	total: 255ms	remaining: 8m 30s
+200:	learn: 0.6823887	test: 0.6893761	best: 0.6893761 (200)	total: 55.8s	remaining: 8m 19s
+400:	learn: 0.6818682	test: 0.6891723	best: 0.6891715 (396)	total: 1m 52s	remaining: 7m 26s
+600:	learn: 0.6815005	test: 0.6890987	best: 0.6890987 (600)	total: 2m 47s	remaining: 6m 30s
+800:	learn: 0.6811932	test: 0.6890741	best: 0.6890702 (767)	total: 3m 43s	remaining: 5m 35s
+Stopped by overfitting detector  (100 iterations wait)
+
+bestTest = 0.6890701705
+bestIteration = 767
+
+Shrink model to first 768 iterations.
+[alpha=0.5] Brier=0.247970 | score=735.53 | Δ vs control=-5.33 | best_iter=767 | 244.4s
+0:	learn: 0.6926207	test: 0.6930278	best: 0.6930278 (0)	total: 274ms	remaining: 9m 7s
+200:	learn: 0.6822212	test: 0.6893481	best: 0.6893481 (200)	total: 56s	remaining: 8m 20s
+400:	learn: 0.6815637	test: 0.6891301	best: 0.6891301 (400)	total: 1m 50s	remaining: 7m 22s
+Stopped by overfitting detector  (100 iterations wait)
+
+bestTest = 0.6891277974
+bestIteration = 419
+
+Shrink model to first 420 iterations.
+[alpha=0.7] Brier=0.247998 | score=724.25 | Δ vs control=-16.61 | best_iter=419 | 145.5s
+0:	learn: 0.6926247	test: 0.6930392	best: 0.6930392 (0)	total: 331ms	remaining: 11m 1s
+200:	learn: 0.6820508	test: 0.6893585	best: 0.6893585 (200)	total: 56.5s	remaining: 8m 25s
+400:	learn: 0.6812712	test: 0.6891834	best: 0.6891809 (395)	total: 1m 51s	remaining: 7m 26s
+600:	learn: 0.6805902	test: 0.6891335	best: 0.6891160 (577)	total: 2m 47s	remaining: 6m 29s
+800:	learn: 0.6799438	test: 0.6891039	best: 0.6890935 (721)	total: 3m 42s	remaining: 5m 33s
+Stopped by overfitting detector  (100 iterations wait)
+
+bestTest = 0.6890934501
+bestIteration = 721
+
+Shrink model to first 722 iterations.
+[alpha=0.85] Brier=0.247981 | score=730.82 | Δ vs control=-10.04 | best_iter=721 | 230.8s
+
+================================================================================
+요약
+================================================================================
+control (표준, privileged 없음): score=740.86 (Brier 0.247956)
+LUPI alpha=0.5: score=735.53 (Brier 0.247970), Δ=-5.33
+LUPI alpha=0.7: score=724.25 (Brier 0.247998), Δ=-16.61
+LUPI alpha=0.85: score=730.82 (Brier 0.247981), Δ=-10.04
+
+LUPI 개선 없음 — control(score=740.86)이 모든 alpha보다 우세
+
+완료.

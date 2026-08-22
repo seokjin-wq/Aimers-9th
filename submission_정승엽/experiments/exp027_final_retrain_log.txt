@@ -1,0 +1,54 @@
+SEEDS = [42, 1]
+================================================================================
+0. 데이터 로드 + 피처 구축
+================================================================================
+
+================================================================================
+1. 검증 재확인 (2019-2023 학습 / 2024 검증), 시드별 + 평균
+================================================================================
+0:	learn: 0.6925806	test: 0.6929811	best: 0.6929811 (0)	total: 491ms	remaining: 16m 21s
+200:	learn: 0.6815073	test: 0.6888198	best: 0.6888191 (199)	total: 1m 14s	remaining: 11m 10s
+400:	learn: 0.6806324	test: 0.6886830	best: 0.6886830 (400)	total: 2m 25s	remaining: 9m 38s
+600:	learn: 0.6797931	test: 0.6886565	best: 0.6886510 (571)	total: 3m 35s	remaining: 8m 21s
+Stopped by overfitting detector  (100 iterations wait)
+
+bestTest = 0.6886510415
+bestIteration = 571
+
+Shrink model to first 572 iterations.
+[seed=42] Brier=0.247762 | score=818.79 | best_iter=571
+0:	learn: 0.6925821	test: 0.6929692	best: 0.6929692 (0)	total: 355ms	remaining: 11m 49s
+200:	learn: 0.6814707	test: 0.6888113	best: 0.6887945 (197)	total: 1m 12s	remaining: 10m 44s
+400:	learn: 0.6806016	test: 0.6887179	best: 0.6887163 (337)	total: 2m 23s	remaining: 9m 33s
+Stopped by overfitting detector  (100 iterations wait)
+
+bestTest = 0.6887113611
+bestIteration = 425
+
+Shrink model to first 426 iterations.
+[seed=1] Brier=0.247792 | score=806.74 | best_iter=425
+[2개 시드 평균] Brier=0.247763 | score=818.30
+
+================================================================================
+2. 전체 2019-2024 데이터로 시드별 최종 재학습
+================================================================================
+0:	learn: 0.6926520	total: 358ms	remaining: 3m 24s
+200:	learn: 0.6826985	total: 1m 18s	remaining: 2m 24s
+400:	learn: 0.6819372	total: 2m 36s	remaining: 1m 6s
+571:	learn: 0.6813335	total: 3m 43s	remaining: 0us
+[seed=42] 최종 재학습 완료 :: 224.5s, iterations=572
+0:	learn: 0.6926516	total: 406ms	remaining: 2m 52s
+200:	learn: 0.6827166	total: 1m 19s	remaining: 1m 28s
+400:	learn: 0.6819675	total: 2m 37s	remaining: 9.81s
+425:	learn: 0.6818850	total: 2m 47s	remaining: 0us
+[seed=1] 최종 재학습 완료 :: 168.7s, iterations=426
+
+================================================================================
+3. 저장
+================================================================================
+저장: ./model\trackman_pitcher_lookup.csv ((778, 6))
+저장: season_state_{pitcher,batter}_lookup.csv ((792, 8), (830, 5))
+저장: ./model/model_meta.pkl (seed_model_files=['catboost_model_seed42.cbm', 'catboost_model_seed1.cbm'])
+
+검증 점수(참고용, 최종 모델은 전체 데이터로 재학습돼 이 점수와 다름): 818.30
+완료.

@@ -45,6 +45,11 @@ def build(label):
     # 않고, model/ 폴더 "안"에 넣는다 (model/ 내부 파일 구성 자체는 제약이
     # 없음 — lgbm_booster.txt/lgbm_meta.pkl도 이미 자유롭게 여기 들어있음).
     shutil.copy2("./src/features.py", os.path.join(sub_model_dir, "features.py"))
+    # exp_027부터: 이번시즌 상태 피처(season_state_features.py)도 같은
+    # 이유로 model/ 안에 함께 넣는다 -- season_state_cols가 model_meta.pkl에
+    # 없는(exp_027 이전) 아카이브에는 그냥 안 쓰이는 여분 파일일 뿐이라
+    # 해가 없어 항상 복사한다.
+    shutil.copy2("./src/season_state_features.py", os.path.join(sub_model_dir, "season_state_features.py"))
 
     script_path = os.path.join(SUBMISSION_DIR, "script.py")
     req_path = os.path.join(SUBMISSION_DIR, "requirements.txt")

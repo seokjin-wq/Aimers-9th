@@ -1,0 +1,163 @@
+======================================================================
+0. 로드 + 기초 사실 확인
+======================================================================
+train_raw: (1475092, 49), train_match_keys: (1475092, 22), trackman_clean: (1793078, 45)
+train 고유 pitcher_id 수: 792
+trackman 고유 pitcher_trackman_id 수: 906
+
+--- train pitcher_team_id(13개) 별 투구 수 / 고유 pitcher_id 수 ---
+                 n_rows  n_pitchers
+pitcher_team_id                    
+12               145926          99
+13               208662          96
+14               141953          81
+15               137418         102
+16               136193          92
+17               148166          94
+18               137000          76
+19               137001          90
+20               130574          78
+21               146794         103
+22                  676           8
+23                 4437          58
+25                  292           1
+
+--- trackman pitcher_team_franchise 별 투구 수 / 고유 pitcher_trackman_id 수 (major+minor 합산) ---
+                        n_rows  n_pitchers
+pitcher_team_franchise                    
+NC_DIN                  195512         110
+DOO_BEA                 193661         105
+HAN_EAG                 190016         103
+LG_TWI                  189803          97
+SAM_LIO                 187770          89
+LOT_GIA                 184741         117
+SSG_LAN                 182955         109
+KT_WIZ                  179279         102
+KIW_HER                 168316          83
+KIA_TIG                  93903         103
+KBO_ARM                  25776          80
+KBO_POL                    902           8
+MIN_HAW                    292          10
+ACE_MEX                    152           7
+
+--- pitcher_hand / batter_hand: train 정수 코드 vs trackman 문자열 비율 대응 근거 ---
+train pitcher_hand: {2: 0.7414730742218113, 1: 0.25852692577818875}
+trackman pitcher_hand: {'Right': 0.7490572077734488, 'Left': 0.2509427922265512}
+train batter_hand: {2: 0.5283365376532447, 1: 0.4716634623467553}
+trackman batter_hand: {'Right': 0.5395956004144828, 'Left': 0.4604043995855172}
+
+======================================================================
+v1. 투수 단위 시즌 지문 매칭(2-A) -> 투구 단위(2-B)  [참고/비교용]
+======================================================================
+v1 confidence tier 분포:
+confidence
+low       498
+medium    278
+high       16
+Name: count, dtype: int64
+--- [v1] 행 단위 매칭: 205974 / train 전체 1475092 행 (13.9635%) ---
+row_confidence 분포:
+row_confidence
+high      115407
+medium     90567
+Name: count, dtype: int64
+독립 신호 검증(game_type vs trackman team_tier) 일치율: 99.5587%
+
+======================================================================
+v2 Step A. 조합키(situational_key + tier + pitcher_hand + batter_hand) 직접 매칭
+======================================================================
+조합키 1:1 유일 매칭 (사전 투수 식별 없음): 164799행
+관련 고유 train pitcher_id 수: 773 / 792
+관련 고유 trackman pitcher_trackman_id 수: 829 / 906
+
+======================================================================
+v2 Step B. Step A 결과에서 투수 정체성 역산
+======================================================================
+역산된 pitcher_id 매핑: 773 / train 전체 792 명
+confidence tier 분포:
+confidence
+high      557
+medium    150
+low        66
+Name: count, dtype: int64
+confidence tier별 평균 purity / n_votes_total / season_consistency:
+              purity  n_votes_total  season_consistency
+confidence                                             
+high        0.988482     250.429084            1.000000
+low         0.638778      20.363636            0.840909
+medium      0.853388     159.773333            0.847111
+
+--- v1 vs v2 교차검증: 둘 다 confident(high/medium)한 투수들의 매칭 결과 일치율 ---
+양쪽 다 confident한 투수 수: 240
+v1/v2 매칭 결과 일치율: 34.1667%
+
+--- 독립 신호 검증: pitcher_hand 일치율 (v2, 사후 확인) ---
+전체 hand 일치율: 99.6119%
+
+======================================================================
+v2 Step C (1회). 역산된 투수 정체성으로 행 단위 매칭 재실행 (커버리지 회복)
+======================================================================
+순서 정합 sanity check (confidence in ['high']): {'n_pitchers': 557, 'n_row_pairs': 635834, 'n_pitchers_with_corr': 557, 'spearman_r': 0.9798864671422985}
+순서 정합 sanity check (confidence in ['high', 'medium']): {'n_pitchers': 707, 'n_row_pairs': 715158, 'n_pitchers_with_corr': 707, 'spearman_r': 0.9764345732911587}
+--- [v2 (1회)] 행 단위 매칭: 1279705 / train 전체 1475092 행 (86.7542%) ---
+row_confidence 분포:
+row_confidence
+high      715158
+medium    564547
+Name: count, dtype: int64
+독립 신호 검증(game_type vs trackman team_tier) 일치율: 99.6896%
+pitcher_confidence x row_confidence 교차표:
+row_confidence        high  medium
+pitcher_confidence                
+high                635834  501054
+medium               79324   63493
+v2 confident 투수(707명)의 자기 행 수: 1462292, 그 중 매칭된 비율: 87.5136%
+
+======================================================================
+v3. 반복 정제(iterative refinement) — 확정된 투수/트랙맨ID를 제외하고 Step A/B 재실행
+======================================================================
+라운드별 진행 로그:
+ round  n_direct_rows  n_pitchers_in_pool  n_new_confident
+     1         164799                 773              707
+     2           4395                  77               67
+     3            285                   9                4
+     4            243                   5                0
+
+최종 역산된 pitcher_id 매핑: 778 / train 전체 792 명 (98.2323%)
+confidence tier 분포:
+confidence
+high      610
+medium    168
+Name: count, dtype: int64
+끝까지 미해결 투수: 14명, 그들의 자기 행 수: 856 (0.0580% of train)
+
+--- 독립 신호 검증: pitcher_hand 일치율 (v3) ---
+전체 hand 일치율: 99.7429%
+순서 정합 sanity check (confidence in ['high']): {'n_pitchers': 609, 'n_row_pairs': 637627, 'n_pitchers_with_corr': 609, 'spearman_r': 0.9788287460919151}
+순서 정합 sanity check (confidence in ['high', 'medium']): {'n_pitchers': 777, 'n_row_pairs': 718972, 'n_pitchers_with_corr': 776, 'spearman_r': 0.9751779387378081}
+--- [v3 (반복정제)] 행 단위 매칭: 1286652 / train 전체 1475092 행 (87.2252%) ---
+row_confidence 분포:
+row_confidence
+high      718973
+medium    567679
+Name: count, dtype: int64
+독립 신호 검증(game_type vs trackman team_tier) 일치율: 99.6652%
+pitcher_confidence x row_confidence 교차표:
+row_confidence        high  medium
+pitcher_confidence                
+high                637628  502484
+medium               81345   65195
+v3 confident 투수(778명)의 자기 행 수: 1474236, 그 중 매칭된 비율: 87.2758%
+
+--- is_illegal_count(trackman) 매칭된 행 중 대응 여부 (v3) ---
+매칭된 행 중 trackman 카운트-위반 플래그가 있는 행: 0 (전체 위반 97건 중)
+
+--- Step C에서 매칭 안 된 confident 투수 행들 중, 후보 자체가 없는(진짜 커버리지 갭) 비율 ---
+매칭 안 된 187584행 중, 해당 투수의 trackman 데이터에 같은 situational_key가 아예 없는(진짜 데이터 공백) 행: 180901 (96.4373%)
+
+======================================================================
+저장
+======================================================================
+저장 완료: pitcher_mapping_v1/row_mapping_v1 (폐기, 참고용),
+          pitcher_mapping_v2_single_round/row_mapping_v2_single_round (1회 Step A/B, 참고용),
+          pitcher_mapping.csv / row_mapping.csv (v3 반복정제, 주 결과)
