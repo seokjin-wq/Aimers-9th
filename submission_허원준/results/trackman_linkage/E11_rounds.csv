@@ -1,0 +1,16 @@
+round,include_tier,active_main_pitchers,active_trackman_pitchers,direct_unique_rows,candidate_main_pitchers,accepted_pitchers,collisions_removed,variant
+1,True,792,906,164799,773,705,2,tier_assisted_full
+2,True,87,201,4396,78,67,0,tier_assisted_full
+3,True,20,134,294,10,5,0,tier_assisted_full
+4,True,15,129,243,5,0,0,tier_assisted_full
+1,False,792,906,98189,737,639,1,tier_free_full
+2,False,153,267,8529,144,126,3,tier_free_full
+3,False,27,141,338,18,10,0,tier_free_full
+4,False,17,131,245,9,1,0,tier_free_full
+5,False,16,130,243,8,1,0,tier_free_full
+6,False,15,129,239,7,0,0,tier_free_full
+1,False,792,906,78401,727,628,1,tier_free_discovery_80pct
+2,False,164,278,6895,155,130,3,tier_free_discovery_80pct
+3,False,34,148,352,24,10,0,tier_free_discovery_80pct
+4,False,24,138,272,14,1,0,tier_free_discovery_80pct
+5,False,23,137,269,13,0,0,tier_free_discovery_80pct

@@ -78,17 +78,48 @@ CPU 기준 실행을 전제로 하며 GPU는 필요하지 않다. 전체 학습�
 
 데이콘 제출 화면에 입력할 문구는 [`SUBMISSION_MEMO.md`](SUBMISSION_MEMO.md)에 정리했다.
 
+## TrackMan 투수 ID 매칭
+
+TrackMan의 `pitcher_trackman_id`와 대회 데이터의 `pitcher_id`를 연결하는
+두 방법을 `src/trackman_linkage.py`에 통합했다. 두 방법 모두 타깃을 사용하지
+않으며, 예측 시즌보다 이전인 `season < cutoff_season` 행만 사용한다.
+
+| 방법 | 핵심 | 2025 cutoff 결과 |
+| --- | --- | ---: |
+| E00 | 9개 경기상황 투구 수 벡터의 cosine, 동일 손, margin, 상호 top-1 | 751/792명 |
+| E11 | 양쪽에서 유일한 행 조합의 투표를 반복하고 TrackMan ID 중복을 제거 | 777/792명 |
+
+E11은 정승엽 v3의 778쌍을 그대로 강제 채택한 것이 아니다. 동일 TrackMan ID가
+두 투수에게 배정된 2건의 충돌을 매 라운드에서 제거하고 다시 탐색한 one-to-one
+보정판이며, 최종 777개가 모두 고유한 TrackMan ID를 갖는다.
+
+자세한 설명과 결과 파일은 [`results/trackman_linkage/`](results/trackman_linkage/)에
+있다. 로컬 실행은 다음과 같다.
+
+```bash
+python submission_허원준/run_trackman_linkage.py \
+  --data-dir /path/to/data \
+  --method both \
+  --cutoff-season 2025
+```
+
+이 연구 코드는 투수 단위 과거 TrackMan 피처를 만들기 위한 오프라인 연결용이다.
+현재 `output/submit.zip`의 추론 코드나 CatBoost 55개 피처에는 자동으로 포함되지 않는다.
+
 ## 폴더 구성
 
 ```text
 submission_허원준/
 ├── catboost_feature_ablation.ipynb  # 팀원이 실행할 Colab 노트북
 ├── run.py                    # 로컬/Colab 공통 실행 명령
+├── run_trackman_linkage.py   # E00/E11 투수 매칭 실행
 ├── requirements-colab.txt    # Colab 설치 목록
 ├── src/
 │   ├── features.py           # 피처 출처, 선택 목록, 새 파생 계산
-│   └── pipeline.py           # 검증, 최종 학습, ZIP 생성·실행 확인
-└── results/                  # 이미 완료된 비교 결과 요약
+│   ├── pipeline.py           # 검증, 최종 학습, ZIP 생성·실행 확인
+│   └── trackman_linkage.py   # E00/E11 공통 구현
+├── tests/                    # 투수 매칭 단위 테스트
+└── results/                  # 모델 비교 및 투수 매칭 결과
 ```
 
 생성되는 모델, 패키지, `submit.zip`은 `output/`에 저장되며 Git에는 포함하지 않는다.

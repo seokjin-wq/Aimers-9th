@@ -1,0 +1,73 @@
+{
+  "cutoff_policy": "season < cutoff_season",
+  "cutoff_season": 2025,
+  "target_column_used": false,
+  "E00": {
+    "context_columns": [
+      "season",
+      "game_month",
+      "game_dayofweek",
+      "inning",
+      "top_bottom",
+      "balls_before",
+      "strikes_before",
+      "outs_before",
+      "pitcher_hand"
+    ],
+    "thresholds": {
+      "min_cosine": 0.2,
+      "min_margin": 0.05
+    },
+    "same_hand_candidates_only": true,
+    "mutual_top1_required": true
+  },
+  "E11": {
+    "context_columns": [
+      "season",
+      "game_month",
+      "game_dayofweek",
+      "inning",
+      "top_bottom",
+      "balls_before",
+      "strikes_before",
+      "outs_before",
+      "pitcher_hand",
+      "batter_hand"
+    ],
+    "rules": {
+      "min_votes": 3,
+      "min_dominance": 0.7,
+      "high_dominance": 0.9,
+      "max_rounds": 10
+    },
+    "one_to_one_collision_repair": true,
+    "tier_free_and_holdout_audits": true
+  },
+  "results": {
+    "E00": {
+      "candidate_pitchers": 792,
+      "accepted_pitchers": 751,
+      "pitcher_coverage": 0.9482323232323232,
+      "unique_trackman_ids": 751,
+      "duplicate_assignments": 0,
+      "high_confidence": 467,
+      "medium_confidence": 284
+    },
+    "E11": {
+      "candidate_pitchers": 792,
+      "accepted_pitchers": 777,
+      "pitcher_coverage": 0.9810606060606061,
+      "unique_trackman_ids": 777,
+      "duplicate_assignments": 0,
+      "high_confidence": 609,
+      "medium_confidence": 168
+    },
+    "agreement": {
+      "common_accepted_pitchers": 749,
+      "same_pairs": 748,
+      "pair_agreement": 0.9986648865153538,
+      "e00_only": 2,
+      "e11_only": 28
+    }
+  }
+}
